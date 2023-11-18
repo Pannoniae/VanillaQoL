@@ -1,1 +1,6 @@
 Some day there will be a description, and a mod here :)
+
+Right now, this mod adds Calamity-style info to hooks (distance and other useful info).
+
+Longer-term, this is meant to be a quality of life mod without cheating. Everything should be requiring in-game effort
+(like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
