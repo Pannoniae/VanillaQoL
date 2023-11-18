@@ -1,0 +1,3 @@
+displayName = Vanilla+ QoL
+author = Pannoniae
+version = 0.1
