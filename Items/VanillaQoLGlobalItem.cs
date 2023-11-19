@@ -33,7 +33,7 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         var projectile = ContentSamples.ProjectilesByType[proj];
         var player = Main.LocalPlayer;
 
-        // modded logic
+
         ModProjectile mproj;
         string tooltip;
         float distance = 0;
@@ -42,12 +42,18 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         float reel = 0;
         float pull = 0;
         int numHooks = 0;
+        // modded logic
         if ((mproj = projectile.ModProjectile) != null) {
             distance = mproj.GrappleRange();
             launch = item.shootSpeed;
             mproj.GrappleRetreatSpeed(player, ref reel);
             mproj.GrapplePullSpeed(player, ref pull);
             mproj.NumGrappleHooks(player, ref numHooks);
+
+            if (VanillaQoL.instance.hasThorium) {
+                Thorium.ModifyTooltips(mproj, ref distance, ref reach, ref launch, ref reel, ref pull, ref numHooks);
+            }
+
         }
         // vanilla logic
         else {
@@ -200,6 +206,16 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         ref StringBuilder.AppendInterpolatedStringHandler local4 = ref interpolatedStringHandler;
         stringBuilder9.Append(ref local4);
         return stringBuilder1.ToString();*/
+    }
+
+    public static class Thorium {
+        public static void ModifyTooltips(ModProjectile proj, ref float distance, ref float reach, ref float launch, ref float reel, ref float pull, ref int numHooks) {
+            var thorium = ModLoader.GetMod("ThoriumMod");
+            if (proj.Type == thorium.Find<ModProjectile>("SpringHookPro").Type) {
+                numHooks = 1;
+
+            }
+        }
     }
 }
 

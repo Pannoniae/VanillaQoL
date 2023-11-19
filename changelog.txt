@@ -1,1 +1,1 @@
-- Added number of hooks to the tooltip
+- Fix tooltip for Thorium Spring Hook (0 -> 1 hooks)
