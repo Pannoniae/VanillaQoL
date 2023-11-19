@@ -1,1 +1,7 @@
-Tooltips.VanillaQoLGlobalItem.reachText: Reaches {0} tiles far\n
+Tooltips: {
+	VanillaQoLGlobalItem: {
+		reachText: Reaches {0} tiles far
+		numHooksText1: Fires one hook
+		numHooksText2Plus: Fires {0} hooks
+	}
+}

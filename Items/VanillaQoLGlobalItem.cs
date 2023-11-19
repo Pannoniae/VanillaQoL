@@ -8,16 +8,19 @@ using Terraria.ModLoader;
 namespace VanillaQoL.Items;
 
 public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
-
     public string LocalizationCategory => "Tooltips";
 
     public static LocalizedText reachText;
     public static LocalizedText launchText;
     public static LocalizedText reelText;
     public static LocalizedText pullText;
+    public static LocalizedText numHooksText1;
+    public static LocalizedText numHooksText2Plus;
 
     public override void SetStaticDefaults() {
         reachText = this.GetLocalization(nameof(reachText));
+        numHooksText1 = this.GetLocalization(nameof(numHooksText1));
+        numHooksText2Plus = this.GetLocalization(nameof(numHooksText2Plus));
     }
 
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
@@ -38,11 +41,13 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         float launch = 0;
         float reel = 0;
         float pull = 0;
+        int numHooks = 0;
         if ((mproj = projectile.ModProjectile) != null) {
             distance = mproj.GrappleRange();
             launch = item.shootSpeed;
             mproj.GrappleRetreatSpeed(player, ref reel);
             mproj.GrapplePullSpeed(player, ref pull);
+            mproj.NumGrappleHooks(player, ref numHooks);
         }
         // vanilla logic
         else {
@@ -103,16 +108,46 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
                 case ProjectileID.AmberHook:
                     distance = 420;
                     break;
+                case ProjectileID.AntiGravityHook:
+                    distance = 500;
+                    break;
                 default:
                     VanillaQoL.instance.Logger.Warn(
                         $"unhandled hook {item.shoot}!");
                     break;
             }
+            numHooks = 3;
+            switch (item.shoot) {
+                case ProjectileID.DualHookBlue or ProjectileID.DualHookRed:
+                    numHooks = 2;
+                    break;
+                case ProjectileID.Web:
+                    numHooks = 8;
+                    break;
+                case ProjectileID.SkeletronHand:
+                    numHooks = 2;
+                    break;
+                case ProjectileID.FishHook:
+                    numHooks = 2;
+                    break;
+                case ProjectileID.StaticHook:
+                    numHooks = 2;
+                    break;
+                case ProjectileID.LunarHookSolar or ProjectileID.LunarHookVortex or ProjectileID.LunarHookNebula or ProjectileID.LunarHookStardust:
+                    numHooks = 4;
+                    break;
+            }
+            // if SingleGrappleHook, then numHooks is always 1, regardless of the numHooks value
+            if (ProjectileID.Sets.SingleGrappleHook[item.shoot]) {
+                numHooks = 1;
+            }
+
+            launch = numHooks;
         }
 
         reach = distance / 16;
 
-        tooltip = hookStats(reach, launch, reel, pull);
+        tooltip = hookStats(reach, launch, reel, pull, numHooks);
         var tooltipLine = new TooltipLine(VanillaQoL.instance, "HookInfo", tooltip);
         addHookTooltip(tooltips, tooltipLine);
     }
@@ -123,10 +158,15 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
 
-    private string hookStats(float reach, float launch, float reel, float pull) {
-        // todo localise this
+    private string hookStats(float reach, float launch, float reel, float pull, int numHooks) {
+        LocalizedText numHooksFormatted = numHooks switch {
+            1 => numHooksText1,
+            _ => numHooksText2Plus
+        };
+
         var sb = new StringBuilder();
-        sb.Append(reachText.Format(reach.ToString("F2")));
+        sb.AppendLine(reachText.Format(reach.ToString("0.###")));
+        sb.Append(numHooksFormatted.Format(numHooks));
         return sb.ToString();
         /*
         StringBuilder.AppendInterpolatedStringHandler interpolatedStringHandler =
@@ -164,7 +204,6 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 }
 
 public static class ListExtensions {
-
     /// <summary>
     /// Add an item after a specified element to a list.
     /// </summary>
@@ -174,6 +213,6 @@ public static class ListExtensions {
     /// <typeparam name="T"></typeparam>
     public static void AddAfter<T>(this List<T> list, T element, T item) {
         var idx = list.IndexOf(element);
-        list.Insert(idx+1, item);
+        list.Insert(idx + 1, item);
     }
 }
