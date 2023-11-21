@@ -1,1 +1,1 @@
-- fixed hook tooltips being disabled with calamity
+- vanillaify thorium tooltips

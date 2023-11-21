@@ -34,5 +34,14 @@ Configs: {
 				If enabled, the icons are moved so they do not overlap.
 				'''
 		}
+
+		vanillaThoriumTooltips: {
+			Label: "[i:3572] Vanilla Thorium Tooltips"
+			Tooltip:
+				'''
+				Many tooltips in the Thorium mod look off compared to Terraria's tooltips.
+				This option makes them more in the style of the base game.
+				'''
+		}
 	}
 }

@@ -25,11 +25,30 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
-
-        if (!QoLConfig.Instance.showHookTooltips) {
-            return;
+        if (QoLConfig.Instance.showHookTooltips) {
+            hookTooltips(item, tooltips);
         }
 
+        if (QoLConfig.Instance.vanillaThoriumTooltips && VanillaQoL.instance.hasThorium) {
+            vanillaifyThoriumTooltips(item, tooltips);
+        }
+    }
+
+    private void vanillaifyThoriumTooltips(Item item, List<TooltipLine> tooltips) {
+        tooltips.RemoveAll(t => pred(t, "BardTag"));
+        tooltips.RemoveAll(t => pred(t, "ThrowerTag"));
+        tooltips.RemoveAll(t => pred(t, "HealerTag"));
+        tooltips.RemoveAll(t => pred(t, "TransformationTag"));
+        tooltips.RemoveAll(t => pred(t, "RealityTag"));
+        tooltips.RemoveAll(t => pred(t, "AccessoryWarning"));
+        tooltips.RemoveAll(t => pred(t, "InstrumentTag"));
+    }
+
+    private static bool pred(TooltipLine t, string name) {
+        return t.Mod == "ThoriumMod" && t.Name == name;
+    }
+
+    private void hookTooltips(Item item, List<TooltipLine> tooltips) {
         // calamity does the same thing, don't apply tooltips in that case
         if (VanillaQoL.instance.hasCalamity) {
             return;
@@ -62,9 +81,9 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
             mproj.NumGrappleHooks(player, ref numHooks);
 
             if (VanillaQoL.instance.hasThorium) {
-                Thorium.ModifyTooltips(mproj, ref distance, ref reach, ref launch, ref reel, ref pull, ref numHooks);
+                Thorium.ModifyTooltips(mproj, ref distance, ref reach, ref launch, ref reel, ref pull,
+                    ref numHooks);
             }
-
         }
         // vanilla logic
         else {
@@ -133,6 +152,7 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
                         $"unhandled hook {item.shoot}!");
                     break;
             }
+
             numHooks = 3;
             switch (item.shoot) {
                 case ProjectileID.DualHookBlue or ProjectileID.DualHookRed:
@@ -150,10 +170,12 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
                 case ProjectileID.StaticHook:
                     numHooks = 2;
                     break;
-                case ProjectileID.LunarHookSolar or ProjectileID.LunarHookVortex or ProjectileID.LunarHookNebula or ProjectileID.LunarHookStardust:
+                case ProjectileID.LunarHookSolar or ProjectileID.LunarHookVortex or ProjectileID.LunarHookNebula
+                    or ProjectileID.LunarHookStardust:
                     numHooks = 4;
                     break;
             }
+
             // if SingleGrappleHook, then numHooks is always 1, regardless of the numHooks value
             if (ProjectileID.Sets.SingleGrappleHook[item.shoot]) {
                 numHooks = 1;

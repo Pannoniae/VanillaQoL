@@ -27,6 +27,10 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool showHookTooltips { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool vanillaThoriumTooltips { get; set; }
 
     [Header("fixes")]
     [BackgroundColor(192, 54, 128, 192)]
