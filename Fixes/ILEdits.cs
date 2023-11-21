@@ -89,7 +89,6 @@ public class ILEdits : ModSystem {
             ilCursor.Emit(OpCodes.Stloc_1);
             ilCursor.MarkLabel(label);
             updateOffsets(ilCursor);
-            MonoModHooks.DumpIL(VanillaQoL.instance, il);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate EquipPage check at DrawPVPIcons (Main.EquipPage)");
@@ -133,7 +132,7 @@ public class ILEdits : ModSystem {
     public static int shiftButtons(int one, int two) {
         // we need some margin because the rendering is slightly wider than on other pages so
         // if we have like 5 columns, the gems/pvp icon will directly hug the npc boxes...
-        const int margin = 2;
+        const int margin = 3;
 
         var numberOfNPCColumns = (int)Math.Ceiling((float)UILinkPointNavigator.Shortcuts.NPCS_IconsTotal /
                                                    UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
@@ -142,7 +141,6 @@ public class ILEdits : ModSystem {
         }
 
         var columnsAfter3 = numberOfNPCColumns - 3;
-        VanillaQoL.instance.Logger.Warn($"{one} / {two}");
         return two - (one + one / 2 + margin) * columnsAfter3;
     }
 

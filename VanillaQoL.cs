@@ -15,7 +15,7 @@ public class VanillaQoL : Mod {
         hasThorium = ModLoader.HasMod("ThoriumMod");
         hasCalamity = ModLoader.HasMod("CalamityMod");
         hasCensus = ModLoader.HasMod("Census");
-        ILEdits.load();
+        ILEdits. load();
     }
 
     public override void Unload() {
