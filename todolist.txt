@@ -1,6 +1,9 @@
-- display whip info (reach, count, pull velocity), Calamity feature
-- remove "healer class/bard class" from thorium descriptions
-- autoposition ui elements in conflicting mods maybe?
+- implement bigger/better lawnmowers:
+- sold by golfer or crafted? idk
+- could do 1x3 or 3x3 area
+- biggest is 5x5
+- maybe better lawnmower can mow other stuff as well?
+
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable
