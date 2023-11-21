@@ -5,3 +5,34 @@ Tooltips: {
 		numHooksText2Plus: Fires {0} hooks
 	}
 }
+
+Configs: {
+	QoLConfig: {
+		DisplayName: QoL Config
+
+		townNPCSpawning: {
+			Label: "[i:4951] Allow Town NPCs to spawn at night and teleport at day"
+			Tooltip: If enabled, Town NPCs can also spawn at night and teleport to their houses at daytime.
+		}
+
+		Headers: {
+			tooltips: "[i:3095] Tooltips"
+			gameplay: "[i:3515] Gameplay"
+			fixes: "[i:3625] Fixes"
+		}
+
+		showHookTooltips: {
+			Label: "[i:185] Show Hook Tooltips"
+			Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously.
+		}
+
+		fixPvPUI: {
+			Label: "[i:181] Fix Team Icon Positioning"
+			Tooltip:
+				'''
+				When mods with many Town NPCs are installed, the team and PvP icons overlap the NPC housing.
+				If enabled, the icons are moved so they do not overlap.
+				'''
+		}
+	}
+}

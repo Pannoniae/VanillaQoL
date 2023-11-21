@@ -1,5 +1,13 @@
-Some day there will be a description, and a mod here :)
+Vanilla Quality of Life mod intended to make the game more fun :)
 
-Right now, this mod adds Calamity-style info to hooks, showing you the reach and the number of hooks fired.
+Features:
+ - Calamity-style info for hooks, showing you the reach and the number of hooks fired.
+ - Town NPCs spawning at night and being able to move to their house at day.
+ - Fixing the Team/PvP UI when Census is installed so it doesn't overlap.
+
+Everything is fully configurable.
 
 Longer-term, this is meant to be a quality of life mod without cheating. Everything should be requiring in-game effort (like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
+
+If you have any suggestions, feel free to write them down!
+My discord server if you want to talk: https://discord.gg/w4JvYdkdDP
