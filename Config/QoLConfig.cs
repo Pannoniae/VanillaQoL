@@ -1,12 +1,9 @@
 using System.ComponentModel;
-using Terraria.GameContent;
-using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
-using Terraria.UI;
 
 namespace VanillaQoL.Config;
 
-[BackgroundColor(16, 0, 2, 0)]
+[BackgroundColor(16, 0, 2, 1)]
 public class QoLConfig : ModConfig {
 
     // magic tModLoader-managed field, assigned
@@ -37,11 +34,4 @@ public class QoLConfig : ModConfig {
     public bool fixPvPUI { get; set; }
 
     public override ConfigScope Mode => ConfigScope.ServerSide;
-
-    public override void OnChanged() {
-        // force-disable tooltips with calamity
-        if (ModLoader.HasMod("CalamityMod") && showHookTooltips) {
-            showHookTooltips = false;
-        }
-    }
 }

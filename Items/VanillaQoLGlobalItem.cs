@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 
@@ -24,6 +25,16 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
+
+        if (!QoLConfig.Instance.showHookTooltips) {
+            return;
+        }
+
+        // calamity does the same thing, don't apply tooltips in that case
+        if (VanillaQoL.instance.hasCalamity) {
+            return;
+        }
+
         var proj = item.shoot;
         // if not hook, return
         if (!Main.projHook[item.shoot]) {
@@ -174,38 +185,6 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         sb.AppendLine(reachText.Format(reach.ToString("0.###")));
         sb.Append(numHooksFormatted.Format(numHooks));
         return sb.ToString();
-        /*
-        StringBuilder.AppendInterpolatedStringHandler interpolatedStringHandler =
-            new StringBuilder.AppendInterpolatedStringHandler(14, 1, stringBuilder2);
-        interpolatedStringHandler.AppendLiteral("Reach: ");
-        interpolatedStringHandler.AppendFormatted<float>(reach, "N3");
-        interpolatedStringHandler.AppendLiteral(" tiles\n");
-        ref StringBuilder.AppendInterpolatedStringHandler local1 = ref interpolatedStringHandler;
-        stringBuilder3.Append(ref local1);
-        StringBuilder stringBuilder4 = stringBuilder1;
-        StringBuilder stringBuilder5 = stringBuilder4;
-        interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(18, 1, stringBuilder4);
-        interpolatedStringHandler.AppendLiteral("Launch Velocity: ");
-        interpolatedStringHandler.AppendFormatted<float>(launch, "N2");
-        interpolatedStringHandler.AppendLiteral("\n");
-        ref StringBuilder.AppendInterpolatedStringHandler local2 = ref interpolatedStringHandler;
-        stringBuilder5.Append(ref local2);
-        StringBuilder stringBuilder6 = stringBuilder1;
-        StringBuilder stringBuilder7 = stringBuilder6;
-        interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(20, 1, stringBuilder6);
-        interpolatedStringHandler.AppendLiteral("Reelback Velocity: ");
-        interpolatedStringHandler.AppendFormatted<float>(reel, "N2");
-        interpolatedStringHandler.AppendLiteral("\n");
-        ref StringBuilder.AppendInterpolatedStringHandler local3 = ref interpolatedStringHandler;
-        stringBuilder7.Append(ref local3);
-        StringBuilder stringBuilder8 = stringBuilder1;
-        StringBuilder stringBuilder9 = stringBuilder8;
-        interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(15, 1, stringBuilder8);
-        interpolatedStringHandler.AppendLiteral("Pull Velocity: ");
-        interpolatedStringHandler.AppendFormatted<float>(pull, "N2");
-        ref StringBuilder.AppendInterpolatedStringHandler local4 = ref interpolatedStringHandler;
-        stringBuilder9.Append(ref local4);
-        return stringBuilder1.ToString();*/
     }
 
     public static class Thorium {

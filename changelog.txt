@@ -1,1 +1,1 @@
-- add PvP/team UI patch for Census and huge modded NPC list
+- fixed hook tooltips being disabled with calamity
