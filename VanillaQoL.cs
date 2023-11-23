@@ -16,10 +16,12 @@ public class VanillaQoL : Mod {
         hasCalamity = ModLoader.HasMod("CalamityMod");
         hasCensus = ModLoader.HasMod("Census");
         ILEdits.load();
+
     }
 
     public override void Unload() {
         ILEdits.unload();
+        Utils.completelyWipeClass(typeof(ILEdits));
         instance = null!;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using Terraria.ModLoader.Config;
 
@@ -5,7 +6,6 @@ namespace VanillaQoL.Config;
 
 [BackgroundColor(16, 0, 2, 1)]
 public class QoLConfig : ModConfig {
-
     // magic tModLoader-managed field, assigned
     // ReSharper disable once UnusedMember.Global
     // ReSharper disable once UnassignedField.Global
@@ -27,7 +27,7 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool showHookTooltips { get; set; }
-    
+
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool vanillaThoriumTooltips { get; set; }

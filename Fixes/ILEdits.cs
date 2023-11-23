@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -144,40 +143,6 @@ public class ILEdits : ModSystem {
         return two - (one + one / 2 + margin) * columnsAfter3;
     }
 
-    public static class CensusLogic {
-        private static readonly object theList = null!;
-
-        private static readonly int lengthOfTheList;
-        private static readonly PropertyInfo countProperty;
-
-        // time to initialise the hackery
-        // also seriously fuck you census for making everything internal so time for hackery
-        static CensusLogic() {
-            int num1 = 0;
-            int num2 = 0;
-            num2 = shiftButtons(num1, num2);
-            VanillaQoL.instance.Logger.Info(
-                "If the Census developers read this, please please don't make everything internal in your mod so I don't have to suffer. <3"
-            );
-            // too bad tModLoader exposes the class anyway
-            var censusMod = ModLoader.GetMod("Census");
-            var assembly = censusMod.Code;
-            var type = assembly.GetType("Census.CensusSystem");
-            var instanceField = type!.GetField("instance", BindingFlags.NonPublic | BindingFlags.Static);
-            var instance = instanceField!.GetValue(null);
-            var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
-            theList = townNPCInfo.GetValue(instance)!;
-            countProperty = theList.GetType().GetProperty("Count")!;
-            lengthOfTheList = (int)countProperty.GetValue(theList)!;
-        }
-
-        public static int numberOfNPCColumns() {
-            // with census, we need the number of all NPCs divided by the NPC's per column
-            var numberOfNPCs = lengthOfTheList;
-            return (int)Math.Ceiling((float)numberOfNPCs / UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
-        }
-    }
-
     public static void load() {
         if (QoLConfig.Instance.townNPCSpawning) {
             IL_Main.UpdateTime += townNPCPatch;
@@ -193,5 +158,33 @@ public class ILEdits : ModSystem {
         IL_Main.UpdateTime -= townNPCPatch;
         IL_NPC.AI_007_TownEntities -= townNPCTeleportPatch;
         IL_Main.DrawPVPIcons -= pvpUIPatch;
+    }
+}
+
+public static class CensusLogic {
+    private static readonly dynamic theList = null!;
+
+    private static readonly int lengthOfTheList;
+    // time to initialise the hackery
+    // also seriously fuck you census for making everything internal so time for hackery
+    static CensusLogic() {
+        VanillaQoL.instance.Logger.Info(
+            "If the Census developers read this, please please don't make everything internal in your mod so I don't have to suffer. <3"
+        );
+        // too bad tModLoader exposes the class anyway
+        var censusMod = ModLoader.GetMod("Census");
+        var assembly = censusMod.Code;
+        var type = assembly.GetType("Census.CensusSystem");
+        var instanceField = type!.GetField("instance", BindingFlags.NonPublic | BindingFlags.Static);
+        var instance = instanceField!.GetValue(null);
+        var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
+        theList = townNPCInfo.GetValue(instance)!;
+        lengthOfTheList = theList.Count;
+    }
+
+    public static int numberOfNPCColumns() {
+        // with census, we need the number of all NPCs divided by the NPC's per column
+        var numberOfNPCs = lengthOfTheList;
+        return (int)Math.Ceiling((float)numberOfNPCs / UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
     }
 }
