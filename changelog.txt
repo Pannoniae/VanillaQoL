@@ -1,1 +1,1 @@
-- vanillaify thorium tooltips
+- fix typo in warning message

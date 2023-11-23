@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.InteropServices;
 
 namespace VanillaQoL;
 
@@ -28,7 +27,7 @@ public class Utils {
                 // this boxes if it's a value type but it doesn't matter
                 var field = staticField.GetValue(null);
 
-                // todo implement this in IL, because .net6 compiler doesn't like reference to managed object
+                // implement this in IL, because .net6 compiler doesn't like reference to managed object
                 // let's do generics by hand!
                 var method = new DynamicMethod(
                     name: "setReadonlyField",
@@ -47,7 +46,8 @@ public class Utils {
                 fieldSetter.DynamicInvoke(null, null);
 
                 // actually we can
-                //VanillaQoL.instance.Logger.Warn($"Couldn't clear {staticField.Name}: {e.Message}");
+                VanillaQoL.instance.Logger.Info($"A harmless exception happened! Ignore the above exception. " +
+                                                $"Couldn't clear {staticField.Name} the normal way, so IL generation was used, exception message: {e.Message}");
             }
         }
     }
