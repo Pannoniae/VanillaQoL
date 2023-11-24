@@ -46,8 +46,11 @@ public class Utils {
                 fieldSetter.DynamicInvoke(null, null);
 
                 // actually we can
-                VanillaQoL.instance.Logger.Info($"A harmless exception happened! Ignore the above exception. " +
-                                                $"Couldn't clear {staticField.Name} the normal way, so IL generation was used, exception message: {e.Message}");
+                // don't throw if mod init broke, so check for null
+                if (VanillaQoL.instance != null && VanillaQoL.instance.Logger != null) {
+                    VanillaQoL.instance.Logger.Info($"A harmless exception happened! Ignore the above exception. " +
+                                                    $"Couldn't clear {staticField.Name} the normal way, so IL generation was used, exception message: {e.Message}");
+                }
             }
         }
     }

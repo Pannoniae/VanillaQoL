@@ -1,1 +1,2 @@
-- fix typo in warning message
+- Added wing info :)
+- Fixed a crash when mod is unloaded after an error happens in the loading process.

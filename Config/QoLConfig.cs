@@ -11,6 +11,7 @@ public class QoLConfig : ModConfig {
     // ReSharper disable once UnassignedField.Global
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public static QoLConfig Instance;
+
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
     // Tungsten Pickaxe
@@ -22,11 +23,14 @@ public class QoLConfig : ModConfig {
 
     // Tally Counter
     [Header("tooltips")]
-
-    // Universal Pylon
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool showHookTooltips { get; set; }
+
+    // Leaf Wings
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool showWingTooltips { get; set; }
 
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]

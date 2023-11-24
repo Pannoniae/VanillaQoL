@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Terraria;
 using Terraria.ID;
@@ -18,15 +20,31 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText numHooksText1;
     public static LocalizedText numHooksText2Plus;
 
+    public static LocalizedText timeText;
+    public static LocalizedText hoverText;
+    public static LocalizedText hSpeedText;
+
+    private const string hooks = "Hooks";
+    private const string wings = "Wings";
+
+    private const float speedToMph = (float)216000 / 42240;
+
     public override void SetStaticDefaults() {
-        reachText = this.GetLocalization(nameof(reachText));
-        numHooksText1 = this.GetLocalization(nameof(numHooksText1));
-        numHooksText2Plus = this.GetLocalization(nameof(numHooksText2Plus));
+        reachText = LocalisationUtils.GetLocalization(this, hooks, nameof(reachText));
+        numHooksText1 = LocalisationUtils.GetLocalization(this, hooks, nameof(numHooksText1));
+        numHooksText2Plus = LocalisationUtils.GetLocalization(this, hooks, nameof(numHooksText2Plus));
+        timeText = LocalisationUtils.GetLocalization(this, wings, nameof(timeText));
+        hoverText = LocalisationUtils.GetLocalization(this, wings, nameof(hoverText));
+        hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
     }
 
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
         if (QoLConfig.Instance.showHookTooltips) {
             hookTooltips(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.showWingTooltips) {
+            wingTooltips(item, tooltips);
         }
 
         if (QoLConfig.Instance.vanillaThoriumTooltips && VanillaQoL.instance.hasThorium) {
@@ -46,6 +64,118 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 
     private static bool pred(TooltipLine t, string name) {
         return t.Mod == "ThoriumMod" && t.Name == name;
+    }
+
+    private void wingTooltips(Item item, List<TooltipLine> tooltips) {
+        // calamity does the same thing, don't apply tooltips in that case
+        if (VanillaQoL.instance.hasCalamity) {
+            return;
+        }
+
+        // not a wing
+        if (item.wingSlot < 1) {
+            return;
+        }
+
+        var wingType = item.wingSlot;
+
+        var stats = ArmorIDs.Wing.Sets.Stats[item.wingSlot];
+        var player = Main.LocalPlayer;
+
+        var baseSpeed = stats.AccRunSpeedOverride * speedToMph;
+        // it's an open question whether we want to apply the player speed / other factors or not. probably not, it would make it inconsistent.
+        var horizontalSpeed = baseSpeed;
+
+        float constantAscend = 0.0f;
+        float ascentWhenFalling = 0.0f;
+        float maxAscentMultiplier = 0.0f;
+        float maxCanAscendMultiplier = 0.0f;
+        float ascentWhenRising = 0.0f;
+
+        copiedVanillaLogic(player, wingType, ref constantAscend, ref ascentWhenFalling, ref maxAscentMultiplier, ref maxCanAscendMultiplier, ref ascentWhenRising);
+        // in vanilla, speed ranges from 3, most clustering around 6, up to 9 on endgame wings.
+        // in mph, this is 3 = 15, 6 = 30.5, 7 = 35.7, 9 = 46.
+        // strongest cal wing is 1.15 = 58
+
+
+        var time = (float)stats.FlyTime / 60;
+        var hover = stats.HasDownHoverStats;
+
+        string tooltip = wingStats(time, hover, horizontalSpeed);
+        var tooltipLine = new TooltipLine(VanillaQoL.instance, "WingInfo", tooltip);
+        addTooltip(tooltips, tooltipLine);
+    }
+
+    private void copiedVanillaLogic(Player player, int wingType, ref float constantAscend, ref float ascentWhenFalling,
+        ref float maxAscentMultiplier, ref float maxCanAscendMultiplier, ref float ascentWhenRising) {
+        constantAscend = 0.1f;
+        ascentWhenFalling = 0.5f;
+        maxAscentMultiplier = 1.5f;
+        maxCanAscendMultiplier = 0.5f;
+        ascentWhenRising = 0.1f;
+        if (wingType == 26) {
+            ascentWhenFalling = 0.75f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 2.5f;
+            constantAscend = 0.125f;
+        }
+
+        if (wingType == 8 || wingType == 11 || wingType == 24 || wingType == 27 || wingType == 22)
+            maxAscentMultiplier = 1.66f;
+        if (wingType == 21 || wingType == 12 || wingType == 20 || wingType == 23)
+            maxAscentMultiplier = 1.805f;
+        if (wingType == 37) {
+            ascentWhenFalling = 0.75f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 2.5f;
+            constantAscend = 0.125f;
+        }
+
+        if (wingType == 44) {
+            ascentWhenFalling = 0.85f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 2.75f;
+            constantAscend = 0.125f;
+        }
+
+        if (wingType == 45) {
+            ascentWhenFalling = 0.95f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 4.5f;
+        }
+
+        if (wingType == 29 || wingType == 32) {
+            ascentWhenFalling = 0.85f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 3f;
+            constantAscend = 0.135f;
+        }
+
+        if (wingType == 30 || wingType == 31) {
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 2.45f;
+            constantAscend = 0.15f;
+        }
+
+        ItemLoader.VerticalWingSpeeds(player, ref ascentWhenFalling, ref ascentWhenRising, ref maxCanAscendMultiplier,
+            ref maxAscentMultiplier, ref constantAscend);
+    }
+
+    private string wingStats(float time, bool hover, float horizontalSpeed) {
+        var sb = new StringBuilder();
+        sb.AppendLine(timeText.Format(time.ToString("0.##")));
+        sb.Append(hSpeedText.Format(horizontalSpeed.ToString("0")));
+        //if (hover) {
+        //    sb.AppendLine();
+        //    sb.Append(hoverText);
+        //}
+
+        return sb.ToString();
     }
 
     private void hookTooltips(Item item, List<TooltipLine> tooltips) {
@@ -188,10 +318,10 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 
         tooltip = hookStats(reach, launch, reel, pull, numHooks);
         var tooltipLine = new TooltipLine(VanillaQoL.instance, "HookInfo", tooltip);
-        addHookTooltip(tooltips, tooltipLine);
+        addTooltip(tooltips, tooltipLine);
     }
 
-    private static void addHookTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+    private static void addTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
         var equipableTooltip = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Equipable")!;
         tooltips.AddAfter(equipableTooltip, tooltip);
     }
@@ -210,14 +340,92 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     public static class Thorium {
-        public static void ModifyTooltips(ModProjectile proj, ref float distance, ref float reach, ref float launch, ref float reel, ref float pull, ref int numHooks) {
+        public static void ModifyTooltips(ModProjectile proj, ref float distance, ref float reach, ref float launch,
+            ref float reel, ref float pull, ref int numHooks) {
             var thorium = ModLoader.GetMod("ThoriumMod");
             if (proj.Type == thorium.Find<ModProjectile>("SpringHookPro").Type) {
                 numHooks = 1;
-
             }
         }
     }
+}
+
+public static class LocalisationUtils {
+    /// <summary>
+    /// Gets a suitable localization key belonging to this piece of content. <br /><br />Localization keys follow the pattern of "Mods.{ModName}.{Category}.{ContentName}.{DataName}", in this case the <paramref name="suffix" /> corresponds to the DataName.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="suffix"></param>
+    /// <returns></returns>
+    public static string GetLocalizationKey(ILocalizedModType type, string suffix) {
+        Mod mod = type.Mod;
+        DefaultInterpolatedStringHandler interpolatedStringHandler = new DefaultInterpolatedStringHandler(1, 3);
+        interpolatedStringHandler.AppendFormatted(type.LocalizationCategory);
+        interpolatedStringHandler.AppendLiteral(".");
+        interpolatedStringHandler.AppendFormatted(suffix);
+        string stringAndClear = interpolatedStringHandler.ToStringAndClear();
+        return mod.GetLocalizationKey(stringAndClear);
+    }
+
+    /// <summary>
+    /// Gets a suitable localization key belonging to this piece of content. <br /><br />Localization keys follow the pattern of "Mods.{ModName}.{Category}.{ContentName}.{DataName}", in this case the <paramref name="suffix" /> corresponds to the DataName.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="subCategory"></param>
+    /// <param name="suffix"></param>
+    /// <returns></returns>
+    public static string GetLocalizationKey(ILocalizedModType type, string subCategory, string suffix) {
+        Mod mod = type.Mod;
+        DefaultInterpolatedStringHandler interpolatedStringHandler = new DefaultInterpolatedStringHandler(2, 3);
+        interpolatedStringHandler.AppendFormatted(type.LocalizationCategory);
+        interpolatedStringHandler.AppendLiteral(".");
+        interpolatedStringHandler.AppendFormatted(subCategory);
+        interpolatedStringHandler.AppendLiteral(".");
+        interpolatedStringHandler.AppendFormatted(suffix);
+        string stringAndClear = interpolatedStringHandler.ToStringAndClear();
+        return mod.GetLocalizationKey(stringAndClear);
+    }
+
+    /// <summary>
+    /// Returns a <see cref="T:Terraria.Localization.LocalizedText" /> for this piece of content with the provided <paramref name="suffix" />.
+    /// <br />If no existing localization exists for the key, it will be defined so it can be exported to a matching mod localization file.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="suffix"></param>
+    /// <param name="makeDefaultValue">A factory method for creating the default value, used to update localization files with missing entries</param>
+    /// <returns></returns>
+    public static LocalizedText GetLocalization(
+        ILocalizedModType type,
+        string suffix,
+        Func<string> makeDefaultValue = null) {
+        return Language.GetOrRegister(GetLocalizationKey(type, suffix), makeDefaultValue);
+    }
+
+    /// <summary>
+    /// Returns a <see cref="T:Terraria.Localization.LocalizedText" /> for this piece of content with the provided <paramref name="suffix" />.
+    /// <br />If no existing localization exists for the key, it will be defined so it can be exported to a matching mod localization file.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="subCategory"></param>
+    /// <param name="suffix"></param>
+    /// <param name="makeDefaultValue">A factory method for creating the default value, used to update localization files with missing entries</param>
+    /// <returns></returns>
+    public static LocalizedText GetLocalization(
+        ILocalizedModType type,
+        string subCategory,
+        string suffix,
+        Func<string> makeDefaultValue = null) {
+        return Language.GetOrRegister(GetLocalizationKey(type, subCategory, suffix), makeDefaultValue);
+    }
+
+    /// <summary>
+    /// Retrieves the text value for a localization key belonging to this piece of content with the given <paramref name="suffix" />. The text returned will be for the currently selected language.
+    /// </summary>
+    /// <param name="self"></param>
+    /// <param name="suffix"></param>
+    /// <returns></returns>
+    public static string GetLocalizedValue(ILocalizedModType type, string suffix) =>
+        Language.GetTextValue(GetLocalizationKey(type, suffix));
 }
 
 public static class ListExtensions {

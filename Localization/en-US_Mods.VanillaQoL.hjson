@@ -1,8 +1,14 @@
 Tooltips: {
-	VanillaQoLGlobalItem: {
+	Hooks: {
 		reachText: Reaches {0} tiles far
 		numHooksText1: Fires one hook
 		numHooksText2Plus: Fires {0} hooks
+	}
+
+	Wings: {
+		timeText: Provides flight for {0} seconds
+		hoverText: Has hover
+		hSpeedText: "{0} mph horizontal speed"
 	}
 }
 
@@ -23,7 +29,12 @@ Configs: {
 
 		showHookTooltips: {
 			Label: "[i:185] Show Hook Tooltips"
-			Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously.
+			Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously in their tooltip.
+		}
+
+		showWingTooltips: {
+			Label: "[i:1162] Show Wing Tooltips"
+			Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
 		}
 
 		fixPvPUI: {
