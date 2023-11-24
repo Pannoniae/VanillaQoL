@@ -1,3 +1,4 @@
 displayName = Vanilla+ QoL
 author = Pannoniae
 version = 0.3.0
+includeSource = true

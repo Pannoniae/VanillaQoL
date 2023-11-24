@@ -1,14 +1,16 @@
 Vanilla Quality of Life mod intended to make the game more fun :)
 
 Features:
- - Calamity-style info for wings and hooks, showing you all kinds of useful information.
- - Town NPCs spawning at night and being able to move to their house at day.
- - Fixing the Team/PvP UI when Census is installed so it doesn't overlap.
+ - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
+ - Town NPCs spawn at night and can move to their house at day.
+ - The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
  - Remove the coloured Thorium tooltips, making the mod look more vanilla.
+ - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
 
 Everything is fully configurable.
 
 Longer-term, this is meant to be a quality of life mod without cheating. Everything should be requiring in-game effort (like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
+If you are a modder, you can also enjoy the questionable quality "API"s I made to modify things which you shouldn't modify but hey, you can do it now!
 
 If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP

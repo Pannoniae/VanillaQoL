@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using VanillaQoL.API;
 using VanillaQoL.Fixes;
 
 namespace VanillaQoL;
@@ -23,5 +24,13 @@ public class VanillaQoL : Mod {
         ILEdits.unload();
         Utils.completelyWipeClass(typeof(ILEdits));
         instance = null!;
+        if (LanguagePatch.loaded) {
+            LanguagePatch.unload();
+        }
+    }
+
+    public override void PostSetupContent() {
+        LanguagePatch.modifyKey("Mods.ThoriumMod.Conditions.DonatorItemToggled", " ");
+        LanguagePatch.modifyKey("Mods.ThoriumMod.Conditions.DonatorItemToggledSteamBattery", " ");
     }
 }
