@@ -54,5 +54,15 @@ Configs: {
 				This option makes them more in the style of the base game.
 				'''
 		}
+
+		removeThoriumEnabledCraftingTooltips: {
+			Label: "[i:666] Remove Unnecessary Recipe Conditions"
+			Tooltip:
+				'''
+				Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
+				In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
+				This option removes those texts from the crafting objects description.
+				'''
+		}
 	}
 }

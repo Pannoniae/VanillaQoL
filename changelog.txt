@@ -1,1 +1,2 @@
- - Made Thorium "enabled in config" crafting condition invisible.
+ - Added config for Thorium "enabled in config" feature.
+ - Patch Magic Storage and Recipe Browser to not show hidden conditions.

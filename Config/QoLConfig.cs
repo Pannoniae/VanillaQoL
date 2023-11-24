@@ -36,6 +36,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool vanillaThoriumTooltips { get; set; }
 
+    // Red's Helmet (referencing the paid donor shit)
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool removeThoriumEnabledCraftingTooltips { get; set; }
+
     [Header("fixes")]
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]

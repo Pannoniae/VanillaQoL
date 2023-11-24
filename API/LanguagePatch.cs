@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +8,7 @@ namespace VanillaQoL.API;
 
 public class LanguagePatch {
 
-    internal static Dictionary<string, (string value, GameCulture.CultureName language)> _overrides = new();
+    internal static Dictionary<string, ExtendedLocalizedText> _overrides = new();
     public static bool loaded;
 
     public static void load() {
@@ -47,34 +48,44 @@ public class LanguagePatch {
         return parts[modsIndex + 1];
     }
 
-    public static void modifyKey(string key, string value) {
-        if (!loaded) {
-            load();
-        }
-        var loc = Language.GetOrRegister(key);
-        if (!_overrides.ContainsKey(key)) {
-            _overrides.Add(key, (value, 0));
-        }
-
-        loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
-            new[] { value });
-
-        VanillaQoL.instance.Logger.Warn($"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
+    public static void hideKey(string key) {
+        modifyKey(key, " ");
     }
 
-    public static void modifyKey(string key, string value, GameCulture.CultureName language) {
+    public static void modifyKey(string key, string value, GameCulture.CultureName language = 0) {
         if (!loaded) {
             load();
         }
         var loc = Language.GetOrRegister(key);
         if (!_overrides.ContainsKey(key)) {
-            _overrides.Add(key, (value, language));
-        }
-        if (GameCulture.FromCultureName(language) == Language.ActiveCulture) {
-            loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
-                new[] { value });
+            var isHidden = value == " ";
+            _overrides.Add(key, new ExtendedLocalizedText(value, language, isHidden));
         }
 
-        VanillaQoL.instance.Logger.Warn($"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
+        if (language == 0 || GameCulture.FromCultureName(language) == Language.ActiveCulture) {
+            loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
+                new[] { value });
+
+            VanillaQoL.instance.Logger.Warn(
+                $"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
+        }
+    }
+}
+
+
+public class ExtendedLocalizedText {
+    public string value;
+    public GameCulture.CultureName language;
+    public bool hidden = false;
+
+    public ExtendedLocalizedText(string value, GameCulture.CultureName language) {
+        this.value = value;
+        this.language = language;
+    }
+
+    public ExtendedLocalizedText(string value, GameCulture.CultureName language, bool hidden) {
+        this.value = value;
+        this.language = language;
+        this.hidden = true;
     }
 }

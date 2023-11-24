@@ -19,6 +19,12 @@
     <Reference Include="Census">
       <HintPath>..\..\ModReader\Census\Census.dll</HintPath>
     </Reference>
+    <Reference Include="MagicStorage">
+      <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="RecipeBrowser">
+      <HintPath>..\..\ModReader\RecipeBrowser\RecipeBrowser.dll</HintPath>
+    </Reference>
     <Reference Include="ThoriumMod">
       <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
     </Reference>
