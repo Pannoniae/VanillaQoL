@@ -1,12 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
+using VanillaQoL.API;
 using VanillaQoL.Config;
+using VanillaQoL.UI;
 
 namespace VanillaQoL.Fixes;
 
@@ -124,9 +125,42 @@ public class ILEdits : ModSystem {
         }
     }
 
-    private static void inc(ILCursor ilCursor, ref int offset) {
-        ilCursor.Prev.Offset = offset;
-        offset += ilCursor.Prev.GetSize();
+    // [38252 13 - 38252 91]
+    // IL_0cd2: ldstr        "GameUI.Speed"
+    // IL_0cd7: ldloc.s      a
+    // IL_0cd9: conv.r8
+    // IL_0cda: call         float64 [System.Runtime]System.Math::Round(float64)
+    // IL_0cdf: box          [System.Runtime]System.Double
+    // IL_0ce4: call         string Terraria.Localization.Language::GetTextValue(string, object)
+    // IL_0ce9: stloc.s      text1
+    private static void stopwatchMetricPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdstr("GameUI.Speed"),
+                _ => true, // some ldloc idc
+                _ => true,
+                _ => true,
+                _ => true,
+                i => i.MatchCall("Terraria.Localization.Language", "GetTextValue"),
+                i => i.MatchStloc(10))
+           ) {
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)49);
+            ilCursor.Emit<ILEdits>(OpCodes.Call, "metricStopwatch");
+            // text1 = this thing
+            ilCursor.Emit(OpCodes.Stloc_S, (byte)10);
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate stopwatch info text at DrawInfoAccs (GameUI.Speed)");
+        }
+    }
+
+    /// <summary>
+    /// Convert speed to km/h.
+    /// </summary>
+    /// <param name="input">The speed in mph</param>
+    /// <returns>The speed formatted in km/h</returns>
+    public static string metricStopwatch(float mph) {
+        var kph = (int)(mph * Constants.mphToKph);
+        return VanillaQoLGlobalInfoDisplay.speed.Format(kph);
     }
 
     public static int shiftButtons(int one, int two) {
@@ -153,12 +187,17 @@ public class ILEdits : ModSystem {
         if (QoLConfig.Instance.fixPvPUI) {
             IL_Main.DrawPVPIcons += pvpUIPatch;
         }
+
+        if (QoLConfig.Instance.metricSystem) {
+            IL_Main.DrawInfoAccs += stopwatchMetricPatch;
+        }
     }
 
     public static void unload() {
         IL_Main.UpdateTime -= townNPCPatch;
         IL_NPC.AI_007_TownEntities -= townNPCTeleportPatch;
         IL_Main.DrawPVPIcons -= pvpUIPatch;
+        IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
     }
 }
 

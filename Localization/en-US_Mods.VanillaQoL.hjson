@@ -56,7 +56,7 @@ Configs: {
 			Tooltip:
 				'''
 				Many tooltips in the Thorium mod look off compared to Terraria's tooltips.
-				This option makes them more in the style of the base game.
+				If enabled, this option makes them more in the style of the base game.
 				'''
 		}
 
@@ -66,8 +66,28 @@ Configs: {
 				'''
 				Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
 				In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
-				This option removes those texts from the crafting objects description.
+				If enabled, this option removes those texts from the crafting objects description.
 				'''
 		}
+
+		metricSystem: {
+			Label: "[i:393] Use Metric System"
+			Tooltip: Are you using the metric system like 96% of the world population? If enabled, units are displayed in metric units.
+		}
+
+		twentyFourHourTime: {
+			Label: "[i:709] 24-hour time"
+			Tooltip: Are you using the metric system like 96% of the world population? If enabled, the clocks show 24-hour time.
+		}
 	}
+}
+
+UI: {
+	timeText: ""
+	westWind: " ({0} km/h W)"
+	eastWind: " ({0} km/h E)"
+	compassWest: "{0} m West"
+	compassEast: "{0} m East"
+	depth: "{0} m"
+	speed: "{0} km/h"
 }

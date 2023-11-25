@@ -18,8 +18,20 @@ public class QoLConfig : ModConfig {
     [Header("gameplay")]
     // Universal Pylon
     [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
     [DefaultValue(true)]
     public bool townNPCSpawning { get; set; }
+
+    // Compass
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool metricSystem { get; set; }
+
+    // Platinum Watch
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool twentyFourHourTime { get; set; }
 
     // Tally Counter
     [Header("tooltips")]
@@ -39,6 +51,7 @@ public class QoLConfig : ModConfig {
 
     // Red's Helmet (referencing the paid donor shit)
     [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
     [DefaultValue(true)]
     public bool removeThoriumEnabledCraftingTooltips { get; set; }
 
@@ -46,6 +59,7 @@ public class QoLConfig : ModConfig {
 
     // Amethyst
     [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
 

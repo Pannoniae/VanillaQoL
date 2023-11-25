@@ -6,6 +6,7 @@ Features:
  - The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
  - Remove the coloured Thorium tooltips, making the mod look more vanilla.
  - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
+ - An option to use the metric system. Not enabled by default to not scare the yanks.
 
 Everything is fully configurable.
 

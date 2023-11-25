@@ -1,1 +1,1 @@
- - Fixed Skeletron Hand's hook info.
+ - Add ReloadRequired to stuff which can't be changed in-game.
