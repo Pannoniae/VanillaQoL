@@ -13,6 +13,8 @@ public class VanillaQoL : Mod {
     public bool hasCensus;
     public bool hasRecipeBrowser;
     public bool hasMagicStorage;
+    public bool hasCheatSheet;
+    public bool hasHEROsMod;
 
     public override void Load() {
         instance = this;
@@ -21,15 +23,17 @@ public class VanillaQoL : Mod {
         hasCensus = ModLoader.HasMod("Census");
         hasRecipeBrowser = ModLoader.HasMod("RecipeBrowser");
         hasMagicStorage = ModLoader.HasMod("MagicStorage");
+        hasCheatSheet = ModLoader.HasMod("CheatSheet");
+        hasHEROsMod = ModLoader.HasMod("HEROsMod");
         ILEdits.load();
         ModILEdits.load();
-
     }
 
     public override void Unload() {
         if (LanguagePatch.loaded) {
             LanguagePatch.unload();
         }
+
         ILEdits.unload();
 
         // IL patch static lambdas are leaking memory, wipe them
@@ -39,6 +43,15 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(MagicStorageLogic));
         // Func<bool> is a static lambda, this would leak as well
         Utils.completelyWipeClass(typeof(LanguagePatch));
+
+        // memory leak fix
+        //if (QoLConfig.Instance.fixMemoryLeaks) {
+        //    if (instance.hasHEROsMod) {
+
+
+        //    }
+        //}
+
 
         instance = null!;
     }

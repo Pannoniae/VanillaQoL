@@ -231,6 +231,9 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
                 case ProjectileID.Web:
                     distance = 375;
                     break;
+                case ProjectileID.SkeletronHand:
+                    distance = 350;
+                    break;
                 case ProjectileID.BatHook:
                     distance = 500;
                     break;

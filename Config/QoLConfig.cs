@@ -32,6 +32,7 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool showWingTooltips { get; set; }
 
+    // Lunar Hook
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool vanillaThoriumTooltips { get; set; }
@@ -42,9 +43,16 @@ public class QoLConfig : ModConfig {
     public bool removeThoriumEnabledCraftingTooltips { get; set; }
 
     [Header("fixes")]
+
+    // Amethyst
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
+
+    // Cog
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    //public bool fixMemoryLeaks { get; set; }
 
     public override ConfigScope Mode => ConfigScope.ServerSide;
 }

@@ -46,6 +46,11 @@ Configs: {
 				'''
 		}
 
+		fixMemoryLeaks: {
+			Label: "[i:1344] Fix Memory Leaks"
+			Tooltip: Many mods are badly written and they leak memory, slowing down the game if you reload your mods. If enabled, VanillaQoL tries to fix memory leaks somewhat.
+		}
+
 		vanillaThoriumTooltips: {
 			Label: "[i:3572] Vanilla Thorium Tooltips"
 			Tooltip:
