@@ -66,7 +66,7 @@ Configs: {
 				'''
 				Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
 				In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
-				If enabled, this option removes those texts from the crafting objects description.
+				If enabled, this option removes those texts from the crafting objects' description.
 				'''
 		}
 

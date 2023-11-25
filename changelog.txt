@@ -1,1 +1,1 @@
- - Add ReloadRequired to stuff which can't be changed in-game.
+ - Fixed a typo in the config tooltips.

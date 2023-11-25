@@ -38,6 +38,7 @@ public class ModILEdits {
     }
 }
 
+[JITWhenModsEnabled("RecipeBrowser")]
 public static class RecipeBrowserLogic {
     public static void load() {
         // yey, more internal classes. fuck this, reflection hackery time
@@ -71,6 +72,7 @@ public static class RecipeBrowserLogic {
     }
 }
 
+[JITWhenModsEnabled("MagicStorage")]
 public static class MagicStorageLogic {
     // thank you very much for not making everything internal, I love you<3
     public static void load() {

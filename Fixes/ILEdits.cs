@@ -201,6 +201,7 @@ public class ILEdits : ModSystem {
     }
 }
 
+[JITWhenModsEnabled("Census")]
 public static class CensusLogic {
     private static readonly object theList = null!;
 

@@ -4,8 +4,7 @@
 - biggest is 5x5
 - maybe better lawnmower can mow other stuff as well?
 
-- metric system (metres, 24h time, etc.)
-
+- shitty pun of making some npcs traps in the no traps seed?
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable
