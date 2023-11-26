@@ -10,6 +10,14 @@ Tooltips: {
 		hoverText: Has hover
 		hSpeedText: "{0} mph horizontal speed"
 	}
+
+	Shimmer: {
+		shimmerable: Shimmerable
+		shimmerItem: " into [i:{0}] {1}"
+		shimmerDecraft: ", can be decrafted"
+		shimmerNPC: ", transforming into {0}"
+		shimmerCoinLuck: " into coin luck"
+	}
 }
 
 Configs: {
@@ -35,6 +43,11 @@ Configs: {
 		showWingTooltips: {
 			Label: "[i:1162] Show Wing Tooltips"
 			Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
+		}
+
+		shimmerableTooltip: {
+			Label: "[i:5348] Shimmerable Tooltip"
+			Tooltip: If enabled, items show what they transform into when tossed into Shimmer.
 		}
 
 		fixPvPUI: {

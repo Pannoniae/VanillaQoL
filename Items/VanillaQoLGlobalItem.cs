@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using System.Text;
+using CalamityMod.Items;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Enums;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -23,8 +27,15 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText hoverText;
     public static LocalizedText hSpeedText;
 
+    public static LocalizedText shimmerable;
+    public static LocalizedText shimmerItem;
+    public static LocalizedText shimmerDecraft;
+    public static LocalizedText shimmerNPC;
+    public static LocalizedText shimmerCoinLuck;
+
     private const string hooks = "Hooks";
     private const string wings = "Wings";
+    private const string shimmer = "Shimmer";
 
     public override void SetStaticDefaults() {
         reachText = LocalisationUtils.GetLocalization(this, hooks, nameof(reachText));
@@ -33,8 +44,17 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         timeText = LocalisationUtils.GetLocalization(this, wings, nameof(timeText));
         hoverText = LocalisationUtils.GetLocalization(this, wings, nameof(hoverText));
         hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
+        shimmerable = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerable));
+        shimmerItem = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerItem));
+        shimmerDecraft = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerDecraft));
+        shimmerNPC = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerNPC));
+        shimmerCoinLuck = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerCoinLuck));
     }
 
+
+    /// <summary>
+    /// Allows you to modify all the tooltips that display for the given item. See here for information about TooltipLine. To hide tooltips, please use <see cref="M:Terraria.ModLoader.TooltipLine.Hide" /> and defensive coding.
+    /// </summary>
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
         if (QoLConfig.Instance.showHookTooltips) {
             hookTooltips(item, tooltips);
@@ -46,6 +66,10 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 
         if (QoLConfig.Instance.vanillaThoriumTooltips && VanillaQoL.instance.hasThorium) {
             vanillaifyThoriumTooltips(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.shimmerableTooltip) {
+            shimmmerableTooltips(item, tooltips);
         }
     }
 
@@ -89,7 +113,8 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         float maxCanAscendMultiplier = 0.0f;
         float ascentWhenRising = 0.0f;
 
-        copiedVanillaLogic(player, wingType, ref constantAscend, ref ascentWhenFalling, ref maxAscentMultiplier, ref maxCanAscendMultiplier, ref ascentWhenRising);
+        copiedVanillaLogic(player, wingType, ref constantAscend, ref ascentWhenFalling, ref maxAscentMultiplier,
+            ref maxCanAscendMultiplier, ref ascentWhenRising);
         // in vanilla, speed ranges from 3, most clustering around 6, up to 9 on endgame wings.
         // in mph, this is 3 = 15, 6 = 30.5, 7 = 35.7, 9 = 46.
         // strongest cal wing is 1.15 = 58
@@ -326,6 +351,10 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         tooltips.AddAfter(equipableTooltip, tooltip);
     }
 
+    private static void addShimmerTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+        var materialTooltip = tooltips.FindLast(t => t.Mod == "Terraria" && t.Name != "Expert" && t.Name != "Master")!;
+        tooltips.AddAfter(materialTooltip, tooltip);
+    }
 
     private string hookStats(float reach, float launch, float reel, float pull, int numHooks) {
         LocalizedText numHooksFormatted = numHooks switch {
@@ -337,6 +366,109 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         sb.AppendLine(reachText.Format(reach.ToString("0.###")));
         sb.Append(numHooksFormatted.Format(numHooks));
         return sb.ToString();
+    }
+
+    /// <summary>
+    /// Allows you to do things before a tooltip line of this item is drawn. The line contains draw info.
+    /// </summary>
+    /// <param name="item">The item</param>
+    /// <param name="line">The line that would be drawn</param>
+    /// <param name="yOffset">The Y offset added for next tooltip lines</param>
+    /// <returns>Whether or not to draw this tooltip line</returns>
+    public override bool PreDrawTooltipLine(Item item, DrawableTooltipLine line, ref int yOffset) {
+        // todo make coloured tooltip with api
+        // vary between two colours with sin interpolation? idk
+        return true;
+    }
+
+    private void shimmmerableTooltips(Item item, List<TooltipLine> tooltips) {
+        if (!item.CanShimmer()) {
+            return;
+        }
+
+        string tooltip = "";
+
+        // apply vanilla overrides
+        int itemTransform = ItemID.Sets.ShimmerCountsAsItem[item.type];
+        int sourceItem = itemTransform == -1 ? item.type : itemTransform;
+        int targetItem = ItemID.Sets.ShimmerTransformToItem[sourceItem];
+
+        var NPCTransform = NPCID.Sets.ShimmerTransformToNPC[item.makeNPC];
+        var targetNPC = NPCTransform == -1 ? item.makeNPC : NPCTransform;
+        int coinLuckValue = ItemID.Sets.CoinLuckValue[sourceItem];
+        int decraftingRecipeIndex = ShimmerTransforms.GetDecraftingRecipeIndex(sourceItem);
+        bool postSkeletron = false;
+        bool postGolem = false;
+        if (decraftingRecipeIndex > -1) {
+            if (ShimmerTransforms.RecipeSets.PostSkeletron[decraftingRecipeIndex]) {
+                postSkeletron = true;
+            }
+
+            if (ShimmerTransforms.RecipeSets.PostGolem[decraftingRecipeIndex]) {
+                postGolem = true;
+            }
+        }
+
+        bool moonLordRequirement = requiresMoonLordToShimmer(sourceItem);
+        // wtf special luminite brick logic
+        if (sourceItem == ItemID.LunarBrick) {
+            targetItem = Main.GetMoonPhase() switch {
+                MoonPhase.Full => 5408,
+                MoonPhase.ThreeQuartersAtLeft => 5401,
+                MoonPhase.HalfAtLeft => 5403,
+                MoonPhase.QuarterAtLeft => 5402,
+                MoonPhase.QuarterAtRight => 5407,
+                MoonPhase.HalfAtRight => 5405,
+                MoonPhase.ThreeQuartersAtRight => 5404,
+                _ => 5406
+            };
+        }
+        else if (item.createTile == TileID.MusicBoxes) {
+            targetItem = 576;
+        }
+
+        // Shimmer transform
+        if (targetItem > 0) {
+            var itemName = ContentSamples.ItemsByType[targetItem].Name;
+            var itemString = targetItem;
+            tooltip = shimmerable + shimmerItem.Format(itemString, itemName);
+        }
+
+        // Decrafting
+        // we don't actually need a tooltip for this, that would be bloat
+        if (decraftingRecipeIndex > -1) {
+        }
+
+        // gamer girl bathwater
+        if (sourceItem == ItemID.GelBalloon) {
+            var NPCName = NPCIDtoNPC(NPCID.TownSlimeRainbow).TypeName;
+            tooltip = shimmerable + shimmerNPC.Format(NPCName);
+        }
+        // NPC
+        if (targetNPC > 0) {
+            var NPCName = NPCIDtoNPC(targetNPC).TypeName;
+            tooltip = shimmerable + shimmerNPC.Format(NPCName);
+        }
+
+        // coin luck
+        if (coinLuckValue > 0) {
+            //var value = Main.ValueToCoins(coinLuckValue);
+            tooltip = shimmerable + shimmerCoinLuck.Format(coinLuckValue);
+        }
+
+
+        var tooltipLine = new TooltipLine(VanillaQoL.instance, "ShimmerInfo", tooltip);
+        // we want a purple glint but until we have it, white it is
+        //tooltipLine.OverrideColor = Color.LightPink;
+        addShimmerTooltip(tooltips, tooltipLine);
+    }
+
+    private NPC NPCIDtoNPC(int id) {
+        return ContentSamples.NpcsByNetId[id];
+    }
+
+    private bool requiresMoonLordToShimmer(int item) {
+        return item == 779 || item == 1326 || item == 3031 || item == 5364;
     }
 
     public static class Thorium {

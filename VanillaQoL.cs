@@ -48,7 +48,6 @@ public class VanillaQoL : Mod {
         //if (QoLConfig.Instance.fixMemoryLeaks) {
         //    if (instance.hasHEROsMod) {
 
-
         //    }
         //}
 

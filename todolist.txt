@@ -5,6 +5,8 @@
 - maybe better lawnmower can mow other stuff as well?
 
 - shitty pun of making some npcs traps in the no traps seed?
+- shimmerable tooltip
+- disable pumps moving shimmer (it's a fucking cheat if you can't bucket it)
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable

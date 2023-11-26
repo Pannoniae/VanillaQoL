@@ -1,1 +1,1 @@
- - Fixed a typo in the config tooltips.
+ - Add Shimmerable tooltip

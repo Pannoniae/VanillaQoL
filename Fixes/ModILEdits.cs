@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -14,14 +15,19 @@ namespace VanillaQoL.Fixes;
 
 public class ModILEdits {
     public static void load() {
-        if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
-            if (VanillaQoL.instance.hasRecipeBrowser) {
-                RecipeBrowserLogic.load();
-            }
+        try {
+            if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
+                if (VanillaQoL.instance.hasRecipeBrowser) {
+                    RecipeBrowserLogic.load();
+                }
 
-            if (VanillaQoL.instance.hasMagicStorage) {
-                MagicStorageLogic.load();
+                if (VanillaQoL.instance.hasMagicStorage) {
+                    MagicStorageLogic.load();
+                }
             }
+        }
+        catch (Exception e) {
+            VanillaQoL.instance.Logger.Error($"Couldn't load Magic Storage and Recipe Browser integration! Error message: {e}");
         }
     }
 

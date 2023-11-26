@@ -7,6 +7,7 @@ Features:
  - Remove the coloured Thorium tooltips, making the mod look more vanilla.
  - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
  - An option to use the metric system. Not enabled by default to not scare the yanks.
+ - Shimmerable tooltip for item and NPC transformations.
 
 Everything is fully configurable.
 

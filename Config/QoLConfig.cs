@@ -44,6 +44,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool showWingTooltips { get; set; }
 
+    // Shimmer Arrow
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool shimmerableTooltip { get; set; }
+
+
     // Lunar Hook
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]

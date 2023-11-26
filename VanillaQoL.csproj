@@ -16,6 +16,9 @@
     <Reference Include="CalamityMod">
       <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
     </Reference>
+    <Reference Include="CanIShimmerThis">
+      <HintPath>..\..\ModReader\CanIShimmerThis\CanIShimmerThis.dll</HintPath>
+    </Reference>
     <Reference Include="Census">
       <HintPath>..\..\ModReader\Census\Census.dll</HintPath>
     </Reference>

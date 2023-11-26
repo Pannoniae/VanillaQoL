@@ -215,16 +215,23 @@ public static class CensusLogic {
         VanillaQoL.instance.Logger.Info(
             "If the Census developers read this, please please don't make everything internal in your mod so I don't have to suffer. <3"
         );
-        // too bad tModLoader exposes the class anyway
-        var censusMod = ModLoader.GetMod("Census");
-        var assembly = censusMod.Code;
-        var type = assembly.GetType("Census.CensusSystem");
-        var instanceField = type!.GetField("instance", BindingFlags.NonPublic | BindingFlags.Static);
-        var instance = instanceField!.GetValue(null);
-        var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        theList = townNPCInfo.GetValue(instance)!;
-        countProperty = theList.GetType().GetProperty("Count")!;
-        lengthOfTheList = (int)countProperty.GetValue(theList)!;
+        try {
+            // too bad tModLoader exposes the class anyway
+            var censusMod = ModLoader.GetMod("Census");
+            var assembly = censusMod.Code;
+            var type = assembly.GetType("Census.CensusSystem");
+            var instanceField = type!.GetField("instance", BindingFlags.NonPublic | BindingFlags.Static);
+            var instance = instanceField!.GetValue(null);
+            var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
+            theList = townNPCInfo.GetValue(instance)!;
+            countProperty = theList.GetType().GetProperty("Count")!;
+            lengthOfTheList = (int)countProperty.GetValue(theList)!;
+        }
+        catch (Exception e) {
+            VanillaQoL.instance.Logger.Error($"Couldn't load Census integration! Error message: {e}");
+            // we just break it silently so it's the original behaviour instead of crashing the game
+            lengthOfTheList = 0;
+        }
     }
 
     public static int numberOfNPCColumns() {
