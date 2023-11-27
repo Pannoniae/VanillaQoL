@@ -266,6 +266,7 @@ public class ILEdits : ModSystem {
         IL_NPC.AI_007_TownEntities -= townNPCTeleportPatch;
         IL_Main.DrawPVPIcons -= pvpUIPatch;
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
+        IL_Wiring.XferWater -= disableShimmerPumpingPatch;
     }
 }
 
