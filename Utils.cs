@@ -24,27 +24,8 @@ public class Utils {
             }
             // static readonly field? time for unsafe hackery because reflection doesn't work
             catch (FieldAccessException e) {
-                // this boxes if it's a value type but it doesn't matter
-                var field = staticField.GetValue(null);
 
-                // implement this in IL, because .net6 compiler doesn't like reference to managed object
-                // let's do generics by hand!
-                var method = new DynamicMethod(
-                    name: "setReadonlyField",
-                    returnType: null,
-                    parameterTypes: new[] { staticField.FieldType, staticField.FieldType },
-                    restrictedSkipVisibility: true
-                );
-                var gen = method.GetILGenerator();
-                gen.Emit(OpCodes.Ldarg_0);
-                gen.Emit(OpCodes.Ldarg_1);
-                gen.Emit(OpCodes.Stfld, staticField);
-                gen.Emit(OpCodes.Ret);
-
-                var fieldSetter = method.CreateDelegate(typeof(Action<,>).MakeGenericType(staticField.FieldType, staticField.FieldType));
-
-                fieldSetter.DynamicInvoke(null, null);
-
+                wipeReadonlyField(staticField, null);
                 // actually we can
                 // don't throw if mod init broke, so check for null
                 if (VanillaQoL.instance != null && VanillaQoL.instance.Logger != null) {
@@ -53,6 +34,63 @@ public class Utils {
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Sets the value of a readonly field on an object.
+    /// </summary>
+    /// <param name="field">The field to set.</param>
+    /// <param name="obj">The object to set the field on. `null` if it's a static field.</param>
+    /// <param name="value">The value to set the field to.</param>
+    public static void setReadonlyField(FieldInfo field, object? obj, object? value) {
+        // implement this in IL, because .net6 compiler doesn't like reference to managed object
+        // let's do generics by hand!
+        var theType = obj?.GetType() ?? typeof(object);
+        var method = new DynamicMethod(
+            name: "setReadonlyField",
+            returnType: null,
+            parameterTypes: new[] { theType, field.FieldType },
+            restrictedSkipVisibility: true
+        );
+        var gen = method.GetILGenerator();
+        gen.Emit(OpCodes.Ldarg_0);
+        gen.Emit(OpCodes.Ldarg_1);
+        gen.Emit(OpCodes.Stfld, field);
+        gen.Emit(OpCodes.Ret);
+
+        var fieldSetter = method.CreateDelegate(typeof(Action<,>).MakeGenericType(theType, field.FieldType));
+
+        fieldSetter.DynamicInvoke(obj, value);
+    }
+
+    /// <inheritdoc cref="setReadonlyField"/>
+    public static void setReadonlyField<T>(FieldInfo field, object? obj, T? value) {
+        // implement this in IL, because .net6 compiler doesn't like reference to managed object
+        // let's do generics by hand!
+        var theType = obj?.GetType() ?? typeof(object);
+        var method = new DynamicMethod(
+            name: "setReadonlyField",
+            returnType: null,
+            parameterTypes: new[] { theType, field.FieldType },
+            restrictedSkipVisibility: true
+        );
+        var gen = method.GetILGenerator();
+        gen.Emit(OpCodes.Ldarg_0);
+        gen.Emit(OpCodes.Ldarg_1);
+        gen.Emit(OpCodes.Stfld, field);
+        gen.Emit(OpCodes.Ret);
+
+        var fieldSetter = method.CreateDelegate(typeof(Action<,>).MakeGenericType(theType, field.FieldType));
+
+        fieldSetter.DynamicInvoke(obj, value);
+    }
+
+    /// <inheritdoc cref="setReadonlyField"/>
+    /// <summary>
+    /// Wipes a readonly field on an object (sets it to null).
+    /// </summary>
+    public static void wipeReadonlyField(FieldInfo field, object? obj) {
+        setReadonlyField(field, obj, null);
     }
 
     public static FieldInfo[] collectStaticFieldInfo(Type type) {

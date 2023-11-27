@@ -1,2 +1,2 @@
- - Added team auto-joining in Multiplayer
- - Added "Fires ammo" tooltip
+ - Fixed isHidden in localisation patches always being true
+ - Refactored readonly field wiping to allow setting readonly fields to a value as well.
