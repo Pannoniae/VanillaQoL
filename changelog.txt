@@ -1,1 +1,1 @@
- - Added luck info display when Depth Meter / upgrades are equipped
+ - icon update

@@ -5,9 +5,20 @@
 - maybe better lawnmower can mow other stuff as well?
 
 - shitty pun of making some npcs traps in the no traps seed?
-- disable pumps moving shimmer (it's a fucking cheat if you can't bucket it)
 - add weebshit samurai npc? sells all the jap items in the game, says wise things, etc.
 yes dynasty wood is chinese, shut up
+
+- tent (like a bed but doesn't have to be in a room)
+zapper's suggestions:
+Change respawn timer when fighting bosses using an integer input (preferably with the capability of setting the timer to be more than 60 seconds, which the SRT mod wasn’t able to do)
+Change the respawn timer when an event is happening (independent from boss respawn timer)
+Custom timer for when no boss or event is present, if the timer duration is shorter than the player’s current timer (boss despawns for example) the timer is shortened to set duration. (Calamity does this already with a 3 second timer when there are no more bosses on screen but it would be cool to have if you didn’t want all of the content but quicker respawns.
+Change the scaling of the timers for each difficulty.
+Introduce scaling to the respawn timer based on the total amount of players in the world.
+Introduce scaling to the respawn timer based on how many times you’ve died to the same boss (resets every time you start a new boss fight)
+Players who respawn will automatically receive specified buffs/debuffs.
+A new placable that acts like a bed spawn point but doesn’t need to be in a room.
+Nurse healing gives a very strong healing buff which heals your missing HP over 10ish seconds (not a respawn mechanic but I’m not a fan of how op her healing is, regardless of potion sickness (especially in multiplayer)).
 
 
 cheaty qol, all of these should have a debuff if user enables it:
