@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using Terraria;
 using Terraria.ModLoader.Config;
 
 namespace VanillaQoL.Config;
@@ -49,6 +50,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool showWingTooltips { get; set; }
 
+    // Tungsten Bullet
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool ammunitionTooltips { get; set; }
+
     // Shimmer Arrow
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -75,9 +81,33 @@ public class QoLConfig : ModConfig {
     public bool fixPvPUI { get; set; }
 
     // Cog
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    //[BackgroundColor(192, 54, 128, 192)]
+    //[DefaultValue(true)]
     //public bool fixMemoryLeaks { get; set; }
 
+    [Header("multiplayer")]
+
+    // Amethyst
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool autoJoinTeam { get; set; }
+
+    // Diamond
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(Team.Pink)]
+    [DrawTicks]
+    public Team teamToAutoJoin { get; set; }
+
+
     public override ConfigScope Mode => ConfigScope.ServerSide;
+}
+
+public enum Team
+{
+    White = 0,
+    Red = 1,
+    Green = 2,
+    Blue = 3,
+    Yellow = 4,
+    Pink = 5
 }

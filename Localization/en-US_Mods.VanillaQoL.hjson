@@ -18,6 +18,15 @@ Tooltips: {
 		shimmerNPC: ", transforming into {0}"
 		shimmerCoinLuck: " into coin luck"
 	}
+
+	Ammo: {
+		ammoFire: Firing [i:{0}] {1}
+		ammoFireArrows: Fires arrows
+		ammoFireBullets: Fires bullets
+		ammoFireCoins: Fires coins
+		ammoFireRockets: Fires rockets
+		ammoFireDarts: Fires darts and seeds
+	}
 }
 
 Configs: {
@@ -33,6 +42,7 @@ Configs: {
 			tooltips: "[i:3095] Tooltips"
 			gameplay: "[i:3515] Gameplay"
 			fixes: "[i:3625] Fixes"
+			multiplayer: multiplayer Header
 		}
 
 		showHookTooltips: {
@@ -43,6 +53,11 @@ Configs: {
 		showWingTooltips: {
 			Label: "[i:1162] Show Wing Tooltips"
 			Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
+		}
+
+		ammunitionTooltips: {
+			Label: "[i:4915] Show Ammunition Tooltips"
+			Tooltip: If enabled, ranged weapons show what ammunition they fire.
 		}
 
 		shimmerableTooltip: {
@@ -97,6 +112,26 @@ Configs: {
 			Label: "[i:581] Fix Shimmer Pumping Exploit"
 			Tooltip: If enabled, disables moving Shimmer with pumps before Moon Lord is defeated to prevent Shimmer from being moved too early.
 		}
+
+		autoJoinTeam: {
+			Label: "[i:181] Automatically Join Multiplayer Team"
+			Tooltip: If enabled, the game automatically joins the selected team when joining a Multiplayer server.
+		}
+
+		teamToAutoJoin: {
+			Label: "[i:182] Team to Auto-Join"
+			Tooltip: Selects which team to automatically join.
+		}
+	}
+
+	Team: {
+		Tooltip: ""
+		White.Label: "[i:182] White"
+		Red.Label: "[i:178] Red"
+		Green.Label: "[i:179] Green"
+		Blue.Label: "[i:177] Blue"
+		Yellow.Label: "[i:180] Yellow"
+		Pink.Label: "[i:181] Pink"
 	}
 }
 

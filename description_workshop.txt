@@ -12,6 +12,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] An option to use the metric system. Not enabled by default to not scare the yanks.
  [*] Shimmerable tooltip for item and NPC transformations.
  [*] Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
+ [*] Tooltip to show what ammo a weapon uses.
 [/list]
 
 [hr][/hr]

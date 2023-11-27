@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
-using CalamityMod.Items;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -34,9 +31,17 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText shimmerNPC = null!;
     public static LocalizedText shimmerCoinLuck = null!;
 
+    public static LocalizedText ammoFire = null!;
+    public static LocalizedText ammoFireArrows = null!;
+    public static LocalizedText ammoFireBullets = null!;
+    public static LocalizedText ammoFireCoins = null!;
+    public static LocalizedText ammoFireRockets = null!;
+    public static LocalizedText ammoFireDarts = null!;
+
     private const string hooks = "Hooks";
     private const string wings = "Wings";
     private const string shimmer = "Shimmer";
+    private const string ammo = "Ammo";
 
     public override void SetStaticDefaults() {
         reachText = LocalisationUtils.GetLocalization(this, hooks, nameof(reachText));
@@ -50,6 +55,12 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         shimmerDecraft = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerDecraft));
         shimmerNPC = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerNPC));
         shimmerCoinLuck = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerCoinLuck));
+        ammoFire = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFire));
+        ammoFireArrows = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireArrows));
+        ammoFireBullets = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireBullets));
+        ammoFireCoins = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireCoins));
+        ammoFireRockets = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireRockets));
+        ammoFireDarts = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireDarts));
     }
 
 
@@ -63,6 +74,10 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 
         if (QoLConfig.Instance.showWingTooltips) {
             wingTooltips(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.ammunitionTooltips) {
+            ammunitionTooltips(item, tooltips);
         }
 
         if (QoLConfig.Instance.vanillaThoriumTooltips && VanillaQoL.instance.hasThorium) {
@@ -357,6 +372,11 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
         tooltips.AddAfter(materialTooltip, tooltip);
     }
 
+    private static void addAmmoTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+        var knockbackTooltip = tooltips.FindLast(t => t.Mod == "Terraria" && t.Name == "Knockback")!;
+        tooltips.AddAfter(knockbackTooltip, tooltip);
+    }
+
     private string hookStats(float reach, float launch, float reel, float pull, int numHooks) {
         LocalizedText numHooksFormatted = numHooks switch {
             1 => numHooksText1,
@@ -470,6 +490,38 @@ public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
 
     private bool requiresMoonLordToShimmer(int item) {
         return item == 779 || item == 1326 || item == 3031 || item == 5364;
+    }
+
+    private void ammunitionTooltips(Item item, List<TooltipLine> tooltips) {
+        var ammoItem = item.useAmmo;
+
+        if (ammoItem == AmmoID.None) {
+            return;
+        }
+
+        string tooltip;
+        if (ammoItem == AmmoID.Arrow) {
+            tooltip = ammoFireArrows.Value;
+        }
+        else if (ammoItem == AmmoID.Bullet) {
+            tooltip = ammoFireBullets.Value;
+        }
+        else if (ammoItem == AmmoID.Coin) {
+            tooltip = ammoFireCoins.Value;
+        }
+        else if (ammoItem == AmmoID.Rocket) {
+            tooltip = ammoFireRockets.Value;
+        }
+        else if (ammoItem == AmmoID.Dart) {
+            tooltip = ammoFireDarts.Value;
+        }
+        else {
+            var itemName = ContentSamples.ItemsByType[ammoItem].Name;
+            tooltip = ammoFire.Format(ammoItem, itemName);
+        }
+
+        var tooltipLine = new TooltipLine(VanillaQoL.instance, "AmmoInfo", tooltip);
+        addAmmoTooltip(tooltips, tooltipLine);
     }
 
     public static class Thorium {

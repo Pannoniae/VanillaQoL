@@ -1,1 +1,2 @@
- - Update description
+ - Added team auto-joining in Multiplayer
+ - Added "Fires ammo" tooltip
