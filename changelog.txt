@@ -1,1 +1,1 @@
- - icon update
+ - Fix luck config not being respected by the info display

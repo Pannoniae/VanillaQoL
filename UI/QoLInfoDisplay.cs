@@ -2,15 +2,18 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using VanillaQoL.Config;
 
 namespace VanillaQoL.UI;
 
 public class QoLInfoDisplay : InfoDisplay {
+
+
     public static LocalizedText luckText { get; private set; }
 
     public override void SetStaticDefaults() => luckText = this.GetLocalization(nameof(luckText));
 
-    public override bool Active() => MetalDetector.Active();
+    public override bool Active() => QoLConfig.Instance.showLuck && MetalDetector.Active();
 
     public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor) {
         return luckText.Format(Main.LocalPlayer.luck.ToString("0.##"));

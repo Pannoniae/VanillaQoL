@@ -16,17 +16,11 @@
     <Reference Include="CalamityMod">
       <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
     </Reference>
-    <Reference Include="CanIShimmerThis">
-      <HintPath>..\..\ModReader\CanIShimmerThis\CanIShimmerThis.dll</HintPath>
-    </Reference>
     <Reference Include="Census">
       <HintPath>..\..\ModReader\Census\Census.dll</HintPath>
     </Reference>
     <Reference Include="CheatSheet">
       <HintPath>..\..\ModReader\CheatSheet\CheatSheet.dll</HintPath>
-    </Reference>
-    <Reference Include="DisplayLuckCount">
-      <HintPath>..\..\ModReader\DisplayLuckCount\DisplayLuckCount.dll</HintPath>
     </Reference>
     <Reference Include="HEROsMod">
       <HintPath>..\..\ModReader\HEROsMod\HEROsMod.dll</HintPath>
@@ -36,6 +30,9 @@
     </Reference>
     <Reference Include="RecipeBrowser">
       <HintPath>..\..\ModReader\RecipeBrowser\RecipeBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedMap">
+      <HintPath>..\..\ModReader\SharedMap\SharedMap.dll</HintPath>
     </Reference>
     <Reference Include="ThoriumMod">
       <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
