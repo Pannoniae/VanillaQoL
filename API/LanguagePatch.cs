@@ -86,6 +86,6 @@ public class ExtendedLocalizedText {
     public ExtendedLocalizedText(string value, GameCulture.CultureName language, bool hidden) {
         this.value = value;
         this.language = language;
-        this.hidden = true;
+        this.hidden = hidden;
     }
 }
