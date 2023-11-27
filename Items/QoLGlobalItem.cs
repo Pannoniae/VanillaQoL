@@ -11,7 +11,7 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 
-public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
+public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public string LocalizationCategory => "Tooltips";
 
     public static LocalizedText reachText = null!;

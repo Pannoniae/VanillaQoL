@@ -7,6 +7,7 @@ Features:
  - Remove the coloured Thorium tooltips, making the mod look more vanilla.
  - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
  - An option to use the metric system. Not enabled by default to not scare the yanks.
+ - Display luck information when you have a Metal Detector or its upgrades. Icon courtesy of https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263.
  - Shimmerable tooltip for item and NPC transformations.
  - Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
  - Tooltip to show what ammo a weapon uses.

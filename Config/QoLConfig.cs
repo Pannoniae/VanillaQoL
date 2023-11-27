@@ -39,6 +39,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool twentyFourHourTime { get; set; }
 
+    // Ladybug
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool showLuck { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

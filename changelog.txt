@@ -1,2 +1,1 @@
- - Fixed isHidden in localisation patches always being true
- - Refactored readonly field wiping to allow setting readonly fields to a value as well.
+ - Added luck info display when Depth Meter / upgrades are equipped

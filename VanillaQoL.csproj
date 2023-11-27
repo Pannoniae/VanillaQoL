@@ -25,6 +25,9 @@
     <Reference Include="CheatSheet">
       <HintPath>..\..\ModReader\CheatSheet\CheatSheet.dll</HintPath>
     </Reference>
+    <Reference Include="DisplayLuckCount">
+      <HintPath>..\..\ModReader\DisplayLuckCount\DisplayLuckCount.dll</HintPath>
+    </Reference>
     <Reference Include="HEROsMod">
       <HintPath>..\..\ModReader\HEROsMod\HEROsMod.dll</HintPath>
     </Reference>

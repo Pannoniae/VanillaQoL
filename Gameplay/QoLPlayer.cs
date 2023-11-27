@@ -5,7 +5,7 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 
-public class VanillaQoLPlayer : ModPlayer {
+public class QoLPlayer : ModPlayer {
     public override void OnEnterWorld() {
         // only on client
         if (Main.netMode == NetmodeID.MultiplayerClient && QoLConfig.Instance.autoJoinTeam) {

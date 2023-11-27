@@ -108,6 +108,11 @@ Configs: {
 			Tooltip: Are you using the metric system like 96% of the world population? If enabled, the clocks show 24-hour time.
 		}
 
+		showLuck: {
+			Label: "[i:4361] Display Luck Statistic"
+			Tooltip: If enabled, the Metal Detector (or its upgrades) shows the luck you have.
+		}
+
 		disableShimmerPumping: {
 			Label: "[i:581] Fix Shimmer Pumping Exploit"
 			Tooltip: If enabled, disables moving Shimmer with pumps before Moon Lord is defeated to prevent Shimmer from being moved too early.
@@ -143,4 +148,11 @@ UI: {
 	compassEast: "{0} m East"
 	depth: "{0} m"
 	speed: "{0} km/h"
+}
+
+InfoDisplays: {
+	QoLInfoDisplay: {
+		luckText: "{0} Luck"
+		DisplayName: Luck
+	}
 }

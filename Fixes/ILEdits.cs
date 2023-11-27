@@ -161,7 +161,7 @@ public class ILEdits : ModSystem {
     /// <returns>The speed formatted in km/h</returns>
     public static string metricStopwatch(float mph) {
         var kph = (int)(mph * Constants.mphToKph);
-        return VanillaQoLGlobalInfoDisplay.speed.Format(kph);
+        return QoLGlobalInfoDisplay.speed.Format(kph);
     }
 
     public static int shiftButtons(int one, int two) {

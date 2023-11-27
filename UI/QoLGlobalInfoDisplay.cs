@@ -10,7 +10,7 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.UI;
 
-public class VanillaQoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
+public class QoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
     public string LocalizationCategory => "UI";
 
     public static LocalizedText timeText;
