@@ -13,6 +13,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Shimmerable tooltip for item and NPC transformations.
  [*] Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
  [*] Tooltip to show what ammo a weapon uses.
+ [*] An option to automatically join a team in Multiplayer.
 [/list]
 
 [hr][/hr]
