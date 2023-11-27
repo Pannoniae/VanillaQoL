@@ -1,1 +1,1 @@
- - Add Shimmerable tooltip
+ - Update description

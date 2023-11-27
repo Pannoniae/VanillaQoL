@@ -5,8 +5,10 @@
 - maybe better lawnmower can mow other stuff as well?
 
 - shitty pun of making some npcs traps in the no traps seed?
-- shimmerable tooltip
 - disable pumps moving shimmer (it's a fucking cheat if you can't bucket it)
+- add weebshit samurai npc? sells all the jap items in the game, says wise things, etc.
+yes dynasty wood is chinese, shut up
+
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable

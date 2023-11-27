@@ -8,10 +8,11 @@ Features:
  - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
  - An option to use the metric system. Not enabled by default to not scare the yanks.
  - Shimmerable tooltip for item and NPC transformations.
+ - Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
 
 Everything is fully configurable.
 
-Longer-term, this is meant to be a quality of life mod without cheating. Everything should be requiring in-game effort (like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
+Longer-term, this is meant to be a quality of life mod without cheating. Everything should require in-game effort (like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
 If you are a modder, you can also enjoy the questionable quality "API"s I made to modify things which you shouldn't modify but hey, you can do it now!
 
 If you have any suggestions, feel free to write them down, I'll consider them!

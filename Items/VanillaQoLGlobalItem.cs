@@ -3,6 +3,7 @@ using System.Text;
 using CalamityMod.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -16,22 +17,22 @@ namespace VanillaQoL.Items;
 public class VanillaQoLGlobalItem : GlobalItem, ILocalizedModType {
     public string LocalizationCategory => "Tooltips";
 
-    public static LocalizedText reachText;
-    public static LocalizedText launchText;
-    public static LocalizedText reelText;
-    public static LocalizedText pullText;
-    public static LocalizedText numHooksText1;
-    public static LocalizedText numHooksText2Plus;
+    public static LocalizedText reachText = null!;
+    public static LocalizedText launchText = null!;
+    public static LocalizedText reelText = null!;
+    public static LocalizedText pullText = null!;
+    public static LocalizedText numHooksText1 = null!;
+    public static LocalizedText numHooksText2Plus = null!;
 
-    public static LocalizedText timeText;
-    public static LocalizedText hoverText;
-    public static LocalizedText hSpeedText;
+    public static LocalizedText timeText = null!;
+    public static LocalizedText hoverText = null!;
+    public static LocalizedText hSpeedText = null!;
 
-    public static LocalizedText shimmerable;
-    public static LocalizedText shimmerItem;
-    public static LocalizedText shimmerDecraft;
-    public static LocalizedText shimmerNPC;
-    public static LocalizedText shimmerCoinLuck;
+    public static LocalizedText shimmerable = null!;
+    public static LocalizedText shimmerItem = null!;
+    public static LocalizedText shimmerDecraft = null!;
+    public static LocalizedText shimmerNPC = null!;
+    public static LocalizedText shimmerCoinLuck = null!;
 
     private const string hooks = "Hooks";
     private const string wings = "Wings";

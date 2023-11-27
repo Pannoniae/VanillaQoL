@@ -3,6 +3,7 @@ using System.Reflection;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
@@ -12,11 +13,11 @@ using VanillaQoL.UI;
 namespace VanillaQoL.Fixes;
 
 public class ILEdits : ModSystem {
-    //IL_0684: stloc.1      // start
-    //IL_0685: ldsfld       bool Terraria.Main::dayTime
-    //IL_068a: brtrue       IL_0975
-    //IL_068f: ldc.i4.0
-    //IL_0690: stsfld       bool Terraria.Main::eclipse
+    // IL_0684: stloc.1      // start
+    // IL_0685: ldsfld       bool Terraria.Main::dayTime
+    // IL_068a: brtrue       IL_0975
+    // IL_068f: ldc.i4.0
+    // IL_0690: stsfld       bool Terraria.Main::eclipse
     /// <summary>
     /// Patch town NPCs to respawn at night.
     /// </summary>
@@ -33,7 +34,7 @@ public class ILEdits : ModSystem {
         }
     }
 
-    //// [21326 9 - 21326 21]
+    // [21326 9 - 21326 21]
     // IL_008b: ldc.i4.1
     // IL_008c: stloc.1      // flag1
 
@@ -54,7 +55,7 @@ public class ILEdits : ModSystem {
         // I can't figure out how to go directly after a jump, sorry
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchCallOrCallvirt<Main>("get_masterMode"))) {
             // load 1
-            ilCursor.EmitLdcI4(1);
+            ilCursor.Emit(OpCodes.Ldc_I4_1);
             // set local variable index 1 to 1
             ilCursor.EmitStloc1();
         }
@@ -64,7 +65,7 @@ public class ILEdits : ModSystem {
         }
     }
 
-    //// [34500 7 - 34500 31]
+    // [34500 7 - 34500 31]
     // IL_0057: ldsfld       int32 Terraria.Main::EquipPage
     // IL_005c: ldc.i4.2
     // IL_005d: bne.un.s     IL_0067
@@ -178,6 +179,69 @@ public class ILEdits : ModSystem {
         return two - (one + one / 2 + margin) * columnsAfter3;
     }
 
+    // [473 9 - 473 22]
+    // IL_002e: ldloc.3      // num3
+    // IL_002f: ldc.i4.0
+    private static void disableShimmerPumpingPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdloc3(),
+                i => i.MatchLdcI4(0))) {
+            // next instruction is ble <end of loop>, num3 < 0
+            // we want to make num3 -1 if our condition is false
+            il.Method.Body.Variables.Add(new(il.Import(typeof(bool))));
+            // we made ourselves some nice code!
+            // [202 9 - 202 63]
+            // IL_000a: ldloc.0      // liquid
+            // IL_000b: ldc.i4.3
+            // IL_000c: bne.un.s     IL_0018
+            // IL_000e: ldsfld       bool [tModLoader]Terraria.NPC::downedMoonlord
+            // IL_0013: ldc.i4.0
+            // IL_0014: ceq
+            // IL_0016: br.s         IL_0019
+            // IL_0018: ldc.i4.0
+            // IL_0019: stloc.1      // V_1
+            // IL_001a: ldloc.1      // V_1
+            // IL_001b: brfalse.s    IL_0022
+            // jump if condition isn't met, continue if met
+            // ldc.i4.m1
+            // stloc.3 // num 3
+            // after label to jump to
+            var compare = ilCursor.DefineLabel();
+            var after = ilCursor.DefineLabel();
+            var target = ilCursor.DefineLabel();
+            ilCursor.EmitLdloc3();
+            ilCursor.Emit(OpCodes.Ldc_I4_3);
+            ilCursor.EmitBneUn(compare);
+            ilCursor.Emit<NPC>(OpCodes.Ldsfld, "downedMoonlord");
+            ilCursor.Emit(OpCodes.Ldc_I4_0);
+            ilCursor.EmitCeq();
+            ilCursor.EmitBr(after);
+            ilCursor.MarkLabel(compare);
+            ilCursor.Emit(OpCodes.Ldc_I4_0);
+            ilCursor.MarkLabel(after);
+            ilCursor.Emit(OpCodes.Stloc_S, (byte)12);
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)12);
+            ilCursor.EmitBrfalse(target);
+            ilCursor.Emit(OpCodes.Ldc_I4_M1);
+            ilCursor.EmitStloc3();
+            ilCursor.MarkLabel(target);
+            updateOffsets(ilCursor);
+        }
+
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate liquid check at XferWater (Tile.liquid)");
+        }
+    }
+
+    public static bool testMethod(Tile tile) {
+        int liquid = tile.LiquidAmount;
+        if (liquid == LiquidID.Shimmer && !NPC.downedMoonlord) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static void load() {
         if (QoLConfig.Instance.townNPCSpawning) {
             IL_Main.UpdateTime += townNPCPatch;
@@ -190,6 +254,10 @@ public class ILEdits : ModSystem {
 
         if (QoLConfig.Instance.metricSystem) {
             IL_Main.DrawInfoAccs += stopwatchMetricPatch;
+        }
+
+        if (QoLConfig.Instance.disableShimmerPumping) {
+            IL_Wiring.XferWater += disableShimmerPumpingPatch;
         }
     }
 
