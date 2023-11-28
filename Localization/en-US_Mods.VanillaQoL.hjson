@@ -42,7 +42,7 @@ Configs: {
 			tooltips: "[i:3095] Tooltips"
 			gameplay: "[i:3515] Gameplay"
 			fixes: "[i:3625] Fixes"
-			multiplayer: multiplayer Header
+			multiplayer: "[i:181] Multiplayer"
 		}
 
 		showHookTooltips: {
@@ -126,6 +126,11 @@ Configs: {
 		teamToAutoJoin: {
 			Label: "[i:182] Team to Auto-Join"
 			Tooltip: Selects which team to automatically join.
+		}
+
+		mapSharing: {
+			Label: "[i:893] Enable Map Sharing"
+			Tooltip: If enabled, players in the same team will share the map with each other.
 		}
 	}
 

@@ -15,6 +15,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
  [*] Tooltip to show what ammo a weapon uses.
  [*] An option to automatically join a team in Multiplayer.
+ [*] An option to share the map with your teammates in Multiplayer.
 [/list]
 
 [hr][/hr]

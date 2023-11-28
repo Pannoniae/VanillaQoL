@@ -103,6 +103,11 @@ public class QoLConfig : ModConfig {
     [DrawTicks]
     public Team teamToAutoJoin { get; set; }
 
+    // Trifold Map
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool mapSharing { get; set; }
+
 
     public override ConfigScope Mode => ConfigScope.ServerSide;
 }

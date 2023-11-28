@@ -1,1 +1,1 @@
- - Fix luck config not being respected by the info display
+ - Add map sharing in Multiplayer.
