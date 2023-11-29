@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Concurrent;
 using System.IO;
+using System.IO.Compression;
+using System.Threading.Tasks;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
@@ -20,17 +22,20 @@ public class QoLSharedMapSystem : ModSystem {
     private int counter;
     private int counter2;
 
+    public static ModKeybind shareKeybind { get; private set; }
+
     public const int updateBatching = 2000;
     private const int maxUpdateIntervalTicks = 60;
     private const int packetSize = 1024;
 
-    // how often to checksum the entire map and resync if outdated - default 10secs
-    private const int fullChecksumIntervalTicks = 10 * 60;
+    // how often to checksum the entire map and resync if outdated - default 60secs
+    private const int fullChecksumIntervalTicks = 60 * 60;
 
     private const bool isPeriodicIntervalEnabled = true;
 
     // this many tiles can be wrong before a full resend happens
-    private const int lightTolerance = 20;
+    // 8100 tiles are on the screen on 1920x1080....
+    private const int lightTolerance = 15000;
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.mapSharing;
@@ -41,8 +46,11 @@ public class QoLSharedMapSystem : ModSystem {
         instance = this;
         // we apply to two places, UpdateLighting and Update.
         IL_WorldMap.UpdateLighting += updateMapPatch2;
-        IL_WorldMap.Update += updateMapPatch;
+        //IL_WorldMap.Update += updateMapPatch;
         IL_WorldMap.Load += joinWorldPatch;
+
+        shareKeybind = KeybindLoader.RegisterKeybind(Mod, "ShareMap", "P");
+
     }
 
     public override void Unload() {
@@ -115,27 +123,28 @@ public class QoLSharedMapSystem : ModSystem {
         Mod.Logger.Info("Sent sync request packet");
     }
 
-    public void sendSyncPacket(MapTile[] data, int index, int targetPlayer) {
-        var length = 2 + 8 + data.Length * 4;
-        var packet = Mod.GetPacket(length);
+    public int sendSyncPacket(MapTile[] data, int index, int targetPlayer) {
+        var originalLength = 2 + 8 + data.Length * 4;
+        var compressedData = compress(convertToBytes(data));
+        var compressedLength = compressedData.Length;
+        var packet = Mod.GetPacket(originalLength);
         packet.Write((byte)SharedMapMessages.Sync);
         packet.Write((byte)targetPlayer);
         packet.Write(index);
-        packet.Write(length);
-        foreach (var tile in data) {
-            packet.Write(tile.Type);
-            packet.Write(tile.Light);
-            // we don't need to send IsChanged, we set it to true anyway
-            packet.Write(tile.Color);
-        }
+        packet.Write(compressedLength);
+        packet.Write(compressedData);
 
+        var length = 2 + 8 + compressedLength;
         packet.Send();
+        return length;
     }
 
     public void sendSyncPackets(int targetPlayer) {
         var map = Main.Map;
         int size = map.MaxWidth;
         MapTile[] data = new MapTile[size];
+        var sum = 0;
+        var count = 0;
         // send it in chunks
         for (int y = 0; y < map.MaxHeight; y++) {
             var index = y;
@@ -143,23 +152,61 @@ public class QoLSharedMapSystem : ModSystem {
                 data[x] = map[x, y];
             }
 
-            sendSyncPacket(data, index, targetPlayer);
+            sum += sendSyncPacket(data, index, targetPlayer);
+            count++;
         }
 
-        Mod.Logger.Info($"Sent {size} sync packets");
+        Mod.Logger.Info($"Sent {count} sync packets, size {sum}");
+    }
+
+    private byte[] convertToBytes(MapTile[] data) {
+        using (var stream = new MemoryStream()) {
+            using (var writer = new BinaryWriter(stream)) {
+                for (var i = 0; i < Main.Map.MaxWidth; i++) {
+                    var tile = data[i];
+                    writer.Write(tile.Type);
+                    writer.Write(tile.Light);
+                    // we don't need to send IsChanged, we set it to true anyway
+                    writer.Write(tile.Color);
+                }
+            }
+
+            return stream.ToArray();
+        }
+    }
+
+    private byte[] compress(byte[] data) {
+        using (MemoryStream memoryStream = new MemoryStream()) {
+            using (DeflateStream deflateStream = new DeflateStream(memoryStream, CompressionMode.Compress)) {
+                deflateStream.Write(data, 0, data.Length);
+            }
+
+            return memoryStream.ToArray();
+        }
+    }
+
+    private byte[] decompress(byte[] data) {
+        using (MemoryStream inStream = new MemoryStream(data)) {
+            using (MemoryStream outStream = new MemoryStream()) {
+                using (DeflateStream deflateStream = new DeflateStream(inStream, CompressionMode.Decompress)) {
+                    deflateStream.CopyTo(outStream);
+                }
+
+                return outStream.ToArray();
+            }
+        }
     }
 
     private void relaySyncPacket(BinaryReader reader, byte whichPlayer) {
         // just relay the packet
         var startIndex = reader.ReadInt32();
-        var length = reader.ReadInt32();
-        var dataLength = length - 10;
-        var data = reader.ReadBytes(dataLength);
+        var compressedLength = reader.ReadInt32();
+        var data = reader.ReadBytes(compressedLength);
         var packet = Mod.GetPacket();
         packet.Write((byte)SharedMapMessages.Sync);
         packet.Write(whichPlayer);
         packet.Write(startIndex);
-        packet.Write(length);
+        packet.Write(compressedLength);
         packet.Write(data);
         // don't send it back to the original client
         packet.Send(whichPlayer);
@@ -185,31 +232,47 @@ public class QoLSharedMapSystem : ModSystem {
         counter++;
         // if too many have accumulated, send
         if (instance.updates.Count > updateBatching || instance.counter > maxUpdateIntervalTicks) {
-            while (!updates.IsEmpty) {
-                var maxUpdates = Math.Min(packetSize, updates.Count);
-                // size is maxUpdates * 5 (2 shorts+byte) + 4 bytes for misc shit
-                // this can't be more than a short obviously
-                var length = (short)(2 + 2 + maxUpdates * 8);
-                var packet = Mod.GetPacket(length);
-                packet.Write((byte)SharedMapMessages.MapUpdate);
-                packet.Write((byte)Main.myPlayer);
-                packet.Write(length);
+            Task.Run(() => {
+                var totalUpdates = 0;
+                var size = 0;
+                while (!updates.IsEmpty) {
+                    var maxUpdates = Math.Min(packetSize, updates.Count);
+                    // size is maxUpdates * 5 (2 shorts+byte) + 4 bytes for misc shit
+                    // this can't be more than a short obviously
+                    var length = (short)(2 + 2 + maxUpdates * 8);
+                    var packet = Mod.GetPacket(length);
+                    packet.Write((byte)SharedMapMessages.MapUpdate);
+                    packet.Write((byte)Main.myPlayer);
+                    byte[] data;
+                    using (var stream = new MemoryStream()) {
+                        using (var writer = new BinaryWriter(stream)) {
+                            for (var i = 0; i < maxUpdates; i++) {
+                                var succ = updates.TryDequeue(out var t);
+                                writer.Write(t.X);
+                                writer.Write(t.Y);
+                                var mapTile = Main.Map[t.X, t.Y];
+                                writer.Write(mapTile.Type);
+                                writer.Write(mapTile.Light);
+                                writer.Write(mapTile.Color);
+                            }
+                        }
 
-                for (var i = 0; i < maxUpdates; i++) {
-                    var succ = updates.TryDequeue(out var t);
-                    packet.Write(t.X);
-                    packet.Write(t.Y);
-                    var mapTile = Main.Map[t.X, t.Y];
-                    packet.Write(mapTile.Type);
-                    packet.Write(mapTile.Light);
-                    packet.Write(mapTile.Color);
+                        data = stream.ToArray();
+                        data = compress(data);
+                    }
+
+                    packet.Write((short)data.Length);
+                    packet.Write((short)maxUpdates);
+                    packet.Write(data);
+                    packet.Send();
+                    totalUpdates += maxUpdates;
+                    size += length;
                 }
 
-                packet.Send();
-                Mod.Logger.Info($"Sent {maxUpdates} map updates, {updates.Count} remaining");
-            }
+                //Mod.Logger.Debug($"Sent {totalUpdates} map updates (size {size}), {updates.Count} remaining");
 
-            instance.counter = 0;
+                instance.counter = 0;
+            });
         }
 
         counter2++;
@@ -245,24 +308,16 @@ public class QoLSharedMapSystem : ModSystem {
         // running on server
         if (Main.netMode == NetmodeID.Server) {
             var length = reader.ReadInt16();
-            var updateLength = (length - 4) / 8;
+            var maxUpdates = reader.ReadInt16();
 
             var packet = Mod.GetPacket(length);
+            var data = reader.ReadBytes(length);
             packet.Write((byte)SharedMapMessages.MapUpdate);
             packet.Write(whichPlayer);
             packet.Write(length);
-            for (var i = 0; i < updateLength; i++) {
-                var x = reader.ReadInt16();
-                var y = reader.ReadInt16();
-                var t = reader.ReadUInt16();
-                var l = reader.ReadByte();
-                var c = reader.ReadByte();
-                packet.Write(x);
-                packet.Write(y);
-                packet.Write(t);
-                packet.Write(l);
-                packet.Write(c);
-            }
+            packet.Write(maxUpdates);
+            packet.Write(data);
+
 
             ///packet.Send(-1, whichPlayer);
             sendToSameTeam(packet, whichPlayer);
@@ -270,25 +325,29 @@ public class QoLSharedMapSystem : ModSystem {
         // running on client
         else {
             short length = reader.ReadInt16();
-            var updateLength = (short)((length - 4) / 8);
+            short maxUpdates = reader.ReadInt16();
+            var compressedData = reader.ReadBytes(length);
+            var data = decompress(compressedData);
+            using (var ms = new MemoryStream(data)) {
+                using (var rd = new BinaryReader(ms)) {
+                    for (int i = 0; i < maxUpdates; i++) {
+                        var x = rd.ReadInt16();
+                        var y = rd.ReadInt16();
+                        var t = rd.ReadUInt16();
+                        byte l = rd.ReadByte();
+                        byte c = rd.ReadByte();
 
-            for (int i = 0; i < updateLength; i++) {
-                var x = reader.ReadInt16();
-                var y = reader.ReadInt16();
-                var t = reader.ReadUInt16();
-                byte l = reader.ReadByte();
-                byte c = reader.ReadByte();
+                        var map = Main.Map;
 
-                var map = Main.Map;
-
-                var tile = map[x, y];
-                tile.Type = Math.Max(t, tile.Light);
-                tile.Light = l;
-                tile.Color = c;
-                tile.IsChanged = true;
-                map.SetTile(x, y, ref tile);
-                updateMapTile(x, y);
-                Main.updateMap = true;
+                        var tile = map[x, y];
+                        tile.Type = t;
+                        tile.Light = Math.Max(l, tile.Light);
+                        tile.Color = c;
+                        tile.IsChanged = true;
+                        map.SetTile(x, y, ref tile);
+                        updateMapTile(x, y);
+                    }
+                }
             }
         }
     }
@@ -319,10 +378,10 @@ public class QoLSharedMapSystem : ModSystem {
         else {
             var otherChecksum = reader.ReadInt64();
             var localChecksum = calculateLightedTiles(Main.Map);
-            Mod.Logger.Info($"{localChecksum} vs {otherChecksum} checksum");
             if (Math.Abs(otherChecksum - localChecksum) > lightTolerance * 255) {
-                Mod.Logger.Info($"Should have sent sync packets, {localChecksum} vs {otherChecksum} checksum");
-                sendSyncPackets(whichPlayer);
+                Mod.Logger.Info($"Sent sync packets, {localChecksum} vs {otherChecksum} checksum");
+                Task.Run(() => sendSyncPackets(whichPlayer));
+                //sendSyncPackets(whichPlayer);
             }
         }
     }
@@ -338,9 +397,9 @@ public class QoLSharedMapSystem : ModSystem {
         else {
             // apply light updates
             var index = reader.ReadInt32();
-            var length = reader.ReadInt32();
-            var dataLength = length - 10;
-            var data = reader.ReadBytes(dataLength);
+            var compressedLength = reader.ReadInt32();
+            var compressedData = reader.ReadBytes(compressedLength);
+            var data = decompress(compressedData);
 
             var map = Main.Map;
             // data contains Map[all, index]
@@ -348,16 +407,21 @@ public class QoLSharedMapSystem : ModSystem {
             // one is a global map update but capped at 250000 per frame?
             // another is immediate, capped at 1000 for the exploring and stuff?
             // well the slower one is good for us
-            for (int i = 0; i < map.MaxWidth; i++) {
-                var tile = map[i, index];
-                var type = BitConverter.ToUInt16(data, i * 4);
-                var light = data[i * 4 + 2];
-                var color = data[i * 4 + 3];
-                tile.Type = type;
-                tile.Light = Math.Max(light, tile.Light);
-                tile.Color = color;
-                tile.IsChanged = true;
-                map.SetTile(i, index, ref tile);
+            //VanillaQoL.instance.Logger.Warn($"{compressedLength}, {compressedData.Length}, {data.Length}");
+            using (var memoryStream = new MemoryStream(data)) {
+                using (var bytes = new BinaryReader(memoryStream)) {
+                    for (int i = 0; i < map.MaxWidth; i++) {
+                        var tile = map[i, index];
+                        var type = bytes.ReadUInt16();
+                        var light = bytes.ReadByte();
+                        var color = bytes.ReadByte();
+                        tile.Type = type;
+                        tile.Light = Math.Max(light, tile.Light);
+                        tile.Color = color;
+                        tile.IsChanged = true;
+                        map.SetTile(i, index, ref tile);
+                    }
+                }
             }
 
             Main.refreshMap = true;

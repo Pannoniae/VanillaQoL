@@ -43,6 +43,7 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(ModILEdits));
         Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
         Utils.completelyWipeClass(typeof(MagicStorageLogic));
+        Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
         // Func<bool> is a static lambda, this would leak as well
         Utils.completelyWipeClass(typeof(LanguagePatch));
 

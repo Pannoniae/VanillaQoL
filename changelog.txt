@@ -1,1 +1,1 @@
- - Add map sharing in Multiplayer.
+ - Added map sharing compression

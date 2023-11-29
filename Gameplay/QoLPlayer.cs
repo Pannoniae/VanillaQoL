@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using VanillaQoL.Config;
@@ -14,6 +15,12 @@ public class QoLPlayer : ModPlayer {
                 Main.LocalPlayer.team = (int)team;
                 NetMessage.SendData(MessageID.PlayerTeam, number: Main.myPlayer);
             }
+        }
+    }
+    public override void ProcessTriggers(TriggersSet triggersSet) {
+        if (QoLConfig.Instance.mapSharing && Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled && QoLSharedMapSystem.shareKeybind.JustPressed) {
+            QoLSharedMapSystem.instance.sendSyncRequestPacket();
+            Main.NewText("Requested map sync.");
         }
     }
 }

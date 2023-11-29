@@ -21,6 +21,10 @@ public class Utils {
         var fields = collectSelfStaticFieldInfo(type);
         foreach (var staticField in fields) {
             try {
+                // constant, skip
+                if (staticField.IsLiteral) {
+                    continue;
+                }
                 staticField.SetValue(null, null);
             }
             // static readonly field? time for unsafe hackery because reflection doesn't work
