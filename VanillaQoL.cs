@@ -4,6 +4,7 @@ using VanillaQoL.API;
 using VanillaQoL.Config;
 using VanillaQoL.Fixes;
 using VanillaQoL.Gameplay;
+using VanillaQoL.IL;
 
 namespace VanillaQoL;
 

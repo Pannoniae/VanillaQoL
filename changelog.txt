@@ -1,1 +1,3 @@
- - Added nurse healing over time, to fix people exploiting the nurse healing.
+ - Made stloc/ldloc in IL edits more robust.
+ - Added an option to remove town slimes.
+ - No longer sends map data if player is alone on the server.

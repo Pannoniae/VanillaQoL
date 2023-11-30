@@ -1,6 +1,4 @@
-using System;
 using System.ComponentModel;
-using Terraria;
 using Terraria.ModLoader.Config;
 
 namespace VanillaQoL.Config;
@@ -43,6 +41,11 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool showLuck { get; set; }
+
+    // Gel
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool disableTownSlimes { get; set; }
 
     // Tally Counter
     [Header("tooltips")]

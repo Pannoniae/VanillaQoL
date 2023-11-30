@@ -14,6 +14,7 @@ Features:
  - An option to automatically join a team in Multiplayer.
  - An option to share the map with your teammates in Multiplayer. (thank you Lan! https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
  - Make the nurse heal players over time to stop exploits.
+ - An option to remove Town Slimes, for those who hate them with a passion.
 
 Everything is fully configurable.
 

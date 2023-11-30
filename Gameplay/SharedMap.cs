@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Threading.Tasks;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -57,6 +58,12 @@ public class QoLSharedMapSystem : ModSystem {
         instance = null!;
     }
 
+    public static bool isForeverAlone()
+    {
+        var num = Main.player.Count(entity => entity.active);
+        return num == 1;
+    }
+
     private void joinWorldPatch(ILContext il) {
         var c = new ILCursor(il);
         var emitted = false;
@@ -74,7 +81,7 @@ public class QoLSharedMapSystem : ModSystem {
 
     public static void joinWorld() {
         // sync on load
-        if (Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled) {
+        if (Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled && !isForeverAlone()) {
             instance.sendSyncRequestPacket();
         }
     }
@@ -226,6 +233,12 @@ public class QoLSharedMapSystem : ModSystem {
 
     public override void PostUpdateEverything() {
         if (Main.netMode != NetmodeID.MultiplayerClient) {
+            return;
+        }
+
+        if (isForeverAlone()) {
+            counter = 0;
+            counter2 = 0;
             return;
         }
 

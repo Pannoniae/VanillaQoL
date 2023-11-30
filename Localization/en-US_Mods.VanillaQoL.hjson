@@ -142,6 +142,11 @@ Configs: {
 			Label: "[i:73] Nurse Healing Time"
 			Tooltip: Controls how long the Nurse should heal the player for. The bigger the value, the slower the healing.
 		}
+
+		disableTownSlimes: {
+			Label: "[i:23] Disable Town Slimes"
+			Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
+		}
 	}
 
 	Team: {

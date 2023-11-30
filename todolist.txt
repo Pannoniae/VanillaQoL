@@ -20,7 +20,7 @@ Players who respawn will automatically receive specified buffs/debuffs.
 A new placable that acts like a bed spawn point but doesn’t need to be in a room.
 Nurse healing gives a very strong healing buff which heals your missing HP over 10ish seconds (not a respawn mechanic but I’m not a fan of how op her healing is, regardless of potion sickness (especially in multiplayer)).
 
-- add npc heads into chat tags?
+- add npc heads into chat tags? also fix the recipe browser ones, their hover is utterly broken
 - world and player icon for hardmode/npc thingie/other permanent upgrades.
 - nurse fix (heal over 10 seconds instead of instantly, fix nursefagging)
 - remove town slimes (request)

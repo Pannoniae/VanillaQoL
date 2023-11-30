@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
@@ -10,7 +13,7 @@ using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.UI;
 
-namespace VanillaQoL.Fixes;
+namespace VanillaQoL.IL;
 
 public class ILEdits : ModSystem {
     // IL_0684: stloc.1      // start
@@ -136,18 +139,20 @@ public class ILEdits : ModSystem {
     // IL_0ce9: stloc.s      text1
     public static void stopwatchMetricPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
+        int text = 0;
+        int a = 0;
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdstr("GameUI.Speed"),
-                _ => true, // some ldloc idc
+                i => i.MatchLdloc(out a), // some ldloc idc
                 _ => true,
                 _ => true,
                 _ => true,
                 i => i.MatchCall("Terraria.Localization.Language", "GetTextValue"),
-                i => i.MatchStloc(10))
+                i => i.MatchStloc(out text))
            ) {
-            ilCursor.Emit(OpCodes.Ldloc_S, (byte)49);
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)a);
             ilCursor.Emit<ILEdits>(OpCodes.Call, "metricStopwatch");
             // text1 = this thing
-            ilCursor.Emit(OpCodes.Stloc_S, (byte)10);
+            ilCursor.Emit(OpCodes.Stloc_S, (byte)text);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate stopwatch info text at DrawInfoAccs (GameUI.Speed)");
@@ -188,7 +193,8 @@ public class ILEdits : ModSystem {
                 i => i.MatchLdcI4(0))) {
             // next instruction is ble <end of loop>, num3 < 0
             // we want to make num3 -1 if our condition is false
-            il.Method.Body.Variables.Add(new(il.Import(typeof(bool))));
+            il.Body.Variables.Add(new(il.Import(typeof(bool))));
+            var idx = il.Body.Variables.Count - 1; // we use the last variable we just added!
             // we made ourselves some nice code!
             // [202 9 - 202 63]
             // IL_000a: ldloc.0      // liquid
@@ -219,8 +225,8 @@ public class ILEdits : ModSystem {
             ilCursor.MarkLabel(compare);
             ilCursor.Emit(OpCodes.Ldc_I4_0);
             ilCursor.MarkLabel(after);
-            ilCursor.Emit(OpCodes.Stloc_S, (byte)12);
-            ilCursor.Emit(OpCodes.Ldloc_S, (byte)12);
+            ilCursor.Emit(OpCodes.Stloc_S, (byte)idx);
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)idx);
             ilCursor.EmitBrfalse(target);
             ilCursor.Emit(OpCodes.Ldc_I4_M1);
             ilCursor.EmitStloc3();
@@ -245,23 +251,26 @@ public class ILEdits : ModSystem {
     // we remove this entire fucking block and just replace it lol
     public static void nurseHealingPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
-        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdsfld<Main>("player"),
+        int health = 0;
+        if (ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdsfld<Main>("player"),
                 i => i.MatchLdsfld<Main>("myPlayer"),
                 i => i.MatchLdelemRef(),
                 i => i.MatchDup(),
                 i => i.MatchLdfld<Player>("statLife"),
-                i => i.MatchLdloc(14), // health is index 14
+                i => i.MatchLdloc(out health), // health is index 14
                 i => i.MatchAdd(),
                 i => i.MatchStfld<Player>("statLife"))) {
             // great, so new we have all those cute instructions, we will get rid of all of them
             var incoming = ilCursor.IncomingLabels;
-            ilCursor.RemoveRange(8);
-            ilCursor.Emit(OpCodes.Ldloc_S, (byte)14);
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)health);
             ilCursor.Emit<ILEdits>(OpCodes.Call, "nurseAddHealing");
-            foreach (var label in incoming) {
-                label.Target = ilCursor.Prev.Previous;
-            }
+            ilCursor.RemoveRange(8);
+            //foreach (var label in incoming) {
+            //    label.Target = ilCursor.Prev.Previous;
+            //}
+
             updateOffsets(ilCursor);
+            MonoModHooks.DumpIL(VanillaQoL.instance, il);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
@@ -278,7 +287,46 @@ public class ILEdits : ModSystem {
         player.GetModPlayer<NurseHealPlayer>().time = time;
         // sync with network
         player.AddBuff(ModContent.BuffType<NurseHeal>(), time, false);
+    }
 
+    // [54803 7 - 54803 45]
+    // IL_0da8: ldloc.s      numTownNPCs
+    // IL_0daa: call         void Terraria.ModLoader.NPCLoader::CanTownNPCSpawn(int32)
+    // IL_0daf: ret
+    public static void NPCSpawnConditionPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        int numNPCs = 0;
+        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdloc(out numNPCs),
+                i => i.MatchCall("Terraria.ModLoader.NPCLoader", "CanTownNPCSpawn"),
+                i => i.MatchRet())) {
+            // we go back *before* the ret
+            ilCursor.Index -= 1;
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)numNPCs);
+            ilCursor.Emit<ILEdits>(OpCodes.Call, "canNPCSpawn");
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
+        }
+    }
+
+
+    // todo: make some nice api for this in API
+    public static void canNPCSpawn(int numNPCs) {
+        foreach (var (key, npc) in ContentSamples.NpcsByNetId) {
+            var slimes = new List<int>(Enumerable.Range(678, 688 - 678));
+            slimes.Add(670);
+            if (npc.townNPC && slimes.Contains(key)) {
+                Main.townNPCCanSpawn[npc.type] = false;
+                if (WorldGen.prioritizedTownNPCType == npc.type)
+                    WorldGen.prioritizedTownNPCType = 0;
+            }
+        }
+    }
+
+    private static void noop(ILContext il) {
+        // the good thing is that we don't do anything
+        var ilCursor = new ILCursor(il);
+        ilCursor.EmitRet();
     }
 
     public static void load() {
@@ -302,6 +350,13 @@ public class ILEdits : ModSystem {
         if (QoLConfig.Instance.overTimeNurseHealing) {
             IL_Main.GUIChatDrawInner += nurseHealingPatch;
         }
+
+        if (QoLConfig.Instance.disableTownSlimes) {
+            IL_Main.UpdateTime_SpawnTownNPCs += NPCSpawnConditionPatch;
+            IL_NPC.TransformCopperSlime += noop;
+            IL_NPC.TransformElderSlime += noop;
+            IL_NPC.ViolentlySpawnNerdySlime += noop;
+        }
     }
 
     public static void unload() {
@@ -310,6 +365,8 @@ public class ILEdits : ModSystem {
         IL_Main.DrawPVPIcons -= pvpUIPatch;
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
+        IL_Main.GUIChatDrawInner -= nurseHealingPatch;
+        IL_Main.UpdateTime_SpawnTownNPCs -= NPCSpawnConditionPatch;
     }
 }
 
