@@ -261,16 +261,11 @@ public class ILEdits : ModSystem {
                 i => i.MatchAdd(),
                 i => i.MatchStfld<Player>("statLife"))) {
             // great, so new we have all those cute instructions, we will get rid of all of them
-            var incoming = ilCursor.IncomingLabels;
             ilCursor.Emit(OpCodes.Ldloc_S, (byte)health);
             ilCursor.Emit<ILEdits>(OpCodes.Call, "nurseAddHealing");
             ilCursor.RemoveRange(8);
-            //foreach (var label in incoming) {
-            //    label.Target = ilCursor.Prev.Previous;
-            //}
 
             updateOffsets(ilCursor);
-            MonoModHooks.DumpIL(VanillaQoL.instance, il);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
