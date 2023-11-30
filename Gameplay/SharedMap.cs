@@ -19,11 +19,11 @@ namespace VanillaQoL.Gameplay;
 // todo only send to same team
 public class QoLSharedMapSystem : ModSystem {
     ConcurrentQueue<Point16> updates = new();
-    public static QoLSharedMapSystem instance;
+    public static QoLSharedMapSystem instance = null!;
     private int counter;
     private int counter2;
 
-    public static ModKeybind shareKeybind { get; private set; }
+    public static ModKeybind shareKeybind { get; private set; } = null!;
 
     public const int updateBatching = 2000;
     private const int maxUpdateIntervalTicks = 60;

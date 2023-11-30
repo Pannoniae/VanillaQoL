@@ -13,17 +13,17 @@ namespace VanillaQoL.UI;
 public class QoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
     public string LocalizationCategory => "UI";
 
-    public static LocalizedText timeText;
+    public static LocalizedText timeText = null!;
 
     // Look out there, here comes the west wind yes!
-    public static LocalizedText westWind;
-    public static LocalizedText eastWind;
+    public static LocalizedText westWind = null!;
+    public static LocalizedText eastWind = null!;
 
-    public static LocalizedText compassWest;
-    public static LocalizedText compassEast;
+    public static LocalizedText compassWest = null!;
+    public static LocalizedText compassEast = null!;
 
-    public static LocalizedText depth;
-    public static LocalizedText speed;
+    public static LocalizedText depth = null!;
+    public static LocalizedText speed = null!;
 
     public override void SetStaticDefaults() {
         timeText = LocalisationUtils.GetLocalization(this, nameof(timeText));

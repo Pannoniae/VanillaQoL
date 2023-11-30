@@ -1,1 +1,2 @@
- - Stop dumping debug IL :)
+ - Made the mod null-safe.
+ - Added shimmer conditions into tooltip.

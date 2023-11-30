@@ -14,6 +14,9 @@ Tooltips: {
 	Shimmer: {
 		shimmerable: Shimmerable
 		shimmerItem: " into [i:{0}] {1}"
+		shimmerPostSkeletron: Can be decrafted after Skeletron is defeated
+		shimmerPostGolem: Can be decrafted after Golem is defeated
+		shimmerPostML: " after the Moon Lord is defeated"
 		shimmerDecraft: ", can be decrafted"
 		shimmerNPC: ", transforming into {0}"
 		shimmerCoinLuck: " into coin luck"

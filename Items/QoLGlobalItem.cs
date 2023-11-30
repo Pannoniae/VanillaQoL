@@ -27,6 +27,9 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
 
     public static LocalizedText shimmerable = null!;
     public static LocalizedText shimmerItem = null!;
+    public static LocalizedText shimmerPostSkeletron = null!;
+    public static LocalizedText shimmerPostGolem = null!;
+    public static LocalizedText shimmerPostML = null!;
     public static LocalizedText shimmerDecraft = null!;
     public static LocalizedText shimmerNPC = null!;
     public static LocalizedText shimmerCoinLuck = null!;
@@ -52,6 +55,9 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
         shimmerable = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerable));
         shimmerItem = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerItem));
+        shimmerPostSkeletron = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerPostSkeletron));
+        shimmerPostGolem = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerPostGolem));
+        shimmerPostML = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerPostML));
         shimmerDecraft = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerDecraft));
         shimmerNPC = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerNPC));
         shimmerCoinLuck = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerCoinLuck));
@@ -418,6 +424,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         var targetNPC = NPCTransform == -1 ? item.makeNPC : NPCTransform;
         int coinLuckValue = ItemID.Sets.CoinLuckValue[sourceItem];
         int decraftingRecipeIndex = ShimmerTransforms.GetDecraftingRecipeIndex(sourceItem);
+
+        // I planned to use these to display shimmering conditions, but that's not done yet. So here it is commented out so the compiler shuts up about unused variables.
         bool postSkeletron = false;
         bool postGolem = false;
         if (decraftingRecipeIndex > -1) {
@@ -452,12 +460,26 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         if (targetItem > 0) {
             var itemName = ContentSamples.ItemsByType[targetItem].Name;
             var itemString = targetItem;
-            tooltip = shimmerable + shimmerItem.Format(itemString, itemName);
+            if (moonLordRequirement) {
+                tooltip = shimmerable + shimmerItem.Format(itemString, itemName) + shimmerPostML;
+            }
+            else {
+                tooltip = shimmerable + shimmerItem.Format(itemString, itemName);
+            }
         }
 
         // Decrafting
         // we don't actually need a tooltip for this, that would be bloat
         if (decraftingRecipeIndex > -1) {
+            var shimmerCondition = "";
+            if (postSkeletron) {
+                shimmerCondition = shimmerPostSkeletron.Value;
+            }
+
+            if (postGolem) {
+                shimmerCondition = shimmerPostGolem.Value;
+            }
+            tooltip = shimmerCondition;
         }
 
         // gamer girl bathwater
@@ -465,6 +487,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             var NPCName = NPCIDtoNPC(NPCID.TownSlimeRainbow).TypeName;
             tooltip = shimmerable + shimmerNPC.Format(NPCName);
         }
+
         // NPC
         if (targetNPC > 0) {
             var NPCName = NPCIDtoNPC(targetNPC).TypeName;
@@ -476,6 +499,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             //var value = Main.ValueToCoins(coinLuckValue);
             tooltip = shimmerable + shimmerCoinLuck.Format(coinLuckValue);
         }
+
+        // Add conditions (post-skeletron/golem/ml)
 
 
         var tooltipLine = new TooltipLine(VanillaQoL.instance, "ShimmerInfo", tooltip);
@@ -489,7 +514,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     private bool requiresMoonLordToShimmer(int item) {
-        return item == 779 || item == 1326 || item == 3031 || item == 5364;
+        return item == ItemID.Clentaminator || item == ItemID.RodofDiscord || item == ItemID.BottomlessBucket || item == ItemID.BottomlessShimmerBucket;
     }
 
     private void ammunitionTooltips(Item item, List<TooltipLine> tooltips) {

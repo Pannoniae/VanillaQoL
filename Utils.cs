@@ -14,7 +14,8 @@ public class Utils {
     /// <param name="cls"></param>
     public static void completelyWipeClass(Type type) {
         // do the same for nested classes
-        foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)) {
+        foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
+                                                   BindingFlags.NonPublic)) {
             completelyWipeClass(nested);
         }
 
@@ -25,11 +26,11 @@ public class Utils {
                 if (staticField.IsLiteral) {
                     continue;
                 }
+
                 staticField.SetValue(null, null);
             }
             // static readonly field? time for unsafe hackery because reflection doesn't work
             catch (FieldAccessException e) {
-
                 wipeReadonlyField(staticField, null);
                 // actually we can
                 // don't throw if mod init broke, so check for null
@@ -82,6 +83,7 @@ public class Utils {
     }
 
     public static FieldInfo[] collectStaticFieldInfo(Type type) {
+        if (type == null) throw new ArgumentNullException(nameof(type));
         // collect all static fields
         var fieldInfos = type.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
@@ -92,12 +94,13 @@ public class Utils {
 
         // Otherwise, collect all types up to the furthest base class
         Type currentType = type;
+
         var fieldComparer = new FieldInfoComparer();
         var fieldInfoList = new HashSet<FieldInfo>(fieldInfos, fieldComparer);
         while (currentType != typeof(object)) {
             fieldInfos = currentType.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
             fieldInfoList.UnionWith(fieldInfos);
-            currentType = currentType.BaseType;
+            currentType = currentType.BaseType!;
         }
 
         return fieldInfoList.ToArray();
@@ -111,11 +114,11 @@ public class Utils {
 }
 
 public class FieldInfoComparer : IEqualityComparer<FieldInfo> {
-    public bool Equals(FieldInfo x, FieldInfo y) {
-        return x.DeclaringType == y.DeclaringType && x.Name == y.Name;
+    public bool Equals(FieldInfo? x, FieldInfo? y) {
+        return x?.DeclaringType == y?.DeclaringType && x?.Name == y?.Name;
     }
 
     public int GetHashCode(FieldInfo obj) {
-        return obj.Name.GetHashCode() ^ obj.DeclaringType.GetHashCode();
+        return (obj.DeclaringType?.GetHashCode() ^ obj.Name?.GetHashCode()).GetValueOrDefault();
     }
 }

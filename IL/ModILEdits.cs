@@ -49,14 +49,19 @@ public static class RecipeBrowserLogic {
     public static void load() {
         // yey, more internal classes. fuck this, reflection hackery time
         var recipeBrowserModAssembly = ModLoader.GetMod("RecipeBrowser").Code;
-        var recipeInfoType1 = recipeBrowserModAssembly.GetType("RecipeBrowser.UIRecipeInfo");
-        var recipeInfoType2 = recipeBrowserModAssembly.GetType("RecipeBrowser.UIRecipeInfoRightAligned");
-        var recipeBrowserMethod1 =
-            recipeInfoType1.GetMethod("DrawSelf", BindingFlags.Instance | BindingFlags.NonPublic);
-        var recipeBrowserMethod2 =
-            recipeInfoType2.GetMethod("DrawSelf", BindingFlags.Instance | BindingFlags.NonPublic);
-        MonoModHooks.Modify(recipeBrowserMethod1, removeHiddenConditions);
-        MonoModHooks.Modify(recipeBrowserMethod2, removeHiddenConditions);
+        try {
+            var recipeInfoType1 = recipeBrowserModAssembly.GetType("RecipeBrowser.UIRecipeInfo");
+            var recipeInfoType2 = recipeBrowserModAssembly.GetType("RecipeBrowser.UIRecipeInfoRightAligned");
+            var recipeBrowserMethod1 =
+                recipeInfoType1!.GetMethod("DrawSelf", BindingFlags.Instance | BindingFlags.NonPublic);
+            var recipeBrowserMethod2 =
+                recipeInfoType2!.GetMethod("DrawSelf", BindingFlags.Instance | BindingFlags.NonPublic);
+            MonoModHooks.Modify(recipeBrowserMethod1, removeHiddenConditions);
+            MonoModHooks.Modify(recipeBrowserMethod2, removeHiddenConditions);
+        }
+        catch (Exception e) {
+            VanillaQoL.instance.Logger.Warn($"Couldn't inject into RecipeBrowser to remove hidden conditions! {e}");
+        }
     }
 
     // [112 39 - 112 56]

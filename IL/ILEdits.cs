@@ -374,8 +374,6 @@ public static class CensusLogic {
 
     private static readonly int lengthOfTheList;
 
-    private static readonly PropertyInfo countProperty;
-
     // time to initialise the hackery
     // also seriously fuck you census for making everything internal so time for hackery
     static CensusLogic() {
@@ -391,7 +389,7 @@ public static class CensusLogic {
             var instance = instanceField!.GetValue(null);
             var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
             theList = townNPCInfo.GetValue(instance)!;
-            countProperty = theList.GetType().GetProperty("Count")!;
+            var countProperty = theList.GetType().GetProperty("Count")!;
             lengthOfTheList = (int)countProperty.GetValue(theList)!;
         }
         catch (Exception e) {

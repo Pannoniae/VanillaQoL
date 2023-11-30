@@ -52,7 +52,7 @@ public static class LocalisationUtils {
     public static LocalizedText GetLocalization(
         ILocalizedModType type,
         string suffix,
-        Func<string> makeDefaultValue = null) {
+        Func<string>? makeDefaultValue = null) {
         return Language.GetOrRegister(GetLocalizationKey(type, suffix), makeDefaultValue);
     }
 
@@ -69,7 +69,7 @@ public static class LocalisationUtils {
         ILocalizedModType type,
         string subCategory,
         string suffix,
-        Func<string> makeDefaultValue = null) {
+        Func<string>? makeDefaultValue = null) {
         return Language.GetOrRegister(GetLocalizationKey(type, subCategory, suffix), makeDefaultValue);
     }
 

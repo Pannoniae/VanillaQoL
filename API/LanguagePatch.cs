@@ -19,7 +19,7 @@ public class LanguagePatch {
 
     public static void unload() {
         LanguageManager.Instance.OnLanguageChanged -= reloadHandler;
-        _overrides = null;
+        _overrides = null!;
         loaded = false;
     }
 
