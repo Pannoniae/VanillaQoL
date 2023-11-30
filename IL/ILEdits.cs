@@ -367,6 +367,9 @@ public class ILEdits : ModSystem {
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
         IL_Main.GUIChatDrawInner -= nurseHealingPatch;
         IL_Main.UpdateTime_SpawnTownNPCs -= NPCSpawnConditionPatch;
+        IL_NPC.TransformCopperSlime -= noop;
+        IL_NPC.TransformElderSlime -= noop;
+        IL_NPC.ViolentlySpawnNerdySlime -= noop;
     }
 }
 

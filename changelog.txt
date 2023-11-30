@@ -1,3 +1,1 @@
- - Made stloc/ldloc in IL edits more robust.
- - Added an option to remove town slimes.
- - No longer sends map data if player is alone on the server.
+ - Fix unloading town slime patches properly.
