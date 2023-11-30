@@ -25,6 +25,9 @@
     <Reference Include="HEROsMod">
       <HintPath>..\..\ModReader\HEROsMod\HEROsMod.dll</HintPath>
     </Reference>
+    <Reference Include="ImprovedRespawning">
+      <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
+    </Reference>
     <Reference Include="MagicStorage">
       <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
     </Reference>

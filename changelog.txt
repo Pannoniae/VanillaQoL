@@ -1,1 +1,1 @@
- - Added map sharing compression
+ - Added nurse healing over time, to fix people exploiting the nurse healing.

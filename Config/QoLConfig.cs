@@ -85,6 +85,17 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
 
+    // Gold Coin
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool overTimeNurseHealing { get; set; }
+
+    // Gold Coin
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(5)]
+    public int nurseHealingTime { get; set; }
+
     // Cog
     //[BackgroundColor(192, 54, 128, 192)]
     //[DefaultValue(true)]
@@ -106,6 +117,7 @@ public class QoLConfig : ModConfig {
     // Trifold Map
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
+    [ReloadRequired]
     public bool mapSharing { get; set; }
 
 

@@ -132,6 +132,16 @@ Configs: {
 			Label: "[i:893] Enable Map Sharing"
 			Tooltip: If enabled, players in the same team will share the map with each other.
 		}
+
+		overTimeNurseHealing: {
+			Label: "[i:73] Nurse Healing Fix"
+			Tooltip: If enabled, the Nurse heals players over time to avoid exploiting her healing function.
+		}
+
+		nurseHealingTime: {
+			Label: "[i:73] Nurse Healing Time"
+			Tooltip: Controls how long the Nurse should heal the player for. The bigger the value, the slower the healing.
+		}
 	}
 
 	Team: {
@@ -163,3 +173,10 @@ InfoDisplays: {
 }
 
 Keybinds.ShareMap.DisplayName: Share Map
+
+Buffs: {
+	NurseHeal: {
+		DisplayName: Nurse Healing
+		Description: The Nurse is healing you!
+	}
+}

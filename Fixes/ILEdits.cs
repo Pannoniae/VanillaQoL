@@ -3,10 +3,10 @@ using System.Reflection;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
+using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.UI;
 
@@ -22,7 +22,7 @@ public class ILEdits : ModSystem {
     /// Patch town NPCs to respawn at night.
     /// </summary>
     /// <param name="il"></param>
-    private static void townNPCPatch(ILContext il) {
+    public static void townNPCPatch(ILContext il) {
         // so after the !Main.daytime check, we call UpdateTime_SpawnTownNPCs() anyway
         var ilCursor = new ILCursor(il);
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchStsfld<Main>("eclipse"))) {
@@ -49,7 +49,7 @@ public class ILEdits : ModSystem {
     /// Patch town NPCs to be able to move at daytime.
     /// </summary>
     /// <param name="il"></param>
-    private static void townNPCTeleportPatch(ILContext il) {
+    public static void townNPCTeleportPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         // I am stupid so we patch before the next instruction instead.
         // I can't figure out how to go directly after a jump, sorry
@@ -69,7 +69,7 @@ public class ILEdits : ModSystem {
     // IL_0057: ldsfld       int32 Terraria.Main::EquipPage
     // IL_005c: ldc.i4.2
     // IL_005d: bne.un.s     IL_0067
-    private static void pvpUIPatch(ILContext il) {
+    public static void pvpUIPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         // inject before the condition
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdsfld<Main>("EquipPage"), i => i.MatchLdcI4(2))) {
@@ -98,7 +98,7 @@ public class ILEdits : ModSystem {
     }
 
     // thank you absoluteAquarian for SerousCommonLib!
-    private static void updateOffsets(ILCursor ilCursor) {
+    public static void updateOffsets(ILCursor ilCursor) {
         var instrs = ilCursor.Instrs;
         int curOffset = 0;
 
@@ -134,7 +134,7 @@ public class ILEdits : ModSystem {
     // IL_0cdf: box          [System.Runtime]System.Double
     // IL_0ce4: call         string Terraria.Localization.Language::GetTextValue(string, object)
     // IL_0ce9: stloc.s      text1
-    private static void stopwatchMetricPatch(ILContext il) {
+    public static void stopwatchMetricPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdstr("GameUI.Speed"),
                 _ => true, // some ldloc idc
@@ -182,7 +182,7 @@ public class ILEdits : ModSystem {
     // [473 9 - 473 22]
     // IL_002e: ldloc.3      // num3
     // IL_002f: ldc.i4.0
-    private static void disableShimmerPumpingPatch(ILContext il) {
+    public static void disableShimmerPumpingPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdloc3(),
                 i => i.MatchLdcI4(0))) {
@@ -233,13 +233,52 @@ public class ILEdits : ModSystem {
         }
     }
 
-    public static bool testMethod(Tile tile) {
-        int liquid = tile.LiquidAmount;
-        if (liquid == LiquidID.Shimmer && !NPC.downedMoonlord) {
-            return true;
+    // [32261 19 - 32261 64]
+    // IL_21d5: ldsfld       class Terraria.Player[] Terraria.Main::player
+    // IL_21da: ldsfld       int32 Terraria.Main::myPlayer
+    // IL_21df: ldelem.ref
+    // IL_21e0: dup
+    // IL_21e1: ldfld        int32 Terraria.Player::statLife
+    // IL_21e6: ldloc.s      health
+    // IL_21e8: add
+    // IL_21e9: stfld        int32 Terraria.Player::statLife
+    // we remove this entire fucking block and just replace it lol
+    public static void nurseHealingPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdsfld<Main>("player"),
+                i => i.MatchLdsfld<Main>("myPlayer"),
+                i => i.MatchLdelemRef(),
+                i => i.MatchDup(),
+                i => i.MatchLdfld<Player>("statLife"),
+                i => i.MatchLdloc(14), // health is index 14
+                i => i.MatchAdd(),
+                i => i.MatchStfld<Player>("statLife"))) {
+            // great, so new we have all those cute instructions, we will get rid of all of them
+            var incoming = ilCursor.IncomingLabels;
+            ilCursor.RemoveRange(8);
+            ilCursor.Emit(OpCodes.Ldloc_S, (byte)14);
+            ilCursor.Emit<ILEdits>(OpCodes.Call, "nurseAddHealing");
+            foreach (var label in incoming) {
+                label.Target = ilCursor.Prev.Previous;
+            }
+            updateOffsets(ilCursor);
         }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
+        }
+    }
 
-        return false;
+    public static void nurseAddHealing(int health) {
+        //VanillaQoL.instance.Logger.Info("Healed with Nurse!");
+        // apply buff until specified health is reached
+        var player = Main.LocalPlayer;
+        // in ticks
+        var time = QoLConfig.Instance.nurseHealingTime * 60;
+        player.GetModPlayer<NurseHealPlayer>().totalToHeal = health;
+        player.GetModPlayer<NurseHealPlayer>().time = time;
+        // sync with network
+        player.AddBuff(ModContent.BuffType<NurseHeal>(), time, false);
+
     }
 
     public static void load() {
@@ -258,6 +297,10 @@ public class ILEdits : ModSystem {
 
         if (QoLConfig.Instance.disableShimmerPumping) {
             IL_Wiring.XferWater += disableShimmerPumpingPatch;
+        }
+
+        if (QoLConfig.Instance.overTimeNurseHealing) {
+            IL_Main.GUIChatDrawInner += nurseHealingPatch;
         }
     }
 
