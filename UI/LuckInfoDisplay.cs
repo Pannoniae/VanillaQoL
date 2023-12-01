@@ -6,8 +6,7 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.UI;
 
-public class QoLInfoDisplay : InfoDisplay {
-
+public class LuckInfoDisplay : InfoDisplay {
 
     public static LocalizedText luckText { get; private set; } = null!;
 

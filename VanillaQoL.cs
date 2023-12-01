@@ -1,10 +1,13 @@
 using System.IO;
+using Terraria.GameContent.UI.Chat;
 using Terraria.ModLoader;
+using Terraria.UI.Chat;
 using VanillaQoL.API;
 using VanillaQoL.Config;
 using VanillaQoL.Fixes;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
+using VanillaQoL.UI;
 
 namespace VanillaQoL;
 
@@ -63,6 +66,10 @@ public class VanillaQoL : Mod {
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggled");
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggledSteamBattery");
         }
+
+        // load chat tags
+        // since recipe browser's broken chat tags are loaded in Load(), we do it later to overwrite it:))
+        ChatManager.Register<NPCTagHandler>("npc");
     }
 
     public override void HandlePacket(BinaryReader reader, int whoAmI) {

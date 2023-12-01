@@ -68,6 +68,11 @@ Configs: {
 			Tooltip: If enabled, items show what they transform into when tossed into Shimmer.
 		}
 
+		worldAndPlayerInfo: {
+			Label: "[i:393] Show Info on Selection Screen"
+			Tooltip: If enabled, worlds and players show useful info on their selection screen like whether a world is hardmode, which upgrades have been used, etc.
+		}
+
 		fixPvPUI: {
 			Label: "[i:181] Fix Team Icon Positioning"
 			Tooltip:
@@ -137,7 +142,7 @@ Configs: {
 		}
 
 		overTimeNurseHealing: {
-			Label: "[i:73] Nurse Healing Fix"
+			Label: "[npc/n:18] Nurse Healing Fix"
 			Tooltip: If enabled, the Nurse heals players over time to avoid exploiting her healing function.
 		}
 
@@ -174,9 +179,29 @@ UI: {
 }
 
 InfoDisplays: {
-	QoLInfoDisplay: {
+	LuckInfoDisplay: {
 		luckText: "{0} Luck"
 		DisplayName: Luck
+	}
+}
+
+Info: {
+	UIInfo: {
+		demonHeart: Used Demon Heart
+		torchGod: Has Torch God's Favour
+		artisanBread: Eaten the Artisan Loaf
+		aegisCrystal: Used a Vital Crystal
+		aegisFruit: Ate Aegis Fruit
+		arcaneCrystal: Used an Arcane Crystal
+		ambrosia: Ate Ambrosia
+		gummyWorm: Used a Gummy Worm
+		galaxyPearl: Used the Galaxy Pearl
+		minecartUpgradeKit: Used the Minecart Upgrade Kit
+		hardMode: Is in Hardmode
+		killedML: Defeated the Moon Lord
+		combatBook: Used Advanced Combat Techniques
+		combatBookVolumeTwo: Used Advanced Combat Techniques: Volume Two
+		peddlersSatchel: Used the Peddler's Satchel
 	}
 }
 

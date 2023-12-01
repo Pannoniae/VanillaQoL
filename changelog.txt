@@ -1,2 +1,1 @@
- - Made the mod null-safe.
- - Added shimmer conditions into tooltip.
+ - Fix town slime disabling when Census is loaded.

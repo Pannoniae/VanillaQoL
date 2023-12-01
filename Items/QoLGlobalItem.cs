@@ -41,6 +41,13 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText ammoFireRockets = null!;
     public static LocalizedText ammoFireDarts = null!;
 
+    public static Dictionary<int, int> MLShimmers = new() {
+        { 1326, 5335 },
+        { 779, 5134 },
+        { 3031, 5364 },
+        { 5364, 3031 }
+    };
+
     private const string hooks = "Hooks";
     private const string wings = "Wings";
     private const string shimmer = "Shimmer";
@@ -157,53 +164,52 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         maxAscentMultiplier = 1.5f;
         maxCanAscendMultiplier = 0.5f;
         ascentWhenRising = 0.1f;
-        if (wingType == 26) {
-            ascentWhenFalling = 0.75f;
-            ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 2.5f;
-            constantAscend = 0.125f;
-        }
-
-        if (wingType == 8 || wingType == 11 || wingType == 24 || wingType == 27 || wingType == 22)
-            maxAscentMultiplier = 1.66f;
-        if (wingType == 21 || wingType == 12 || wingType == 20 || wingType == 23)
-            maxAscentMultiplier = 1.805f;
-        if (wingType == 37) {
-            ascentWhenFalling = 0.75f;
-            ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 2.5f;
-            constantAscend = 0.125f;
-        }
-
-        if (wingType == 44) {
-            ascentWhenFalling = 0.85f;
-            ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 2.75f;
-            constantAscend = 0.125f;
-        }
-
-        if (wingType == 45) {
-            ascentWhenFalling = 0.95f;
-            ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 4.5f;
-        }
-
-        if (wingType == 29 || wingType == 32) {
-            ascentWhenFalling = 0.85f;
-            ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 3f;
-            constantAscend = 0.135f;
-        }
-
-        if (wingType == 30 || wingType == 31) {
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 2.45f;
-            constantAscend = 0.15f;
+        switch (wingType) {
+            case 26:
+                ascentWhenFalling = 0.75f;
+                ascentWhenRising = 0.15f;
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 2.5f;
+                constantAscend = 0.125f;
+                break;
+            case 8 or 11 or 24 or 27 or 22:
+                maxAscentMultiplier = 1.66f;
+                break;
+            case 21 or 12 or 20 or 23:
+                maxAscentMultiplier = 1.805f;
+                break;
+            case 37:
+                ascentWhenFalling = 0.75f;
+                ascentWhenRising = 0.15f;
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 2.5f;
+                constantAscend = 0.125f;
+                break;
+            case 44:
+                ascentWhenFalling = 0.85f;
+                ascentWhenRising = 0.15f;
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 2.75f;
+                constantAscend = 0.125f;
+                break;
+            case 45:
+                ascentWhenFalling = 0.95f;
+                ascentWhenRising = 0.15f;
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 4.5f;
+                break;
+            case 29 or 32:
+                ascentWhenFalling = 0.85f;
+                ascentWhenRising = 0.15f;
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 3f;
+                constantAscend = 0.135f;
+                break;
+            case 30 or 31:
+                maxCanAscendMultiplier = 1f;
+                maxAscentMultiplier = 2.45f;
+                constantAscend = 0.15f;
+                break;
         }
 
         ItemLoader.VerticalWingSpeeds(player, ref ascentWhenFalling, ref ascentWhenRising, ref maxCanAscendMultiplier,
@@ -330,28 +336,16 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
                     break;
             }
 
-            numHooks = 3;
-            switch (item.shoot) {
-                case ProjectileID.DualHookBlue or ProjectileID.DualHookRed:
-                    numHooks = 2;
-                    break;
-                case ProjectileID.Web:
-                    numHooks = 8;
-                    break;
-                case ProjectileID.SkeletronHand:
-                    numHooks = 2;
-                    break;
-                case ProjectileID.FishHook:
-                    numHooks = 2;
-                    break;
-                case ProjectileID.StaticHook:
-                    numHooks = 2;
-                    break;
-                case ProjectileID.LunarHookSolar or ProjectileID.LunarHookVortex or ProjectileID.LunarHookNebula
-                    or ProjectileID.LunarHookStardust:
-                    numHooks = 4;
-                    break;
-            }
+            numHooks = item.shoot switch {
+                ProjectileID.DualHookBlue or ProjectileID.DualHookRed => 2,
+                ProjectileID.Web => 8,
+                ProjectileID.SkeletronHand => 2,
+                ProjectileID.FishHook => 2,
+                ProjectileID.StaticHook => 2,
+                ProjectileID.LunarHookSolar or ProjectileID.LunarHookVortex or ProjectileID.LunarHookNebula
+                    or ProjectileID.LunarHookStardust => 4,
+                _ => 3
+            };
 
             // if SingleGrappleHook, then numHooks is always 1, regardless of the numHooks value
             if (ProjectileID.Sets.SingleGrappleHook[item.shoot]) {
@@ -379,7 +373,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     private static void addAmmoTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
-        var knockbackTooltip = tooltips.FindLast(t => t.Mod == "Terraria" && t.Name == "Knockback")!;
+        var knockbackTooltip = tooltips.FindLast(t => t is
+            { Mod: "Terraria", Name: "Knockback" or "Tooltip0" or "Toolip1" or "Tooltip2" })!;
         tooltips.AddAfter(knockbackTooltip, tooltip);
     }
 
@@ -408,8 +403,21 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         return true;
     }
 
+    public bool myCanShimmer(Item item) {
+        var shimmerEquivalentType = ItemID.Sets.ShimmerCountsAsItem[item.type] != -1
+            ? ItemID.Sets.ShimmerCountsAsItem[item.type]
+            : item.type;
+
+        bool flag = requiresMoonLordToShimmer(item.type) ||
+                    item.type == ItemID.GelBalloon ||
+                    item.type == ItemID.LunarBrick || item.createTile == TileID.MusicBoxes;
+        return flag || ItemID.Sets.ShimmerTransformToItem[shimmerEquivalentType] > 0 ||
+               ShimmerTransforms.GetDecraftingRecipeIndex(shimmerEquivalentType) > -1 ||
+               ItemID.Sets.CoinLuckValue[item.type] > 0 || item.makeNPC > 0;
+    }
+
     private void shimmmerableTooltips(Item item, List<TooltipLine> tooltips) {
-        if (!item.CanShimmer()) {
+        if (!myCanShimmer(item)) {
             return;
         }
 
@@ -456,16 +464,10 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             targetItem = 576;
         }
 
-        // Shimmer transform
-        if (targetItem > 0) {
-            var itemName = ContentSamples.ItemsByType[targetItem].Name;
-            var itemString = targetItem;
-            if (moonLordRequirement) {
-                tooltip = shimmerable + shimmerItem.Format(itemString, itemName) + shimmerPostML;
-            }
-            else {
-                tooltip = shimmerable + shimmerItem.Format(itemString, itemName);
-            }
+        if (moonLordRequirement) {
+            var MLItem = MLShimmers[sourceItem];
+            var itemName = ContentSamples.ItemsByType[MLItem].Name;
+            tooltip = shimmerable + shimmerItem.Format(MLItem, itemName) + shimmerPostML;
         }
 
         // Decrafting
@@ -479,7 +481,14 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             if (postGolem) {
                 shimmerCondition = shimmerPostGolem.Value;
             }
+
             tooltip = shimmerCondition;
+        }
+
+        // Shimmer transform
+        if (targetItem > 0) {
+            var itemName = ContentSamples.ItemsByType[targetItem].Name;
+            tooltip = shimmerable + shimmerItem.Format(targetItem, itemName);
         }
 
         // gamer girl bathwater
@@ -514,7 +523,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     private bool requiresMoonLordToShimmer(int item) {
-        return item == ItemID.Clentaminator || item == ItemID.RodofDiscord || item == ItemID.BottomlessBucket || item == ItemID.BottomlessShimmerBucket;
+        return item is ItemID.Clentaminator or ItemID.RodofDiscord or ItemID.BottomlessBucket
+            or ItemID.BottomlessShimmerBucket;
     }
 
     private void ammunitionTooltips(Item item, List<TooltipLine> tooltips) {

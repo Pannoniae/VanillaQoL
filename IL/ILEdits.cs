@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
+using CalamityMod;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
-using Terraria.ID;
+using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
-using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.UI;
 
@@ -72,8 +70,9 @@ public class ILEdits : ModSystem {
     // IL_0057: ldsfld       int32 Terraria.Main::EquipPage
     // IL_005c: ldc.i4.2
     // IL_005d: bne.un.s     IL_0067
-    public static void pvpUIPatch(ILContext il) {
+    public static void PvPUIPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
+
         // inject before the condition
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdsfld<Main>("EquipPage"), i => i.MatchLdcI4(2))) {
             // screenWidth - 93 - factor * 4
@@ -90,13 +89,34 @@ public class ILEdits : ModSystem {
 
             ilCursor.Emit(OpCodes.Ldloc_0);
             ilCursor.Emit(OpCodes.Ldloc_1);
-            ilCursor.Emit<ILEdits>(OpCodes.Call, "shiftButtons");
+            ilCursor.Emit(OpCodes.Ldloc_2);
+            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "shiftButtons");
             ilCursor.Emit(OpCodes.Stloc_1);
             ilCursor.MarkLabel(label);
             updateOffsets(ilCursor);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate EquipPage check at DrawPVPIcons (Main.EquipPage)");
+        }
+    }
+
+    // also patch out the Main.hidePvPIcons = true as well so it won't hide
+    // I am not patching the check out since other mods might want to hide it etc.
+    // [34011 15 - 34011 39]
+    // IL_025c: ldc.i4.1
+    // IL_025d: stsfld       bool Terraria.Main::hidePVPIcons
+    public static void PvPNPCDrawPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+
+        // inject before the condition
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(1),
+                i => i.MatchStsfld<Main>("hidePVPIcons"))) {
+            // we don't need these
+            ilCursor.RemoveRange(2);
+            updateOffsets(ilCursor);
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate hidePVPIcons assignment at DrawNPCHousesInUI (Main.hidePVPIcons)");
         }
     }
 
@@ -150,38 +170,13 @@ public class ILEdits : ModSystem {
                 i => i.MatchStloc(out text))
            ) {
             ilCursor.Emit(OpCodes.Ldloc_S, (byte)a);
-            ilCursor.Emit<ILEdits>(OpCodes.Call, "metricStopwatch");
+            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "metricStopwatch");
             // text1 = this thing
             ilCursor.Emit(OpCodes.Stloc_S, (byte)text);
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate stopwatch info text at DrawInfoAccs (GameUI.Speed)");
         }
-    }
-
-    /// <summary>
-    /// Convert speed to km/h.
-    /// </summary>
-    /// <param name="input">The speed in mph</param>
-    /// <returns>The speed formatted in km/h</returns>
-    public static string metricStopwatch(float mph) {
-        var kph = (int)(mph * Constants.mphToKph);
-        return QoLGlobalInfoDisplay.speed.Format(kph);
-    }
-
-    public static int shiftButtons(int one, int two) {
-        // we need some margin because the rendering is slightly wider than on other pages so
-        // if we have like 5 columns, the gems/pvp icon will directly hug the npc boxes...
-        const int margin = 3;
-
-        var numberOfNPCColumns = (int)Math.Ceiling((float)UILinkPointNavigator.Shortcuts.NPCS_IconsTotal /
-                                                   UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
-        if (VanillaQoL.instance.hasCensus) {
-            numberOfNPCColumns = CensusLogic.numberOfNPCColumns();
-        }
-
-        var columnsAfter3 = numberOfNPCColumns - 3;
-        return two - (one + one / 2 + margin) * columnsAfter3;
     }
 
     // [473 9 - 473 22]
@@ -248,6 +243,7 @@ public class ILEdits : ModSystem {
     // IL_21e6: ldloc.s      health
     // IL_21e8: add
     // IL_21e9: stfld        int32 Terraria.Player::statLife
+    //
     // we remove this entire fucking block and just replace it lol
     public static void nurseHealingPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
@@ -262,7 +258,7 @@ public class ILEdits : ModSystem {
                 i => i.MatchStfld<Player>("statLife"))) {
             // great, so new we have all those cute instructions, we will get rid of all of them
             ilCursor.Emit(OpCodes.Ldloc_S, (byte)health);
-            ilCursor.Emit<ILEdits>(OpCodes.Call, "nurseAddHealing");
+            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "nurseAddHealing");
             ilCursor.RemoveRange(8);
 
             updateOffsets(ilCursor);
@@ -272,56 +268,47 @@ public class ILEdits : ModSystem {
         }
     }
 
-    public static void nurseAddHealing(int health) {
-        //VanillaQoL.instance.Logger.Info("Healed with Nurse!");
-        // apply buff until specified health is reached
-        var player = Main.LocalPlayer;
-        // in ticks
-        var time = QoLConfig.Instance.nurseHealingTime * 60;
-        player.GetModPlayer<NurseHealPlayer>().totalToHeal = health;
-        player.GetModPlayer<NurseHealPlayer>().time = time;
-        // sync with network
-        player.AddBuff(ModContent.BuffType<NurseHeal>(), time, false);
-    }
-
     // [54803 7 - 54803 45]
     // IL_0da8: ldloc.s      numTownNPCs
     // IL_0daa: call         void Terraria.ModLoader.NPCLoader::CanTownNPCSpawn(int32)
     // IL_0daf: ret
     public static void NPCSpawnConditionPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
-        int numNPCs = 0;
-        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdloc(out numNPCs),
-                i => i.MatchCall("Terraria.ModLoader.NPCLoader", "CanTownNPCSpawn"),
-                i => i.MatchRet())) {
+        int numNPCs = 40;
+        if (ilCursor.GotoFinalRet(MoveType.After)) {
             // we go back *before* the ret
             ilCursor.Index -= 1;
             ilCursor.Emit(OpCodes.Ldloc_S, (byte)numNPCs);
-            ilCursor.Emit<ILEdits>(OpCodes.Call, "canNPCSpawn");
+            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "canNPCSpawn");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
+            VanillaQoL.instance.Logger.Warn("Failed to locate return at UpdateTime_SpawnTownNPCs (NPCLoader.CanTownNPCSpawn)");
         }
     }
 
 
     // todo: make some nice api for this in API
-    public static void canNPCSpawn(int numNPCs) {
-        foreach (var (key, npc) in ContentSamples.NpcsByNetId) {
-            var slimes = new List<int>(Enumerable.Range(678, 688 - 678));
-            slimes.Add(670);
-            if (npc.townNPC && slimes.Contains(key)) {
-                Main.townNPCCanSpawn[npc.type] = false;
-                if (WorldGen.prioritizedTownNPCType == npc.type)
-                    WorldGen.prioritizedTownNPCType = 0;
-            }
+
+    public static void addPlayerInfo(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchRet())) {
+            ilCursor.EmitLdarg0();
+            ilCursor.Emit<UIInfo>(OpCodes.Call, "playerInfo");
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate return at at IL_UICharacterListItem.ctor");
         }
     }
 
-    private static void noop(ILContext il) {
-        // the good thing is that we don't do anything
+    public static void addWorldInfo(ILContext il) {
         var ilCursor = new ILCursor(il);
-        ilCursor.EmitRet();
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchRet())) {
+            ilCursor.EmitLdarg0();
+            ilCursor.Emit<UIInfo>(OpCodes.Call, "worldInfo");
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to locate return at at IL_UIWorldListItem.ctor");
+        }
     }
 
     public static void load() {
@@ -331,7 +318,8 @@ public class ILEdits : ModSystem {
         }
 
         if (QoLConfig.Instance.fixPvPUI) {
-            IL_Main.DrawPVPIcons += pvpUIPatch;
+            IL_Main.DrawPVPIcons += PvPUIPatch;
+            IL_Main.DrawNPCHousesInUI += PvPNPCDrawPatch;
         }
 
         if (QoLConfig.Instance.metricSystem) {
@@ -348,30 +336,35 @@ public class ILEdits : ModSystem {
 
         if (QoLConfig.Instance.disableTownSlimes) {
             IL_Main.UpdateTime_SpawnTownNPCs += NPCSpawnConditionPatch;
-            IL_NPC.TransformCopperSlime += noop;
-            IL_NPC.TransformElderSlime += noop;
-            IL_NPC.ViolentlySpawnNerdySlime += noop;
+            IL_NPC.TransformCopperSlime += GlobalHooks.noop;
+            IL_NPC.TransformElderSlime += GlobalHooks.noop;
+            IL_NPC.ViolentlySpawnNerdySlime += GlobalHooks.noop;
+        }
+
+        if (QoLConfig.Instance.worldAndPlayerInfo) {
+            IL_UICharacterListItem.ctor += addPlayerInfo;
+            IL_UIWorldListItem.ctor += addWorldInfo;
         }
     }
 
     public static void unload() {
         IL_Main.UpdateTime -= townNPCPatch;
         IL_NPC.AI_007_TownEntities -= townNPCTeleportPatch;
-        IL_Main.DrawPVPIcons -= pvpUIPatch;
+        IL_Main.DrawPVPIcons -= PvPUIPatch;
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
         IL_Main.GUIChatDrawInner -= nurseHealingPatch;
         IL_Main.UpdateTime_SpawnTownNPCs -= NPCSpawnConditionPatch;
-        IL_NPC.TransformCopperSlime -= noop;
-        IL_NPC.TransformElderSlime -= noop;
-        IL_NPC.ViolentlySpawnNerdySlime -= noop;
+        IL_NPC.TransformCopperSlime -= GlobalHooks.noop;
+        IL_NPC.TransformElderSlime -= GlobalHooks.noop;
+        IL_NPC.ViolentlySpawnNerdySlime -= GlobalHooks.noop;
+        IL_UICharacterListItem.ctor -= addPlayerInfo;
+        IL_UIWorldListItem.ctor -= addWorldInfo;
     }
 }
 
 [JITWhenModsEnabled("Census")]
 public static class CensusLogic {
-    private static readonly object theList = null!;
-
     private static readonly int lengthOfTheList;
 
     // time to initialise the hackery
@@ -388,7 +381,7 @@ public static class CensusLogic {
             var instanceField = type!.GetField("instance", BindingFlags.NonPublic | BindingFlags.Static);
             var instance = instanceField!.GetValue(null);
             var townNPCInfo = type.GetField("realTownNPCsInfos", BindingFlags.NonPublic | BindingFlags.Instance)!;
-            theList = townNPCInfo.GetValue(instance)!;
+            var theList = townNPCInfo.GetValue(instance)!;
             var countProperty = theList.GetType().GetProperty("Count")!;
             lengthOfTheList = (int)countProperty.GetValue(theList)!;
         }

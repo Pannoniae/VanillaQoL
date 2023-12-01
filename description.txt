@@ -7,14 +7,22 @@ Features:
  - Remove the coloured Thorium tooltips, making the mod look more vanilla.
  - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
  - An option to use the metric system. Not enabled by default to not scare the yanks.
- - Display luck information when you have a Metal Detector or its upgrades. Icon courtesy of https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263.
+ - Display luck information when you have a Metal Detector or its upgrades.
  - Shimmerable tooltip for item and NPC transformations.
  - Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
  - Tooltip to show what ammo a weapon uses.
  - An option to automatically join a team in Multiplayer.
- - An option to share the map with your teammates in Multiplayer. (thank you Lan! https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
+ - An option to share the map with your teammates in Multiplayer.
  - Make the nurse heal players over time to stop exploits.
  - An option to remove Town Slimes, for those who hate them with a passion.
+ - Shows permanent upgrades on the player/world selection screen.
+ - A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
+    You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
+
+Credits:
+ - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
+ - sexual_lobster for the Luck icon. (from https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263)
+ - SirSwerving for the amazing player/world icons.
 
 Everything is fully configurable.
 

@@ -51,17 +51,14 @@ public class QoLSharedMapSystem : ModSystem {
         IL_WorldMap.Load += joinWorldPatch;
 
         shareKeybind = KeybindLoader.RegisterKeybind(Mod, "ShareMap", "P");
-
     }
 
     public override void Unload() {
         instance = null!;
     }
 
-    public static bool isForeverAlone()
-    {
-        var num = Main.player.Count(entity => entity.active);
-        return num == 1;
+    public static bool isForeverAlone() {
+        return Main.player.Count(p => p.active) == 1;
     }
 
     private void joinWorldPatch(ILContext il) {
@@ -72,6 +69,7 @@ public class QoLSharedMapSystem : ModSystem {
             // increment so no infinite loop!
             c.Index++;
             emitted = true;
+            VanillaQoL.instance.Logger.Info("Patched WorldMap.Load!");
         }
 
         if (!emitted) {

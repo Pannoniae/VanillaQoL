@@ -47,6 +47,8 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool disableTownSlimes { get; set; }
 
+    // there is no config for chat tags, since we use them:P
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]
@@ -69,6 +71,12 @@ public class QoLConfig : ModConfig {
     public bool shimmerableTooltip { get; set; }
 
 
+    // Compass
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool worldAndPlayerInfo { get; set; }
+
+
     // Lunar Hook
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -88,7 +96,7 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
 
-    // Gold Coin
+    // The actual Nurse NPC head
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(true)]
