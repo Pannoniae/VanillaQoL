@@ -59,8 +59,8 @@ Configs: {
 		}
 
 		ammunitionTooltips: {
-			Label: "[i:4915] Show Ammunition Tooltips"
-			Tooltip: If enabled, ranged weapons show what ammunition they fire.
+			Label: "[i:4915] Show Ammo Tooltips"
+			Tooltip: If enabled, ranged weapons show what ammo they fire.
 		}
 
 		shimmerableTooltip: {
@@ -152,7 +152,7 @@ Configs: {
 		}
 
 		disableTownSlimes: {
-			Label: "[i:23] Disable Town Slimes"
+			Label: "[npc/n:670] Disable Town Slimes"
 			Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
 		}
 	}

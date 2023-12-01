@@ -42,7 +42,7 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool showLuck { get; set; }
 
-    // Gel
+    // Nerdy Slime
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     public bool disableTownSlimes { get; set; }
