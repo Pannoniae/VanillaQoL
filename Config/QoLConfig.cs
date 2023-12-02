@@ -48,8 +48,6 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disableTownSlimes { get; set; }
 
-    // there is no config for chat tags, since we use them:P
-
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

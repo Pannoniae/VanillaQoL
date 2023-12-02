@@ -385,7 +385,6 @@ public class UIInfo : ModSystem, ILocalizedModType {
             // ignored
             VanillaQoL.instance.Logger.Warn(e);
             return additionalData;
-            WorldGen.GrowTree(0, 0);
         }
     }
 }
