@@ -380,8 +380,9 @@ public class UIInfo : ModSystem, ILocalizedModType {
                 }
             }
         }
-        catch {
+        catch (Exception e) {
             // ignored
+            VanillaQoL.instance.Logger.Warn(e);
             return additionalData;
         }
     }

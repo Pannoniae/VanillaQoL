@@ -1,1 +1,1 @@
- - Fix town slime disabling when Census is loaded.
+ - Remove unused code.

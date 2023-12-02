@@ -10,6 +10,7 @@ using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.IL;
 using VanillaQoL.UI;
+
 // these are hooks, don't show "unused member"
 // ReSharper disable UnusedMember.Global
 
@@ -63,14 +64,15 @@ public class GlobalHooks {
         player.AddBuff(ModContent.BuffType<NurseHeal>(), time, false);
     }
 
-    public static void canNPCSpawn(int numNPCs) {
-        foreach (var (key, npc) in ContentSamples.NpcsByNetId) {
-            if (npc.townNPC && Constants.slimes.Contains(key)) {
-                Main.townNPCCanSpawn[npc.type] = false;
-                if (WorldGen.prioritizedTownNPCType == npc.type)
-                    WorldGen.prioritizedTownNPCType = 0;
-            }
-        }
+    public static void disableTownSlimeSpawn() {
+        NPC.unlockedSlimeBlueSpawn = false;
+        NPC.unlockedSlimeGreenSpawn = false;
+        NPC.unlockedSlimeOldSpawn = false;
+        NPC.unlockedSlimePurpleSpawn = false;
+        NPC.unlockedSlimeRainbowSpawn = false;
+        NPC.unlockedSlimeRedSpawn = false;
+        NPC.unlockedSlimeYellowSpawn = false;
+        NPC.unlockedSlimeCopperSpawn = false;
     }
 
     public static void noop(ILContext il) {

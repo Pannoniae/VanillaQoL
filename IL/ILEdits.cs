@@ -116,7 +116,8 @@ public class ILEdits : ModSystem {
             updateOffsets(ilCursor);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate hidePVPIcons assignment at DrawNPCHousesInUI (Main.hidePVPIcons)");
+            VanillaQoL.instance.Logger.Warn(
+                "Failed to locate hidePVPIcons assignment at DrawNPCHousesInUI (Main.hidePVPIcons)");
         }
     }
 
@@ -274,16 +275,7 @@ public class ILEdits : ModSystem {
     // IL_0daf: ret
     public static void NPCSpawnConditionPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
-        int numNPCs = 40;
-        if (ilCursor.GotoFinalRet(MoveType.After)) {
-            // we go back *before* the ret
-            ilCursor.Index -= 1;
-            ilCursor.Emit(OpCodes.Ldloc_S, (byte)numNPCs);
-            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "canNPCSpawn");
-        }
-        else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate return at UpdateTime_SpawnTownNPCs (NPCLoader.CanTownNPCSpawn)");
-        }
+        ilCursor.Emit<GlobalHooks>(OpCodes.Call, "disableTownSlimeSpawn");
     }
 
 

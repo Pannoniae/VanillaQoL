@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
+using CalamityMod.Items.Weapons.Summon;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
@@ -11,6 +12,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Map;
 using Terraria.ModLoader;
+using ThoriumMod.Items.SummonItems;
 using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
@@ -69,11 +71,11 @@ public class QoLSharedMapSystem : ModSystem {
             // increment so no infinite loop!
             c.Index++;
             emitted = true;
-            VanillaQoL.instance.Logger.Info("Patched WorldMap.Load!");
+            //VanillaQoL.instance.Logger.Info("Patched WorldMap.Load!");
         }
 
         if (!emitted) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match return in WorldMap.Load");
+            //VanillaQoL.instance.Logger.Warn("Couldn't match return in WorldMap.Load");
         }
     }
 

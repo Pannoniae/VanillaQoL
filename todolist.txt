@@ -20,7 +20,11 @@ Players who respawn will automatically receive specified buffs/debuffs.
 A new placable that acts like a bed spawn point but doesn’t need to be in a room.
 Nurse healing gives a very strong healing buff which heals your missing HP over 10ish seconds (not a respawn mechanic but I’m not a fan of how op her healing is, regardless of potion sickness (especially in multiplayer)).
 
-- minion autosummon? see Player.AutoFinchStaff
+"Full support. In fact, I'm going to suggest that an NPC's weapon be sold by the Pirate when he's living near that NPC.
+It makes sense that the Pirate would steal (or make bootleg copies of) another NPC's weapon, and it would also add more content to the Pirate, who currently doesn't do much."
+add weapon selling so you don't have to kill the poor NPCs
+
+- place candles on floor
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable
