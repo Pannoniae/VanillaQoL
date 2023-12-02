@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using CalamityMod.CalPlayer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -384,6 +385,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
             // ignored
             VanillaQoL.instance.Logger.Warn(e);
             return additionalData;
+            WorldGen.GrowTree(0, 0);
         }
     }
 }

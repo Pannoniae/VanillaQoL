@@ -1,1 +1,1 @@
- - Fixed config screen crashing when Calamity is enabled.
+ - small reorganisation
