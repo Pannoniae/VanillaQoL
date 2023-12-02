@@ -48,11 +48,6 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disableTownSlimes { get; set; }
 
-    // Finch Staff
-    //[BackgroundColor(192, 54, 128, 192)]
-    //[DefaultValue(false)]
-    //public bool autoSummon { get; set; }
-
     // there is no config for chat tags, since we use them:P
 
     // Tally Counter

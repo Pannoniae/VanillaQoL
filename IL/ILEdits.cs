@@ -1,6 +1,5 @@
 using System;
 using System.Reflection;
-using CalamityMod;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;

@@ -4,7 +4,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
-using CalamityMod.Items.Weapons.Summon;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
@@ -12,7 +11,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Map;
 using Terraria.ModLoader;
-using ThoriumMod.Items.SummonItems;
 using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
