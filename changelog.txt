@@ -1,1 +1,1 @@
- - Remove unused code.
+ - Fixed config screen crashing when Calamity is enabled.

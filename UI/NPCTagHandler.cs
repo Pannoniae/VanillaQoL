@@ -106,11 +106,19 @@ public class NPCTagHandler : ITagHandler {
                 if (!justCheckingString && color != Color.Black) {
                     NPC npc = ContentSamples.NpcsByNetId[netID];
                     Color white = Color.White;
-                    Main.spriteBatch.Draw(texture, position + new Vector2(num1 / 2f), r,
-                        npc.GetAlpha(white), 0.0f, r.Center(), scale, SpriteEffects.None, 0.0f);
-                    if (npc.color != new Color())
+                    // if in game, we can draw normally
+                    if (Main.LocalPlayer != null && Main.LocalPlayer.ModPlayers.Length > 0) {
                         Main.spriteBatch.Draw(texture, position + new Vector2(num1 / 2f), r,
-                            npc.GetColor(white), 0.0f, r.Center(), scale, SpriteEffects.None, 0.0f);
+                            npc.GetAlpha(white), 0.0f, r.Center(), scale, SpriteEffects.None, 0.0f);
+                        if (npc.color != new Color()) {
+                            Main.spriteBatch.Draw(texture, position + new Vector2(num1 / 2f), r,
+                                npc.GetColor(white), 0.0f, r.Center(), scale, SpriteEffects.None, 0.0f);
+                        }
+                    }
+                    else {
+                        Main.spriteBatch.Draw(texture, position + new Vector2(num1 / 2f), r,
+                            white, 0.0f, r.Center(), scale, SpriteEffects.None, 0.0f);
+                    }
                 }
             }
 

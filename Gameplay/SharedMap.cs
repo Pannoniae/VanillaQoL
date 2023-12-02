@@ -243,9 +243,9 @@ public class QoLSharedMapSystem : ModSystem {
         counter++;
         // if too many have accumulated, send
         if (instance.updates.Count > updateBatching || instance.counter > maxUpdateIntervalTicks) {
-            Task.Run(() => {
-                var totalUpdates = 0;
-                var size = 0;
+            _ = Task.Run(() => {
+                //var totalUpdates = 0;
+                //var size = 0;
                 while (!updates.IsEmpty) {
                     var maxUpdates = Math.Min(packetSize, updates.Count);
                     // size is maxUpdates * 5 (2 shorts+byte) + 4 bytes for misc shit
@@ -276,8 +276,8 @@ public class QoLSharedMapSystem : ModSystem {
                     packet.Write((short)maxUpdates);
                     packet.Write(data);
                     packet.Send();
-                    totalUpdates += maxUpdates;
-                    size += length;
+                    //totalUpdates += maxUpdates;
+                    //size += length;
                 }
 
                 //Mod.Logger.Debug($"Sent {totalUpdates} map updates (size {size}), {updates.Count} remaining");
@@ -391,7 +391,7 @@ public class QoLSharedMapSystem : ModSystem {
             var localChecksum = calculateLightedTiles(Main.Map);
             if (Math.Abs(otherChecksum - localChecksum) > lightTolerance * 255) {
                 Mod.Logger.Info($"Sent sync packets, {localChecksum} vs {otherChecksum} checksum");
-                Task.Run(() => sendSyncPackets(whichPlayer));
+                _ = Task.Run(() => sendSyncPackets(whichPlayer));
                 //sendSyncPackets(whichPlayer);
             }
         }
