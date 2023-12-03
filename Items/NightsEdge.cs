@@ -7,15 +7,7 @@ using VanillaQoL.Config;
 namespace VanillaQoL.Items;
 
 // SWORDS TO BE CHANGED:
-// public const short LightsBane = 974;
-// public const short BloodButcherer = 975;
-// public const short BladeOfGrass = 976;
-// public const short Muramasa = 977;
-// public const short Volcano = 978;
-// public const short Excalibur = 982;
-// public const short TrueExcalibur = 983;
-// public const short TerraBlade2 = 984;
-// public const short TerraBlade2Shot = 985;
+// all done ;)
 
 public class NightsEdge : ModItem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -44,6 +36,7 @@ public class NightsEdge : ModItem {
     }
 
     public override void AddRecipes() {
+        // create all permutations of the recipes
         var recipe1 = CreateRecipe();
         recipe1.AddIngredient(ItemID.LightsBane);
         recipe1.AddIngredient(ItemID.Muramasa);
@@ -62,5 +55,59 @@ public class NightsEdge : ModItem {
         recipe2.AddCondition(Condition.CrimsonWorld);
         recipe2.ApplyConditionsAsDecraftConditions();
         recipe2.Register();
+
+        // now with ancient weapons
+        int[] muramasa = { ItemID.Muramasa, ModContent.ItemType<Muramasa>() };
+        int[] bladeOfGrass = { ItemID.Muramasa, ModContent.ItemType<BladeOfGrass>() };
+        int[] fieryGreatsword = { ItemID.Muramasa, ModContent.ItemType<FieryGreatsword>() };
+        foreach (var m in muramasa) {
+            foreach (var b in bladeOfGrass) {
+                foreach (var f in fieryGreatsword) {
+                    var recipe3 = CreateRecipe();
+                    recipe3.AddIngredient(ItemID.LightsBane);
+                    recipe3.AddIngredient(m);
+                    recipe3.AddIngredient(b);
+                    recipe3.AddIngredient(f);
+                    recipe3.AddTile(TileID.DemonAltar);
+                    recipe3.AddCondition(Condition.CorruptWorld);
+                    recipe3.ApplyConditionsAsDecraftConditions();
+                    recipe3.Register();
+                    var recipe4 = CreateRecipe();
+                    recipe4.AddIngredient(ItemID.BloodButcherer);
+                    recipe4.AddIngredient(m);
+                    recipe4.AddIngredient(b);
+                    recipe4.AddIngredient(f);
+                    recipe4.AddTile(TileID.DemonAltar);
+                    recipe4.AddCondition(Condition.CrimsonWorld);
+                    recipe4.ApplyConditionsAsDecraftConditions();
+                    recipe4.Register();
+
+                    // don't add fully vanilla recipe producing vanilla night's edge
+                    if (m == ItemID.Muramasa && b == ItemID.BladeofGrass &&
+                        f == ItemID.FieryGreatsword) {
+                        continue;
+                    }
+                    // craft the vanilla night's edge as well!
+                    var recipe5 = Recipe.Create(ItemID.NightsEdge);
+                    recipe5.AddIngredient(ItemID.LightsBane);
+                    recipe5.AddIngredient(m);
+                    recipe5.AddIngredient(b);
+                    recipe5.AddIngredient(f);
+                    recipe5.AddTile(TileID.DemonAltar);
+                    recipe5.AddCondition(Condition.CorruptWorld);
+                    recipe5.ApplyConditionsAsDecraftConditions();
+                    recipe5.Register();
+                    var recipe6 = Recipe.Create(ItemID.NightsEdge);
+                    recipe6.AddIngredient(ItemID.BloodButcherer);
+                    recipe6.AddIngredient(m);
+                    recipe6.AddIngredient(b);
+                    recipe6.AddIngredient(f);
+                    recipe6.AddTile(TileID.DemonAltar);
+                    recipe6.AddCondition(Condition.CrimsonWorld);
+                    recipe6.ApplyConditionsAsDecraftConditions();
+                    recipe6.Register();
+                }
+            }
+        }
     }
 }

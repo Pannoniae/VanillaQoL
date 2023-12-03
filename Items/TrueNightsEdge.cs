@@ -2,10 +2,15 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 
 public class TrueNightsEdge : ModItem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.ancientSwords;
+    }
+
     public override void SetDefaults() {
         Item.useStyle = ItemUseStyleID.Swing;
         Item.useAnimation = 26;
@@ -29,7 +34,8 @@ public class TrueNightsEdge : ModItem {
         CommonItem.nightsEdgeEffects(player, hitbox);
     }
 
-    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage,
+    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type,
+        ref int damage,
         ref float knockback) {
         base.ModifyShootStats(player, ref position, ref velocity, ref type, ref damage, ref knockback);
         // use 1.4.1+ stats, damage is 1.5x base
@@ -54,5 +60,14 @@ public class TrueNightsEdge : ModItem {
         recipe2.AddTile(TileID.MythrilAnvil);
         recipe2.ApplyConditionsAsDecraftConditions();
         recipe2.Register();
+
+        var recipe3 = Recipe.Create(ItemID.TrueNightsEdge);
+        recipe3.AddIngredient<NightsEdge>();
+        recipe3.AddIngredient(ItemID.SoulofFright, 20);
+        recipe3.AddIngredient(ItemID.SoulofMight, 20);
+        recipe3.AddIngredient(ItemID.SoulofSight, 20);
+        recipe3.AddTile(TileID.MythrilAnvil);
+        recipe3.ApplyConditionsAsDecraftConditions();
+        recipe3.Register();
     }
 }

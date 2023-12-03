@@ -21,7 +21,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Shows permanent upgrades on the player/world selection screen.
  [*] A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
  You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
- [*] (work in progress) Ancient versions of reworked items. Currently, the Night's Edge is included.
+ [*] Ancient versions of 1.4.4 reworked melee items.
 [/list]
 
 [b]Credits:[/b]

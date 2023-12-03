@@ -1,2 +1,7 @@
- - Add recipe for Ancient Night's Edge
- - Add Ancient True Night's Edge
+ - Added Ancient Blade of Grass
+ - Added Ancient Fiery Greatsword (named Fiery Greatsword, as the name was changed in vanilla)
+ - Added Ancient Muramasa
+ - Added Ancient Excalibur
+ - Added Ancient True Excalibur
+ - Added recipes for both True Night's Edges based on these components
+ - Added alternate Zenith recipe with Ancient Terra Blade

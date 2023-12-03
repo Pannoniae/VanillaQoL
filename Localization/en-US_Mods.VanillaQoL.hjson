@@ -157,8 +157,12 @@ Configs: {
 		}
 
 		ancientSwords: {
-			Label: "[i:757] Enable Ancient Swords (work-in-progress)"
-			Tooltip: "If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.\nReturn the classic Night's Edge and the Terra Blade!"
+			Label: "[i:757] Enable Ancient Swords"
+			Tooltip:
+				'''
+				If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.
+				Return the classic Night's Edge and the Terra Blade!
+				'''
 		}
 	}
 
@@ -227,6 +231,36 @@ Items: {
 
 	TrueNightsEdge: {
 		DisplayName: Ancient True Night's Edge
+		Tooltip: ""
+	}
+
+	BladeOfGrass: {
+		DisplayName: Ancient Blade of Grass
+		Tooltip: ""
+	}
+
+	FieryGreatsword: {
+		DisplayName: Fiery Greatsword
+		Tooltip: ""
+	}
+
+	Muramasa: {
+		DisplayName: Ancient Muramasa
+		Tooltip: ""
+	}
+
+	TrueExcalibur: {
+		DisplayName: Ancient True Excalibur
+		Tooltip: ""
+	}
+
+	TerraBlade: {
+		DisplayName: Ancient Terra Blade
+		Tooltip: ""
+	}
+
+	Excalibur: {
+		DisplayName: Ancient Excalibur
 		Tooltip: ""
 	}
 }
