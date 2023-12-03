@@ -158,7 +158,7 @@ Configs: {
 
 		ancientSwords: {
 			Label: "[i:757] Enable Ancient Swords (work-in-progress)"
-			Tooltip: If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based. Return the classic Night's Edge and the Terra Blade!
+			Tooltip: "If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.\nReturn the classic Night's Edge and the Terra Blade!"
 		}
 	}
 
