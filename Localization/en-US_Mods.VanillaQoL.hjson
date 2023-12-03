@@ -155,6 +155,11 @@ Configs: {
 			Label: "[npc/n:670] Disable Town Slimes"
 			Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
 		}
+
+		ancientSwords: {
+			Label: "[i:757] Enable Ancient Swords (work-in-progress)"
+			Tooltip: If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based. Return the classic Night's Edge and the Terra Blade!
+		}
 	}
 
 	Team: {
@@ -211,5 +216,17 @@ Buffs: {
 	NurseHeal: {
 		DisplayName: Nurse Healing
 		Description: The Nurse is healing you!
+	}
+}
+
+Items: {
+	NightsEdge: {
+		DisplayName: Ancient Night's Edge
+		Tooltip: ""
+	}
+
+	TrueNightsEdge: {
+		DisplayName: Ancient True Night's Edge
+		Tooltip: ""
 	}
 }

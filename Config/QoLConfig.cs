@@ -48,6 +48,13 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disableTownSlimes { get; set; }
 
+
+    // Terra Blade
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool ancientSwords { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]
