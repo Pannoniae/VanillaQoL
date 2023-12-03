@@ -58,8 +58,8 @@ public class NightsEdge : ModItem {
 
         // now with ancient weapons
         int[] muramasa = { ItemID.Muramasa, ModContent.ItemType<Muramasa>() };
-        int[] bladeOfGrass = { ItemID.Muramasa, ModContent.ItemType<BladeOfGrass>() };
-        int[] fieryGreatsword = { ItemID.Muramasa, ModContent.ItemType<FieryGreatsword>() };
+        int[] bladeOfGrass = { ItemID.BladeofGrass, ModContent.ItemType<BladeOfGrass>() };
+        int[] fieryGreatsword = { ItemID.FieryGreatsword, ModContent.ItemType<FieryGreatsword>() };
         foreach (var m in muramasa) {
             foreach (var b in bladeOfGrass) {
                 foreach (var f in fieryGreatsword) {

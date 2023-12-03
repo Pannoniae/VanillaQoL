@@ -21,6 +21,9 @@
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Aimbot">
+      <HintPath>..\..\ModReader\Aimbot\Aimbot.dll</HintPath>
+    </Reference>
     <Reference Include="CalamityMod">
       <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
     </Reference>
