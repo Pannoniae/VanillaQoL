@@ -19,6 +19,7 @@ Features:
  - A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
     You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
  - Ancient versions of 1.4.4 reworked melee items.
+ - For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

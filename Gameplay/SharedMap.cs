@@ -55,6 +55,7 @@ public class QoLSharedMapSystem : ModSystem {
 
     public override void Unload() {
         instance = null!;
+        shareKeybind = null!;
     }
 
     public static bool isForeverAlone() {

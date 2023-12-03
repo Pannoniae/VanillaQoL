@@ -1,1 +1,1 @@
- - Fix Night's Edge recipes
+ - Added lock-on

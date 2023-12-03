@@ -164,6 +164,16 @@ Configs: {
 				Return the classic Night's Edge and the Terra Blade!
 				'''
 		}
+
+		enableLockOn: {
+			Label: "[g:1] Enable Lock-On"
+			Tooltip: If enabled, loads the system required to enable Lock-On on mouse and keyboard. Requires restart.
+		}
+
+		lockOn: {
+			Label: "[g:1] Lock-On"
+			Tooltip: If enabled, allows the usage of Lock-On if you use mouse and keyboard.
+		}
 	}
 
 	Team: {
@@ -214,7 +224,10 @@ Info: {
 	}
 }
 
-Keybinds.ShareMap.DisplayName: Share Map
+Keybinds: {
+	ShareMap.DisplayName: Share Map
+	LockOn.DisplayName: Lock On
+}
 
 Buffs: {
 	NurseHeal: {
