@@ -22,7 +22,8 @@ public class LockOn : ModSystem {
     }
 
     public override void Unload() {
-        IL_LockOnHelper.Update -= addInput;
+        LockOnHelper.ForceUsability = false;
+        IL_UIManageControls.AssembleBindPanels -= showLockOnKeyboard;
     }
 
     public override void PreUpdatePlayers() {
@@ -49,10 +50,5 @@ public class LockOn : ModSystem {
 
     public static void addLockOnToUI(List<string> bindings) {
         bindings.AddAfter("QuickBuff", "LockOn");
-    }
-
-    public void addInput(ILContext il) {
-        var ilCursor = new ILCursor(il);
-        ilCursor.Emit<LockOn>(OpCodes.Call, "lockOnInput");
     }
 }

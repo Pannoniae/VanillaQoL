@@ -50,6 +50,7 @@ public class GlobalHooks {
 
         var columnsAfter3 = numberOfNPCColumns - 3;
         return two - (one + one / 2 + margin) * columnsAfter3;
+
     }
 
     public static void disableTownSlimeSpawn() {

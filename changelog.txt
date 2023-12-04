@@ -1,1 +1,1 @@
-- move things around to help with organisation
+ - Fix forceusability being enabled even when lock on feature is disabled.
