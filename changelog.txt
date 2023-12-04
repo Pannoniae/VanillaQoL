@@ -1,1 +1,2 @@
- - Fix forceusability being enabled even when lock on feature is disabled.
+ - Add more buff slots
+ - Disable features if other mods are overlapping

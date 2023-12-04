@@ -1,0 +1,157 @@
+QoLConfig: {
+	DisplayName: QoL Config
+
+	townNPCSpawning: {
+		Label: "[i:4951] Allow Town NPCs to spawn at night and teleport at day"
+		Tooltip: If enabled, Town NPCs can also spawn at night and teleport to their houses at daytime.
+	}
+
+	Headers: {
+		tooltips: "[i:3095] Tooltips"
+		gameplay: "[i:3515] Gameplay"
+		fixes: "[i:3625] Fixes"
+		multiplayer: "[i:181] Multiplayer"
+	}
+
+	showHookTooltips: {
+		Label: "[i:185] Show Hook Tooltips"
+		Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously in their tooltip.
+	}
+
+	showWingTooltips: {
+		Label: "[i:1162] Show Wing Tooltips"
+		Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
+	}
+
+	ammunitionTooltips: {
+		Label: "[i:4915] Show Ammo Tooltips"
+		Tooltip: If enabled, ranged weapons show what ammo they fire.
+	}
+
+	shimmerableTooltip: {
+		Label: "[i:5348] Shimmerable Tooltip"
+		Tooltip: If enabled, items show what they transform into when tossed into Shimmer.
+	}
+
+	worldAndPlayerInfo: {
+		Label: "[i:393] Show Info on Selection Screen"
+		Tooltip: If enabled, worlds and players show useful info on their selection screen like whether a world is hardmode, which upgrades have been used, etc.
+	}
+
+	fixPvPUI: {
+		Label: "[i:181] Fix Team Icon Positioning"
+		Tooltip:
+			'''
+			When mods with many Town NPCs are installed, the team and PvP icons overlap the NPC housing.
+			If enabled, the icons are moved so they do not overlap.
+			'''
+	}
+
+	fixMemoryLeaks: {
+		Label: "[i:1344] Fix Memory Leaks"
+		Tooltip: Many mods are badly written and they leak memory, slowing down the game if you reload your mods. If enabled, VanillaQoL tries to fix memory leaks somewhat.
+	}
+
+	vanillaThoriumTooltips: {
+		Label: "[i:3572] Vanilla Thorium Tooltips"
+		Tooltip:
+			'''
+			Many tooltips in the Thorium mod look off compared to Terraria's tooltips.
+			If enabled, this option makes them more in the style of the base game.
+			'''
+	}
+
+	removeThoriumEnabledCraftingTooltips: {
+		Label: "[i:666] Remove Unnecessary Recipe Conditions"
+		Tooltip:
+			'''
+			Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
+			In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
+			If enabled, this option removes those texts from the crafting objects' description.
+			'''
+	}
+
+	metricSystem: {
+		Label: "[i:393] Use Metric System"
+		Tooltip: Are you using the metric system like 96% of the world population? If enabled, units are displayed in metric units.
+	}
+
+	twentyFourHourTime: {
+		Label: "[i:709] 24-hour time"
+		Tooltip: Are you using the metric system like 96% of the world population? If enabled, the clocks show 24-hour time.
+	}
+
+	showLuck: {
+		Label: "[i:4361] Display Luck Statistic"
+		Tooltip: If enabled, the Metal Detector (or its upgrades) shows the luck you have.
+	}
+
+	disableShimmerPumping: {
+		Label: "[i:581] Fix Shimmer Pumping Exploit"
+		Tooltip: If enabled, disables moving Shimmer with pumps before Moon Lord is defeated to prevent Shimmer from being moved too early.
+	}
+
+	autoJoinTeam: {
+		Label: "[i:181] Automatically Join Multiplayer Team"
+		Tooltip: If enabled, the game automatically joins the selected team when joining a Multiplayer server.
+	}
+
+	teamToAutoJoin: {
+		Label: "[i:182] Team to Auto-Join"
+		Tooltip: Selects which team to automatically join.
+	}
+
+	mapSharing: {
+		Label: "[i:893] Enable Map Sharing"
+		Tooltip: If enabled, players in the same team will share the map with each other.
+	}
+
+	overTimeNurseHealing: {
+		Label: "[npc/n:18] Nurse Healing Fix"
+		Tooltip: If enabled, the Nurse heals players over time to avoid exploiting her healing function.
+	}
+
+	nurseHealingTime: {
+		Label: "[i:73] Nurse Healing Time"
+		Tooltip: Controls how long the Nurse should heal the player for. The bigger the value, the slower the healing.
+	}
+
+	disableTownSlimes: {
+		Label: "[npc/n:670] Disable Town Slimes"
+		Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
+	}
+
+	ancientSwords: {
+		Label: "[i:757] Enable Ancient Swords"
+		Tooltip:
+			'''
+			If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.
+			Return the classic Night's Edge and the Terra Blade!
+			'''
+	}
+
+	enableLockOn: {
+		Label: "[g:1] Enable Lock-On"
+		Tooltip: If enabled, loads the system required to enable Lock-On on mouse and keyboard. Requires restart.
+	}
+
+	lockOn: {
+		Label: "[g:1] Lock-On"
+		Tooltip: If enabled, allows the usage of Lock-On if you use mouse and keyboard.
+	}
+
+	moreBuffSlots: {
+		Label: "[i:292] More Buff Slots"
+		Tooltip: Increases the number of buff slots by the value of this config entry. Set to 0 to disable.
+	}
+}
+
+Team: {
+	Tooltip: ""
+	White.Label: "[i:182] White"
+	Red.Label: "[i:178] Red"
+	Green.Label: "[i:179] Green"
+	Blue.Label: "[i:177] Blue"
+	Yellow.Label: "[i:180] Yellow"
+	Pink.Label: "[i:181] Pink"
+}

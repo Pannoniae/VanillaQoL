@@ -26,7 +26,7 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - place candles on floor
 - taller trees WHEN YOU GROW THEM
-- ancient night's edge/true night's edge/terra blade
+- patch magic storage to take items out faster (right-click)
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable

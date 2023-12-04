@@ -66,6 +66,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool lockOn { get; set; }
 
+    // Ironskin Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(44)]
+    [Range(0, 936)]
+    public int moreBuffSlots { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

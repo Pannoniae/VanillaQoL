@@ -22,6 +22,10 @@ public class VanillaQoL : Mod {
     public bool hasMagicStorage;
     public bool hasCheatSheet;
     public bool hasHEROsMod;
+    public bool hasCalamityQoL;
+
+    public override uint ExtraPlayerBuffSlots =>
+        (uint)QoLConfig.Instance.moreBuffSlots;
 
     public override void Load() {
         instance = this;
@@ -32,6 +36,7 @@ public class VanillaQoL : Mod {
         hasMagicStorage = ModLoader.HasMod("MagicStorage");
         hasCheatSheet = ModLoader.HasMod("CheatSheet");
         hasHEROsMod = ModLoader.HasMod("HEROsMod");
+        hasCalamityQoL = ModLoader.HasMod("CalamityQOL");
         ILEdits.load();
         ModILEdits.load();
     }

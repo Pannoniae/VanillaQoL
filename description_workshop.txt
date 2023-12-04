@@ -23,6 +23,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
  [*] Ancient versions of 1.4.4 reworked melee items.
  [*] For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
+ [*] More buff slots! (configurable)
 [/list]
 
 [b]Credits:[/b]
