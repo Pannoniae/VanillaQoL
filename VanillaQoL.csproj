@@ -52,4 +52,7 @@
       <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Buffs\" />
+  </ItemGroup>
 </Project>

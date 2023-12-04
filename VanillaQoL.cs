@@ -3,6 +3,7 @@ using Terraria.GameContent.UI.Chat;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
+using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.Fixes;
 using VanillaQoL.Gameplay;
@@ -48,6 +49,9 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
         Utils.completelyWipeClass(typeof(MagicStorageLogic));
         Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
+        Utils.completelyWipeClass(typeof(LockOn));
+        Utils.completelyWipeClass(typeof(DisableTownSlimes));
+        Utils.completelyWipeClass(typeof(NurseHealing));
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix

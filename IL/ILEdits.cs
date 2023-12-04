@@ -7,6 +7,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
+using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.UI;
 
@@ -234,49 +235,6 @@ public class ILEdits : ModSystem {
         }
     }
 
-    // [32261 19 - 32261 64]
-    // IL_21d5: ldsfld       class Terraria.Player[] Terraria.Main::player
-    // IL_21da: ldsfld       int32 Terraria.Main::myPlayer
-    // IL_21df: ldelem.ref
-    // IL_21e0: dup
-    // IL_21e1: ldfld        int32 Terraria.Player::statLife
-    // IL_21e6: ldloc.s      health
-    // IL_21e8: add
-    // IL_21e9: stfld        int32 Terraria.Player::statLife
-    //
-    // we remove this entire fucking block and just replace it lol
-    public static void nurseHealingPatch(ILContext il) {
-        var ilCursor = new ILCursor(il);
-        int health = 0;
-        if (ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdsfld<Main>("player"),
-                i => i.MatchLdsfld<Main>("myPlayer"),
-                i => i.MatchLdelemRef(),
-                i => i.MatchDup(),
-                i => i.MatchLdfld<Player>("statLife"),
-                i => i.MatchLdloc(out health), // health is index 14
-                i => i.MatchAdd(),
-                i => i.MatchStfld<Player>("statLife"))) {
-            // great, so new we have all those cute instructions, we will get rid of all of them
-            ilCursor.Emit(OpCodes.Ldloc_S, (byte)health);
-            ilCursor.Emit<GlobalHooks>(OpCodes.Call, "nurseAddHealing");
-            ilCursor.RemoveRange(8);
-
-            updateOffsets(ilCursor);
-        }
-        else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
-        }
-    }
-
-    // [54803 7 - 54803 45]
-    // IL_0da8: ldloc.s      numTownNPCs
-    // IL_0daa: call         void Terraria.ModLoader.NPCLoader::CanTownNPCSpawn(int32)
-    // IL_0daf: ret
-    public static void NPCSpawnConditionPatch(ILContext il) {
-        var ilCursor = new ILCursor(il);
-        ilCursor.Emit<GlobalHooks>(OpCodes.Call, "disableTownSlimeSpawn");
-    }
-
 
     // todo: make some nice api for this in API
 
@@ -321,16 +279,6 @@ public class ILEdits : ModSystem {
             IL_Wiring.XferWater += disableShimmerPumpingPatch;
         }
 
-        if (QoLConfig.Instance.overTimeNurseHealing) {
-            IL_Main.GUIChatDrawInner += nurseHealingPatch;
-        }
-
-        if (QoLConfig.Instance.disableTownSlimes) {
-            IL_Main.UpdateTime_SpawnTownNPCs += NPCSpawnConditionPatch;
-            IL_NPC.TransformCopperSlime += GlobalHooks.noop;
-            IL_NPC.TransformElderSlime += GlobalHooks.noop;
-            IL_NPC.ViolentlySpawnNerdySlime += GlobalHooks.noop;
-        }
 
         if (QoLConfig.Instance.worldAndPlayerInfo) {
             IL_UICharacterListItem.ctor += addPlayerInfo;
@@ -344,8 +292,8 @@ public class ILEdits : ModSystem {
         IL_Main.DrawPVPIcons -= PvPUIPatch;
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
-        IL_Main.GUIChatDrawInner -= nurseHealingPatch;
-        IL_Main.UpdateTime_SpawnTownNPCs -= NPCSpawnConditionPatch;
+
+
         IL_NPC.TransformCopperSlime -= GlobalHooks.noop;
         IL_NPC.TransformElderSlime -= GlobalHooks.noop;
         IL_NPC.ViolentlySpawnNerdySlime -= GlobalHooks.noop;

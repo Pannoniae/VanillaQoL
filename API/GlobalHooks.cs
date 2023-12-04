@@ -52,18 +52,6 @@ public class GlobalHooks {
         return two - (one + one / 2 + margin) * columnsAfter3;
     }
 
-    public static void nurseAddHealing(int health) {
-        //VanillaQoL.instance.Logger.Info("Healed with Nurse!");
-        // apply buff until specified health is reached
-        var player = Main.LocalPlayer;
-        // in ticks
-        var time = QoLConfig.Instance.nurseHealingTime * 60;
-        player.GetModPlayer<NurseHealPlayer>().totalToHeal = health;
-        player.GetModPlayer<NurseHealPlayer>().time = time;
-        // sync with network
-        player.AddBuff(ModContent.BuffType<NurseHeal>(), time, false);
-    }
-
     public static void disableTownSlimeSpawn() {
         NPC.unlockedSlimeBlueSpawn = false;
         NPC.unlockedSlimeGreenSpawn = false;
