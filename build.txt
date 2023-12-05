@@ -1,5 +1,5 @@
 displayName = Vanilla+ QoL
 author = Pannoniae
-version = 0.6.8
+version = 0.6.9
 includeSource = true
 weakReferences = CalamityMod, ThoriumMod, RecipeBrowser, MagicStorage, CheatSheet, HEROsMod

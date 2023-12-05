@@ -23,6 +23,9 @@ public class DisableTownSlimes : ModSystem {
 
     public override void Unload() {
         IL_Main.UpdateTime_SpawnTownNPCs -= NPCSpawnConditionPatch;
+        IL_NPC.TransformCopperSlime -= GlobalHooks.noop;
+        IL_NPC.TransformElderSlime -= GlobalHooks.noop;
+        IL_NPC.ViolentlySpawnNerdySlime -= GlobalHooks.noop;
     }
 
     // [54803 7 - 54803 45]

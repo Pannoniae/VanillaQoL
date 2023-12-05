@@ -32,7 +32,6 @@ Tooltips: {
 	}
 }
 
-
 UI: {
 	timeText: ""
 	westWind: " ({0} km/h W)"

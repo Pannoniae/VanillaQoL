@@ -72,6 +72,12 @@ public class QoLConfig : ModConfig {
     [Range(0, 936)]
     public int moreBuffSlots { get; set; }
 
+    // Abeemination
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool queenBeeLarvaeBreak { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

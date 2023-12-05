@@ -1,2 +1,2 @@
- - Add more buff slots
- - Disable features if other mods are overlapping
+- Properly unload town slime patches
+- Added Queen Bee larvae protection

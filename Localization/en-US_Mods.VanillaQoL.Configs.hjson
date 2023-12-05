@@ -144,14 +144,20 @@ QoLConfig: {
 		Label: "[i:292] More Buff Slots"
 		Tooltip: Increases the number of buff slots by the value of this config entry. Set to 0 to disable.
 	}
+
+	queenBeeLarvaeBreak: {
+        Label: "[i:1133] Less Fragile Queen Bee Larvae"
+        Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swings or stray projectiles, only with a pickaxe.
+    }
+
 }
 
 Team: {
-	Tooltip: ""
 	White.Label: "[i:182] White"
 	Red.Label: "[i:178] Red"
 	Green.Label: "[i:179] Green"
 	Blue.Label: "[i:177] Blue"
 	Yellow.Label: "[i:180] Yellow"
 	Pink.Label: "[i:181] Pink"
+	Tooltip: ""
 }

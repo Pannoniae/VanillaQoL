@@ -293,10 +293,6 @@ public class ILEdits : ModSystem {
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
 
-
-        IL_NPC.TransformCopperSlime -= GlobalHooks.noop;
-        IL_NPC.TransformElderSlime -= GlobalHooks.noop;
-        IL_NPC.ViolentlySpawnNerdySlime -= GlobalHooks.noop;
         IL_UICharacterListItem.ctor -= addPlayerInfo;
         IL_UIWorldListItem.ctor -= addWorldInfo;
     }
