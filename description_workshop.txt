@@ -24,6 +24,8 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Ancient versions of 1.4.4 reworked melee items.
  [*] For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
  [*] More buff slots! (configurable)
+ [*] Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
+ [*] An option to disable reforges changing rarity.
 [/list]
 
 [b]Credits:[/b]

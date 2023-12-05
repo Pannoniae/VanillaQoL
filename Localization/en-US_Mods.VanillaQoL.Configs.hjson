@@ -146,10 +146,14 @@ QoLConfig: {
 	}
 
 	queenBeeLarvaeBreak: {
-        Label: "[i:1133] Less Fragile Queen Bee Larvae"
-        Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swings or stray projectiles, only with a pickaxe.
-    }
+		Label: "[i:1133] Less Fragile Queen Bee Larvae"
+		Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swings or stray projectiles, only with a pickaxe.
+	}
 
+	disablePrefixChangingRarity: {
+		Label: "[i:398] Disable Prefix Changing Rarity"
+		Tooltip: If enabled, reforged items will not change rarity. Does not apply to existing items.
+	}
 }
 
 Team: {

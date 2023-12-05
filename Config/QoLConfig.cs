@@ -78,6 +78,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool queenBeeLarvaeBreak { get; set; }
 
+    // Tinkerer's Workshop
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool disablePrefixChangingRarity { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

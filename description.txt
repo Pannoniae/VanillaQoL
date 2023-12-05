@@ -21,6 +21,8 @@ Features:
  - Ancient versions of 1.4.4 reworked melee items.
  - For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
  - More buff slots! (configurable)
+ - Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
+ - An option to disable reforges changing rarity.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

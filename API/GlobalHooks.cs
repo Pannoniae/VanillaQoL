@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using MonoMod.Cil;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
-using VanillaQoL.Buffs;
-using VanillaQoL.Config;
 using VanillaQoL.IL;
 using VanillaQoL.UI;
 
