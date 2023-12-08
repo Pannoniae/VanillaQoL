@@ -154,6 +154,11 @@ QoLConfig: {
 		Label: "[i:398] Disable Prefix Changing Rarity"
 		Tooltip: If enabled, reforged items will not change rarity. Does not apply to existing items.
 	}
+
+	softDungeonBricks: {
+		Label: "[i:139] Soft Dungeon Bricks"
+		Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
+	}
 }
 
 Team: {

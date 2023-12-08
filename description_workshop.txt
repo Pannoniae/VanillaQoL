@@ -26,6 +26,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] More buff slots! (configurable)
  [*] Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
  [*] An option to disable reforges changing rarity.
+ [*] Dungeon bricks crumbling instantly when you break them.
 [/list]
 
 [b]Credits:[/b]

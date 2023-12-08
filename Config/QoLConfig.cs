@@ -84,6 +84,11 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disablePrefixChangingRarity { get; set; }
 
+    // Pink Dungeon Brick
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool softDungeonBricks { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

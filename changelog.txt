@@ -1,2 +1,1 @@
-- Properly unload town slime patches
-- Added Queen Bee larvae protection
+ - Description update
