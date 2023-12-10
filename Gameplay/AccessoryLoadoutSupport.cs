@@ -145,6 +145,8 @@ public class AccessoryLoadoutSupport : ModPlayer {
     }
 
     public override void Unload() {
+        IL_Player.TrySwitchingLoadout -= loadoutPatch;
+        IL_Player.ctor -= playerInitPatch;
     }
 
 

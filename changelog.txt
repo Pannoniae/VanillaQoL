@@ -1,1 +1,1 @@
- - Reuploading 0.7.0 due to tML crashing shortly after upload
+ - Properly unload accessory edits
