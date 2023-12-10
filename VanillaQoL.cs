@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
 using VanillaQoL.Config;
-using VanillaQoL.Fixes;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
 using VanillaQoL.UI;
@@ -26,8 +25,12 @@ public class VanillaQoL : Mod {
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
 
-    public override void Load() {
+    public VanillaQoL() {
         instance = this;
+
+    }
+
+    public override void Load() {
         hasThorium = ModLoader.HasMod("ThoriumMod");
         hasCalamity = ModLoader.HasMod("CalamityMod");
         hasCensus = ModLoader.HasMod("Census");
@@ -57,6 +60,7 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(DisableTownSlimes));
         Utils.completelyWipeClass(typeof(NurseHealing));
         Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
+        Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix

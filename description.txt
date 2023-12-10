@@ -26,6 +26,7 @@ Features:
  - Dungeon bricks crumbling instantly when you break them.
  - Loadout support for modded accessories.
  - Fix DragonLens and other mods on Linux.
+ - An option to use the 6th and 7th accessory slot on Classic/Expert.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

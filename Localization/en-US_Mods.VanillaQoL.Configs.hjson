@@ -147,7 +147,7 @@ QoLConfig: {
 
 	queenBeeLarvaeBreak: {
 		Label: "[i:1133] Less Fragile Queen Bee Larvae"
-		Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swings or stray projectiles, only with a pickaxe.
+		Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swinging or stray projectiles, only with a pickaxe.
 	}
 
 	disablePrefixChangingRarity: {
@@ -176,6 +176,15 @@ QoLConfig: {
 			If enabled, Vanilla+ QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
 			This happens because file systems on Linux are case-sensitive, so "Projectile" and "projectile" are two different files.
 			(You need to restart your game after enabling this to stop the error from happening.)
+			'''
+	}
+
+	accessorySlotUnlock: {
+		Label: "[i:3335] Unlock Expert/Master Mode Accessory Slots"
+		Tooltip:
+			'''
+			If enabled, all 8 accessory slots are unlockable in every difficulty.
+			You still can't get a Demon Heart from the Wall of Flesh in Classic Mode, you'll have to use an Expert Mode world.
 			'''
 	}
 }

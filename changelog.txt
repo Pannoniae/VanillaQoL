@@ -1,1 +1,1 @@
- - Properly unload accessory edits
+ - Make sure Calamity is found!

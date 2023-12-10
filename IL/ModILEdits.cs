@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using CalamityMod.Items.PermanentBoosters;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -11,7 +12,7 @@ using Terraria.ModLoader;
 using VanillaQoL.API;
 using VanillaQoL.Config;
 
-namespace VanillaQoL.Fixes;
+namespace VanillaQoL.IL;
 
 public class ModILEdits {
     public static void load() {
@@ -27,7 +28,8 @@ public class ModILEdits {
             }
         }
         catch (Exception e) {
-            VanillaQoL.instance.Logger.Error($"Couldn't load Magic Storage and Recipe Browser integration! Error message: {e}");
+            VanillaQoL.instance.Logger.Error(
+                $"Couldn't load Magic Storage and Recipe Browser integration! Error message: {e}");
         }
     }
 
@@ -109,5 +111,23 @@ public static class MagicStorageLogic {
             VanillaQoL.instance.Logger.Warn("Failed to locate recipe condition check in MagicStorage");
         }
     }
+}
 
+[JITWhenModsEnabled("CalamityMod")]
+public static class CalamityLogic {
+    // thank you very much for not making everything internal, I love you<3
+    public static void load() {
+        var type = typeof(CelestialOnionAccessorySlot);
+        var isEnabledMethod =
+            type.GetMethod("IsEnabled", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+        MonoModHooks.Modify(isEnabledMethod, remove8thSlot);
+    }
+
+    private static void remove8thSlot(ILContext il) {
+        // we don't want the slot at all :)
+        var ilCursor = new ILCursor(il);
+        ilCursor.Emit(OpCodes.Ldc_I4_0);
+        ilCursor.Emit(OpCodes.Ret);
+    }
 }

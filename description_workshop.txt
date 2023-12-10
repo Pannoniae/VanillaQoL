@@ -31,6 +31,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Dungeon bricks crumbling instantly when you break them.
  [*] Loadout support for modded accessories.
  [*] Fix DragonLens and other mods on Linux.
+ [*] An option to use the 6th and 7th accessory slot on Classic/Expert.
 [/list]
 
 [b]Credits:[/b]
