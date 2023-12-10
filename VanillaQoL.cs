@@ -3,7 +3,6 @@ using Terraria.GameContent.UI.Chat;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
-using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.Fixes;
 using VanillaQoL.Gameplay;

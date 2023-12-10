@@ -5,7 +5,8 @@ using Terraria.ModLoader;
 using VanillaQoL.Config;
 using VanillaQoL.IL;
 
-namespace VanillaQoL.Buffs;
+namespace VanillaQoL.Gameplay;
+
 
 public class NurseHeal : ModBuff {
     // we reuse because we are lazy

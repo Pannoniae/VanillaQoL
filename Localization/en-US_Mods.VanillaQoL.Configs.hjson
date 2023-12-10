@@ -159,6 +159,15 @@ QoLConfig: {
 		Label: "[i:139] Soft Dungeon Bricks"
 		Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
 	}
+
+	accessoryLoadoutSupport: {
+		Label: "[i:3119] Loadout Support for Accessories"
+		Tooltip:
+			'''
+			If enabled, Vanilla+ QoL tries to make modded accessories work with 1.4.4 loadouts.
+			[c/FF0000:WARNING!] If you remove this mod, only the current loadout's accessory slots will be kept!
+			'''
+	}
 }
 
 Team: {

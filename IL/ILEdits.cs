@@ -7,7 +7,6 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.API;
-using VanillaQoL.Buffs;
 using VanillaQoL.Config;
 using VanillaQoL.UI;
 

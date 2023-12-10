@@ -1,3 +1,5 @@
+Check out one of my other mods! https://steamcommunity.com/sharedfiles/filedetails/?id=2828997816
+
 [h1] Vanilla+ QoL [/h1]
 
 Vanilla Quality of Life mod intended to make the game more fun :)
@@ -27,6 +29,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
  [*] An option to disable reforges changing rarity.
  [*] Dungeon bricks crumbling instantly when you break them.
+ [*] Loadout support for modded accessories.
 [/list]
 
 [b]Credits:[/b]

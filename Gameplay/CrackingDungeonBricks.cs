@@ -60,8 +60,9 @@ public class CrackingDungeonBricks : GlobalTile {
             neighbourTile.TileType <= TileID.CrackedPinkDungeonBrick) {
             tile.HasTile = false;
             WorldGen.KillTile(x, y, fail: false, effectOnly: false, noItem: true);
-            if (Main.netMode == NetmodeID.Server)
+            if (Main.netMode == NetmodeID.Server) {
                 NetMessage.TrySendData(MessageID.TileManipulation, -1, -1, null, 20, x, y);
+            }
         }
     }
 }

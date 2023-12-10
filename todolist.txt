@@ -29,6 +29,7 @@ add weapon selling so you don't have to kill the poor NPCs
 - patch magic storage to take items out faster (right-click)
 - restore drill mining speed bonus + nerf them by default (remove default 60% buff)
 - main menu splash text
+- wing slot but works with loadouts (disable when actual wing slot mod is enabled!!)
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable
