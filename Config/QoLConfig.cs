@@ -153,6 +153,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(5)]
     public int nurseHealingTime { get; set; }
 
+    // Lens
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool assetFix { get; set; }
+
     // Cog
     //[BackgroundColor(192, 54, 128, 192)]
     //[DefaultValue(true)]

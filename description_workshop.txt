@@ -30,6 +30,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] An option to disable reforges changing rarity.
  [*] Dungeon bricks crumbling instantly when you break them.
  [*] Loadout support for modded accessories.
+ [*] Fix DragonLens and other mods on Linux.
 [/list]
 
 [b]Credits:[/b]

@@ -168,6 +168,16 @@ QoLConfig: {
 			[c/FF0000:WARNING!] If you remove this mod, only the current loadout's accessory slots will be kept!
 			'''
 	}
+
+	assetFix: {
+		Label: "[i:38] Fix DragonLens on Linux"
+		Tooltip:
+			'''
+			If enabled, Vanilla+ QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
+			This happens because file systems on Linux are case-sensitive, so "Projectile" and "projectile" are two different files.
+			(You need to restart your game after enabling this to stop the error from happening.)
+			'''
+	}
 }
 
 Team: {
