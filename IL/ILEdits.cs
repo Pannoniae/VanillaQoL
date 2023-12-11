@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
+using Terraria.Utilities;
 using VanillaQoL.API;
 using VanillaQoL.Config;
 using VanillaQoL.UI;

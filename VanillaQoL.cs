@@ -1,5 +1,4 @@
 using System.IO;
-using Terraria.GameContent.UI.Chat;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using VanillaQoL.API;

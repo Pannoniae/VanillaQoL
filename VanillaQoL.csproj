@@ -45,6 +45,9 @@
     <Reference Include="RecipeBrowser">
       <HintPath>..\..\ModReader\RecipeBrowser\RecipeBrowser.dll</HintPath>
     </Reference>
+    <Reference Include="ReloadableGuns">
+      <HintPath>..\..\ModReader\ReloadableGuns\ReloadableGuns.dll</HintPath>
+    </Reference>
     <Reference Include="SharedMap">
       <HintPath>..\..\ModReader\SharedMap\SharedMap.dll</HintPath>
     </Reference>
