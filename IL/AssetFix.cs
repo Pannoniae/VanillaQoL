@@ -9,13 +9,11 @@ public class AssetFix : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
         // if not on linux just don't do anything
         var linux = OperatingSystem.IsLinux();
-        var a = (VanillaQoL)Mod;
         return QoLConfig.Instance.assetFix && linux;
     }
 
     public override void OnModLoad() {
         // fix the file paths in terraria
-        VanillaQoL.instance.Logger.Warn(Environment.CurrentDirectory);
         var currentPath = Environment.CurrentDirectory;
         var steamAppsCommon = Directory.GetParent(currentPath)!.FullName;
         var terraria = Path.Join(steamAppsCommon, "Terraria");

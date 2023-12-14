@@ -32,6 +32,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Loadout support for modded accessories.
  [*] Fix DragonLens and other mods on Linux.
  [*] An option to use the 6th and 7th accessory slot on Classic/Expert.
+ [*] Drill rework! Now drills are affected by mining speed/can have speed prefixes.
 [/list]
 
 [b]Credits:[/b]
