@@ -193,6 +193,7 @@ QoLConfig: {
 		Tooltip:
 			'''
 			If enabled, drills are reworked to be able to receive melee speed prefixes and be able to benefit from mining speed.
+			Additionally, they can also break grass in one hit.
 			In exchange, their base speed is lowered, they only get 25% instead of a 60% mining speed boost.
 			'''
 	}

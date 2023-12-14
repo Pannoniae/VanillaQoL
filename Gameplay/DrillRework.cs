@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.GameContent.Prefixes;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ThoriumMod.Items.Misc;
 using VanillaQoL.API;
 using VanillaQoL.Config;
 
