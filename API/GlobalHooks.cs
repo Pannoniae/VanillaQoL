@@ -1,7 +1,6 @@
 using System;
 using MonoMod.Cil;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.UI.Gamepad;
 using VanillaQoL.IL;
 using VanillaQoL.UI;

@@ -1,0 +1,9 @@
+{
+  "msbuild-sdks": {
+    "Microsoft.NET.Sdk.IL": "6.0.0"
+  },
+  "sdk": {
+    "version": "6.0.0",
+    "rollForward": "latestMinor"
+  }
+}

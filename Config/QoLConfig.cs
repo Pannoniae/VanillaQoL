@@ -101,6 +101,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool accessorySlotUnlock { get; set; }
 
+    // Vortex Drill
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool drillRework { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

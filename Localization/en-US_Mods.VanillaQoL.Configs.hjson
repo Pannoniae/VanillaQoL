@@ -187,6 +187,15 @@ QoLConfig: {
 			You still can't get a Demon Heart from the Wall of Flesh in Classic Mode, you'll have to use an Expert Mode world.
 			'''
 	}
+
+	drillRework: {
+		Label: "[i:2774] Drill Rework"
+		Tooltip:
+			'''
+			If enabled, drills are reworked to be able to receive melee speed prefixes, be able to benefit from mining speed.
+			In exchange, their base speed is lowered, they only get 25% instead of a 60% mining speed boost.
+			'''
+	}
 }
 
 Team: {

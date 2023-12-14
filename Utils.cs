@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using Terraria;
 
 namespace VanillaQoL;
 
@@ -31,7 +30,9 @@ public class Utils {
             }
             // static readonly field? time for unsafe hackery because reflection doesn't work
             catch (FieldAccessException e) {
-                wipeReadonlyField(staticField, null);
+                //wipeReadonlyField(staticField, null);
+                var f = typeof(FieldInfo);
+                ILProj.Util.wipeReadonlyFieldIL(staticField);
                 // actually we can
                 // don't throw if mod init broke, so check for null
                 if (VanillaQoL.instance != null && VanillaQoL.instance.Logger != null) {
@@ -41,6 +42,19 @@ public class Utils {
             }
         }
     }
+
+    /*private static unsafe void wipeReadonlyFieldIL(FieldInfo field) {
+        var f = field.GetValue(null);
+        var addr = &f;
+        *addr = null;
+    }
+
+    private static unsafe void setReadonlyFieldIL<T>(FieldInfo field, T value) {
+       T f = (T)field.GetValue(null);
+       var addr = &f;
+       *addr = value;
+   }*/
+
 
     /// <summary>
     /// Sets the value of a readonly field on an object.

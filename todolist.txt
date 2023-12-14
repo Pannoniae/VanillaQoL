@@ -29,7 +29,16 @@ add weapon selling so you don't have to kill the poor NPCs
 - patch magic storage to take items out faster (right-click)
 - restore drill mining speed bonus + nerf them by default (remove default 60% buff)
 - main menu splash text
-- wing slot but works with loadouts (disable when actual wing slot mod is enabled!!)
+- ninja NPC when King Slime is defeated
+- shop expander but better, no buttons inside the fucking shop
+(also hijack mod.calls and trick tmodloader into thinking the actual shopexpander is loaded, so mod compat works)
+
+ !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
+ then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked
+ of course if you don't implement all of the spoofed mod this will still crash but eh
+ alternatively, generate/emit the type at runtime where tml won't check it but I'd rather avoid it if we can just slap an attribute on it and be done
+
+- ChatSource but have a tooltip instead of just slapping the modname on it
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable

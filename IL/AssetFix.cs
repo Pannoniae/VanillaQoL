@@ -9,6 +9,7 @@ public class AssetFix : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
         // if not on linux just don't do anything
         var linux = OperatingSystem.IsLinux();
+        var a = (VanillaQoL)Mod;
         return QoLConfig.Instance.assetFix && linux;
     }
 
