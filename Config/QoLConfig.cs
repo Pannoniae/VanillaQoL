@@ -21,11 +21,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool townNPCSpawning { get; set; }
 
-    [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
-    [DefaultValue(true)]
-    public bool disableShimmerPumping { get; set; }
-
     // Compass
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -153,6 +148,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
+
+    // Pump
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool disableShimmerPumping { get; set; }
 
     // The actual Nurse NPC head
     [BackgroundColor(192, 54, 128, 192)]

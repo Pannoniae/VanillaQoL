@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Terraria.ID;
 
 namespace VanillaQoL.API;
 
@@ -12,4 +13,8 @@ public class Constants {
     /// List of town slimes. (npc.type ID)
     /// </summary>
     public static readonly List<int> slimes = new(Enumerable.Range(678, 688 - 678)) { 670 };
+
+    public static bool isDrill(int type) {
+        return ItemID.Sets.IsDrill[type] || ItemID.Sets.IsChainsaw[type] || type == ItemID.ChlorophyteJackhammer;
+    }
 }

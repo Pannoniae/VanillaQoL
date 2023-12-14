@@ -33,6 +33,14 @@ add weapon selling so you don't have to kill the poor NPCs
 - shop expander but better, no buttons inside the fucking shop
 (also hijack mod.calls and trick tmodloader into thinking the actual shopexpander is loaded, so mod compat works)
 
+- make truffle non-binary (teleport both by queen/king statue)
+
+- drills dont choke on grass, they break it in one hit
+in Player.PickTile:
+"else
+      {
+        WorldGen.KillTile(x, y, fail: true);"
+
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked
  of course if you don't implement all of the spoofed mod this will still crash but eh

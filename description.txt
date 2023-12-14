@@ -27,7 +27,7 @@ Features:
  - Loadout support for modded accessories.
  - Fix DragonLens and other mods on Linux.
  - An option to use the 6th and 7th accessory slot on Classic/Expert
- - Drill rework! Now drills are affected by mining speed/can have speed prefixes.
+ - Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

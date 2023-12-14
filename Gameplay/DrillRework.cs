@@ -4,6 +4,8 @@ using Terraria;
 using Terraria.GameContent.Prefixes;
 using Terraria.ID;
 using Terraria.ModLoader;
+using ThoriumMod.Items.Misc;
+using VanillaQoL.API;
 using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
@@ -15,12 +17,96 @@ public class DrillRework : GlobalItem {
 
     public override void Load() {
         IL_Player.ItemCheck_OwnerOnlyCode += drillPatch;
+        IL_Player.DoesPickTargetTransformOnKill += drillGrassPatch;
+        IL_Item.GetPrefixCategory += moddedDrillPrefixesPatch;
         //IL_Player.CanAutoReuseItem += autoReusePatch;
     }
 
     public override void Unload() {
         IL_Player.ItemCheck_OwnerOnlyCode -= drillPatch;
+        IL_Player.DoesPickTargetTransformOnKill -= drillGrassPatch;
         //IL_Player.CanAutoReuseItem -= autoReusePatch;
+    }
+
+    // if the player has a drill, just kill every tile immediately
+    public void drillGrassPatch(ILContext il) {
+        // Item sItem1 = this.inventory[this.selectedItem];
+        var ilCursor = new ILCursor(il);
+        ILLabel label = null!;
+        // match blt
+        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchBlt(out label!))) {
+            // more conditions, yey!
+            ilCursor.EmitLdarg0();
+            ilCursor.Emit<DrillRework>(OpCodes.Call, "isDrill");
+            // if it's a drill, just return true
+            ilCursor.EmitBrtrue(label);
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Couldn't match jump in DoesPickTargetTransformOnKill!");
+        }
+    }
+
+    public static bool isDrill(Player player) {
+        var item = player.inventory[player.selectedItem];
+        return Constants.isDrill(item.type);
+    }
+
+    private void moddedDrillPrefixesPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        // we match each of them, or'ing it with our method
+        //IL_000f: call         bool Terraria.ModLoader.ItemLoader::MeleePrefix(class Terraria.Item)
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "MeleePrefix"))) {
+            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.MeleePrefix in Item.GetPrefixCategory!");
+        }
+
+        ilCursor.EmitLdarg0();
+        ilCursor.Emit<DrillRework>(OpCodes.Call, "meleePrefix");
+        ilCursor.EmitOr();
+
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "RangedPrefix"))) {
+            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.RangedPrefix in Item.GetPrefixCategory!");
+        }
+
+        ilCursor.EmitLdarg0();
+        ilCursor.Emit<DrillRework>(OpCodes.Call, "rangedPrefix");
+        ilCursor.EmitOr();
+
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "MagicPrefix"))) {
+            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.MagicPrefix in Item.GetPrefixCategory!");
+        }
+
+        ilCursor.EmitLdarg0();
+        ilCursor.Emit<DrillRework>(OpCodes.Call, "magicPrefix");
+        ilCursor.EmitOr();
+
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "WeaponPrefix"))) {
+            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.WeaponPrefix in Item.GetPrefixCategory!");
+        }
+
+        ilCursor.EmitLdarg0();
+        ilCursor.Emit<DrillRework>(OpCodes.Call, "weaponPrefix");
+        ilCursor.EmitOr();
+    }
+
+    // METHODS
+    public static bool meleePrefix(Item item) {
+        if (Constants.isDrill(item.type)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool rangedPrefix(Item item) {
+        return false;
+    }
+
+    public static bool magicPrefix(Item item) {
+        return false;
+    }
+
+    public static bool weaponPrefix(Item item) {
+        return false;
     }
 
     // make drills autoReuse
@@ -30,7 +116,7 @@ public class DrillRework : GlobalItem {
         // IL_005f: brfalse.s    IL_0069
         if (ilCursor.TryGotoNext(MoveType.After,
                 i => i.MatchLdfld<Player>("channel"))) {
-            ilCursor.Next.OpCode = OpCodes.Br_S;
+            ilCursor.Next!.OpCode = OpCodes.Br_S;
             // pop it
             ilCursor.EmitPop();
         }
@@ -48,7 +134,7 @@ public class DrillRework : GlobalItem {
         ILLabel l = null!;
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg0(),
                 i => i.MatchLdfld<Player>("channel"),
-                i => i.MatchBrtrue(out l))) {
+                i => i.MatchBrtrue(out l!))) {
             // we don't need these instructions
             var label = ilCursor.DefineLabel();
             ilCursor.GotoLabel(l);
@@ -59,7 +145,6 @@ public class DrillRework : GlobalItem {
             // jump ahead
             ilCursor.GotoNext(MoveType.After, i => i.MatchStfld<Player>("toolTime"));
             ilCursor.MarkLabel(label);
-
         }
         else {
             VanillaQoL.instance.Logger.Warn(
@@ -98,9 +183,7 @@ public class DrillRework : GlobalItem {
         // so, tml are not the brightest, so they placed this SetDefaults hook *after* vanilla gives the 60% boost to drills.
         // how lovely, so the boost only applies to vanilla.
         // fear not, we can just use maths to undo the change.
-        var isDrill = ItemID.Sets.IsDrill[item.type] || ItemID.Sets.IsChainsaw[item.type] ||
-                      item.type == ItemID.ChlorophyteJackhammer;
-        if (isDrill) {
+        if (Constants.isDrill(item.type)) {
             var u = item.useTime;
             // apply 25% bonus
             item.useTime = (int)(item.useTime / 0.6 * 0.75);
@@ -116,8 +199,7 @@ public class DrillRework : GlobalItem {
     public override void SetStaticDefaults() {
         // only vanilla
         for (int i = 0; i < ItemID.Count; i++) {
-            var isDrill = ItemID.Sets.IsDrill[i] || ItemID.Sets.IsChainsaw[i] || i == ItemID.ChlorophyteJackhammer;
-            if (isDrill) {
+            if (Constants.isDrill(i)) {
                 PrefixLegacy.ItemSets.SwordsHammersAxesPicks[i] = true;
             }
         }
