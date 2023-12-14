@@ -1,2 +1,1 @@
- - Added support for melee prefixes for modded drills
- - Drills can now instantly mine grass and mud.
+ - Clarified config tooltip.
