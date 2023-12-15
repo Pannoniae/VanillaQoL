@@ -27,7 +27,7 @@ public class PrefixRarity : ModSystem {
         // IL_0318: stloc.s      rare
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg0(),
                 i => i.MatchLdfld<Item>("rare"),
-                i => i.MatchStloc(out var rare))) {
+                i => i.MatchStloc(out var _))) {
             // should be 12
         }
         else {

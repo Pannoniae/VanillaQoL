@@ -62,6 +62,7 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(NurseHealing));
         Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
         Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
+        Utils.completelyWipeClass(typeof(SliceOfCake));
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix

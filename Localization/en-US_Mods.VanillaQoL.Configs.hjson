@@ -197,6 +197,11 @@ QoLConfig: {
 			In exchange, their base speed is lowered, they only get 25% instead of a 60% mining speed boost.
 			'''
 	}
+
+	softDungeonBricks: {
+        Label: "[i:3750] Slice of Cake Lasts Until Death"
+        Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+    }
 }
 
 Team: {

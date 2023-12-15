@@ -1,1 +1,1 @@
- - Clarified config tooltip.
+ - Added Slice of Cake lasting forever.

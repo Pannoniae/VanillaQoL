@@ -7,7 +7,6 @@ public static class ILCursorExtensions {
     /// <summary>
     /// Goes to the final ret instruction of a method.
     /// </summary>
-    /// <param name="cursor">The cursor to use.</param>
     /// <returns>Whether at least one return was successfully found.</returns>
     public static bool GotoFinalRet(this ILCursor cursor, MoveType moveType) {
         bool ret = false;

@@ -14,7 +14,7 @@ public class GlobalHooks {
     /// <summary>
     /// Convert speed to km/h.
     /// </summary>
-    /// <param name="input">The speed in mph</param>
+    /// <param name="mph">The speed in mph</param>
     /// <returns>The speed formatted in km/h</returns>
     public static string metricStopwatch(float mph) {
         var kph = (int)(mph * Constants.mphToKph);

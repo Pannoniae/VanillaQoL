@@ -33,6 +33,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
  [*] Fix DragonLens and other mods on Linux.
  [*] An option to use the 6th and 7th accessory slot on Classic/Expert.
  [*] Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
+ [*] The Slice of Cake lasts until death.
 [/list]
 
 [b]Credits:[/b]

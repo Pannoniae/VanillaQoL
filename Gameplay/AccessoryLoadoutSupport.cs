@@ -34,12 +34,12 @@ public class AccessoryLoadoutSupport : ModPlayer {
 
     // exAccessorySlot contains 2 * count items, extraCount times.
     // // offset of exAccessorySlot is extraCount * 2
-    public int accessoryIndex(int loadout, int index, bool vanity) {
+    public int accessoryIndex(int iLoadout, int index, bool vanity) {
         var count = slots.Count;
         // slotsCount if vanity, else 0
         var vanityOffset = vanity ? count : 0;
         // get the array segment corresponding to the loadout
-        var offset = loadout * count * 2  + index + vanityOffset;
+        var offset = iLoadout * count * 2  + index + vanityOffset;
         return offset;
     }
 

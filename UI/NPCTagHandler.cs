@@ -50,7 +50,6 @@ public class NPCTagHandler : ITagHandler {
     }
 
     public class NPCSnippet : TextSnippet {
-        private int npcType;
         private int netID;
         private NPC npcClass;
         private bool noTooltip;
@@ -60,7 +59,6 @@ public class NPCTagHandler : ITagHandler {
             this.netID = netID;
             this.noTooltip = noTooltip;
             this.body = body;
-            npcType = ContentSamples.NpcsByNetId[netID].type;
             npcClass = ContentSamples.NpcsByNetId[netID];
         }
 
@@ -70,16 +68,12 @@ public class NPCTagHandler : ITagHandler {
             }
         }
 
-        public override bool UniqueDraw(
-            bool justCheckingString,
-            out Vector2 size,
-            SpriteBatch spriteBatch,
-            Vector2 position = default,
-            Color color = default,
-            float scale = 1f) {
+        public override bool UniqueDraw(bool justCheckingString, out Vector2 size, SpriteBatch spriteBatch,
+            Vector2 position = default, Color color = default, float scale = 1f) {
             float num1 = 24f * scale;
             Texture2D texture;
             var r = new Rectangle();
+            var npcType = npcClass.type;
             // if not dedicated server
             if (Main.netMode != NetmodeID.Server && !Main.dedServ) {
                 Main.instance.LoadNPC(npcType);
@@ -93,7 +87,6 @@ public class NPCTagHandler : ITagHandler {
                 else {
                     texture = TextureAssets.Npc[npcType].Value;
                     ref Rectangle local = ref r;
-                    int someNumber = texture.Height / Main.npcFrameCount[npcType];
                     int width = texture.Width;
                     int height = texture.Height / Main.npcFrameCount[npcType];
                     local = new Rectangle(0, 0, width, height);

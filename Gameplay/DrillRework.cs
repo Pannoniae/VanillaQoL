@@ -183,7 +183,6 @@ public class DrillRework : GlobalItem {
         // how lovely, so the boost only applies to vanilla.
         // fear not, we can just use maths to undo the change.
         if (Constants.isDrill(item.type)) {
-            var u = item.useTime;
             // apply 25% bonus
             item.useTime = (int)(item.useTime / 0.6 * 0.75);
             item.useAnimation = (int)(item.useAnimation / 0.6 * 0.75);

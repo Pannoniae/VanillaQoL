@@ -112,7 +112,6 @@ public class QoLSharedMapSystem : ModSystem {
 
     public static void onUpdate(int x, int y, byte light) {
         if (Main.netMode == NetmodeID.MultiplayerClient) {
-            MapTile t = Main.Map[x, y];
             var newTile = new Point16(x, y);
             instance.updates.Enqueue(newTile);
         }
@@ -259,7 +258,7 @@ public class QoLSharedMapSystem : ModSystem {
                     using (var stream = new MemoryStream()) {
                         using (var writer = new BinaryWriter(stream)) {
                             for (var i = 0; i < maxUpdates; i++) {
-                                var succ = updates.TryDequeue(out var t);
+                                updates.TryDequeue(out var t);
                                 writer.Write(t.X);
                                 writer.Write(t.Y);
                                 var mapTile = Main.Map[t.X, t.Y];
@@ -331,7 +330,7 @@ public class QoLSharedMapSystem : ModSystem {
             packet.Write(data);
 
 
-            ///packet.Send(-1, whichPlayer);
+            //packet.Send(-1, whichPlayer);
             sendToSameTeam(packet, whichPlayer);
         }
         // running on client
@@ -440,10 +439,7 @@ public class QoLSharedMapSystem : ModSystem {
         }
     }
 
-    public static bool updateMapTile(int i, int j) {
-        bool result = false;
-
-        result = true;
+    public static void updateMapTile(int i, int j) {
         if (MapHelper.numUpdateTile < MapHelper.maxUpdateTile - 1) {
             MapHelper.updateTileX[MapHelper.numUpdateTile] = (short)i;
             MapHelper.updateTileY[MapHelper.numUpdateTile] = (short)j;
@@ -452,8 +448,6 @@ public class QoLSharedMapSystem : ModSystem {
         else {
             Main.refreshMap = true;
         }
-
-        return result;
     }
 
 

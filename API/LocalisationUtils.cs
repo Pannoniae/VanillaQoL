@@ -76,7 +76,7 @@ public static class LocalisationUtils {
     /// <summary>
     /// Retrieves the text value for a localization key belonging to this piece of content with the given <paramref name="suffix" />. The text returned will be for the currently selected language.
     /// </summary>
-    /// <param name="self"></param>
+    /// <param name="type"></param>
     /// <param name="suffix"></param>
     /// <returns></returns>
     public static string GetLocalizedValue(ILocalizedModType type, string suffix) =>

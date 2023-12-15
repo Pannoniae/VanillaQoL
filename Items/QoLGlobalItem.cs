@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Terraria;
 using Terraria.Enums;
@@ -102,6 +103,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         }
     }
 
+    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
     private void vanillaifyThoriumTooltips(Item item, List<TooltipLine> tooltips) {
         tooltips.RemoveAll(t => pred(t, "BardTag"));
         tooltips.RemoveAll(t => pred(t, "ThrowerTag"));
@@ -127,23 +129,21 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             return;
         }
 
-        var wingType = item.wingSlot;
 
         var stats = ArmorIDs.Wing.Sets.Stats[item.wingSlot];
-        var player = Main.LocalPlayer;
 
         var baseSpeed = stats.AccRunSpeedOverride * Constants.speedToMph;
         // it's an open question whether we want to apply the player speed / other factors or not. probably not, it would make it inconsistent.
         var horizontalSpeed = baseSpeed;
 
-        float constantAscend = 0.0f;
+        /*float constantAscend = 0.0f;
         float ascentWhenFalling = 0.0f;
         float maxAscentMultiplier = 0.0f;
         float maxCanAscendMultiplier = 0.0f;
-        float ascentWhenRising = 0.0f;
+        float ascentWhenRising = 0.0f;*/
 
-        copiedVanillaLogic(player, wingType, ref constantAscend, ref ascentWhenFalling, ref maxAscentMultiplier,
-            ref maxCanAscendMultiplier, ref ascentWhenRising);
+        //copiedVanillaLogic(player, wingType, out constantAscend, out ascentWhenFalling, out maxAscentMultiplier,
+        //    out maxCanAscendMultiplier, out ascentWhenRising);
         // in vanilla, speed ranges from 3, most clustering around 6, up to 9 on endgame wings.
         // in mph, this is 3 = 15, 6 = 30.5, 7 = 35.7, 9 = 46.
         // strongest cal wing is 1.15 = 58
@@ -157,8 +157,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         addTooltip(tooltips, tooltipLine);
     }
 
-    private void copiedVanillaLogic(Player player, int wingType, ref float constantAscend, ref float ascentWhenFalling,
-        ref float maxAscentMultiplier, ref float maxCanAscendMultiplier, ref float ascentWhenRising) {
+    private static void copiedVanillaLogic(Player player, int wingType, out float constantAscend, out float ascentWhenFalling,
+        out float maxAscentMultiplier, out float maxCanAscendMultiplier, out float ascentWhenRising) {
         constantAscend = 0.1f;
         ascentWhenFalling = 0.5f;
         maxAscentMultiplier = 1.5f;

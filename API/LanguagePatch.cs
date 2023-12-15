@@ -63,7 +63,7 @@ public class LanguagePatch {
 
         if (language == 0 || GameCulture.FromCultureName(language) == Language.ActiveCulture) {
             loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
-                new[] { value });
+                new object?[] { value });
 
             VanillaQoL.instance.Logger.Warn(
                 $"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
@@ -75,11 +75,12 @@ public class LanguagePatch {
 public class ExtendedLocalizedText {
     public string value;
     public GameCulture.CultureName language;
-    public bool hidden = false;
+    public bool hidden;
 
     public ExtendedLocalizedText(string value, GameCulture.CultureName language) {
         this.value = value;
         this.language = language;
+        hidden = false;
     }
 
     public ExtendedLocalizedText(string value, GameCulture.CultureName language, bool hidden) {
