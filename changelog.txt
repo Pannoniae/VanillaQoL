@@ -1,1 +1,1 @@
- - Added Slice of Cake lasting forever.
+ - Fixed Slice of Cake having a wrong config tooltip

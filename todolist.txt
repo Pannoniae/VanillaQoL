@@ -34,7 +34,6 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - make truffle non-binary (teleport both by queen/king statue)
 
-making the slice of cake's buff permanent until death like other buff stations?
 
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked

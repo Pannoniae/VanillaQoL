@@ -156,9 +156,9 @@ QoLConfig: {
 	}
 
 	softDungeonBricks: {
-		Label: "[i:139] Soft Dungeon Bricks"
-		Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
-	}
+        Label: "[i:139] Soft Dungeon Bricks"
+        Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
+    }
 
 	accessoryLoadoutSupport: {
 		Label: "[i:3119] Loadout Support for Accessories"
@@ -198,7 +198,7 @@ QoLConfig: {
 			'''
 	}
 
-	softDungeonBricks: {
+	sliceOfCakeUntilDeath: {
         Label: "[i:3750] Slice of Cake Lasts Until Death"
         Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
     }
