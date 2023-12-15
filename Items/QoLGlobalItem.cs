@@ -12,6 +12,8 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 
+[SuppressMessage("ReSharper", "UnusedMember.Local")]
+[SuppressMessage("ReSharper", "UnusedParameter.Local")]
 public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public string LocalizationCategory => "Tooltips";
 
@@ -157,6 +159,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         addTooltip(tooltips, tooltipLine);
     }
 
+
     private static void copiedVanillaLogic(Player player, int wingType, out float constantAscend, out float ascentWhenFalling,
         out float maxAscentMultiplier, out float maxCanAscendMultiplier, out float ascentWhenRising) {
         constantAscend = 0.1f;
@@ -248,14 +251,13 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         string tooltip;
         float distance = 0;
         float reach = 0;
-        float launch = 0;
+        float launch = item.shootSpeed;
         float reel = 0;
         float pull = 0;
         int numHooks = 0;
         // modded logic
         if ((mproj = projectile.ModProjectile) != null) {
             distance = mproj.GrappleRange();
-            launch = item.shootSpeed;
             mproj.GrappleRetreatSpeed(player, ref reel);
             mproj.GrapplePullSpeed(player, ref pull);
             mproj.NumGrappleHooks(player, ref numHooks);
@@ -352,7 +354,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
                 numHooks = 1;
             }
 
-            launch = numHooks;
+            // ???
+            //launch = numHooks;
         }
 
         reach = distance / 16;

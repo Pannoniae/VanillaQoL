@@ -10,7 +10,7 @@ public class Utils {
     /// <summary>
     /// Completely wipes a class including all static fields and inner classes.
     /// </summary>
-    /// <param name="cls"></param>
+    /// <param name="type">The type to wipe.</param>
     public static void completelyWipeClass(Type type) {
         // do the same for nested classes
         foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
@@ -31,7 +31,6 @@ public class Utils {
             // static readonly field? time for unsafe hackery because reflection doesn't work
             catch (FieldAccessException e) {
                 //wipeReadonlyField(staticField, null);
-                var f = typeof(FieldInfo);
                 ILProj.Util.wipeReadonlyFieldIL(staticField);
                 // actually we can
                 // don't throw if mod init broke, so check for null
@@ -43,6 +42,7 @@ public class Utils {
         }
     }
 
+    // This is the code, just written in IL. This will come back when tML is .NET 8 so the fucking compiler won't refuse to compile this.
     /*private static unsafe void wipeReadonlyFieldIL(FieldInfo field) {
         var f = field.GetValue(null);
         var addr = &f;
@@ -133,6 +133,6 @@ public class FieldInfoComparer : IEqualityComparer<FieldInfo> {
     }
 
     public int GetHashCode(FieldInfo obj) {
-        return (obj.DeclaringType?.GetHashCode() ^ obj.Name?.GetHashCode()).GetValueOrDefault();
+        return obj.DeclaringType?.GetHashCode() ?? 0 ^ obj.Name.GetHashCode();
     }
 }

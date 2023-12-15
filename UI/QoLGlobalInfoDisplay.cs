@@ -38,7 +38,6 @@ public class QoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
     public override void ModifyDisplayParameters(InfoDisplay currentDisplay, ref string displayValue,
         ref string displayName,
         ref Color displayColor, ref Color displayShadowColor) {
-        var player = Main.LocalPlayer;
         if (QoLConfig.Instance.twentyFourHourTime && currentDisplay == InfoDisplay.Watches) {
             double time = Main.time;
             if (!Main.dayTime)

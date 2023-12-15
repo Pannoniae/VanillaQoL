@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using CalamityMod.CalPlayer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -54,8 +53,9 @@ public class UIInfo : ModSystem, ILocalizedModType {
 
     // tml logic
     // in the good old tml tradition, we misuse the vanilla terraria info accessory icons...
+    // HEH NOT ANYMORE THANK YOU SIRSWERVING!
+    // todo this is a massive piece of duplicated shit, maybe write some actually proper code this time?
     public static void playerInfo(UICharacterListItem character) {
-        var mod = VanillaQoL.instance;
         var player = character.Data.Player;
         bool[] things = {
             player.extraAccessory,
@@ -113,7 +113,6 @@ public class UIInfo : ModSystem, ILocalizedModType {
     }
 
     public static void worldInfo(UIWorldListItem world) {
-        var mod = VanillaQoL.instance;
         var info = world.Data;
         var additionalData = getAdditionalData(info.Path, info.IsCloudSave);
         bool[] things = {
@@ -195,7 +194,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
                     data.CreationTime = version < 141
                         ? (cloudSave ? DateTime.Now : File.GetCreationTime(file))
                         : DateTime.FromBinary(reader.ReadInt64());
-                    int num3 = reader.ReadByte();
+                    reader.ReadByte();
                     reader.ReadInt32();
                     reader.ReadInt32();
                     reader.ReadInt32();
@@ -245,7 +244,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
                     reader.ReadBoolean();
                     reader.ReadBoolean();
                     reader.ReadBoolean();
-                    int num4 = reader.ReadByte();
+                    reader.ReadByte();
                     reader.ReadInt32();
                     data.IsHardMode = reader.ReadBoolean();
                     reader.ReadBoolean();
@@ -254,25 +253,25 @@ public class UIInfo : ModSystem, ILocalizedModType {
                     reader.ReadInt32();
                     reader.ReadDouble();
                     reader.ReadDouble();
-                    int num5 = reader.ReadByte();
+                    reader.ReadByte();
 
                     reader.ReadBoolean();
                     reader.ReadInt32();
-                    double num6 = reader.ReadSingle();
+                    reader.ReadSingle();
                     reader.ReadInt32();
                     reader.ReadInt32();
                     reader.ReadInt32();
-                    int num7 = reader.ReadByte();
-                    int num8 = reader.ReadByte();
-                    int num9 = reader.ReadByte();
-                    int num10 = reader.ReadByte();
-                    int num11 = reader.ReadByte();
-                    int num12 = reader.ReadByte();
-                    int num13 = reader.ReadByte();
-                    int num14 = reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
+                    reader.ReadByte();
                     reader.ReadInt32();
-                    int num15 = reader.ReadInt16();
-                    double num16 = reader.ReadSingle();
+                    reader.ReadInt16();
+                    reader.ReadSingle();
                     for (int index = reader.ReadInt32(); index > 0; --index) {
                         reader.ReadString();
                     }
