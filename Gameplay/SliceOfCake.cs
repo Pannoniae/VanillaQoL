@@ -7,6 +7,11 @@ using VanillaQoL.Config;
 namespace VanillaQoL.Gameplay;
 
 public class SliceOfCake : ModSystem {
+
+    private static bool prev;
+    private static bool prev2;
+    private static bool prev3;
+
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.sliceOfCakeUntilDeath;
     }
@@ -16,6 +21,9 @@ public class SliceOfCake : ModSystem {
     }
 
     public override void SetStaticDefaults() {
+        prev = BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush];
+        prev2 = Main.buffNoTimeDisplay[BuffID.SugarRush];
+        prev3 = Main.buffNoSave[BuffID.SugarRush];
         BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = true;
         Main.buffNoTimeDisplay[BuffID.SugarRush] = true;
         Main.buffNoSave[BuffID.SugarRush] = true;
@@ -23,6 +31,9 @@ public class SliceOfCake : ModSystem {
 
     public override void Unload() {
         IL_Player.TileInteractionsUse -= sliceOfCakePatch;
+        BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = prev;
+        Main.buffNoTimeDisplay[BuffID.SugarRush] = prev2;
+        Main.buffNoSave[BuffID.SugarRush] = prev3;
     }
 
     // IL_11f0: ldc.i4       192 // 0x000000c0
