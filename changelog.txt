@@ -1,1 +1,1 @@
- - Remove debug code
+ - Fixed projectiles not being sticky when they should be.

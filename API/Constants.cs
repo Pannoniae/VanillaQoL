@@ -51,9 +51,6 @@ public class Constants {
     /// List of explosives which stick to surfaces. Used for aiStyle 16 spoofing.
     /// </summary>
     public static readonly List<int> stickyExplosives = new() {
-        ModContent.ProjectileType<BouncyDirtBombProjectile>(),
-        ModContent.ProjectileType<DirtDynamiteProjectile>(),
-        ModContent.ProjectileType<BouncyDirtDynamiteProjectile>(),
         ModContent.ProjectileType<StickyDirtDynamiteProjectile>()
     };
 

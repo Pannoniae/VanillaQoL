@@ -62,6 +62,7 @@ public class StickyDirtDynamiteProjectile : ModProjectile {
 
         Projectile.friendly = true;
         Projectile.penetrate = -1;
+        Projectile.tileCollide = false;
         Projectile.timeLeft = 180;
     }
 
@@ -81,11 +82,6 @@ public class StickyDirtDynamiteProjectile : ModProjectile {
     public override void OnKill(int timeLeft) {
         Projectile.tileCollide = false;
         Explosives.dirtExplosionCode(Projectile, width, height, 7);
-    }
-
-    public override bool OnTileCollide(Vector2 oldVelocity) {
-        Explosives.explosiveCollide(Projectile, oldVelocity);
-        return false;
     }
 
     public override void AI() {
