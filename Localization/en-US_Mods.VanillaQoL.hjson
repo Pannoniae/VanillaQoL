@@ -121,4 +121,43 @@ Items: {
 		DisplayName: Ancient Excalibur
 		Tooltip: ""
 	}
+
+	BouncyDirtBomb: {
+		DisplayName: Bouncy Dirt Bomb
+		Tooltip:
+			'''
+			A small explosion that will spread dirt
+			Very bouncy
+			'''
+	}
+
+	BouncyDirtDynamite: {
+		DisplayName: Bouncy Dirt Dynamite
+		Tooltip:
+			'''
+			A large explosion that will spread dirt
+			'This will prove to be a terrible idea'
+			'''
+	}
+
+	DirtDynamite: {
+		DisplayName: Dirt Dynamite
+		Tooltip: A large explosion that will spread dirt
+	}
+
+	StickyDirtDynamite: {
+		DisplayName: Sticky Dirt Dynamite
+		Tooltip:
+			'''
+			A large explosion that will spread dirt
+			'Tossing may be difficult.'
+			'''
+	}
+}
+
+Projectiles: {
+	BouncyDirtBombProjectile.DisplayName: Bouncy Dirt Bomb
+	BouncyDirtDynamiteProjectile.DisplayName: Bouncy Dirt Dynamite
+	DirtDynamiteProjectile.DisplayName: Dirt Dynamite
+	StickyDirtDynamiteProjectile.DisplayName: Sticky Dirt Dynamite
 }

@@ -5,6 +5,7 @@ using VanillaQoL.API;
 using VanillaQoL.Config;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
+using VanillaQoL.Items;
 using VanillaQoL.UI;
 
 namespace VanillaQoL;
@@ -60,6 +61,7 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
         Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
         Utils.completelyWipeClass(typeof(SliceOfCake));
+        Utils.completelyWipeClass(typeof(Explosives));
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix

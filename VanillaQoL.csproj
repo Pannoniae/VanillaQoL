@@ -73,4 +73,20 @@
   <ItemGroup>
     <Content Include="ILLib\ILProj.ilproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ILLib\bin\**" />
+    <Compile Remove="ILLib\obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ILLib\bin\**" />
+    <EmbeddedResource Remove="ILLib\obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="ILLib\bin\**" />
+    <AdditionalFiles Remove="ILLib\obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ILLib\bin\**" />
+    <None Remove="ILLib\obj\**" />
+  </ItemGroup>
 </Project>

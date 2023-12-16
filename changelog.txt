@@ -1,1 +1,1 @@
- - Fixed Slice of Cake having a wrong config tooltip
+ - Updated description

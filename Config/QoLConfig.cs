@@ -43,13 +43,6 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disableTownSlimes { get; set; }
 
-
-    // Terra Blade
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool ancientSwords { get; set; }
-
     // x button
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -177,6 +170,21 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool assetFix { get; set; }
+
+    [Header("content")]
+
+    // Bouncy Dirt Bomb
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool moreExplosives { get; set; }
+
+    // Terra Blade
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool ancientSwords { get; set; }
+
 
     // Cog
     //[BackgroundColor(192, 54, 128, 192)]

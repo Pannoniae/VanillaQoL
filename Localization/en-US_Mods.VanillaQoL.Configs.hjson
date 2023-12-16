@@ -10,6 +10,7 @@ QoLConfig: {
 		tooltips: "[i:3095] Tooltips"
 		gameplay: "[i:3515] Gameplay"
 		fixes: "[i:3625] Fixes"
+		content: "[i:757] Content"
 		multiplayer: "[i:181] Multiplayer"
 	}
 
@@ -156,9 +157,9 @@ QoLConfig: {
 	}
 
 	softDungeonBricks: {
-        Label: "[i:139] Soft Dungeon Bricks"
-        Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
-    }
+		Label: "[i:139] Soft Dungeon Bricks"
+		Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
+	}
 
 	accessoryLoadoutSupport: {
 		Label: "[i:3119] Loadout Support for Accessories"
@@ -199,9 +200,14 @@ QoLConfig: {
 	}
 
 	sliceOfCakeUntilDeath: {
-        Label: "[i:3750] Slice of Cake Lasts Until Death"
-        Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
-    }
+		Label: "[i:3750] Slice of Cake Lasts Until Death"
+		Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+	}
+
+	moreExplosives: {
+		Label: "[i:VanillaQoL/BouncyDirtDynamite] More Explosives"
+		Tooltip: If enabled, adds more variants of explosives to the game.
+	}
 }
 
 Team: {

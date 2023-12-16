@@ -1,5 +1,8 @@
 Vanilla Quality of Life mod intended to make the game more fun :)
 
+If you have any suggestions, feel free to write them down, I'll consider them!
+My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
+
 Features:
  - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
  - Town NPCs spawn at night and can move to their house at day.
@@ -33,11 +36,19 @@ Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
  - sexual_lobster for the Luck icon. (from https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263)
  - SirSwerving for the amazing player/world icons.
+ - The Calamity development team for showing how to do many things with their code. Thank you, Calamity!
+ - Magic Storage's absoluteAquarian for more advanced netcode and some IL tricks.
+
+Mod integrations:
+ - Calamity
+ - Calamity Music Mod
+ - Thorium
+ - Magic Storage
+ - Recipe Browser
+ - Census
+ - Wing Slot
 
 Everything is fully configurable.
 
 Longer-term, this is meant to be a quality of life mod without cheating. Everything should require in-game effort (like a veinmining accessory) or have some drawback so the player doesn't skip half the game, like potion making.
 If you are a modder, you can also enjoy the questionable quality "API"s I made to modify things which you shouldn't modify but hey, you can do it now!
-
-If you have any suggestions, feel free to write them down, I'll consider them!
-My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
