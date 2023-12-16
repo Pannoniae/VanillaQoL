@@ -35,9 +35,13 @@ public class BouncyDirtDynamite : ModItem {
 
     public override void AddRecipes() {
         var recipe = CreateRecipe();
-        recipe.AddIngredient(ItemID.Dynamite);
+        recipe.AddIngredient<DirtDynamite>();
         recipe.AddIngredient(ItemID.PinkGel);
         recipe.Register();
+        var recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ItemID.BouncyDynamite);
+        recipe2.AddIngredient(ItemID.PinkGel);
+        recipe2.Register();
     }
 }
 

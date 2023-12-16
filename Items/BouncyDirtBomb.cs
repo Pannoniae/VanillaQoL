@@ -38,6 +38,10 @@ public class BouncyDirtBomb : ModItem {
         recipe.AddIngredient(ItemID.DirtBomb);
         recipe.AddIngredient(ItemID.PinkGel);
         recipe.Register();
+        var recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ItemID.BouncyBomb);
+        recipe2.AddIngredient(ItemID.DirtBlock, 25);
+        recipe2.Register();
     }
 }
 

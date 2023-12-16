@@ -42,8 +42,6 @@ public class Explosives : ModSystem {
         ilCursor.EmitLdarg0();
         ilCursor.Emit<Explosives>(OpCodes.Call, "isBomb");
         ilCursor.EmitBrtrue(target);
-
-        MonoModHooks.DumpIL(VanillaQoL.instance, il);
     }
 
     public static bool isBomb(Projectile proj) {

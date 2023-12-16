@@ -1,1 +1,1 @@
- - Fix Terra Blade not requiring Broken Hero Sword.
+ - Remove debug code

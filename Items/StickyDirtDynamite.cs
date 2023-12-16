@@ -38,6 +38,10 @@ public class StickyDirtDynamite : ModItem {
         recipe.AddIngredient<DirtDynamite>();
         recipe.AddIngredient(ItemID.Gel);
         recipe.Register();
+        var recipe2 = CreateRecipe();
+        recipe2.AddIngredient(ItemID.StickyDynamite);
+        recipe2.AddIngredient(ItemID.DirtBlock, 25);
+        recipe2.Register();
     }
 }
 
