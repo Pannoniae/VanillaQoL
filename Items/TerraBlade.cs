@@ -44,6 +44,7 @@ public class TerraBlade : ModItem {
                 var recipe1 = CreateRecipe();
                 recipe1.AddIngredient(n);
                 recipe1.AddIngredient(e);
+                recipe1.AddIngredient(ItemID.BrokenHeroSword);
                 recipe1.AddTile(TileID.MythrilAnvil);
                 recipe1.Register();
 
@@ -55,6 +56,7 @@ public class TerraBlade : ModItem {
                 var recipe2 = Recipe.Create(ItemID.TerraBlade);
                 recipe2.AddIngredient(n);
                 recipe2.AddIngredient(e);
+                recipe2.AddIngredient(ItemID.BrokenHeroSword);
                 recipe2.AddTile(TileID.MythrilAnvil);
                 recipe2.Register();
             }
