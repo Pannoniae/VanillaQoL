@@ -185,6 +185,14 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool ancientSwords { get; set; }
 
+    // Tungsten Clock
+    [Header("respawn")]
+    // Fast Clock
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool respawningRework { get; set; }
+
 
     // Cog
     //[BackgroundColor(192, 54, 128, 192)]

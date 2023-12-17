@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using CalamityMod.CalPlayer;
 using CalamityMod.Items.PermanentBoosters;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
@@ -129,5 +130,60 @@ public static class CalamityLogic {
         var ilCursor = new ILCursor(il);
         ilCursor.Emit(OpCodes.Ldc_I4_0);
         ilCursor.Emit(OpCodes.Ret);
+    }
+}
+
+
+// a nested auto-generated class refers to calamity stuff. we need to patch the tml JITing process so it doesn't fucking crash on startup
+// because this attribute apparently doesn't apply to nested classes lmao
+[JITWhenModsEnabled("CalamityMod")]
+public static class CalamityLogic2 {
+    // thank you very much for not making everything internal, I love you<3
+    public static void load() {
+        var type = typeof(CalamityPlayer);
+        var deadMethod = type.GetMethod("UpdateDead", BindingFlags.Instance | BindingFlags.Public);
+        var deadMethod2 = type.GetMethod("KillPlayer", BindingFlags.Instance | BindingFlags.Public);
+
+        MonoModHooks.Modify(deadMethod, removePlayerRespawn);
+        MonoModHooks.Modify(deadMethod2, removePlayerRespawn2);
+    }
+
+    // [2433 7 - 2433 118]
+    // IL_0b51: ldsfld       bool CalamityMod.CalPlayer.CalamityPlayer::areThereAnyDamnBosses
+    // IL_0b56: brtrue.s     IL_0b5f
+    private static void removePlayerRespawn(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        // catch incoming jumps
+        if (ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdsfld<CalamityPlayer>("areThereAnyDamnBosses"))) {
+            ilCursor.EmitRet();
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't match player respawn logic in CalamityPlayer.UpdateDead! (areThereAnyDamnBosses)");
+        }
+    }
+
+    // [7191 7 - 7191 37]
+    // IL_04e2: ldarg.0      // this
+    // IL_04e3: call         instance class [tModLoader]Terraria.Player [tModLoader]Terraria.ModLoader.ModPlayer::get_Player()
+    // IL_04e8: ldc.i4       600 // 0x00000258
+    // IL_04ed: stfld        int32 [tModLoader]Terraria.Player::respawnTimer
+    private static void removePlayerRespawn2(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg0(),
+                i => i.MatchCall<ModPlayer>("get_Player"),
+                i => i.MatchLdcI4(600),
+                i => i.MatchStfld<Player>("respawnTimer"))) {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't match player respawn logic in CalamityPlayer.UpdateDead! (areThereAnyDamnBosses)");
+        }
+
+        // IL_0580: stfld        int32 [tModLoader]Terraria.Player::respawnTimer
+        if (!ilCursor.TryFindNext(out var c, i => i.MatchStfld<Player>("respawnTimer"))) {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't match jump after player respawn logic in CalamityPlayer.UpdateDead! (Player.respawnTimer)");
+        }
+        // TryFindNext returns before, go to after
+        ilCursor.EmitBr(c[0].Next!.Next);
     }
 }

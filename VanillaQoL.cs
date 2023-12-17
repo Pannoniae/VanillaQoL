@@ -1,4 +1,7 @@
+using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
@@ -27,6 +30,7 @@ public class VanillaQoL : Mod {
 
     public VanillaQoL() {
         instance = this;
+        PreJITFilter = new Filter();
     }
 
     public override void Load() {
@@ -86,6 +90,11 @@ public class VanillaQoL : Mod {
         ChatManager.Register<NPCTagHandler>("npc");
     }
 
+    // use at load time
+    public static bool isCalamityLoaded() {
+        return ModLoader.HasMod("CalamityMod");
+    }
+
     public override void HandlePacket(BinaryReader reader, int whoAmI) {
         if (QoLConfig.Instance.mapSharing) {
             QoLSharedMapSystem.instance.HandlePacket(reader, whoAmI);
@@ -96,6 +105,16 @@ public class VanillaQoL : Mod {
             while (stream.ReadByte() != -1) {
                 // read
             }
+        }
+    }
+
+    public class Filter : PreJITFilter {
+        public override bool ShouldJIT(MemberInfo member) {
+            // if it's a type, check subtypes as well
+            // SORRY FOR THE SPAGHETTI
+            return member.DeclaringType?.GetCustomAttributes<MemberJitAttribute>()
+                .All(a => a.ShouldJIT(member)) ?? member.GetCustomAttributes<MemberJitAttribute>()
+                .All(a => a.ShouldJIT(member));
         }
     }
 }

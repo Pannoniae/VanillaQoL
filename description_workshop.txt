@@ -35,6 +35,7 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] An option to use the 6th and 7th accessory slot on Classic/Expert.
  [*] Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
  [*] The Slice of Cake lasts until death.
+ [*] Respawning rework (in construction)
 [/list]
 
 [b]Credits:[/b]

@@ -11,6 +11,7 @@ QoLConfig: {
 		gameplay: "[i:3515] Gameplay"
 		fixes: "[i:3625] Fixes"
 		content: "[i:757] Content"
+		respawn: "[i:708] Respawning"
 		multiplayer: "[i:181] Multiplayer"
 	}
 
@@ -207,6 +208,11 @@ QoLConfig: {
 	moreExplosives: {
 		Label: "[i:VanillaQoL/BouncyDirtDynamite] More Explosives"
 		Tooltip: If enabled, adds more variants of explosives to the game.
+	}
+
+	respawningRework: {
+		Label: "[i:889] Respawning Rework (work-in-progress)"
+		Tooltip: If enabled, enables the system required to load tweaks in this section.
 	}
 }
 
