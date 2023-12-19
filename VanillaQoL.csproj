@@ -9,6 +9,9 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.4.0-beta.1">
       <PrivateAssets>all</PrivateAssets>
@@ -89,4 +92,7 @@
     <None Remove="ILLib\bin\**" />
     <None Remove="ILLib\obj\**" />
   </ItemGroup>
+  <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
+    <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll" />
+  </Target>
 </Project>

@@ -214,6 +214,11 @@ QoLConfig: {
 		Label: "[i:889] Respawning Rework (work-in-progress)"
 		Tooltip: If enabled, enables the system required to load tweaks in this section.
 	}
+
+	naturesGift: {
+		Label: "[i:223] Nature's Gift and Jungle Rose Glows"
+		Tooltip: If enabled, the Nature's Gift and the Jungle Rose glows in the jungle similarly to the Jungle Spores to make them easier to find.
+	}
 }
 
 Team: {

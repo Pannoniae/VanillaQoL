@@ -9,6 +9,7 @@ using VanillaQoL.Config;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
 using VanillaQoL.Items;
+using VanillaQoL.Shared;
 using VanillaQoL.UI;
 
 namespace VanillaQoL;
@@ -52,12 +53,15 @@ public class VanillaQoL : Mod {
         }
 
         ILEdits.unload();
+        GlobalFeatures.clear();
 
         // IL patch static lambdas are leaking memory, wipe them
         Utils.completelyWipeClass(typeof(ILEdits));
         Utils.completelyWipeClass(typeof(ModILEdits));
         Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
         Utils.completelyWipeClass(typeof(MagicStorageLogic));
+        Utils.completelyWipeClass(typeof(CalamityLogic));
+        Utils.completelyWipeClass(typeof(CalamityLogic2));
         Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
         Utils.completelyWipeClass(typeof(LockOn));
         Utils.completelyWipeClass(typeof(DisableTownSlimes));

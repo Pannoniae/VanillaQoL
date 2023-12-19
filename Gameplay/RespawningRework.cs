@@ -20,6 +20,7 @@ public class RespawningRework : ModSystem {
         }
 
         IL_Player.UpdateDead += deathPatch;
+
     }
 
     public override void Unload() {

@@ -1,1 +1,1 @@
- - Respawning rework. Under construction.
+ - Added global feature system (for other mods)

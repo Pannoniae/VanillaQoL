@@ -101,6 +101,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool sliceOfCakeUntilDeath { get; set; }
 
+    // Nature's Gift
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool naturesGift { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]
