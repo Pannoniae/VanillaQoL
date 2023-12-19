@@ -8,7 +8,6 @@ using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config.UI;
 using VanillaQoL.Config;
 using VanillaQoL.IL;
 
@@ -100,6 +99,12 @@ public class RespawningReworkPlayer : ModPlayer {
         // time for calculations!
         var config = QoLConfig.Instance;
         float respawnTime = config.respawnTime;
+        if (RespawningRework.instance.bossAlive) {
+            respawnTime = config.bossRespawnTime;
+        }
+        if (RespawningRework.instance.eventAlive) {
+            respawnTime = config.eventRespawnTime;
+        }
         int c = 0;
         for (int index = 0; index < Main.maxPlayers; ++index) {
             Player player = Main.player[index];
@@ -116,18 +121,9 @@ public class RespawningReworkPlayer : ModPlayer {
             respawnTime *= config.respawnFactorMasterMode;
         }
 
-        /*if (c > 0 && (RespawningRework.instance.bossAlive) {
-            respawnTime += c * config.AdditionalSecondsPerPlayer;
+        if (c > 0 && RespawningRework.instance.bossAlive) {
+            respawnTime *= c * config.bossMultiplayerMultiplier;
         }
-        float num2 = (respawnTime + (float)(this.TimesDiedToSameBoss * config.BossAdditionPerDeath)) *
-                     config.BaseScalar;
-
-        if (instance2.BossActive)
-            num2 *= config.BossAliveScalar;
-        if (Main.masterMode)
-            num2 *= config.MasterModeScalar;
-        if (instance2.EventActive)
-            num2 *= config.EventModeScalar;*/
         Player.respawnTimer = (int)(respawnTime * 60f);
     }
 }

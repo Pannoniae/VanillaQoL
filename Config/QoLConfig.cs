@@ -201,11 +201,25 @@ public class QoLConfig : ModConfig {
     public bool respawningRework { get; set; }
 
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(10)]
+    [DefaultValue(3)]
     [Range(0, 60f)]
     [Increment(0.25f)]
     [CustomModConfigItem(typeof(FloatInputElement))]
     public float respawnTime { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(6)]
+    [Range(0, 60f)]
+    [Increment(0.25f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float eventRespawnTime { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(10)]
+    [Range(0, 60f)]
+    [Increment(0.25f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float bossRespawnTime { get; set; }
 
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(1.5f)]
@@ -221,6 +235,12 @@ public class QoLConfig : ModConfig {
     [CustomModConfigItem(typeof(FloatInputElement))]
     public float respawnFactorMasterMode { get; set; }
 
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(1f)]
+    [Range(0, 3f)]
+    [Increment(0.1f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float bossMultiplayerMultiplier { get; set; }
 
 
     // Cog
@@ -251,8 +271,7 @@ public class QoLConfig : ModConfig {
     public override ConfigScope Mode => ConfigScope.ServerSide;
 }
 
-public enum Team
-{
+public enum Team {
     White = 0,
     Red = 1,
     Green = 2,

@@ -1,1 +1,1 @@
- - Compatibility update for other mods
+ - Added respawn rework

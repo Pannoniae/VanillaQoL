@@ -221,18 +221,33 @@ QoLConfig: {
 	}
 
 	respawnTime: {
-		Tooltip: ""
-		Label: respawn Time
+		Label: "[i:3230] Respawn Time"
+		Tooltip: Controls the base respawn time.
 	}
 
 	respawnFactorExpertMode: {
-		Label: respawn Factor Expert Mode
-		Tooltip: ""
+		Label: "[i:3223] Expert Mode Factor"
+		Tooltip: Controls the respawn time multiplier in Expert Mode.
 	}
 
 	respawnFactorMasterMode: {
-		Label: respawn Factor Master Mode
-		Tooltip: ""
+		Label: "[i:4924] Master Mode Factor"
+		Tooltip: Controls the respawn time multiplier in Master Mode.
+	}
+
+	bossRespawnTime: {
+		Label: "[i:43] Respawn Time (boss)"
+		Tooltip: Controls the base respawn time when a boss is alive.
+	}
+
+	eventRespawnTime: {
+		Label: "[i:1844] Respawn Time (event)"
+		Tooltip: Controls the base respawn time when a boss is not alive but an event is ongoing.
+	}
+
+	bossMultiplayerMultiplier: {
+		Label: "[i:1969] Per-Player Multiplier"
+		Tooltip: Multiplies respawn time by this value, multiplied by the number of other players on the server.
 	}
 }
 
