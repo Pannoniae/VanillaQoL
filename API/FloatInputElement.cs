@@ -11,6 +11,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.ModLoader.Config.UI;
 using Terraria.UI;
+// ReSharper disable All
 
 #pragma warning disable // tml shitcode anyway
 
@@ -31,9 +32,9 @@ public class FloatInputElement : ConfigElement {
         if (floatList != null)
             TextDisplayFunction = () => {
                 float num = Index + 1;
-                string str1 = num.ToString();
+                string str1 = num.ToString(CultureInfo.CurrentCulture);
                 num = floatList[Index];
-                string str2 = num.ToString();
+                string str2 = num.ToString(CultureInfo.CurrentCulture);
                 return str1 + ": " + str2;
             };
         if (RangeAttribute != null && RangeAttribute.Min is float && RangeAttribute.Max is float) {
@@ -51,7 +52,7 @@ public class FloatInputElement : ConfigElement {
         element1.Width.Set(180f, 0.0f);
         element1.Height.Set(30f, 0.0f);
         Append(element1);
-        uIInputTextField.SetText(GetValue().ToString());
+        uIInputTextField.SetText(GetValue().ToString(CultureInfo.CurrentCulture));
         uIInputTextField.Top.Set(5f, 0.0f);
         uIInputTextField.Left.Set(10f, 0.0f);
         uIInputTextField.Width.Set(-42f, 1f);
@@ -63,7 +64,7 @@ public class FloatInputElement : ConfigElement {
             SetValue(result);
         };
         uIInputTextField.OnUnfocus +=
-            (a, b) => uIInputTextField.SetText(GetValue().ToString());
+            (a, b) => uIInputTextField.SetText(GetValue().ToString(CultureInfo.CurrentCulture));
         element1.Append(uIInputTextField);
         UIModConfigHoverImageSplit element2 =
             new UIModConfigHoverImageSplit(UpDownTexture, "+" + Increment, "-" + Increment);

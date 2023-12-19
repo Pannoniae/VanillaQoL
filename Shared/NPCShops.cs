@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.Shared;
+// ReSharper disable All
 
-namespace CalamityQOL.NPC;
+namespace VanillaQoL.Shared;
 
 public class NPCShops : GlobalNPC {
 

@@ -161,6 +161,7 @@ public class VanillaThreatChecker : ThreatChecker {
     public bool isEvent() {
         // thank you calamity
         int closestPlayer =
+            // ReSharper disable once PossibleLossOfFraction
             Player.FindClosest(new Vector2(Main.maxTilesX / 2, (float)Main.worldSurface / 2f) * 16f, 0, 0);
         Player player = Main.player[closestPlayer];
         return anyEvents(player);

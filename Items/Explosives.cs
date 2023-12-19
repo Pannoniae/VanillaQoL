@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -11,6 +12,7 @@ using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 
+[SuppressMessage("ReSharper", "PossibleLossOfFraction")]
 public class Explosives : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.moreExplosives;
@@ -351,7 +353,6 @@ public class Explosives : ModSystem {
         Main.gore[num955].velocity.X -= 1f;
         Main.gore[num955].velocity.Y -= 1f;
         if (proj.type == 102) {
-            Vector2 vector76 = position;
             position.X += proj.width / 2;
             position.Y += proj.height / 2;
             proj.width = 128;
@@ -360,7 +361,6 @@ public class Explosives : ModSystem {
             position.Y -= proj.height / 2;
             proj.damage = 40;
             proj.Damage();
-            position = vector76;
             proj.width = 22;
             proj.height = 22;
         }
