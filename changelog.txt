@@ -1,1 +1,1 @@
- - Added global feature system (for other mods)
+- Fix UpdateDead (respawn timer not decrementing)
