@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Terraria.ModLoader.Config;
+using VanillaQoL.API;
 
 namespace VanillaQoL.Config;
 
@@ -198,6 +199,28 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool respawningRework { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(10)]
+    [Range(0, 60f)]
+    [Increment(0.25f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float respawnTime { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(1.5f)]
+    [Range(0, 3f)]
+    [Increment(0.1f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float respawnFactorExpertMode { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(1f)]
+    [Range(0, 3f)]
+    [Increment(0.1f)]
+    [CustomModConfigItem(typeof(FloatInputElement))]
+    public float respawnFactorMasterMode { get; set; }
+
 
 
     // Cog

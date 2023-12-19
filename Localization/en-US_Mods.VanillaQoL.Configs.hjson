@@ -219,6 +219,21 @@ QoLConfig: {
 		Label: "[i:223] Nature's Gift and Jungle Rose Glows"
 		Tooltip: If enabled, the Nature's Gift and the Jungle Rose glows in the jungle similarly to the Jungle Spores to make them easier to find.
 	}
+
+	respawnTime: {
+		Tooltip: ""
+		Label: respawn Time
+	}
+
+	respawnFactorExpertMode: {
+		Label: respawn Factor Expert Mode
+		Tooltip: ""
+	}
+
+	respawnFactorMasterMode: {
+		Label: respawn Factor Master Mode
+		Tooltip: ""
+	}
 }
 
 Team: {

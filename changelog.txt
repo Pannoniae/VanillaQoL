@@ -1,1 +1,1 @@
-- Fix UpdateDead (respawn timer not decrementing)
+ - Compatibility update for other mods

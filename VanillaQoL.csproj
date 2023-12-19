@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\tModLoader.targets" />
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>default</LangVersion>
-    <PackageId>VanillaQoL</PackageId>
-    <Nullable>enable</Nullable>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.4.0-beta.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="ErrorProne.NET.Structs" Version="0.4.0-beta.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="lib/ILProj.dll"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Aimbot">
-      <HintPath>..\..\ModReader\Aimbot\Aimbot.dll</HintPath>
-    </Reference>
-    <Reference Include="CalamityMod">
-      <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
-    </Reference>
-    <Reference Include="Census">
-      <HintPath>..\..\ModReader\Census\Census.dll</HintPath>
-    </Reference>
-    <Reference Include="CheatSheet">
-      <HintPath>..\..\ModReader\CheatSheet\CheatSheet.dll</HintPath>
-    </Reference>
-    <Reference Include="HEROsMod">
-      <HintPath>..\..\ModReader\HEROsMod\HEROsMod.dll</HintPath>
-    </Reference>
-    <Reference Include="ImprovedRespawning">
-      <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
-    </Reference>
-    <Reference Include="LessTools">
-      <HintPath>..\..\ModReader\LessTools\LessTools.dll</HintPath>
-    </Reference>
-    <Reference Include="MagicStorage">
-      <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
-    </Reference>
-    <Reference Include="RecipeBrowser">
-      <HintPath>..\..\ModReader\RecipeBrowser\RecipeBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="ReloadableGuns">
-      <HintPath>..\..\ModReader\ReloadableGuns\ReloadableGuns.dll</HintPath>
-    </Reference>
-    <Reference Include="SharedMap">
-      <HintPath>..\..\ModReader\SharedMap\SharedMap.dll</HintPath>
-    </Reference>
-    <Reference Include="ShopExtender">
-      <HintPath>..\..\ModReader\ShopExtender\ShopExtender.dll</HintPath>
-    </Reference>
-    <Reference Include="SortingFolders">
-      <HintPath>..\..\ModReader\SortingFolders\SortingFolders.dll</HintPath>
-    </Reference>
-    <Reference Include="ThoriumMod">
-      <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ILLib\ILProj.ilproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="ILLib\bin\**" />
-    <Compile Remove="ILLib\obj\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="ILLib\bin\**" />
-    <EmbeddedResource Remove="ILLib\obj\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Remove="ILLib\bin\**" />
-    <AdditionalFiles Remove="ILLib\obj\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="ILLib\bin\**" />
-    <None Remove="ILLib\obj\**" />
-  </ItemGroup>
-  <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
-    <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll" />
-  </Target>
+    <Import Project="..\tModLoader.targets"/>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <LangVersion>default</LangVersion>
+        <PackageId>VanillaQoL</PackageId>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.4.0-beta.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="ErrorProne.NET.Structs" Version="0.4.0-beta.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="lib/ILProj.dll"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Aimbot">
+            <HintPath>..\..\ModReader\Aimbot\Aimbot.dll</HintPath>
+        </Reference>
+        <Reference Include="CalamityMod">
+            <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
+        </Reference>
+        <Reference Include="Census">
+            <HintPath>..\..\ModReader\Census\Census.dll</HintPath>
+        </Reference>
+        <Reference Include="CheatSheet">
+            <HintPath>..\..\ModReader\CheatSheet\CheatSheet.dll</HintPath>
+        </Reference>
+        <Reference Include="HEROsMod">
+            <HintPath>..\..\ModReader\HEROsMod\HEROsMod.dll</HintPath>
+        </Reference>
+        <Reference Include="ImprovedRespawning">
+            <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
+        </Reference>
+        <Reference Include="LessTools">
+            <HintPath>..\..\ModReader\LessTools\LessTools.dll</HintPath>
+        </Reference>
+        <Reference Include="MagicStorage">
+            <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
+        </Reference>
+        <Reference Include="RecipeBrowser">
+            <HintPath>..\..\ModReader\RecipeBrowser\RecipeBrowser.dll</HintPath>
+        </Reference>
+        <Reference Include="ReloadableGuns">
+            <HintPath>..\..\ModReader\ReloadableGuns\ReloadableGuns.dll</HintPath>
+        </Reference>
+        <Reference Include="SharedMap">
+            <HintPath>..\..\ModReader\SharedMap\SharedMap.dll</HintPath>
+        </Reference>
+        <Reference Include="ShopExtender">
+            <HintPath>..\..\ModReader\ShopExtender\ShopExtender.dll</HintPath>
+        </Reference>
+        <Reference Include="SortingFolders">
+            <HintPath>..\..\ModReader\SortingFolders\SortingFolders.dll</HintPath>
+        </Reference>
+        <Reference Include="ThoriumMod">
+            <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="lib\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="ILLib\ILProj.ilproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="ILLib\bin\**"/>
+        <Compile Remove="ILLib\obj\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Remove="ILLib\bin\**"/>
+        <EmbeddedResource Remove="ILLib\obj\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Remove="ILLib\bin\**"/>
+        <AdditionalFiles Remove="ILLib\obj\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="ILLib\bin\**"/>
+        <None Remove="ILLib\obj\**"/>
+    </ItemGroup>
+    <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll"/>
+    </Target>
 </Project>

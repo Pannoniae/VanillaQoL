@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.Shared;
@@ -8,6 +9,7 @@ namespace VanillaQoL.Shared;
 /// For using features requested by other mods (ideally from their config OnChanged), do it in SetupContent/SetStaticDefaults or later!
 /// Earlier it won't have loaded yet.
 /// </summary>
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public class GlobalFeatures {
     // stores features by name
     private static Dictionary<string, EnableList> features = new();
