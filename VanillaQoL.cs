@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -34,9 +35,20 @@ public class VanillaQoL : Mod {
     public VanillaQoL() {
         instance = this;
         PreJITFilter = new Filter();
+        ModLeakFix.addHandler();
     }
 
     public override void Load() {
+        // store modnames
+        List<string> list = new List<string>();
+        for (var i = 0; i < ModLoader.Mods.Length; i++) {
+            var m = ModLoader.Mods[i];
+            if (m.Name != "ModLoader" && m.Name != "VanillaQoL") list.Add(m.Name);
+        }
+
+        ModLeakFix.modNames = list;
+
+
         hasThorium = ModLoader.HasMod("ThoriumMod");
         hasCalamity = ModLoader.HasMod("CalamityMod");
         hasCensus = ModLoader.HasMod("Census");
@@ -53,7 +65,8 @@ public class VanillaQoL : Mod {
         // unregister
         var type = typeof(ChatManager);
         var handlers = type.GetField("_handlers", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
-        ConcurrentDictionary<string, ITagHandler> _handlers = (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
+        ConcurrentDictionary<string, ITagHandler> _handlers =
+            (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
 
         _handlers["npc"] = null!;
 
@@ -67,45 +80,7 @@ public class VanillaQoL : Mod {
         ILEdits.unload();
         GlobalFeatures.clear();
 
-        // unload *all* the IL edits
-        // NEVER unload IL edits in ILoadable, it runs later than this method
-
-        // wipe
-        // IL patch static lambdas are leaking memory, wipe them
-        Utils.completelyWipeClass(typeof(ILEdits));
-        Utils.completelyWipeClass(typeof(ModILEdits));
-        Utils.completelyWipeClass(typeof(LanguagePatch));
-        Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
-        Utils.completelyWipeClass(typeof(MagicStorageLogic));
-        Utils.completelyWipeClass(typeof(CalamityLogic));
-        Utils.completelyWipeClass(typeof(CalamityLogic2));
-        Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
-        Utils.completelyWipeClass(typeof(LockOn));
-        Utils.completelyWipeClass(typeof(DisableTownSlimes));
-        Utils.completelyWipeClass(typeof(NurseHealing));
-        Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
-        Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
-        Utils.completelyWipeClass(typeof(SliceOfCake));
-        Utils.completelyWipeClass(typeof(Explosives));
-        Utils.completelyWipeClass(typeof(DrillRework));
-        Utils.completelyWipeClass(typeof(RespawningRework));
-        Utils.completelyWipeClass(typeof(NPCShops));
-        Utils.completelyWipeClass(typeof(GlobalFeatures));
-        Utils.completelyWipeClass(typeof(PrefixRarity));
-
-        // Func<bool> is a static lambda, this would leak as well
-
-        // memory leak fix
-        if (QoLConfig.Instance.fixMemoryLeaks) {
-            ModLeakFix.unload();
-        }
-
-        // yeah this is fucked up
-        // we only wipe the compiler-generated bullshit tho
-        //Utils.completelyWipeNestedClass(typeof(MonoModHooks));
-        // we restore it tho
-        //LoaderUtils.ResetStaticMembers(typeof(MonoModHooks));
-
+        ModLeakFix.ilUnload();
 
 
         instance = null!;
@@ -153,17 +128,59 @@ public class VanillaQoL : Mod {
 
 [NoJIT]
 public static class ModLeakFix {
-    public static void unload() {
-        if (VanillaQoL.instance.hasMagicStorage) {
-            magicStorageUnload();
-        }
+
+    public static List<string> modNames = null!;
+
+    public static void addHandler() {
+        var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
+        var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
+        ev.AddEventHandler(null, ilUnload);
     }
 
-    public static void magicStorageUnload() {
-        var magicStorage = MagicStorageMod.Instance.Code;
-        var types = AssemblyManager.GetLoadableTypes(magicStorage);
-        foreach (var type in types) {
-            Utils.completelyWipeClass(type);
-        }
+    public static void ilUnload() {
+        // unload *all* the IL edits
+        // NEVER unload IL edits in ILoadable, it runs later than this method
+
+        // wipe
+        // IL patch static lambdas are leaking memory, wipe them
+        Utils.completelyWipeClass(typeof(ILEdits));
+        Utils.completelyWipeClass(typeof(ModILEdits));
+        Utils.completelyWipeClass(typeof(LanguagePatch));
+        Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
+        Utils.completelyWipeClass(typeof(MagicStorageLogic));
+        Utils.completelyWipeClass(typeof(CalamityLogic));
+        Utils.completelyWipeClass(typeof(CalamityLogic2));
+        Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
+        Utils.completelyWipeClass(typeof(LockOn));
+        Utils.completelyWipeClass(typeof(DisableTownSlimes));
+        Utils.completelyWipeClass(typeof(NurseHealing));
+        Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
+        Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
+        Utils.completelyWipeClass(typeof(SliceOfCake));
+        Utils.completelyWipeClass(typeof(Explosives));
+        Utils.completelyWipeClass(typeof(DrillRework));
+        Utils.completelyWipeClass(typeof(RespawningRework));
+        Utils.completelyWipeClass(typeof(NPCShops));
+        Utils.completelyWipeClass(typeof(GlobalFeatures));
+        Utils.completelyWipeClass(typeof(PrefixRarity));
+
+        // Func<bool> is a static lambda, this would leak as well
+        // memory leak fix
+
+        // clear *all* mod classes
+        unload();
+    }
+    public static void unload() {
+        //foreach (var modName in modNames) {
+           // var assemblies = AssemblyManager.GetModAssemblies("MagicStorage");
+            //foreach (var assembly in assemblies) {
+                //foreach (var type in AssemblyManager.GetLoadableTypes(assembly)) {
+                    //Utils.completelyWipeClass(type);
+                //}
+            //}
+        //}
+        var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
+        var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
+        ev.RemoveEventHandler(null, ilUnload);
     }
 }

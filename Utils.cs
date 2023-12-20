@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using ILProj;
 
 namespace VanillaQoL;
 
@@ -12,11 +13,12 @@ public class Utils {
     /// </summary>
     /// <param name="type">The type to wipe.</param>
     public static void completelyWipeClass(Type type) {
-        VanillaQoL.instance!.Logger!.Info("type: " + type);
+        var flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
+                    BindingFlags.NonPublic;
+        //Console.WriteLine("type: " + type);
         // do the same for nested classes
-        foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
-                                                   BindingFlags.NonPublic)) {
-            VanillaQoL.instance!.Logger!.Info("nested: " + nested);
+        foreach (var nested in type.GetNestedTypes(flags)) {
+            //Console.WriteLine("nested: " + nested);
             completelyWipeClass(nested);
         }
 
@@ -27,9 +29,28 @@ public class Utils {
                 continue;
             }
 
+            if (type.ContainsGenericParameters) {
+                continue;
+            }
+
             //staticField.SetValue(null, null);
-            VanillaQoL.instance.Logger.Info(staticField);
-            ILProj.Util.wipeReadonlyFieldIL(staticField);
+            //Console.WriteLine("field: " + staticField);
+            Util.wipeReadonlyFieldIL(staticField);
+        }
+
+        // time for hacks!
+        var nestedTypes = type.GetNestedTypes();
+        for (var i = 0; i < nestedTypes.Length; i++) {
+            // compiler-generated shit
+            if (nestedTypes[i].Name.StartsWith("<>")) {
+                var nestedType = nestedTypes[i];
+                var inst = nestedType.GetField("<>9", flags);
+                var nestedFields = nestedType.GetFields(flags);
+                for (int j = 0; j < nestedType.GetFields(flags).Length; j++) {
+                    Util.wipeReadonlyFieldIL(nestedFields[i]);
+                }
+                Util.wipeReadonlyFieldIL(inst);
+            }
         }
     }
 
@@ -48,7 +69,7 @@ public class Utils {
 
                 //staticField.SetValue(null, null);
                 VanillaQoL.instance.Logger.Info(staticField);
-                ILProj.Util.wipeReadonlyFieldIL(staticField);
+                Util.wipeReadonlyFieldIL(staticField);
             }
         }
     }

@@ -244,9 +244,9 @@ public class QoLConfig : ModConfig {
 
 
     // Cog
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    public bool fixMemoryLeaks { get; set; }
+    //[BackgroundColor(192, 54, 128, 192)]
+    //[DefaultValue(true)]
+    //public bool fixMemoryLeaks { get; set; }
 
     [Header("multiplayer")]
 
