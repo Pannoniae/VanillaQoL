@@ -12,11 +12,11 @@ public class Utils {
     /// </summary>
     /// <param name="type">The type to wipe.</param>
     public static void completelyWipeClass(Type type) {
-        VanillaQoL.instance!.Logger!.Info("type: " + type);
+        //VanillaQoL.instance!.Logger!.Info("type: " + type);
         // do the same for nested classes
         foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
                                                    BindingFlags.NonPublic)) {
-            VanillaQoL.instance!.Logger!.Info("nested: " + nested);
+            //VanillaQoL.instance!.Logger!.Info("nested: " + nested);
             completelyWipeClass(nested);
         }
 
@@ -27,8 +27,12 @@ public class Utils {
                 continue;
             }
 
+            if (type.ContainsGenericParameters) {
+                continue;
+            }
+
             //staticField.SetValue(null, null);
-            VanillaQoL.instance.Logger.Info(staticField);
+            //VanillaQoL.instance.Logger.Info(staticField);
             ILProj.Util.wipeReadonlyFieldIL(staticField);
         }
     }

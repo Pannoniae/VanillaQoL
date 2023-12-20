@@ -3,6 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using MagicStorage;
+using MagicStorage.Common.Systems;
+using MagicStorage.Common.Systems.RecurrentRecipes;
+using MagicStorage.CrossMod;
+using MagicStorage.Sorting;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -53,7 +57,8 @@ public class VanillaQoL : Mod {
         // unregister
         var type = typeof(ChatManager);
         var handlers = type.GetField("_handlers", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
-        ConcurrentDictionary<string, ITagHandler> _handlers = (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
+        ConcurrentDictionary<string, ITagHandler> _handlers =
+            (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
 
         _handlers["npc"] = null!;
 
@@ -61,8 +66,6 @@ public class VanillaQoL : Mod {
         if (LanguagePatch.loaded) {
             LanguagePatch.unload();
         }
-
-        //IL_Player.TileInteractionsUse -= SliceOfCake.sliceOfCakePatch;
 
         ILEdits.unload();
         GlobalFeatures.clear();
@@ -96,16 +99,9 @@ public class VanillaQoL : Mod {
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix
-        if (QoLConfig.Instance.fixMemoryLeaks) {
-            ModLeakFix.unload();
-        }
-
-        // yeah this is fucked up
-        // we only wipe the compiler-generated bullshit tho
-        //Utils.completelyWipeNestedClass(typeof(MonoModHooks));
-        // we restore it tho
-        //LoaderUtils.ResetStaticMembers(typeof(MonoModHooks));
-
+        //if (QoLConfig.Instance.fixMemoryLeaks) {
+        ModLeakFix.unload();
+        //}
 
 
         instance = null!;
@@ -160,10 +156,13 @@ public static class ModLeakFix {
     }
 
     public static void magicStorageUnload() {
-        var magicStorage = MagicStorageMod.Instance.Code;
-        var types = AssemblyManager.GetLoadableTypes(magicStorage);
-        foreach (var type in types) {
-            Utils.completelyWipeClass(type);
-        }
+        Utils.completelyWipeClass(typeof(SortingOptionLoader));
+        Utils.completelyWipeClass(typeof(FilteringOptionLoader));
+        Utils.completelyWipeClass(typeof(SortingCacheDictionary));
+        Utils.completelyWipeClass(typeof(MagicCache));
+        Utils.completelyWipeClass(typeof(RecursionTree));
+        Utils.completelyWipeClass(typeof(RecursiveRecipe));
+        Utils.completelyWipeClass(typeof(NodePool));
+        Utils.completelyWipeClass(typeof(MagicStorageMod));
     }
 }

@@ -30,6 +30,7 @@ public class SliceOfCake : ModSystem {
     }
 
     public override void Unload() {
+        IL_Player.TileInteractionsUse -= sliceOfCakePatch;
         BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = prev;
         Main.buffNoTimeDisplay[BuffID.SugarRush] = prev2;
         Main.buffNoSave[BuffID.SugarRush] = prev3;
