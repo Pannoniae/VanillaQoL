@@ -12,32 +12,43 @@ public class Utils {
     /// </summary>
     /// <param name="type">The type to wipe.</param>
     public static void completelyWipeClass(Type type) {
+        VanillaQoL.instance!.Logger!.Info("type: " + type);
         // do the same for nested classes
         foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
                                                    BindingFlags.NonPublic)) {
+            VanillaQoL.instance!.Logger!.Info("nested: " + nested);
             completelyWipeClass(nested);
         }
 
         var fields = collectSelfStaticFieldInfo(type);
         foreach (var staticField in fields) {
-            try {
+            // constant, skip
+            if (staticField.IsLiteral) {
+                continue;
+            }
+
+            //staticField.SetValue(null, null);
+            VanillaQoL.instance.Logger.Info(staticField);
+            ILProj.Util.wipeReadonlyFieldIL(staticField);
+        }
+    }
+
+    public static void completelyWipeNestedClass(Type type) {
+        VanillaQoL.instance!.Logger!.Info("type: " + type);
+        // do the same for nested classes
+        foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
+                                                   BindingFlags.NonPublic)) {
+            VanillaQoL.instance!.Logger!.Info("nested: " + nested);
+            var fields = collectSelfStaticFieldInfo(type);
+            foreach (var staticField in fields) {
                 // constant, skip
                 if (staticField.IsLiteral) {
                     continue;
                 }
 
-                staticField.SetValue(null, null);
-            }
-            // static readonly field? time for unsafe hackery because reflection doesn't work
-            catch (FieldAccessException e) {
-                //wipeReadonlyField(staticField, null);
+                //staticField.SetValue(null, null);
+                VanillaQoL.instance.Logger.Info(staticField);
                 ILProj.Util.wipeReadonlyFieldIL(staticField);
-                // actually we can
-                // don't throw if mod init broke, so check for null
-                if (VanillaQoL.instance != null && VanillaQoL.instance.Logger != null) {
-                    VanillaQoL.instance.Logger.Info($"A harmless exception happened! Ignore the above exception. " +
-                                                    $"Couldn't clear {staticField.Name} the normal way, so IL generation was used, exception message: {e.Message}");
-                }
             }
         }
     }
@@ -53,8 +64,7 @@ public class Utils {
        T f = (T)field.GetValue(null);
        var addr = &f;
        *addr = value;
-   }*/
-
+    }*/
 
     /// <summary>
     /// Sets the value of a readonly field on an object.

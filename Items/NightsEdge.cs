@@ -1,3 +1,4 @@
+using MagicStorage.Common.Systems.RecurrentRecipes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -61,6 +61,7 @@ public class FloatInputElement : ConfigElement {
             float result;
             if (!float.TryParse(uIInputTextField.CurrentString, out result))
                 return;
+            result = result.roundTo(Increment);
             SetValue(result);
         };
         uIInputTextField.OnUnfocus +=

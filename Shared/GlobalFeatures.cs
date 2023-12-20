@@ -50,7 +50,7 @@ public class GlobalFeatures {
 
     // we don't want those mod objects laying around after unload
     internal static void clear() {
-        features = new Dictionary<string, EnableList>();
+        features = null!;
     }
 }
 

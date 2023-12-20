@@ -1,7 +1,10 @@
+using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using MagicStorage;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
 using VanillaQoL.Config;
@@ -47,16 +50,31 @@ public class VanillaQoL : Mod {
     }
 
     public override void Unload() {
+        // unregister
+        var type = typeof(ChatManager);
+        var handlers = type.GetField("_handlers", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
+        ConcurrentDictionary<string, ITagHandler> _handlers = (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
+
+        _handlers["npc"] = null!;
+
+        // unload
         if (LanguagePatch.loaded) {
             LanguagePatch.unload();
         }
 
+        //IL_Player.TileInteractionsUse -= SliceOfCake.sliceOfCakePatch;
+
         ILEdits.unload();
         GlobalFeatures.clear();
 
+        // unload *all* the IL edits
+        // NEVER unload IL edits in ILoadable, it runs later than this method
+
+        // wipe
         // IL patch static lambdas are leaking memory, wipe them
         Utils.completelyWipeClass(typeof(ILEdits));
         Utils.completelyWipeClass(typeof(ModILEdits));
+        Utils.completelyWipeClass(typeof(LanguagePatch));
         Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
         Utils.completelyWipeClass(typeof(MagicStorageLogic));
         Utils.completelyWipeClass(typeof(CalamityLogic));
@@ -69,14 +87,25 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
         Utils.completelyWipeClass(typeof(SliceOfCake));
         Utils.completelyWipeClass(typeof(Explosives));
+        Utils.completelyWipeClass(typeof(DrillRework));
+        Utils.completelyWipeClass(typeof(RespawningRework));
+        Utils.completelyWipeClass(typeof(NPCShops));
+        Utils.completelyWipeClass(typeof(GlobalFeatures));
+        Utils.completelyWipeClass(typeof(PrefixRarity));
+
         // Func<bool> is a static lambda, this would leak as well
 
         // memory leak fix
-        //if (QoLConfig.Instance.fixMemoryLeaks) {
-        //    if (instance.hasHEROsMod) {
+        if (QoLConfig.Instance.fixMemoryLeaks) {
+            ModLeakFix.unload();
+        }
 
-        //    }
-        //}
+        // yeah this is fucked up
+        // we only wipe the compiler-generated bullshit tho
+        //Utils.completelyWipeNestedClass(typeof(MonoModHooks));
+        // we restore it tho
+        //LoaderUtils.ResetStaticMembers(typeof(MonoModHooks));
+
 
 
         instance = null!;
@@ -118,6 +147,23 @@ public class VanillaQoL : Mod {
             return member.DeclaringType?.GetCustomAttributes<MemberJitAttribute>()
                 .All(a => a.ShouldJIT(member)) ?? member.GetCustomAttributes<MemberJitAttribute>()
                 .All(a => a.ShouldJIT(member));
+        }
+    }
+}
+
+[NoJIT]
+public static class ModLeakFix {
+    public static void unload() {
+        if (VanillaQoL.instance.hasMagicStorage) {
+            magicStorageUnload();
+        }
+    }
+
+    public static void magicStorageUnload() {
+        var magicStorage = MagicStorageMod.Instance.Code;
+        var types = AssemblyManager.GetLoadableTypes(magicStorage);
+        foreach (var type in types) {
+            Utils.completelyWipeClass(type);
         }
     }
 }

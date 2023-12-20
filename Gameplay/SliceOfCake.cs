@@ -30,7 +30,6 @@ public class SliceOfCake : ModSystem {
     }
 
     public override void Unload() {
-        IL_Player.TileInteractionsUse -= sliceOfCakePatch;
         BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = prev;
         Main.buffNoTimeDisplay[BuffID.SugarRush] = prev2;
         Main.buffNoSave[BuffID.SugarRush] = prev3;
@@ -38,7 +37,7 @@ public class SliceOfCake : ModSystem {
 
     // IL_11f0: ldc.i4       192 // 0x000000c0
     // IL_11f5: ldc.i4       7200 // 0x00001c20
-    private void sliceOfCakePatch(ILContext il) {
+    public static void sliceOfCakePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(BuffID.SugarRush), i => i.MatchLdcI4(out _))) {
             ilCursor.Prev.Operand = 108000;
