@@ -46,13 +46,13 @@ public class QoLConfig : ModConfig {
 
     // x button
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    [DefaultValue(false)]
     [ReloadRequired]
     public bool enableLockOn { get; set; }
 
     // x button
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    [DefaultValue(false)]
     public bool lockOn { get; set; }
 
     // Ironskin Potion

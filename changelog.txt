@@ -1,1 +1,1 @@
- - Remove debug calls
+ - Disable lock-on by default.

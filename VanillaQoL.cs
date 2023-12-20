@@ -8,7 +8,6 @@ using MagicStorage.Common.Systems.RecurrentRecipes;
 using MagicStorage.CrossMod;
 using MagicStorage.Sorting;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
 using VanillaQoL.Config;
@@ -100,7 +99,7 @@ public class VanillaQoL : Mod {
 
         // memory leak fix
         //if (QoLConfig.Instance.fixMemoryLeaks) {
-        ModLeakFix.unload();
+        //ModLeakFix.unload();
         //}
 
 
