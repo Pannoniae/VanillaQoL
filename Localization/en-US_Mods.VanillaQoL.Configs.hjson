@@ -13,6 +13,8 @@ QoLConfig: {
 		content: "[i:757] Content"
 		respawn: "[i:708] Respawning"
 		multiplayer: "[i:181] Multiplayer"
+		holidayCheer: "[i:602] Holiday Cheer"
+		cheats: "[i:3999] Cheats"
 	}
 
 	showHookTooltips: {
@@ -159,7 +161,7 @@ QoLConfig: {
 
 	softDungeonBricks: {
 		Label: "[i:139] Soft Dungeon Bricks"
-		Tooltip: If enabled, dungeon bricks crumble at the terrifying sight of your pickaxe breaking the first brick.
+		Tooltip: If enabled, dungeon bricks are too soft for your pickaxe, just like the little softboy you are.
 	}
 
 	accessoryLoadoutSupport: {
@@ -211,7 +213,7 @@ QoLConfig: {
 	}
 
 	respawningRework: {
-		Label: "[i:889] Respawning Rework (work-in-progress)"
+		Label: "[i:889] Respawning Rework"
 		Tooltip: If enabled, enables the system required to load tweaks in this section.
 	}
 
@@ -248,6 +250,16 @@ QoLConfig: {
 	bossMultiplayerMultiplier: {
 		Label: "[i:1969] Per-Player Multiplier"
 		Tooltip: Multiplies respawn time by this value, multiplied by the number of other players on the server.
+	}
+
+	christmasAllYear: {
+		Label: "[i:1872] Christmas Every Day"
+		Tooltip: If enabled, the spirit of Christmas is present throughout the year.
+	}
+
+	halloweenAllYear: {
+		Label: "[i:1813] Halloween Every Day"
+		Tooltip: If enabled, the ghosts of deceased souls are present throughout the year.
 	}
 }
 

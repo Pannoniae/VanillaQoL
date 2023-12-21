@@ -75,7 +75,7 @@ public class QoLConfig : ModConfig {
 
     // Pink Dungeon Brick
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    [DefaultValue(false)]
     public bool softDungeonBricks { get; set; }
 
     // DPS Meter
@@ -83,12 +83,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool accessoryLoadoutSupport { get; set; }
-
-    // Demon Heart
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    [ReloadRequired]
-    public bool accessorySlotUnlock { get; set; }
 
     // Vortex Drill
     [BackgroundColor(192, 54, 128, 192)]
@@ -191,6 +185,27 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool ancientSwords { get; set; }
+
+    // Snow Globe
+    [Header("holidayCheer")]
+    // Pine Tree
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool christmasAllYear { get; set; }
+
+    // Jack'O Lantern
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool halloweenAllYear { get; set; }
+
+    // Magma Skull
+    [Header("cheats")]
+
+    // Demon Heart
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool accessorySlotUnlock { get; set; }
 
     // Tungsten Clock
     [Header("respawn")]

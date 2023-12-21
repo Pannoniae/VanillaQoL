@@ -39,7 +39,7 @@ add weapon selling so you don't have to kill the poor NPCs
 - mass-sell items into NPC shops
 
 - tombstones merge into one item when picked up -> when you place one down a random one gets placed
-- jungle rose/nature's gift glows in jungle
+- pylons clean/prevent evil
 
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked

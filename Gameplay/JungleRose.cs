@@ -39,10 +39,8 @@ public class JungleRose : GlobalTile {
         if (type == 61) {
             // idk the exact tileframe
             // natures gift
-            VanillaQoL.instance.Logger.Warn("Test early!");
             if (tileFrameX is >= 160 and <= 164 &&
                 Main.rand.NextBool(60)) {
-                VanillaQoL.instance.Logger.Warn("Test!");
                 int num35 = Dust.NewDust(new Vector2(i * 16, j * 16), 16, 16, ModContent.DustType<NaturesGiftDust>(), 0f, 0f, 250,
                     default, 0.4f);
                 Main.dust[num35].fadeIn = 0.7f;

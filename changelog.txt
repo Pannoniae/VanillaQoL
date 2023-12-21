@@ -1,1 +1,1 @@
- - Disable lock-on by default.
+ - Removed debug messages.
