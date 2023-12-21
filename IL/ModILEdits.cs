@@ -7,7 +7,6 @@ using CalamityMod.Items.PermanentBoosters;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
-using MonoMod.RuntimeDetour;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
