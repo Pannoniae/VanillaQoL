@@ -38,6 +38,7 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] Respawning rework (fully configurable)
  [*] The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
  [*] Seasonal events all year. <3
+ [*] A better Shop Expander, with proper buttons instead of fake items!
 [/list]
 
 [b]Credits:[/b]

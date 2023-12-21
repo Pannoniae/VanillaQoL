@@ -22,6 +22,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool townNPCSpawning { get; set; }
 
+    // Gold Coin
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool shopExpander { get; set; }
+
     // Compass
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]

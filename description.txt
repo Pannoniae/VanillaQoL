@@ -35,6 +35,7 @@ Features:
  - Respawning rework (fully configurable)
  - The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
  - Seasonal events all year. <3
+ - A better Shop Expander, with proper buttons instead of fake items!
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

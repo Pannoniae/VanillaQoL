@@ -261,6 +261,11 @@ QoLConfig: {
 		Label: "[i:1813] Halloween Every Day"
 		Tooltip: If enabled, the ghosts of deceased souls are present throughout the year.
 	}
+
+	shopExpander: {
+		Tooltip: ""
+		Label: shop Expander
+	}
 }
 
 Team: {
