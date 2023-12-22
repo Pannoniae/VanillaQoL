@@ -1,1 +1,1 @@
- - Improved mod incompatibility screen so it loads earlier so it catches more errors before they happen.
+ - Improve mod compatibility of the Shop Expander feature.
