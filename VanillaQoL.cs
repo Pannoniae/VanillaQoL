@@ -1,13 +1,17 @@
+using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using MagicStorage;
 using MagicStorage.Common.Systems;
 using MagicStorage.Common.Systems.RecurrentRecipes;
 using MagicStorage.CrossMod;
 using MagicStorage.Sorting;
+using MonoMod.Cil;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.API;
 using VanillaQoL.Config;
@@ -34,9 +38,22 @@ public class VanillaQoL : Mod {
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
 
+    static VanillaQoL() {
+    }
+
     public VanillaQoL() {
         instance = this;
         PreJITFilter = new Filter();
+        // register modcompat for start of ModContent.Load
+        var modcontent = typeof(ModContent);
+        var method = modcontent.GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        MonoModHooks.Modify(method, modCompat);
+        Console.WriteLine("Registered mod compat handler.");
+    }
+
+    private void modCompat(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        ilCursor.EmitCall(typeof(ModCompat).GetMethod("load")!);
     }
 
     public override void Load() {
@@ -142,6 +159,53 @@ public class VanillaQoL : Mod {
             return member.DeclaringType?.GetCustomAttributes<MemberJitAttribute>()
                 .All(a => a.ShouldJIT(member)) ?? member.GetCustomAttributes<MemberJitAttribute>()
                 .All(a => a.ShouldJIT(member));
+        }
+    }
+}
+
+public static class ModCompat {
+    public static void load() {
+        VanillaQoL.instance.Logger.Info("Handling mod compatibility...");
+        var str = new StringBuilder();
+        bool atLeastOne = false;
+        str.Append(
+            "One or more of your mods are incompatible with each other. The incompatible mods are listed below: ");
+        foreach (var mod in ModLoader.Mods) {
+            // tML doesn't have a file, lol
+            if (mod.Name == "ModLoader") {
+                continue;
+            }
+
+            var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+            var file = (TmodFile)mod.GetType().GetProperty("File", flags)!.GetValue(mod)!;
+            try {
+                file.Open();
+                var compatFile = file.GetBytes("compat.txt");
+
+                if (compatFile == null) {
+                    continue;
+                }
+
+                str.Append($"\n    {mod.DisplayName} ({mod.Name}):");
+
+                var content = Encoding.ASCII.GetString(compatFile);
+                var entries = content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var entry in entries) {
+                    var halves = entry.Split("=");
+                    var resolvedMod = ModLoader.TryGetMod(halves[0], out var incompatMod);
+                    if (resolvedMod) {
+                        str.Append($"\n        {incompatMod.DisplayName} ({incompatMod.Name}): {halves[1]}");
+                        atLeastOne = true;
+                    }
+                }
+            }
+            finally {
+                file.GetType().GetMethod("Close", flags)!.Invoke(file, null);
+            }
+        }
+
+        if (atLeastOne) {
+            Terraria.Utils.ShowFancyErrorMessage(str.ToString(), 10006);
         }
     }
 }

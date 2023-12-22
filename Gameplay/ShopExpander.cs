@@ -54,7 +54,7 @@ public class ShopExpander : ModSystem {
     public static void hijackSetupShop(Chest self, string shopName, NPC? npc) {
         // fill with empty first
         Array.Fill(self.item, null);
-        var items = new List<Item?>();
+        var items = new List<Item?>(self.item);
         if (NPCShopDatabase.TryGetNPCShop(shopName, out var shop)) {
             shop.FillShop(items, npc);
         }
@@ -87,7 +87,6 @@ public class ShopExpander : ModSystem {
         if (items.Count % 40 == 0) {
             pageCount += 1;
         }
-        VanillaQoL.instance.Logger.Warn($"Pages: {pageCount}, {items.Count}");
         refresh();
     }
 

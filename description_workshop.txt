@@ -39,6 +39,11 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
  [*] Seasonal events all year. <3
  [*] A better Shop Expander, with proper buttons instead of fake items!
+ [*] Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
+ [code]
+  InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
+  AnotherMod=Another incompatible mod.
+ [/code]
 [/list]
 
 [b]Credits:[/b]

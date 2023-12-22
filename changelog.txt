@@ -1,1 +1,1 @@
- - Removed unnecessary imports.
+ - Improved mod incompatibility screen so it loads earlier so it catches more errors before they happen.
