@@ -38,11 +38,9 @@ public class Utils {
     }
 
     public static void completelyWipeNestedClass(Type type) {
-        VanillaQoL.instance.Logger.Info("type: " + type);
         // do the same for nested classes
         foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
                                                    BindingFlags.NonPublic)) {
-            VanillaQoL.instance.Logger.Info("nested: " + nested);
             var fields = collectSelfStaticFieldInfo(type);
             foreach (var staticField in fields) {
                 // constant, skip
@@ -51,7 +49,6 @@ public class Utils {
                 }
 
                 //staticField.SetValue(null, null);
-                VanillaQoL.instance.Logger.Info(staticField);
                 ILProj.Util.wipeReadonlyFieldIL(staticField);
             }
         }

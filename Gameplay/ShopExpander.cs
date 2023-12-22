@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
 using VanillaQoL.Config;
+using Terraria.ID;
 
 namespace VanillaQoL.Gameplay;
 
@@ -54,10 +55,17 @@ public class ShopExpander : ModSystem {
     public static void hijackSetupShop(Chest self, string shopName, NPC? npc) {
         // fill with empty first
         Array.Fill(self.item, null);
-        var items = new List<Item?>(self.item);
+        var items = new List<Item?>();
         if (NPCShopDatabase.TryGetNPCShop(shopName, out var shop)) {
             shop.FillShop(items, npc);
         }
+
+        // fill it up to 40 for idiot mods who strictly expect a 40-item array
+        var rem = 40 - items.Count;
+        for (int i = 0; i < rem; i++) {
+            items.Add(new Item());
+        }
+
         // time for lots of copying
         var itemsToModify = items.ToArray();
         if (npc != null) {
@@ -82,9 +90,9 @@ public class ShopExpander : ModSystem {
 
     private void loadPage() {
         page = 0;
-        pageCount = items.Count / 40;
-        // special case for empty pages
-        if (items.Count % 40 == 0) {
+        pageCount = (int)Math.Ceiling(items.Count / 40.0);
+        // special case for empty pages, the last item must be filled
+        if (items.Count % 40 == 0 && items[Chest.maxItems - 1].type != ItemID.None) {
             pageCount += 1;
         }
         refresh();
