@@ -10,7 +10,7 @@ namespace VanillaQoL.Gameplay;
 
 public class JungleRose : GlobalTile {
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.naturesGift;
+        return QoLConfig.Instance.naturesGiftGlow;
     }
 
     public override void Load() {
@@ -84,7 +84,7 @@ public class JungleRose : GlobalTile {
 
 public class NaturesGiftDust : ModDust {
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.naturesGift;
+        return QoLConfig.Instance.naturesGiftGlow;
     }
 
     public override bool Update(Dust dust) {
@@ -125,7 +125,7 @@ public class NaturesGiftDust : ModDust {
 }
 public class JungleRoseDust : ModDust {
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.naturesGift;
+        return QoLConfig.Instance.naturesGiftGlow;
     }
 
     public override bool Update(Dust dust) {

@@ -217,7 +217,7 @@ QoLConfig: {
 		Tooltip: If enabled, enables the system required to load tweaks in this section.
 	}
 
-	naturesGift: {
+	naturesGiftGlow: {
 		Label: "[i:223] Nature's Gift and Jungle Rose Glows"
 		Tooltip: If enabled, the Nature's Gift and the Jungle Rose glows in the jungle similarly to the Jungle Spores to make them easier to find.
 	}
@@ -263,8 +263,18 @@ QoLConfig: {
 	}
 
 	shopExpander: {
-		Tooltip: ""
-		Label: shop Expander
+		Tooltip: "[i:73] Shop Expander"
+		Label: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
+	}
+
+	lifeCrystalGlow: {
+		Label: "[i:29] Life Crystals Glow"
+		Tooltip: If enabled, Life Crystals emit a faint light to make them easier to find.
+	}
+
+	lifeFruitGlow: {
+		Label: "[i:1291] Life Fruits Glow"
+		Tooltip: If enabled, Life Fruits glow similarly to Jungle Spores to make them easier to find.
 	}
 }
 
