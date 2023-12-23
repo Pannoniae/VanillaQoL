@@ -41,6 +41,7 @@ Features:
  - Reduce littering by Antlions and Snowmen.
  - Tombstones drop in item form instead of being placed down.
  - An option to stop the Sandgun from stopping sand.
+ - "What mod is this from?" tooltip to show mod names on items.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

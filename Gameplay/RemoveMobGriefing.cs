@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using CalamityMod.Items.Tools;
 using Terraria;
-using Terraria.GameContent.Prefixes;
 using Terraria.ID;
 using Terraria.ModLoader;
 using VanillaQoL.Config;
@@ -59,13 +57,36 @@ public class RemoveMobGriefing : GlobalProjectile {
     public override bool PreKill(Projectile projectile, int timeLeft) {
         if (QoLConfig.Instance.noDroppedSandgun) {
             projectile.noDropItem = true;
-            int id = Item.NewItem(projectile.GetSource_DropAsItem(), projectile.Hitbox, map[projectile.type]);
-            Main.item[id].noGrabDelay = 0;
-            if (Main.netMode == NetmodeID.Server) {
-                NetMessage.SendData(MessageID.SyncItem, number: id, number2: 1f);
-            }
         }
 
         return true;
+    }
+}
+
+public class RemoveTombstones : GlobalProjectile {
+    public static Dictionary<int, int> map = new() {
+        { 43, 321 }, { 201, 1173 }, { 202, 1174 }, { 203, 1175 }, { 204, 1176 }, { 205, 1177 }, { 527, 3229 },
+        { 528, 3230 }, { 529, 3231 }, { 530, 3232 }, { 531, 3233 }
+    };
+
+    public override bool AppliesToEntity(Projectile projectile, bool lateInstantiation) {
+        return map.ContainsKey(projectile.type);
+    }
+
+    public override bool PreAI(Projectile projectile) {
+        if (QoLConfig.Instance.noDroppedSandgun) {
+            projectile.noDropItem = true;
+            if (projectile.owner == Main.myPlayer) {
+                int Type = map[projectile.type];
+                int number = Item.NewItem(projectile.GetSource_DropAsItem(), projectile.Hitbox, Type);
+                Main.item[number].noGrabDelay = 0;
+                if (Main.netMode == NetmodeID.Server) {
+                    NetMessage.SendData(MessageID.SyncItem, number: number, number2: 1f);
+                }
+            }
+        }
+
+        projectile.Kill();
+        return false;
     }
 }

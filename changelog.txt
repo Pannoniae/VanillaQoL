@@ -1,1 +1,2 @@
- - Update description
+ - Sandgun no longer gives your ammo back.
+ - Actually implement the tombstone removal.

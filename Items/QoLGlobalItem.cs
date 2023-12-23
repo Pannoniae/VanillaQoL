@@ -103,6 +103,10 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         if (QoLConfig.Instance.shimmerableTooltip) {
             shimmmerableTooltips(item, tooltips);
         }
+
+        if (QoLConfig.Instance.modNameTooltip) {
+            modNameTooltips(item, tooltips);
+        }
     }
 
     [SuppressMessage("ReSharper", "UnusedParameter.Local")]
@@ -160,7 +164,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
 
-    private static void copiedVanillaLogic(Player player, int wingType, out float constantAscend, out float ascentWhenFalling,
+    private static void copiedVanillaLogic(Player player, int wingType, out float constantAscend,
+        out float ascentWhenFalling,
         out float maxAscentMultiplier, out float maxCanAscendMultiplier, out float ascentWhenRising) {
         constantAscend = 0.1f;
         ascentWhenFalling = 0.5f;
@@ -519,6 +524,19 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         // we want a purple glint but until we have it, white it is
         //tooltipLine.OverrideColor = Color.LightPink;
         addShimmerTooltip(tooltips, tooltipLine);
+    }
+
+    private void modNameTooltips(Item item, List<TooltipLine> tooltips) {
+        if (item.ModItem != null) {
+            var name = item.ModItem.Mod.DisplayName;
+            var internalName = item.ModItem.Mod.DisplayName;
+            if (!item.Name.Contains("[" + internalName + "]") && !item.Name.Contains("[" + name + "]")) {
+                var line = new TooltipLine(Mod, Mod.Name, "[" + name + "]") {
+                    OverrideColor = Colors.RarityPurple
+                };
+                tooltips.Add(line);
+            }
+        }
     }
 
     private NPC NPCIDtoNPC(int id) {

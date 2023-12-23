@@ -313,6 +313,11 @@ QoLConfig: {
 			If you enable this, you should feel bad as this will make the gun hilariously overpowered.
 			'''
 	}
+
+	modNameTooltip: {
+		Label: "[i:2208] Mod Name Tooltip"
+		Tooltip: If enabled, items show which mod they come from in their tooltip.
+	}
 }
 
 Team: {
