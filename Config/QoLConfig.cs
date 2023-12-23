@@ -108,6 +108,21 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool naturesGiftGlow { get; set; }
 
+    // Sand Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedSand { get; set; }
+
+    // Snow Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedSnow { get; set; }
+
+    // Snow Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedTombstones { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]
@@ -230,6 +245,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     [ReloadRequired]
     public bool lifeFruitGlow { get; set; }
+
+    // Sandgun
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool noDroppedSandgun { get; set; }
 
     // Tungsten Clock
     [Header("respawn")]

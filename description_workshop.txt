@@ -44,6 +44,9 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
   InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
   AnotherMod=Another incompatible mod.
  [/code]
+ [*] Reduce littering by Antlions, Snowmen.
+ [*] Tombstones drop in item form instead of being placed down.
+  [*] An option to stop the Sandgun from stopping sand.
 [/list]
 
 [b]Credits:[/b]

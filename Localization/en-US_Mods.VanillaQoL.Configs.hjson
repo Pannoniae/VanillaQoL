@@ -285,6 +285,34 @@ QoLConfig: {
 			They will still hate your guts though and they will be very unhappy. Don't be cruel.
 			'''
 	}
+
+	noDroppedSand: {
+		Label: "[i:169] No Dropped Sand"
+		Tooltip: If enabled, Antlions do not pollute your world with sand, dropping it in item form instead.
+	}
+
+	noDroppedSnow: {
+		Label: "[i:593] No Dropped Snow"
+		Tooltip: If enabled, Snowbit-.... I mean Snowmen do not pollute your world with snow, dropping it in item form instead.
+	}
+
+	noDroppedTombstones: {
+		Label: "[i:1175] No Dropped Tombstones"
+		Tooltip:
+			'''
+			If enabled, tombstones are dropped as an item instead of placing themselves and creating a graveyard.
+			'For those with skill issues'
+			'''
+	}
+
+	noDroppedSandgun: {
+		Label: "[i:266] No Dropped Sand (Sandgun)"
+		Tooltip:
+			'''
+			If enabled, the Sandgun no longer places sand upon usage.
+			If you enable this, you should feel bad as this will make the gun hilariously overpowered.
+			'''
+	}
 }
 
 Team: {
