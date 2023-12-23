@@ -10,6 +10,9 @@ using MagicStorage.Common.Systems.RecurrentRecipes;
 using MagicStorage.CrossMod;
 using MagicStorage.Sorting;
 using MonoMod.Cil;
+using Terraria;
+using Terraria.Enums;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -39,6 +42,7 @@ public class VanillaQoL : Mod {
 
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
+
 
     static VanillaQoL() {
     }
@@ -165,7 +169,13 @@ public class VanillaQoL : Mod {
     }
 }
 
+public struct Struct {
+
+}
+
 public static class ModCompat {
+
+    public static Struct a;
     public static void load() {
         VanillaQoL.instance.Logger.Info("Handling mod compatibility...");
         var str = new StringBuilder();
@@ -177,6 +187,8 @@ public static class ModCompat {
             if (mod.Name == "ModLoader") {
                 continue;
             }
+
+            a = default;
 
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
             var file = (TmodFile)mod.GetType().GetProperty("File", flags)!.GetValue(mod)!;

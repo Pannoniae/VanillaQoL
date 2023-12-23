@@ -263,8 +263,8 @@ QoLConfig: {
 	}
 
 	shopExpander: {
-		Tooltip: "[i:73] Shop Expander"
-		Label: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
+		Label: "[i:73] Shop Expander"
+		Tooltip: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
 	}
 
 	lifeCrystalGlow: {
@@ -275,6 +275,15 @@ QoLConfig: {
 	lifeFruitGlow: {
 		Label: "[i:1291] Life Fruits Glow"
 		Tooltip: If enabled, Life Fruits glow similarly to Jungle Spores to make them easier to find.
+	}
+
+	NPCsLiveInEvilBiomes: {
+		Label: "[i:8] NPCs Can Live in Evil Biomes"
+		Tooltip:
+			'''
+			If enabled, NPCs grudgingly tolerate the Corruption and Crimson.
+			They will still hate your guts though and they will be very unhappy. Don't be cruel.
+			'''
 	}
 }
 

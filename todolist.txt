@@ -34,12 +34,20 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - make truffle non-binary (teleport both by queen/king statue)
 
-- mod incompat screen
-
 - mass-sell items into NPC shops
 
 - tombstones merge into one item when picked up -> when you place one down a random one gets placed
 - pylons clean/prevent evil
+
+- journey mode cheats in normal character/world?
+- more journey mode cheats lol
+- cal difficulty buttons on journey mode menu
+- can't lower difficulty below 1.0x in normal mode worlds
+- can't cheat in hardcore
+- can't spawn items/medium cheats in mediumcore
+
+- minishark rework. maybe add reloading? can steal the reload sounds from the shotgun
+- could use more RoF and a bit more damage so it's not entirely useless
 
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked

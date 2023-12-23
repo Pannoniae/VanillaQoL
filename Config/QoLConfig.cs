@@ -213,6 +213,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool accessorySlotUnlock { get; set; }
 
+    // Torch
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool NPCsLiveInEvilBiomes { get; set; }
+
     // Life Crystal
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]

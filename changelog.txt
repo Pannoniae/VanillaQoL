@@ -1,1 +1,1 @@
- - Fixed more bugs with shop expanding.
+ - Add NPCs living in the Corruption/Crimson
