@@ -40,7 +40,7 @@ public class SliceOfCake : ModSystem {
     // IL_11f5: ldc.i4       7200 // 0x00001c20
     public static void sliceOfCakePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
-        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(BuffID.SugarRush), i => i.MatchLdcI4(out _))) {
+        if (ilCursor.TryGotoNext(MoveType.After,  i => i.MatchLdcI4(BuffID.SugarRush), i => i.MatchLdcI4(out _))) {
             ilCursor.Prev.Operand = 108000;
         }
     }

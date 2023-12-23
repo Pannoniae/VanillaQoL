@@ -31,6 +31,9 @@ add weapon selling so you don't have to kill the poor NPCs
 - ninja NPC when King Slime is defeated
 - shop expander but better, no buttons inside the fucking shop
 (also hijack mod.calls and trick tmodloader into thinking the actual shopexpander is loaded, so mod compat works)
+- only teleport town npcs to their houses when they are far away
+
+- town slimes/pets are invincible so destroyer/etc. doesn't just fucking vore them every time
 
 - make truffle non-binary (teleport both by queen/king statue)
 

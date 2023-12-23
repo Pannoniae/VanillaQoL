@@ -28,6 +28,9 @@
         <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
+        <Reference Include="CoolerItemVisualEffect">
+          <HintPath>..\..\ModReader\CoolerItemVisualEffect\CoolerItemVisualEffect.dll</HintPath>
+        </Reference>
         <Reference Include="lib/ILProj.dll"/>
     </ItemGroup>
     <ItemGroup>
@@ -51,6 +54,9 @@
         </Reference>
         <Reference Include="LessTools">
             <HintPath>..\..\ModReader\LessTools\LessTools.dll</HintPath>
+        </Reference>
+        <Reference Include="LogSpiralLibrary">
+          <HintPath>..\..\ModReader\LogSpiralLibrary\LogSpiralLibrary.dll</HintPath>
         </Reference>
         <Reference Include="MagicStorage">
             <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>

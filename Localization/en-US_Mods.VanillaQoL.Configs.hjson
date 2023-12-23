@@ -1,9 +1,14 @@
 QoLConfig: {
 	DisplayName: QoL Config
 
-	townNPCSpawning: {
-		Label: "[i:4951] Allow Town NPCs to spawn at night and teleport at day"
-		Tooltip: If enabled, Town NPCs can also spawn at night and teleport to their houses at daytime.
+	townNPCsSpawningAtNight: {
+		Label: "[i:4951] Allow Town NPCs to spawn at night"
+		Tooltip: If enabled, Town NPCs can also spawn at night.
+	}
+
+	townNPCsMovingAtDay: {
+		Label: "[i:4951] Allow Town NPCs to teleport at day"
+		Tooltip: If enabled, Town NPCs can teleport to their houses at daytime.
 	}
 
 	Headers: {
@@ -15,6 +20,7 @@ QoLConfig: {
 		multiplayer: "[i:181] Multiplayer"
 		holidayCheer: "[i:602] Holiday Cheer"
 		cheats: "[i:3999] Cheats"
+		testing: "[i:1] Testing"
 	}
 
 	showHookTooltips: {
@@ -317,6 +323,11 @@ QoLConfig: {
 	modNameTooltip: {
 		Label: "[i:2208] Mod Name Tooltip"
 		Tooltip: If enabled, items show which mod they come from in their tooltip.
+	}
+
+	testing: {
+		Label: "[i:1] Testing"
+		Tooltip: If you enable this, prepare for the worst:)
 	}
 }
 

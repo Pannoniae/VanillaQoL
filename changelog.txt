@@ -1,2 +1,5 @@
- - Sandgun no longer gives your ammo back.
- - Actually implement the tombstone removal.
+Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
+[list]
+[*] Fixed the changelog again.
+[/list]
+Come talk to [url={ModHomepage}]me[/url] :)

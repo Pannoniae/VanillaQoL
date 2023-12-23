@@ -260,8 +260,11 @@ public class ILEdits : ModSystem {
     }
 
     public static void load() {
-        if (QoLConfig.Instance.townNPCSpawning) {
+        if (QoLConfig.Instance.townNPCsSpawningAtNight) {
             IL_Main.UpdateTime += townNPCPatch;
+        }
+
+        if (QoLConfig.Instance.townNPCsMovingAtDay) {
             IL_NPC.AI_007_TownEntities += townNPCTeleportPatch;
         }
 

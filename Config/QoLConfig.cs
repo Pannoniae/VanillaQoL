@@ -20,7 +20,13 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(true)]
-    public bool townNPCSpawning { get; set; }
+    public bool townNPCsSpawningAtNight { get; set; }
+
+    // Universal Pylon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool townNPCsMovingAtDay { get; set; }
 
     // Gold Coin
     [BackgroundColor(192, 54, 128, 192)]
@@ -330,6 +336,14 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     [ReloadRequired]
     public bool mapSharing { get; set; }
+
+    [Header("multiplayer")]
+
+    //
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool testing { get; set; }
 
 
     public override ConfigScope Mode => ConfigScope.ServerSide;
