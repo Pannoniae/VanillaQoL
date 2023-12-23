@@ -38,7 +38,7 @@ Features:
  - A better Shop Expander, with proper buttons instead of fake items!
  - Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
  InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
- - Reduce littering by Antlions, Snowmen.
+ - Reduce littering by Antlions and Snowmen.
  - Tombstones drop in item form instead of being placed down.
  - An option to stop the Sandgun from stopping sand.
 
