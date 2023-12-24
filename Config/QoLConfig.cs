@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using Terraria.ModLoader.Config;
 using VanillaQoL.API;
+using VanillaQoL.Shared;
 
 namespace VanillaQoL.Config;
 
@@ -129,6 +130,11 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool noDroppedSnow { get; set; }
+
+    // Suspicious Looking Eye
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool nonConsumableSummons { get; set; }
 
     // Snow Block
     [BackgroundColor(192, 54, 128, 192)]
@@ -273,6 +279,13 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool noDroppedSandgun { get; set; }
 
+    // Slimy Saddle
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool mountFallDamage { get; set; }
+
+
     [Header("suffering")]
     // Sandgun
     [BackgroundColor(192, 54, 128, 192)]
@@ -283,6 +296,11 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool clownExplosions { get; set; }
+
+    // Snow Globe
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool naturalFrostLegion { get; set; }
 
     // Tungsten Clock
     [Header("respawn")]
@@ -355,13 +373,21 @@ public class QoLConfig : ModConfig {
 
     [Header("testing")]
 
-    //
+    // Dirt
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     [ReloadRequired]
     public bool testing { get; set; }
 
+    public override void OnChanged() {
 
+        if (nonConsumableSummons) {
+            GlobalFeatures.enableFeature(Mod, "nonConsumableSummons");
+        }
+        else {
+            GlobalFeatures.disableFeature(Mod, "nonConsumableSummons");
+        }
+    }
     public override ConfigScope Mode => ConfigScope.ServerSide;
 }
 

@@ -39,7 +39,6 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - mass-sell items into NPC shops
 
-- tombstones merge into one item when picked up -> when you place one down a random one gets placed
 - pylons clean/prevent evil
 
 - journey mode cheats in normal character/world?
@@ -51,6 +50,8 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - minishark rework. maybe add reloading? can steal the reload sounds from the shotgun
 - could use more RoF and a bit more damage so it's not entirely useless
+
+- enemies spread corruption/crimson/hallow with attacks
 
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked

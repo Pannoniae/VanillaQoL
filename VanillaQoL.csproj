@@ -28,6 +28,9 @@
         <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
+        <Reference Include="Consolaria">
+          <HintPath>..\..\ModReader\Consolaria\Consolaria.dll</HintPath>
+        </Reference>
         <Reference Include="FargowiltasSouls">
           <HintPath>..\..\ModReader\FargowiltasSouls\FargowiltasSouls.dll</HintPath>
         </Reference>
@@ -85,6 +88,9 @@
         </Reference>
         <Reference Include="ThoriumMod">
             <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
+        </Reference>
+        <Reference Include="XDContentMod">
+          <HintPath>..\..\ModReader\XDContentMod\XDContentMod.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>

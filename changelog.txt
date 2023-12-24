@@ -1,5 +1,6 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Clown Bombs can destroy tiles now.
+[*] Fixed the tombstone dropping config.
+[*] Added non-consumable boss summons.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

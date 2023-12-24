@@ -46,6 +46,9 @@ Features:
  - Protection for town pets and slimes from enemies and bosses.
  - Jungle Mimics can spawn in Hardmode Jungle.
  - Clowns' Happy Bombs can destroy tiles in a small explosion.
+ - No fall damage while riding a mount.
+ - The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+ - Non-consumable boss summons. (with mod compatibility!)
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

@@ -46,7 +46,8 @@ public class GlobalFeatures {
         return features[name].enabledMods.Count > 0;
     }
 
-    public static bool NPCShops => enabled("NPCShops");
+    public static bool NPCShops => enabled(nameof(NPCShops));
+    public static bool nonConsumableSummons => enabled(nameof(nonConsumableSummons));
 
     // we don't want those mod objects laying around after unload
     internal static void clear() {

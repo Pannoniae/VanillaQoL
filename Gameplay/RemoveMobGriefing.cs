@@ -74,7 +74,7 @@ public class RemoveTombstones : GlobalProjectile {
     }
 
     public override bool PreAI(Projectile projectile) {
-        if (QoLConfig.Instance.noDroppedSandgun) {
+        if (QoLConfig.Instance.noDroppedTombstones) {
             projectile.noDropItem = true;
             if (projectile.owner == Main.myPlayer) {
                 int Type = map[projectile.type];

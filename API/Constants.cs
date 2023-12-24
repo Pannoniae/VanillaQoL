@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using VanillaQoL.Items;
@@ -21,7 +22,7 @@ public class Constants {
     /// <summary>
     /// List of town slimes.
     /// </summary>
-    public static readonly List<int> pets = new() {NPCID.TownCat, NPCID.TownDog, NPCID.TownBunny};
+    public static readonly List<int> pets = new() { NPCID.TownCat, NPCID.TownDog, NPCID.TownBunny };
 
     /// <summary>
     /// List of explosives. Used for aiStyle 16 spoofing.
@@ -59,8 +60,57 @@ public class Constants {
         ModContent.ProjectileType<StickyDirtDynamiteProjectile>()
     };
 
+    public static readonly List<string> thoriumSummons = new() {
+        "StormFlare",
+        "JellyfishResonator",
+        "UnstableCore",
+        "AncientBlade",
+        "StarCaller",
+        "StriderTear",
+        "VoidLens",
+        "AromaticBulb",
+        "AbyssalShadow2",
+        "DoomSayersCoin"
+    };
+
 
     public static bool isDrill(int type) {
         return ItemID.Sets.IsDrill[type] || ItemID.Sets.IsChainsaw[type] || type == ItemID.ChlorophyteJackhammer;
+    }
+
+    public static bool isSummon(Item item) {
+        var group = ContentSamples.CreativeHelper.GetItemGroup(item, out _);
+        // important, to apply modded categories
+        ItemLoader.ModifyResearchSorting(item, ref group);
+        // that's vanilla and well-behaving mods taken care of
+        if (group == ContentSamples.CreativeHelper.ItemGroup.BossItem ||
+            group == ContentSamples.CreativeHelper.ItemGroup.EventItem) {
+            return true;
+        }
+
+        // false positive as well, but those won't be consumables anyway, right?..... right?
+        if (ItemID.Sets.SortingPriorityBossSpawns[item.type] != -1) {
+            if (item.type != ItemID.ManaCrystal && item.type != ItemID.LifeCrystal && item.type != ItemID.LifeFruit) {
+                return true;
+            }
+        }
+
+        // onto modded!
+        if (item.ModItem != null) {
+            var mod = item.ModItem.Mod;
+            var name = item.ModItem.Name;
+            return isModdedSummon(mod, name);
+        }
+
+        return false;
+    }
+
+    public static bool isModdedSummon(Mod mod, string name) {
+        // Calamity is a good boy
+        if (mod.Name == "ThoriumMod") {
+            return thoriumSummons.Contains(name);
+        }
+
+        return false;
     }
 }

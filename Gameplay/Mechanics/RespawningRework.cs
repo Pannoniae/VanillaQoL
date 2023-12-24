@@ -137,14 +137,8 @@ public interface ThreatChecker {
 // thank you calamity!
 public class VanillaThreatChecker : ThreatChecker {
     public bool isBossAlive() {
-        for (int i = 0; i < Main.maxNPCs; i++) {
-            NPC? npc = Main.npc[i];
-            if (isABoss(npc)) {
-                return true;
-            }
-        }
-
-        return false;
+        // not entirely accurate but we don't want to be hard on performance
+        return Main.CurrentFrameFlags.AnyActiveBossNPC;
     }
 
     // This function follows the behavior of Adrenaline.

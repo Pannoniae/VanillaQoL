@@ -52,6 +52,9 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] Protection for town pets and slimes from enemies and bosses.
  [*] Jungle Mimics can spawn in Hardmode Jungle.
  [*] Clowns' Happy Bombs can destroy tiles in a small explosion.
+ [*] No fall damage while riding a mount.
+ [*] The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+ [*] Non-consumable boss summons. (with mod compatibility!)
 [/list]
 
 [b]Credits:[/b]
