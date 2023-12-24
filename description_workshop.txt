@@ -48,6 +48,7 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] Tombstones drop in item form instead of being placed down.
  [*] An option to stop the Sandgun from stopping sand.
  [*] "What mod is this from?" tooltip to show mod names on items.
+ [*] Fixing memory leaks with other mods, most notably Magic Storage. tModLoader should no longer slow down when reloading the game multiple times.
 [/list]
 
 [b]Credits:[/b]

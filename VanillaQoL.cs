@@ -4,11 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using MagicStorage;
 using MagicStorage.Common.Systems;
-using MagicStorage.Common.Systems.RecurrentRecipes;
-using MagicStorage.CrossMod;
-using MagicStorage.Sorting;
 using MonoMod.Cil;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
@@ -66,6 +62,10 @@ public class VanillaQoL : Mod {
         hasCheatSheet = ModLoader.HasMod("CheatSheet");
         hasHEROsMod = ModLoader.HasMod("HEROsMod");
         hasCalamityQoL = ModLoader.HasMod("CalamityQOL");
+        if (QoLConfig.Instance.fixMemoryLeaks) {
+            ModLeakFix.addHandler();
+        }
+
         ILEdits.load();
         ModILEdits.load();
     }
@@ -88,9 +88,6 @@ public class VanillaQoL : Mod {
         GlobalFeatures.clear();
 
         // unload *all* the IL edits
-        // NEVER unload IL edits in ILoadable, it runs later than this method
-
-        // wipe
         // IL patch static lambdas are leaking memory, wipe them
         Utils.completelyWipeClass(typeof(ILEdits));
         Utils.completelyWipeClass(typeof(ModILEdits));
@@ -114,11 +111,6 @@ public class VanillaQoL : Mod {
         Utils.completelyWipeClass(typeof(PrefixRarity));
 
         // Func<bool> is a static lambda, this would leak as well
-
-        // memory leak fix
-        //if (QoLConfig.Instance.fixMemoryLeaks) {
-        //ModLeakFix.unload();
-        //}
 
 
         instance = null!;
@@ -213,20 +205,82 @@ public static class ModCompat {
 
 [NoJIT]
 public static class ModLeakFix {
+    public static bool hasMagicStorage;
+
     public static void unload() {
-        if (VanillaQoL.instance.hasMagicStorage) {
+        if (hasMagicStorage) {
+            // always use separate methods to avoid having to resolve the type if it isn't loaded
             magicStorageUnload();
         }
+
+        ALCUnload(typeof(ModLeakFix), true);
+
+        removeHandler();
     }
 
     public static void magicStorageUnload() {
-        Utils.completelyWipeClass(typeof(SortingOptionLoader));
-        Utils.completelyWipeClass(typeof(FilteringOptionLoader));
-        Utils.completelyWipeClass(typeof(SortingCacheDictionary));
-        Utils.completelyWipeClass(typeof(MagicCache));
-        Utils.completelyWipeClass(typeof(RecursionTree));
-        Utils.completelyWipeClass(typeof(RecursiveRecipe));
-        Utils.completelyWipeClass(typeof(NodePool));
-        Utils.completelyWipeClass(typeof(MagicStorageMod));
+        ALCUnload(typeof(MagicCache));
+    }
+
+    public static void addHandler() {
+        hasMagicStorage = VanillaQoL.instance.hasMagicStorage;
+
+        var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
+        var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
+        ev.AddEventHandler(null, unload);
+    }
+
+    public static void removeHandler() {
+        var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
+        var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
+        ev.RemoveEventHandler(null, unload);
+    }
+
+    public static void ALCUnload(Type type, bool onlyCompilerGeneratedClasses = false) {
+        // LoaderAllocator hacking time
+        // This is a RuntimeType
+        // get the LoaderAllocator
+        var loaderallocator =
+            type.GetType().GetField("m_keepalive", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(type)!;
+        object[] m_slots =
+            (object[])loaderallocator.GetType().GetField("m_slots", BindingFlags.Instance | BindingFlags.NonPublic)!
+                .GetValue(loaderallocator)!;
+        // m_slots is an object[]
+        // we loop over it, find the object[] arrays then clear each one of them
+        for (int i = 0; i < m_slots.Length; i++) {
+            var slot = m_slots[i];
+            if (slot is object[] obj) {
+                clear(obj, onlyCompilerGeneratedClasses);
+            }
+        }
+    }
+
+    private static void clear(object[] objects, bool onlyCompilerGeneratedClasses) {
+        for (int i = 0; i < objects.Length; i++) {
+            if (onlyCompilerGeneratedClasses) {
+                var type = objects[i];
+                // we got an already cleared reference?
+                if (type == null!) {
+                    continue;
+                }
+
+                var theType = type.GetType();
+                // wtf
+                if (theType == null!) {
+                    continue;
+                }
+
+                var typename = theType.FullName ?? "N/A";
+
+                var isFuncOrAction = typename.Contains("System.Func") || typename.Contains("System.Action");
+                // we also clear System.Func<> and System.Action
+                if (typename.Contains("<>") || isFuncOrAction) {
+                    objects[i] = null!;
+                }
+            }
+            else {
+                objects[i] = null!;
+            }
+        }
     }
 }

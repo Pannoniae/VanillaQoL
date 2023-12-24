@@ -32,7 +32,6 @@ public class Utils {
             }
 
             //staticField.SetValue(null, null);
-            //VanillaQoL.instance.Logger.Info(staticField);
             ILProj.Util.wipeReadonlyFieldIL(staticField);
         }
     }

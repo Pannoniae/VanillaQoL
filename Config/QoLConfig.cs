@@ -204,6 +204,11 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool assetFix { get; set; }
 
+    // Cog
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool fixMemoryLeaks { get; set; }
+
     [Header("content")]
 
     // Bouncy Dirt Bomb
@@ -311,12 +316,6 @@ public class QoLConfig : ModConfig {
     [Increment(0.1f)]
     [CustomModConfigItem(typeof(FloatInputElement))]
     public float bossMultiplayerMultiplier { get; set; }
-
-
-    // Cog
-    //[BackgroundColor(192, 54, 128, 192)]
-    //[DefaultValue(true)]
-    //public bool fixMemoryLeaks { get; set; }
 
     [Header("multiplayer")]
 
