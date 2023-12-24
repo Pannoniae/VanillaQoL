@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix the testing category's header so it's obvious that it shouldn't be used.
+[*] Clown Bombs can destroy tiles now.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

@@ -43,6 +43,10 @@ public class BouncyDirtBomb : ModItem {
         recipe2.AddIngredient(ItemID.DirtBlock, 25);
         recipe2.Register();
     }
+
+    public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup) {
+        itemGroup = ContentSamples.CreativeHelper.ItemGroup.Bombs;
+    }
 }
 
 public class BouncyDirtBombProjectile : ModProjectile {

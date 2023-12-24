@@ -28,6 +28,9 @@
         <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
+        <Reference Include="FargowiltasSouls">
+          <HintPath>..\..\ModReader\FargowiltasSouls\FargowiltasSouls.dll</HintPath>
+        </Reference>
         <Reference Include="lib/ILProj.dll"/>
         <Reference Include="CalamityDemutation">
           <HintPath>..\..\ModReader\CalamityDemutation\CalamityDemutation.dll</HintPath>

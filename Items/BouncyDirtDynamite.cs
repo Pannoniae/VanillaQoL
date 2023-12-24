@@ -43,6 +43,10 @@ public class BouncyDirtDynamite : ModItem {
         recipe2.AddIngredient(ItemID.PinkGel);
         recipe2.Register();
     }
+
+    public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup) {
+        itemGroup = ContentSamples.CreativeHelper.ItemGroup.Bombs;
+    }
 }
 
 public class BouncyDirtDynamiteProjectile : ModProjectile {

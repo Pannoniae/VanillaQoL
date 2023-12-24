@@ -19,6 +19,11 @@ public class Constants {
     public static readonly List<int> slimes = new(Enumerable.Range(678, 688 - 678)) { 670 };
 
     /// <summary>
+    /// List of town slimes.
+    /// </summary>
+    public static readonly List<int> pets = new() {NPCID.TownCat, NPCID.TownDog, NPCID.TownBunny};
+
+    /// <summary>
     /// List of explosives. Used for aiStyle 16 spoofing.
     /// </summary>
     public static readonly List<int> explosives = new() {

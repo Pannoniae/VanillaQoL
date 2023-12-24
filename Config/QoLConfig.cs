@@ -28,6 +28,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool townNPCsMovingAtDay { get; set; }
 
+    // Cat License
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool townPetsInvincible { get; set; }
+
     // Gold Coin
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -266,6 +272,17 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     public bool noDroppedSandgun { get; set; }
+
+    [Header("suffering")]
+    // Sandgun
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool jungleMimic { get; set; }
+
+    // Clown
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool clownExplosions { get; set; }
 
     // Tungsten Clock
     [Header("respawn")]

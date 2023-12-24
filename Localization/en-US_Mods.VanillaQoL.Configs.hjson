@@ -11,12 +11,18 @@ QoLConfig: {
 		Tooltip: If enabled, Town NPCs can teleport to their houses at daytime.
 	}
 
+	townPetsInvincible: {
+		Label: "[i:4829] Town Pets and Slimes Are Invincible"
+		Tooltip: If enabled, cute town animals and slimes will not be hurt by enemies or bosses.
+	}
+
 	Headers: {
 		tooltips: "[i:3095] Tooltips"
 		gameplay: "[i:3515] Gameplay"
 		fixes: "[i:3625] Fixes"
 		content: "[i:757] Content"
 		respawn: "[i:708] Respawning"
+		suffering: "[npc/n:369] Suffering"
 		multiplayer: "[i:181] Multiplayer"
 		holidayCheer: "[i:602] Holiday Cheer"
 		cheats: "[i:3999] Cheats"
@@ -328,6 +334,16 @@ QoLConfig: {
 	testing: {
 		Label: "[i:2] Testing"
 		Tooltip: If you enable this, prepare for the worst:)
+	}
+
+	jungleMimic: {
+		Label: "[npc/n:476] Jungle Mimics Spawn in Hardmode Jungle"
+		Tooltip: If enabled, your Underground Jungle experience will be enhanced by Jungle Mimics.
+	}
+
+	clownExplosions: {
+		Label: "[npc/n:109] Clown Happy Bombs Destroy Tiles"
+		Tooltip: If enabled, Happy Bombs thrown by Clowns destroy tiles in a small explosion.
 	}
 }
 

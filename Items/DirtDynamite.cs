@@ -39,6 +39,10 @@ public class DirtDynamite : ModItem {
         recipe.AddIngredient(ItemID.DirtBlock, 25);
         recipe.Register();
     }
+
+    public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup) {
+        itemGroup = ContentSamples.CreativeHelper.ItemGroup.Bombs;
+    }
 }
 
 public class DirtDynamiteProjectile : ModProjectile {
