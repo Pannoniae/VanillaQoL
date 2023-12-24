@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
+using Terraria;
+using Terraria.GameContent.Liquid;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;

@@ -20,7 +20,7 @@ QoLConfig: {
 		multiplayer: "[i:181] Multiplayer"
 		holidayCheer: "[i:602] Holiday Cheer"
 		cheats: "[i:3999] Cheats"
-		testing: "[i:1] Testing"
+		testing: "[i:2] Testing"
 	}
 
 	showHookTooltips: {
@@ -326,7 +326,7 @@ QoLConfig: {
 	}
 
 	testing: {
-		Label: "[i:1] Testing"
+		Label: "[i:2] Testing"
 		Tooltip: If you enable this, prepare for the worst:)
 	}
 }

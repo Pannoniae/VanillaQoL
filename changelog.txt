@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Move the memory leak config in the right category.
+[*] Fix the testing category's header so it's obvious that it shouldn't be used.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

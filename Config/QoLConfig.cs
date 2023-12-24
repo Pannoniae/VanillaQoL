@@ -336,7 +336,7 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool mapSharing { get; set; }
 
-    [Header("multiplayer")]
+    [Header("testing")]
 
     //
     [BackgroundColor(192, 54, 128, 192)]
