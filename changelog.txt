@@ -1,6 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fixed the tombstone dropping config.
-[*] Added non-consumable boss summons.
+[*] Enemies break down doors.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

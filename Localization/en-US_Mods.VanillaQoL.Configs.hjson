@@ -331,6 +331,11 @@ QoLConfig: {
 		Tooltip: If enabled, you will not get fall damage while riding any mount.
 	}
 
+	disableShimmering: {
+		Label: "[i:5349] No Falling Through Shimmer"
+		Tooltip: If enabled, you will not fall through the world when falling into shimmer. You can take a bath in it :)
+	}
+
 	modNameTooltip: {
 		Label: "[i:2208] Mod Name Tooltip"
 		Tooltip: If enabled, items show which mod they come from in their tooltip.
@@ -354,6 +359,11 @@ QoLConfig: {
 	naturalFrostLegion: {
 		Label: "[i:602] Frost Legion Spawns Naturally"
 		Tooltip: If enabled, the Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+	}
+
+	enemiesBreakDoors: {
+		Label: "[i:25] Enemies Break Doors"
+		Tooltip: If enabled, enemies do not just knock politely but break the door like Goblins do.
 	}
 
 	nonConsumableSummons: {

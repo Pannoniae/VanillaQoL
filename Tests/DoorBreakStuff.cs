@@ -87,6 +87,9 @@ public sealed class FighterAIDoorBehaviourModifier : ModSystem {
 
         #region Peon Change
 
+        if (QoLConfig.Instance.enemiesBreakDoors) {
+            return;
+        }
         /// Match the following IL:
         ///		IL_B6B4: ldarg.0
         ///		IL_B6B5: ldfld     int32 Terraria.NPC::'type'

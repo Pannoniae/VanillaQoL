@@ -221,6 +221,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool fixMemoryLeaks { get; set; }
 
+    // Celestial Sigil
+    //[BackgroundColor(192, 54, 128, 192)]
+    //[DefaultValue(Credits.AfterModsFinalBoss)]
+    //[ReloadRequired]
+    //public Credits moveCredits { get; set; }
+
     [Header("content")]
 
     // Bouncy Dirt Bomb
@@ -285,6 +291,11 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool mountFallDamage { get; set; }
 
+    // Aetherium Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool disableShimmering { get; set; }
+
 
     [Header("suffering")]
     // Sandgun
@@ -301,6 +312,13 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool naturalFrostLegion { get; set; }
+
+    // Door
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool enemiesBreakDoors { get; set; }
+
 
     // Tungsten Clock
     [Header("respawn")]
@@ -389,6 +407,12 @@ public class QoLConfig : ModConfig {
         }
     }
     public override ConfigScope Mode => ConfigScope.ServerSide;
+}
+
+public enum Credits {
+    Vanilla,
+    AfterModsFinalBoss,
+    Disabled
 }
 
 public enum Team {
