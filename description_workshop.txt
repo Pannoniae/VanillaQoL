@@ -60,6 +60,7 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] The recipe list scrolls in the right direction now.
  [*] An option to skip the credits after Moon Lord, or to move it properly in the progression.
  [*] Explosion-proof Lihzahrd and Dungeon Walls.
+ [*] The DCU takes the pickaxe power of your top-left pickaxe into account.
 [/list]
 
 [b]Credits:[/b]

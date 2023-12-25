@@ -54,6 +54,7 @@ Features:
  - The recipe list scrolls in the right direction now.
  - An option to skip the credits after Moon Lord, or to move it properly in the progression.
  - Explosion-proof Lihzahrd and Dungeon Walls.
+ - The DCU takes the pickaxe power of your top-left pickaxe into account.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

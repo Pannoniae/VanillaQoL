@@ -197,6 +197,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool wallsDontExplode { get; set; }
 
+    // DCU
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool dynamicDCUPickaxe { get; set; }
 
     [Header("fixes")]
 
