@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Consolaria.Content.Items.Placeable;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
 using Terraria.ModLoader;
