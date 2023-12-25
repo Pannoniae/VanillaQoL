@@ -230,6 +230,11 @@ QoLConfig: {
 		Tooltip: If enabled, Lihzahrd Walls and Dungeon Walls (both safe and unsafe) are explosion-proof, just like their block counterparts.
 	}
 
+	hardModeOresCanExplode: {
+		Label: "[i:1106] Hardmode Ores Can Explode"
+		Tooltip: If enabled, Hardmode ores can be blown up using explosives after the mechanical bosses are defeated.
+	}
+
 	dynamicDCUPickaxe: {
 		Label: "[i:2768] Dynamic DCU"
 		Tooltip: If enabled, the Drill Containment Unit takes the pickaxe power of the top-left pickaxe in your inventory into account.

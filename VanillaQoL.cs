@@ -6,8 +6,6 @@ using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
-using Terraria;
-using Terraria.GameContent.Liquid;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -215,7 +213,7 @@ public static class ModLeakFix {
             magicStorageUnload();
         }
 
-        ALCUnload(typeof(ModLeakFix), true);
+        ALCUnload(typeof(ModLeakFix));
 
         removeHandler();
     }
@@ -236,6 +234,15 @@ public static class ModLeakFix {
         var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
         var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
         ev.RemoveEventHandler(null, unload);
+
+        // wipe *this* action
+        ALCUnload(typeof(ModLeakFix));
+
+        // GC first because tml doesn't GC - thinks the mod reference is alive
+        //for (int i = 0; i < 3; i++) {
+        //    GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true, true);
+        //    GC.WaitForPendingFinalizers();
+        //}
     }
 
     public static void ALCUnload(Type type, bool onlyCompilerGeneratedClasses = false) {
@@ -276,11 +283,39 @@ public static class ModLeakFix {
 
                 var isFuncOrAction = typename.Contains("System.Func") || typename.Contains("System.Action");
                 // we also clear System.Func<> and System.Action
+                // ILContext.Manipulator
                 if (typename.Contains("<>") || isFuncOrAction) {
                     objects[i] = null!;
                 }
             }
             else {
+                objects[i] = null!;
+            }
+        }
+    }
+
+    public static void ALCUnloadSpecific(Type type, Type typeToClear) {
+        // LoaderAllocator hacking time
+        // This is a RuntimeType
+        // get the LoaderAllocator
+        var loaderallocator =
+            type.GetType().GetField("m_keepalive", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(type)!;
+        object[] m_slots =
+            (object[])loaderallocator.GetType().GetField("m_slots", BindingFlags.Instance | BindingFlags.NonPublic)!
+                .GetValue(loaderallocator)!;
+        // m_slots is an object[]
+        // we loop over it, find the object[] arrays then clear each one of them
+        for (int i = 0; i < m_slots.Length; i++) {
+            var slot = m_slots[i];
+            if (slot is object[] obj) {
+                clearObj(obj, typeToClear);
+            }
+        }
+    }
+
+    private static void clearObj(object[] objects, Type typeToClear) {
+        for (int i = 0; i < objects.Length; i++) {
+            if (typeToClear.IsInstanceOfType(objects[i])) {
                 objects[i] = null!;
             }
         }

@@ -197,6 +197,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool wallsDontExplode { get; set; }
 
+    // Titanium Ore
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool hardModeOresCanExplode { get; set; }
+
     // DCU
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]

@@ -110,12 +110,10 @@ public sealed class FighterAIDoorBehaviourModifier : ModSystem {
 
         // Replace 26 with NPCID.None. The code now checks if npc.type == NPCID.None.
         // The OpCode here is ldc.i4.s, so I'm constrained to the range of an sbyte.
-        c.Next.Operand = NPCID.None;
+        c.Next!.Operand = NPCID.None;
         c.EmitDelegate(() => VanillaQoL.instance.Logger.Info("Door break called! (2)"));
 
         #endregion Peon Change
-
-        MonoModHooks.DumpIL(Mod, il);
     }
 }
 

@@ -8,7 +8,7 @@ namespace VanillaQoL.UI;
 
 public class LuckInfoDisplay : InfoDisplay {
 
-    public static LocalizedText luckText { get; private set; } = null!;
+    public static LocalizedText luckText = null!;
 
     public override void SetStaticDefaults() => luckText = this.GetLocalization(nameof(luckText));
 

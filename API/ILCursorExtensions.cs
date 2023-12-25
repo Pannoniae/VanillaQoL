@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using MonoMod.Cil;
 
 namespace VanillaQoL.API;
@@ -13,8 +14,11 @@ public static class ILCursorExtensions {
         // ReSharper disable once AssignmentInConditionalExpression
         while (cursor.TryGotoNext(moveType, i => i.MatchRet())) {
             ret = true;
-
         }
+
         return ret;
     }
+
+    public static ILCursor EmitCall<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Call, memberName);
 }

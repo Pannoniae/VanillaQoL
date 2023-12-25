@@ -24,6 +24,7 @@ public class DrillRework : GlobalItem {
     public override void Unload() {
         IL_Player.ItemCheck_OwnerOnlyCode -= drillPatch;
         IL_Player.DoesPickTargetTransformOnKill -= drillGrassPatch;
+        IL_Item.GetPrefixCategory -= moddedDrillPrefixesPatch;
         //IL_Player.CanAutoReuseItem -= autoReusePatch;
     }
 
