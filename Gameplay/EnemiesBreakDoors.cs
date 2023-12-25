@@ -14,6 +14,10 @@ public class EnemiesBreakDoors : ModSystem {
         IL_NPC.AI_003_Fighters += enemiesBreakDoorsPatch;
     }
 
+    public override void Unload() {
+        IL_NPC.AI_003_Fighters -= enemiesBreakDoorsPatch;
+    }
+
     // IL_cf6c: ldfld        int32 Terraria.NPC::'type'
     // IL_cf71: ldc.i4.s     26 // 0x1a
     // IL_cf73: bne.un.s     IL_cfbe

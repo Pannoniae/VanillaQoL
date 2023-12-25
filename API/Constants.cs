@@ -60,6 +60,20 @@ public class Constants {
         ModContent.ProjectileType<StickyDirtDynamiteProjectile>()
     };
 
+    /// <summary>
+    /// List of walls which shouldn't be exploded.
+    /// </summary>
+    /// <returns></returns>
+    public static readonly List<int>  explosionProofWalls = new() {
+        WallID.BlueDungeonUnsafe, WallID.GreenDungeonUnsafe, WallID.PinkDungeonUnsafe,
+        WallID.BlueDungeonSlabUnsafe, WallID.GreenDungeonSlabUnsafe, WallID.PinkDungeonSlabUnsafe,
+        WallID.BlueDungeonTileUnsafe, WallID.GreenDungeonTileUnsafe, WallID.PinkDungeonTileUnsafe,
+        WallID.BlueDungeon, WallID.GreenDungeon, WallID.PinkDungeon,
+        WallID.BlueDungeonSlab, WallID.GreenDungeonSlab, WallID.PinkDungeonSlab,
+        WallID.BlueDungeonTile, WallID.GreenDungeonTile, WallID.PinkDungeonTile,
+        WallID.LihzahrdBrick, WallID.LihzahrdBrickUnsafe
+    };
+
     public static readonly List<string> thoriumSummons = new() {
         "StormFlare",
         "JellyfishResonator",

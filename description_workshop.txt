@@ -57,6 +57,9 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] Non-consumable boss summons. (with mod compatibility!)
  [*] Enemies break down doors.
  [*] An option to disable shimmer making the player fall through the world.
+ [*] The recipe list scrolls in the right direction now.
+ [*] An option to skip the credits after Moon Lord, or to move it properly in the progression.
+ [*] Explosion-proof Lihzahrd and Dungeon Walls.
 [/list]
 
 [b]Credits:[/b]

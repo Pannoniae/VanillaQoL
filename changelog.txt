@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Enemies break down doors.
+[*] Fix typo in config.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

@@ -27,6 +27,7 @@ QoLConfig: {
 		holidayCheer: "[i:602] Holiday Cheer"
 		cheats: "[i:3999] Cheats"
 		testing: "[i:2] Testing"
+		tweaks: "[i:1344] Tweaks"
 	}
 
 	showHookTooltips: {
@@ -85,6 +86,11 @@ QoLConfig: {
 			In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
 			If enabled, this option removes those texts from the crafting objects' description.
 			'''
+	}
+
+	invertRecipeListScrolling: {
+		Label: "[i:36] Invert Recipe List Scrolling"
+		Tooltip: If enabled, the recipe list scrolls the right way.
 	}
 
 	metricSystem: {
@@ -217,6 +223,11 @@ QoLConfig: {
 	sliceOfCakeUntilDeath: {
 		Label: "[i:3750] Slice of Cake Lasts Until Death"
 		Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+	}
+
+	wallsDontExplode: {
+		Label: "[i:1101] Explosion-Proof Walls"
+		Tooltip: If enabled, Lihzahrd Walls and Dungeon Walls (both safe and unsafe) are explosion-proof, just like their block counterparts.
 	}
 
 	moreExplosives: {
@@ -370,6 +381,11 @@ QoLConfig: {
 		Label: "[i:43] Non-Consumable Boss Summons"
 		Tooltip: If enabled, boss summons are non-consumable.
 	}
+
+	moveCredits: {
+		Label: "[i:5044] Credits"
+		Tooltip: Controls how end-game credits are displayed.
+	}
 }
 
 Team: {
@@ -380,4 +396,11 @@ Team: {
 	Yellow.Label: "[i:180] Yellow"
 	Pink.Label: "[i:181] Pink"
 	Tooltip: ""
+}
+
+Credits: {
+	Tooltip: ""
+	Vanilla.Label: After Moon Lord
+	AfterModsFinalBoss.Label: After Final Boss (modded)
+	Disabled.Label: No Credits
 }

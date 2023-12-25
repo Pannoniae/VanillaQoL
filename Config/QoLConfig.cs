@@ -80,12 +80,6 @@ public class QoLConfig : ModConfig {
     [Range(0, 936)]
     public int moreBuffSlots { get; set; }
 
-    // Abeemination
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool queenBeeLarvaeBreak { get; set; }
-
     // Tinkerer's Workshop
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
@@ -109,37 +103,16 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool drillRework { get; set; }
 
-    // Slice of Cake
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool sliceOfCakeUntilDeath { get; set; }
-
     // Nature's Gift
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
     public bool naturesGiftGlow { get; set; }
 
-    // Sand Block
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    public bool noDroppedSand { get; set; }
-
-    // Snow Block
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    public bool noDroppedSnow { get; set; }
-
     // Suspicious Looking Eye
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool nonConsumableSummons { get; set; }
-
-    // Snow Block
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    public bool noDroppedTombstones { get; set; }
 
     // Tally Counter
     [Header("tooltips")]
@@ -185,6 +158,46 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool removeThoriumEnabledCraftingTooltips { get; set; }
 
+    [Header("tweaks")]
+    // Work Bench
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool invertRecipeListScrolling { get; set; }
+
+    // Sand Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedSand { get; set; }
+
+    // Snow Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedSnow { get; set; }
+
+    // Snow Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool noDroppedTombstones { get; set; }
+
+    // Abeemination
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool queenBeeLarvaeBreak { get; set; }
+
+    // Slice of Cake
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool sliceOfCakeUntilDeath { get; set; }
+
+    // Lihzahrd Brick
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool wallsDontExplode { get; set; }
+
+
     [Header("fixes")]
 
     // Amethyst
@@ -222,10 +235,11 @@ public class QoLConfig : ModConfig {
     public bool fixMemoryLeaks { get; set; }
 
     // Celestial Sigil
-    //[BackgroundColor(192, 54, 128, 192)]
-    //[DefaultValue(Credits.AfterModsFinalBoss)]
-    //[ReloadRequired]
-    //public Credits moveCredits { get; set; }
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(Credits.AfterModsFinalBoss)]
+    [DrawTicks]
+    [ReloadRequired]
+    public Credits moveCredits { get; set; }
 
     [Header("content")]
 
