@@ -60,7 +60,7 @@ Features:
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
  - sexual_lobster for the Luck icon. (from https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263)
- - SirSwerving for the amazing player/world icons.
+ - SirSwerving for the amazing player/world icons and like half the ideas in the mod. Seriously, thank you so much <3
  - The Calamity development team for showing how to do many things with their code. Thank you, Calamity!
  - Magic Storage's absoluteAquarian for more advanced netcode and some IL tricks.
 
