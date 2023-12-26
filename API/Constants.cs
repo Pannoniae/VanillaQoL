@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using CalamityMod.Tiles.Ores;
+using CalamityMod.Tiles.SunkenSea;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -126,5 +128,9 @@ public class Constants {
         }
 
         return false;
+    }
+
+    public static bool isOre(Tile tile) {
+        return TileID.Sets.Ore[tile.TileType] || tile.TileType == TileID.ExposedGems;
     }
 }

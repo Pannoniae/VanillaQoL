@@ -114,6 +114,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool nonConsumableSummons { get; set; }
 
+    // Cobalt Drill
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool veinMining { get; set; }
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

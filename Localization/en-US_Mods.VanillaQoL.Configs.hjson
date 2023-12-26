@@ -392,6 +392,11 @@ QoLConfig: {
 		Tooltip: If enabled, boss summons are non-consumable.
 	}
 
+	veinMining: {
+		Label: "[i:385] VeinMining™"
+		Tooltip: If enabled, breaking a tile of ore causes adjacent ores to be mined too.
+	}
+
 	moveCredits: {
 		Label: "[i:5044] Credits"
 		Tooltip: Controls how end-game credits are displayed.

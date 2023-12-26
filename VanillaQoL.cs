@@ -9,8 +9,6 @@ using MonoMod.Cil;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
 using VanillaQoL.Items;

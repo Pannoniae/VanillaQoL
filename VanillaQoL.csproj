@@ -28,6 +28,9 @@
         <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
+        <Reference Include="BAM">
+          <HintPath>..\..\ModReader\BAM\BAM.dll</HintPath>
+        </Reference>
         <Reference Include="Consolaria">
           <HintPath>..\..\ModReader\Consolaria\Consolaria.dll</HintPath>
         </Reference>
@@ -67,6 +70,9 @@
         </Reference>
         <Reference Include="MagicStorage">
             <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
+        </Reference>
+        <Reference Include="OreExcavator">
+          <HintPath>..\..\ModReader\OreExcavator\OreExcavator.dll</HintPath>
         </Reference>
         <Reference Include="QoLCompendium">
           <HintPath>..\..\ModReader\QoLCompendium\QoLCompendium.dll</HintPath>
