@@ -398,9 +398,9 @@ QoLConfig: {
 	}
 
 	wingSlot: {
-        Label: "[i:1162] WingSlot™"
-        Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.
-    }
+		Label: "[i:1162] WingSlot™"
+		Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.
+	}
 
 	moveCredits: {
 		Label: "[i:5044] Credits"
