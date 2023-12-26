@@ -57,7 +57,6 @@ public class VeinMiningSystem : ModSystem {
 
                 bool notInQueue = modPlayer.notInQueue(coords.x, coords.y);
                 if (tile2.HasTile && Constants.isOre(tile2) && notInQueue) {
-                    VanillaQoL.instance.Logger.Warn($"{coords.x}, {coords.y}");
 
                     // handle limits
                     modPlayer.ctr++;

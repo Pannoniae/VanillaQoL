@@ -8,18 +8,6 @@
 - add weebshit samurai npc? sells all the jap items in the game, says wise things, etc.
 yes dynasty wood is chinese, shut up
 
-- tent (like a bed but doesn't have to be in a room)
-zapper's suggestions:
-Change respawn timer when fighting bosses using an integer input (preferably with the capability of setting the timer to be more than 60 seconds, which the SRT mod wasn’t able to do)
-Change the respawn timer when an event is happening (independent from boss respawn timer)
-Custom timer for when no boss or event is present, if the timer duration is shorter than the player’s current timer (boss despawns for example) the timer is shortened to set duration. (Calamity does this already with a 3 second timer when there are no more bosses on screen but it would be cool to have if you didn’t want all of the content but quicker respawns.
-Change the scaling of the timers for each difficulty.
-Introduce scaling to the respawn timer based on the total amount of players in the world.
-Introduce scaling to the respawn timer based on how many times you’ve died to the same boss (resets every time you start a new boss fight)
-Players who respawn will automatically receive specified buffs/debuffs.
-A new placable that acts like a bed spawn point but doesn’t need to be in a room.
-Nurse healing gives a very strong healing buff which heals your missing HP over 10ish seconds (not a respawn mechanic but I’m not a fan of how op her healing is, regardless of potion sickness (especially in multiplayer)).
-
 "Full support. In fact, I'm going to suggest that an NPC's weapon be sold by the Pirate when he's living near that NPC.
 It makes sense that the Pirate would steal (or make bootleg copies of) another NPC's weapon, and it would also add more content to the Pirate, who currently doesn't do much."
 add weapon selling so you don't have to kill the poor NPCs
@@ -29,8 +17,6 @@ add weapon selling so you don't have to kill the poor NPCs
 - patch magic storage to take items out faster (right-click)
 - main menu splash text
 - ninja NPC when King Slime is defeated
-- shop expander but better, no buttons inside the fucking shop
-(also hijack mod.calls and trick tmodloader into thinking the actual shopexpander is loaded, so mod compat works)
 - only teleport town npcs to their houses when they are far away
 
 - town slimes/pets are invincible so destroyer/etc. doesn't just fucking vore them every time
@@ -40,6 +26,8 @@ add weapon selling so you don't have to kill the poor NPCs
 - mass-sell items into NPC shops
 
 - pylons clean/prevent evil
+
+- shop expander expands shops when you sell items so you'll have infinite space
 
 - journey mode cheats in normal character/world?
 - more journey mode cheats lol

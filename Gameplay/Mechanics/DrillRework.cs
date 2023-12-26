@@ -4,8 +4,6 @@ using Terraria;
 using Terraria.GameContent.Prefixes;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 

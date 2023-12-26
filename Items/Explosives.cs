@@ -7,8 +7,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 

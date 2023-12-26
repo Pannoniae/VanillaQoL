@@ -7,7 +7,6 @@ using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 using ThoriumMod;
 using ThoriumMod.NPCs.BossThePrimordials;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 

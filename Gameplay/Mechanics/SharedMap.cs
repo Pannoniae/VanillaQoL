@@ -12,7 +12,6 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Map;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 

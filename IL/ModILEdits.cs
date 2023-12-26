@@ -10,8 +10,6 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.IL;
 

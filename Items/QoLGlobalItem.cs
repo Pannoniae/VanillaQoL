@@ -7,8 +7,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Items;
 

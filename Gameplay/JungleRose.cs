@@ -4,7 +4,6 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent.Drawing;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 

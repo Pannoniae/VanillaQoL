@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -40,13 +39,15 @@ public class VeinMiningPlayer : ModPlayer {
         }
 
         if (mcd <= 0) {
-            var tile = picks.Dequeue();
-            WorldGen.KillTile(tile.X, tile.Y);
-            if (Main.netMode == NetmodeID.MultiplayerClient) {
-                NetMessage.SendData(MessageID.TileManipulation, number2: tile.X, number3: tile.Y);
-            }
+            var success = picks.TryDequeue(out var tile, out var _);
+            if (success) {
+                WorldGen.KillTile(tile.X, tile.Y);
+                if (Main.netMode == NetmodeID.MultiplayerClient) {
+                    NetMessage.SendData(MessageID.TileManipulation, number2: tile.X, number3: tile.Y);
+                }
 
-            mcd = miningSpeed;
+                mcd = miningSpeed;
+            }
         }
     }
 

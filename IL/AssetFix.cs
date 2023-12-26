@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.IL;
 

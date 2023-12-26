@@ -5,8 +5,6 @@ using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.UI;
 

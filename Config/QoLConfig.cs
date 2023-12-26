@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using Terraria.ModLoader.Config;
-using VanillaQoL.API;
 using VanillaQoL.Shared;
 
 namespace VanillaQoL.Config;

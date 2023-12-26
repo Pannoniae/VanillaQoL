@@ -161,3 +161,10 @@ Projectiles: {
 	DirtDynamiteProjectile.DisplayName: Dirt Dynamite
 	StickyDirtDynamiteProjectile.DisplayName: Sticky Dirt Dynamite
 }
+
+Wings: {
+	WingSlotSystem: {
+		socialWings: Social Wings
+		wings: Wings
+	}
+}

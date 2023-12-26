@@ -8,7 +8,6 @@ using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
 using VanillaQoL.IL;
 
 namespace VanillaQoL.Gameplay;

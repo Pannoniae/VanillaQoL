@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using CalamityMod.Tiles.Ores;
-using CalamityMod.Tiles.SunkenSea;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

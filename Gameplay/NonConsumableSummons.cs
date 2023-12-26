@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ModLoader;
-using VanillaQoL.API;
 using VanillaQoL.Shared;
 
 namespace VanillaQoL.Gameplay;
