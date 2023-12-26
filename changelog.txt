@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Add simple veinmining.
+[*] Add a wing slot. With proper colours and stuff.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

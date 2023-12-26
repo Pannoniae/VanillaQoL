@@ -4,7 +4,8 @@ If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
 
 [NEW!]
- - VeinMining™!
+ - VeinMining™! No need to press a keybind for this one.
+ - WingSlot™! This one respects loadout colours.
 
 Features:
  - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.

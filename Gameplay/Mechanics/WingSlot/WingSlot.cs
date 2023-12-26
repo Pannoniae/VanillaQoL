@@ -155,7 +155,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
                 index = 1;
                 break;
             case 12:
-            case -13:
+            case -12:
                 index = 2;
                 break;
         }

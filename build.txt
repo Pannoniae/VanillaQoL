@@ -1,6 +1,6 @@
 displayName = Vanilla+ QoL
 author = Pannoniae
-version = 0.9.43
+version = 0.9.44
 homepage = https://discord.gg/w4JvYdkdDP
 includeSource = true
 weakReferences = CalamityMod, ThoriumMod, RecipeBrowser, MagicStorage, CheatSheet, HEROsMod
