@@ -119,6 +119,13 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool veinMining { get; set; }
 
+    // Leaf Wings
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool wingSlot { get; set; }
+
+
     // Tally Counter
     [Header("tooltips")]
     [BackgroundColor(192, 54, 128, 192)]

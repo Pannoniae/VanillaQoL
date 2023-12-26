@@ -16,8 +16,13 @@ namespace VanillaQoL.Gameplay.WingSlot;
 
 [Autoload]
 public class WingSlot : ModAccessorySlot {
+
     public override string FunctionalTexture => "Terraria/Images/Item_" + ItemID.AngelWings;
     public override string VanityTexture => "Terraria/Images/Item_" + ItemID.RedsWings;
+
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.wingSlot;
+    }
 
     public override bool CanAcceptItem(Item checkItem, AccessorySlotType context) {
         return checkItem.wingSlot > 0;
@@ -44,10 +49,15 @@ public class WingSlot : ModAccessorySlot {
 }
 
 public class WingSlotSystem : ModSystem, ILocalizedModType {
+
     public string LocalizationCategory => "Wings";
 
     public static LocalizedText wings = null!;
     public static LocalizedText socialWings = null!;
+
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.wingSlot;
+    }
 
     public override void SetStaticDefaults() {
         VanillaQoL.instance.Logger.Warn("Hey!");

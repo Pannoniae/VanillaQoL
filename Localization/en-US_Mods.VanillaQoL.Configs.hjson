@@ -397,6 +397,11 @@ QoLConfig: {
 		Tooltip: If enabled, breaking a tile of ore causes adjacent ores to be mined too.
 	}
 
+	wingSlot: {
+        Label: "[i:1162] WingSlot™"
+        Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.
+    }
+
 	moveCredits: {
 		Label: "[i:5044] Credits"
 		Tooltip: Controls how end-game credits are displayed.
