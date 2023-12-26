@@ -34,7 +34,7 @@ public class RemoveMobGriefingSimple : GlobalProjectile {
                 break;
         }
 
-        if (projectile.owner == Main.myPlayer) {
+        if (projectile.owner == Main.myPlayer && !projectile.friendly) {
             int id = Item.NewItem(projectile.GetSource_DropAsItem(), projectile.Hitbox, item);
             Main.item[id].noGrabDelay = 0;
             if (Main.netMode == NetmodeID.Server) {
