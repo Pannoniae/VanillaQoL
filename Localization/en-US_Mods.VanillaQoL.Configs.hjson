@@ -411,6 +411,11 @@ QoLConfig: {
 		Label: "[i:5044] Credits"
 		Tooltip: Controls how end-game credits are displayed.
 	}
+
+	axeReplanting: {
+		Label: "[i:3506] Axes Replant Acorns"
+		Tooltip: If enabled, chopping down a tree with an axe always replants an acorn in its place.
+	}
 }
 
 Team: {

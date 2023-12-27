@@ -68,6 +68,7 @@ My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
  [*] Explosion-proof Lihzahrd and Dungeon Walls.
  [*] The DCU takes the pickaxe power of your top-left pickaxe into account.
  [*] Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
+ [*] Axes replant acorns.
 [/list]
 
 [b]Credits:[/b]

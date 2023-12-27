@@ -228,6 +228,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool dynamicDCUPickaxe { get; set; }
 
+    // Copper Axe
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool axeReplanting { get; set; }
+
     [Header("fixes")]
 
     // Amethyst
