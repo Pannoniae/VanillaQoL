@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Add axes replanting acorns.
+[*] Make the replanting feature work with gemcorns.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
