@@ -50,6 +50,8 @@ public class AxeReplant : ModSystem {
         il.Body.Variables.Add(new(il.Import(typeof(int))));
         var idx = il.Body.Variables.Count - 2; // we use the last variable we just added!
         var idx2 = il.Body.Variables.Count - 1; // we use the last variable we just added!
+
+        // TODO just use out parameters/stloca to merge these into one method
         ilCursor.EmitLdarg3();
         ilCursor.EmitLdarg(4);
         ilCursor.EmitCall<AxeReplant>("isBottomOfGemcornTree");
