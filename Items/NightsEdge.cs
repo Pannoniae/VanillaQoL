@@ -35,6 +35,7 @@ public class NightsEdge : ModItem {
     }
 
     public override void AddRecipes() {
+
         // create all permutations of the recipes
         var recipe1 = CreateRecipe();
         recipe1.AddIngredient(ItemID.LightsBane);
@@ -54,7 +55,7 @@ public class NightsEdge : ModItem {
         recipe2.AddCondition(Condition.CrimsonWorld);
         recipe2.ApplyConditionsAsDecraftConditions();
         recipe2.Register();
-
+        /*
         // now with ancient weapons
         int[] muramasa = { ItemID.Muramasa, ModContent.ItemType<Muramasa>() };
         int[] bladeOfGrass = { ItemID.BladeofGrass, ModContent.ItemType<BladeOfGrass>() };
@@ -107,6 +108,6 @@ public class NightsEdge : ModItem {
                     recipe6.Register();
                 }
             }
-        }
+        }*/
     }
 }

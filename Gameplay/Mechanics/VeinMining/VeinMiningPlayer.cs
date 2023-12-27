@@ -14,7 +14,7 @@ public class VeinMiningPlayer : ModPlayer {
     private int cd;
     private int mcd;
 
-    public static int miningSpeed = 4;
+    public static int miningSpeed => QoLConfig.Instance.veinMiningSpeed;
 
     private PriorityQueue<Point16, double> picks = new();
 
@@ -45,7 +45,6 @@ public class VeinMiningPlayer : ModPlayer {
                 if (Main.netMode == NetmodeID.MultiplayerClient) {
                     NetMessage.SendData(MessageID.TileManipulation, number2: tile.X, number3: tile.Y);
                 }
-
                 mcd = miningSpeed;
             }
         }

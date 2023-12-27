@@ -30,6 +30,8 @@ Tooltips: {
 		ammoFireRockets: Fires rockets
 		ammoFireDarts: Fires darts and seeds
 	}
+
+	WingSlot.wingSlotText: " in wing slot"
 }
 
 UI: {

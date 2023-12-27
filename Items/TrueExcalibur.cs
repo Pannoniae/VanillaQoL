@@ -39,7 +39,7 @@ public class TrueExcalibur : ModItem {
         recipe1.AddTile(TileID.MythrilAnvil);
         recipe1.Register();
 
-        var recipe2 = CreateRecipe();
+        /*var recipe2 = CreateRecipe();
         recipe2.AddIngredient(ModContent.ItemType<Excalibur>());
         recipe2.AddIngredient(ItemID.ChlorophyteBar, 20);
         recipe2.AddTile(TileID.MythrilAnvil);
@@ -49,6 +49,6 @@ public class TrueExcalibur : ModItem {
         recipe3.AddIngredient(ModContent.ItemType<Excalibur>());
         recipe3.AddIngredient(ItemID.ChlorophyteBar, 20);
         recipe3.AddTile(TileID.MythrilAnvil);
-        recipe3.Register();
+        recipe3.Register();*/
     }
 }

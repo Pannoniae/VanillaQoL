@@ -397,6 +397,11 @@ QoLConfig: {
 		Tooltip: If enabled, breaking a tile of ore causes adjacent ores to be mined too.
 	}
 
+	veinMiningSpeed: {
+		Label: "[i:3509] VeinMining™ Speed"
+		Tooltip: Controls the delay between tiles breaking. A lower value means faster veinmining.
+	}
+
 	wingSlot: {
 		Label: "[i:1162] WingSlot™"
 		Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.

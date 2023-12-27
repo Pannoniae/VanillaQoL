@@ -57,7 +57,6 @@ public class VeinMiningSystem : ModSystem {
 
                 bool notInQueue = modPlayer.notInQueue(coords.x, coords.y);
                 if (tile2.HasTile && Constants.isOre(tile2) && notInQueue) {
-
                     // handle limits
                     modPlayer.ctr++;
                     if (modPlayer.ctr > threshold) {

@@ -35,7 +35,15 @@ public class TerraBlade : ModItem {
     }
 
     public override void AddRecipes() {
-        int[] trueNightsEdge = { ItemID.TrueNightsEdge, ModContent.ItemType<TrueNightsEdge>() };
+
+        var recipe = CreateRecipe();
+        recipe.AddIngredient(ItemID.TrueNightsEdge);
+        recipe.AddIngredient(ItemID.TrueExcalibur);
+        recipe.AddIngredient(ItemID.BrokenHeroSword);
+        recipe.AddTile(TileID.MythrilAnvil);
+        recipe.Register();
+
+        /*int[] trueNightsEdge = { ItemID.TrueNightsEdge, ModContent.ItemType<TrueNightsEdge>() };
         int[] trueExcalibur = { ItemID.TrueExcalibur, ModContent.ItemType<TrueExcalibur>() };
 
         foreach (var n in trueNightsEdge) {
@@ -59,6 +67,6 @@ public class TerraBlade : ModItem {
                 recipe2.AddTile(TileID.MythrilAnvil);
                 recipe2.Register();
             }
-        }
+        }*/
     }
 }

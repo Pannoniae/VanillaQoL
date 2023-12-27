@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CalamityMod.Tiles.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -64,7 +65,7 @@ public class Constants {
     /// List of walls which shouldn't be exploded.
     /// </summary>
     /// <returns></returns>
-    public static readonly List<int>  explosionProofWalls = new() {
+    public static readonly List<int> explosionProofWalls = new() {
         WallID.BlueDungeonUnsafe, WallID.GreenDungeonUnsafe, WallID.PinkDungeonUnsafe,
         WallID.BlueDungeonSlabUnsafe, WallID.GreenDungeonSlabUnsafe, WallID.PinkDungeonSlabUnsafe,
         WallID.BlueDungeonTileUnsafe, WallID.GreenDungeonTileUnsafe, WallID.PinkDungeonTileUnsafe,
@@ -85,6 +86,24 @@ public class Constants {
         "AromaticBulb",
         "AbyssalShadow2",
         "DoomSayersCoin"
+    };
+
+    public static readonly List<string> calamityOres = new() {
+        "SeaPrism"
+    };
+
+    public static readonly List<string> thoriumOres = new() {
+        "DepthsAmber",
+        "DepthsAmethyst",
+        "DepthsAquamarine",
+        "DepthsDiamond",
+        "DepthsEmerald",
+        "DepthsOpal",
+        "DepthsRuby",
+        "DepthsSapphire",
+        "DepthsTopaz",
+        "Aquamarine",
+        "Opal",
     };
 
 
@@ -129,6 +148,44 @@ public class Constants {
     }
 
     public static bool isOre(Tile tile) {
-        return TileID.Sets.Ore[tile.TileType] || tile.TileType == TileID.ExposedGems;
+        if (TileID.Sets.Ore[tile.TileType] || isGem(tile)) {
+            return true;
+        }
+
+        var modTile = ModContent.GetModTile(tile.TileType);
+        if (modTile != null) {
+            var mod = modTile.Mod;
+            var name = modTile.Name;
+            return isModdedOre(mod, name);
+        }
+        return false;
+    }
+
+    public static bool isGem(Tile tile) {
+        return tile.TileType == TileID.ExposedGems;
+    }
+
+    public static bool isModdedOre(Mod mod, string name) {
+        if (mod.Name == "ThoriumMod") {
+            return thoriumOres.Contains(name);
+        }
+        if (mod.Name == "CalamityMod") {
+            return calamityOres.Contains(name);
+        }
+
+        return false;
+    }
+
+    public static bool isWing(Item item) {
+        return item.wingSlot > 0;
+    }
+
+    public static bool isBalloon(Item item) {
+        return item.balloonSlot > 0;
+    }
+
+    public static bool isBottle(Item item) {
+        return item.type is ItemID.CloudinaBottle or ItemID.BlizzardinaBottle or ItemID.SandstorminaBottle
+            or ItemID.TsunamiInABottle or ItemID.FartinaJar;
     }
 }

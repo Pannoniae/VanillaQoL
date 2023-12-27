@@ -25,11 +25,11 @@ public class WingSlot : ModAccessorySlot {
     }
 
     public override bool CanAcceptItem(Item checkItem, AccessorySlotType context) {
-        return checkItem.wingSlot > 0;
+        return Constants.isWing(checkItem) || Constants.isBalloon(checkItem) || Constants.isBottle(checkItem);
     }
 
     public override bool ModifyDefaultSwapSlot(Item item, int accSlotToSwapTo) {
-        return item.wingSlot > 0;
+        return Constants.isWing(item) || Constants.isBalloon(item) || Constants.isBottle(item);
     }
 
     public override void OnMouseHover(AccessorySlotType context) {

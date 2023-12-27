@@ -119,6 +119,14 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool veinMining { get; set; }
 
+    // Copper Pickaxe
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(3)]
+    [Range(0, 15)]
+    [ReloadRequired]
+    public int veinMiningSpeed { get; set; }
+
+
     // Leaf Wings
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -341,7 +349,7 @@ public class QoLConfig : ModConfig {
 
     // Clown
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    [DefaultValue(false)]
     public bool clownExplosions { get; set; }
 
     // Snow Globe

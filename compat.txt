@@ -1,2 +1,3 @@
 ImprovedRespawning=Improved Respawning uses a patch from Vanilla+ QoL without implementing it correctly, so the game will crash.
 ShopExpander=Vanilla+ QoL expands NPC shops with pages as well. Disable one of the mods, otherwise you might encounter errors.
+ShopExtender=Vanilla+ QoL expands NPC shops with pages as well. Disable one of the mods, otherwise you might encounter errors.

@@ -26,6 +26,8 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText hoverText = null!;
     public static LocalizedText hSpeedText = null!;
 
+    public static LocalizedText wingSlotText = null!;
+
     public static LocalizedText shimmerable = null!;
     public static LocalizedText shimmerItem = null!;
     public static LocalizedText shimmerPostSkeletron = null!;
@@ -49,10 +51,11 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         { 5364, 3031 }
     };
 
-    private const string hooks = "Hooks";
-    private const string wings = "Wings";
-    private const string shimmer = "Shimmer";
-    private const string ammo = "Ammo";
+    public const string hooks = "Hooks";
+    public const string wings = "Wings";
+    public const string wingSlot = "WingSlot";
+    public const string shimmer = "Shimmer";
+    public const string ammo = "Ammo";
 
     public override void SetStaticDefaults() {
         reachText = LocalisationUtils.GetLocalization(this, hooks, nameof(reachText));
@@ -61,6 +64,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         timeText = LocalisationUtils.GetLocalization(this, wings, nameof(timeText));
         hoverText = LocalisationUtils.GetLocalization(this, wings, nameof(hoverText));
         hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
+        wingSlotText = LocalisationUtils.GetLocalization(this, wingSlot, nameof(wingSlotText));
         shimmerable = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerable));
         shimmerItem = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerItem));
         shimmerPostSkeletron = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerPostSkeletron));
@@ -90,6 +94,10 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             wingTooltips(item, tooltips);
         }
 
+        if (QoLConfig.Instance.wingSlot) {
+            wingSlotTooltips(item, tooltips);
+        }
+
         if (QoLConfig.Instance.ammunitionTooltips) {
             ammunitionTooltips(item, tooltips);
         }
@@ -108,7 +116,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     [SuppressMessage("ReSharper", "UnusedParameter.Local")]
-    private void vanillaifyThoriumTooltips(Item item, List<TooltipLine> tooltips) {
+    public void vanillaifyThoriumTooltips(Item item, List<TooltipLine> tooltips) {
         tooltips.RemoveAll(t => pred(t, "BardTag"));
         tooltips.RemoveAll(t => pred(t, "ThrowerTag"));
         tooltips.RemoveAll(t => pred(t, "HealerTag"));
@@ -118,11 +126,11 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         tooltips.RemoveAll(t => pred(t, "InstrumentTag"));
     }
 
-    private static bool pred(TooltipLine t, string name) {
+    public static bool pred(TooltipLine t, string name) {
         return t.Mod == "ThoriumMod" && t.Name == name;
     }
 
-    private void wingTooltips(Item item, List<TooltipLine> tooltips) {
+    public void wingTooltips(Item item, List<TooltipLine> tooltips) {
         // calamity does the same thing, don't apply tooltips in that case
         if (VanillaQoL.instance.hasCalamity) {
             return;
@@ -161,8 +169,16 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         addTooltip(tooltips, tooltipLine);
     }
 
+    public void wingSlotTooltips(Item item, List<TooltipLine> tooltips) {
+        if (!Constants.isWing(item) && Constants.isBalloon(item) || Constants.isBottle(item)) {
+            string tooltip = wingSlotText.Value;
+            var tooltipLine = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", tooltip);
+            addWingSlotTooltip(tooltips, tooltipLine);
+        }
+    }
 
-    private static void copiedVanillaLogic(Player player, int wingType, out float constantAscend,
+
+    public static void copiedVanillaLogic(Player player, int wingType, out float constantAscend,
         out float ascentWhenFalling,
         out float maxAscentMultiplier, out float maxCanAscendMultiplier, out float ascentWhenRising) {
         constantAscend = 0.1f;
@@ -222,7 +238,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             ref maxAscentMultiplier, ref constantAscend);
     }
 
-    private string wingStats(float time, bool hover, float horizontalSpeed) {
+    public string wingStats(float time, bool hover, float horizontalSpeed) {
         var sb = new StringBuilder();
         sb.AppendLine(timeText.Format(time.ToString("0.##")));
         sb.Append(hSpeedText.Format(horizontalSpeed.ToString("0")));
@@ -234,7 +250,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         return sb.ToString();
     }
 
-    private void hookTooltips(Item item, List<TooltipLine> tooltips) {
+    public void hookTooltips(Item item, List<TooltipLine> tooltips) {
         // calamity does the same thing, don't apply tooltips in that case
         if (VanillaQoL.instance.hasCalamity) {
             return;
@@ -368,23 +384,28 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         addTooltip(tooltips, tooltipLine);
     }
 
-    private static void addTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+    public static void addTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
         var equipableTooltip = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Equipable")!;
         tooltips.AddAfter(equipableTooltip, tooltip);
     }
 
-    private static void addShimmerTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+    public static void addWingSlotTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+        var equipableTooltip = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Equipable")!;
+        equipableTooltip.Text += tooltip.Text;
+    }
+
+    public static void addShimmerTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
         var materialTooltip = tooltips.FindLast(t => t.Mod == "Terraria" && t.Name != "Expert" && t.Name != "Master")!;
         tooltips.AddAfter(materialTooltip, tooltip);
     }
 
-    private static void addAmmoTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
+    public static void addAmmoTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
         var knockbackTooltip = tooltips.FindLast(t => t is
             { Mod: "Terraria", Name: "Knockback" or "Tooltip0" or "Toolip1" or "Tooltip2" })!;
         tooltips.AddAfter(knockbackTooltip, tooltip);
     }
 
-    private string hookStats(float reach, float launch, float reel, float pull, int numHooks) {
+    public string hookStats(float reach, float launch, float reel, float pull, int numHooks) {
         LocalizedText numHooksFormatted = numHooks switch {
             1 => numHooksText1,
             _ => numHooksText2Plus
@@ -422,7 +443,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
                ItemID.Sets.CoinLuckValue[item.type] > 0 || item.makeNPC > 0;
     }
 
-    private void shimmmerableTooltips(Item item, List<TooltipLine> tooltips) {
+    public void shimmmerableTooltips(Item item, List<TooltipLine> tooltips) {
         if (!myCanShimmer(item)) {
             return;
         }
@@ -524,7 +545,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         addShimmerTooltip(tooltips, tooltipLine);
     }
 
-    private void modNameTooltips(Item item, List<TooltipLine> tooltips) {
+    public void modNameTooltips(Item item, List<TooltipLine> tooltips) {
         if (item.ModItem != null) {
             var name = item.ModItem.Mod.DisplayName;
             var internalName = item.ModItem.Mod.DisplayName;
@@ -537,16 +558,16 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         }
     }
 
-    private NPC NPCIDtoNPC(int id) {
+    public NPC NPCIDtoNPC(int id) {
         return ContentSamples.NpcsByNetId[id];
     }
 
-    private bool requiresMoonLordToShimmer(int item) {
+    public bool requiresMoonLordToShimmer(int item) {
         return item is ItemID.Clentaminator or ItemID.RodofDiscord or ItemID.BottomlessBucket
             or ItemID.BottomlessShimmerBucket;
     }
 
-    private void ammunitionTooltips(Item item, List<TooltipLine> tooltips) {
+    public void ammunitionTooltips(Item item, List<TooltipLine> tooltips) {
         var ammoItem = item.useAmmo;
 
         if (ammoItem == AmmoID.None) {

@@ -51,7 +51,7 @@ public class TrueNightsEdge : ModItem {
         recipe1.ApplyConditionsAsDecraftConditions();
         recipe1.Register();
 
-        var recipe2 = CreateRecipe();
+        /*r recipe2 = CreateRecipe();
         recipe2.AddIngredient<NightsEdge>();
         recipe2.AddIngredient(ItemID.SoulofFright, 20);
         recipe2.AddIngredient(ItemID.SoulofMight, 20);
@@ -67,6 +67,6 @@ public class TrueNightsEdge : ModItem {
         recipe3.AddIngredient(ItemID.SoulofSight, 20);
         recipe3.AddTile(TileID.MythrilAnvil);
         recipe3.ApplyConditionsAsDecraftConditions();
-        recipe3.Register();
+        recipe3.Register();*/
     }
 }
