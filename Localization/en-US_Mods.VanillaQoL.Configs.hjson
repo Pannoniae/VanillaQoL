@@ -416,6 +416,21 @@ QoLConfig: {
 		Label: "[i:3506] Axes Replant Acorns"
 		Tooltip: If enabled, chopping down a tree with an axe always replants an acorn in its place.
 	}
+
+	ninja: {
+		Label: "[npc/n:VanillaQoL/Ninja] Ninja"
+		Tooltip: If enabled, a Ninja Town NPC is added. He can be rescued from King Slime upon defeating him.
+	}
+
+	quickBuffFavourite: {
+		Label: "[i:289] Only Consume Favourited Potions with Quick Buff"
+		Tooltip: If there are favourited potions in the inventory, Quick Buff will only consume the ones which are favourited.
+	}
+
+	noFullHealPickup: {
+		Label: "[i:58] Don't Consume Hearts when at Full HP"
+		Tooltip: If enabled and the player has full HP, they won't pick up hearts. Similarly, if the player has full mana, they won't pick up mana crystals.
+	}
 }
 
 Team: {

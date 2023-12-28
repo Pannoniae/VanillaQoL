@@ -16,18 +16,14 @@ add weapon selling so you don't have to kill the poor NPCs
 - taller trees WHEN YOU GROW THEM
 - patch magic storage to take items out faster (right-click)
 - main menu splash text
-- ninja NPC when King Slime is defeated
 - only teleport town npcs to their houses when they are far away
 
-- town slimes/pets are invincible so destroyer/etc. doesn't just fucking vore them every time
-
 - make truffle non-binary (teleport both by queen/king statue)
-
-- mass-sell items into NPC shops
-
 - pylons clean/prevent evil
 
 - shop expander expands shops when you sell items so you'll have infinite space
+
+- if player joins during bossfight, ENRAGE THAT BOSS TO 100% HEHEHEHEHEHE
 
 - journey mode cheats in normal character/world?
 - more journey mode cheats lol

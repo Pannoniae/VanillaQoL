@@ -234,6 +234,18 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool axeReplanting { get; set; }
 
+    // Regeneration Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool quickBuffFavourite { get; set; }
+
+    // Heart
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool noFullHealPickup { get; set; }
+
     [Header("fixes")]
 
     // Amethyst
@@ -290,6 +302,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool ancientSwords { get; set; }
+
+    // Ninja
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool ninja { get; set; }
 
     // Snow Globe
     [Header("holidayCheer")]

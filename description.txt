@@ -61,6 +61,8 @@ Features:
  - The DCU takes the pickaxe power of your top-left pickaxe into account.
  - Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
  - Axes replant acorns.
+ - If there are favourited potions in the inventory, Quick Buff will only consume those.
+ - At full HP/mana, the player won't pick up hearts or mana crystals.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

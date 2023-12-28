@@ -116,8 +116,8 @@ public class Constants {
         // important, to apply modded categories
         ItemLoader.ModifyResearchSorting(item, ref group);
         // that's vanilla and well-behaving mods taken care of
-        if (group == ContentSamples.CreativeHelper.ItemGroup.BossItem ||
-            group == ContentSamples.CreativeHelper.ItemGroup.EventItem) {
+        if (group is ContentSamples.CreativeHelper.ItemGroup.BossItem
+            or ContentSamples.CreativeHelper.ItemGroup.EventItem) {
             return true;
         }
 
@@ -158,17 +158,20 @@ public class Constants {
             var name = modTile.Name;
             return isModdedOre(mod, name);
         }
+
         return false;
     }
 
     public static bool isGem(Tile tile) {
-        return tile.TileType == TileID.ExposedGems;
+        return tile.TileType is >= TileID.Sapphire and <= TileID.Diamond or TileID.AmberStoneBlock
+            or TileID.ExposedGems;
     }
 
     public static bool isModdedOre(Mod mod, string name) {
         if (mod.Name == "ThoriumMod") {
             return thoriumOres.Contains(name);
         }
+
         if (mod.Name == "CalamityMod") {
             return calamityOres.Contains(name);
         }

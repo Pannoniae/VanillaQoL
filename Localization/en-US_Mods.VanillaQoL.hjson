@@ -170,3 +170,33 @@ Wings: {
 		wings: Wings
 	}
 }
+
+NPCs: {
+	Ninja: {
+		DisplayName: Ninja
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+			LikeBiome: I like {BiomeName}.
+			DislikeBiome: I dislike {BiomeName}.
+			LoveNPC: I love {NPCName}.
+			LikeNPC: I like {NPCName}.
+			DislikeNPC: I dislike {NPCName}.
+			HateNPC: I hate {NPCName}.
+		}
+
+		Census.SpawnCondition: Defeat King Slime
+		Bestiary: A slightly clumsy ninja which got stuck in King Slime. He's really grateful for freeing him.
+		chat1: Get caught one time, now everyone thinks of me as an incompetent fool.
+		chat2: To be reduced to a mere peddler, how beneath an assassin like myself.
+		chat3: Want to know how I could breathe for so long inside that slime? Check my wares.
+		chat4: I would ask you to hire me for my services, but you clearly don't need it.
+	}
+}
