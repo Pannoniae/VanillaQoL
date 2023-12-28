@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Description update.
+[*] Reorganise config in a more logical way.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

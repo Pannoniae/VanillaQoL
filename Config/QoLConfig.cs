@@ -40,22 +40,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool shopExpander { get; set; }
 
-    // Compass
-    [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
-    [DefaultValue(false)]
-    public bool metricSystem { get; set; }
-
-    // Platinum Watch
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    public bool twentyFourHourTime { get; set; }
-
-    // Ladybug
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    public bool showLuck { get; set; }
-
     // Nerdy Slime
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
@@ -73,22 +57,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool lockOn { get; set; }
 
-    // Ironskin Potion
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(44)]
-    [Range(0, 936)]
-    public int moreBuffSlots { get; set; }
-
     // Tinkerer's Workshop
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     [ReloadRequired]
     public bool disablePrefixChangingRarity { get; set; }
-
-    // Pink Dungeon Brick
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    public bool softDungeonBricks { get; set; }
 
     // DPS Meter
     [BackgroundColor(192, 54, 128, 192)]
@@ -101,12 +74,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool drillRework { get; set; }
-
-    // Nature's Gift
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool naturesGiftGlow { get; set; }
 
     // Suspicious Looking Eye
     [BackgroundColor(192, 54, 128, 192)]
@@ -135,7 +102,20 @@ public class QoLConfig : ModConfig {
 
 
     // Tally Counter
-    [Header("tooltips")]
+    [Header("information")]
+
+    // Compass
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool metricSystem { get; set; }
+
+    // Platinum Watch
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool twentyFourHourTime { get; set; }
+
+    // Ivy Whip
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool showHookTooltips { get; set; }
@@ -159,6 +139,11 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool modNameTooltip { get; set; }
+
+    // Ladybug
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool showLuck { get; set; }
 
 
     // Compass
@@ -184,6 +169,18 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [DefaultValue(true)]
     public bool invertRecipeListScrolling { get; set; }
+
+    // Ironskin Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(44)]
+    [Range(0, 936)]
+    public int moreBuffSlots { get; set; }
+
+    // Nature's Gift
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool naturesGiftGlow { get; set; }
 
     // Sand Block
     [BackgroundColor(192, 54, 128, 192)]
@@ -330,6 +327,11 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool accessorySlotUnlock { get; set; }
 
+    // Pink Dungeon Brick
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool softDungeonBricks { get; set; }
+
     // Torch
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -466,7 +468,6 @@ public class QoLConfig : ModConfig {
     public bool testing { get; set; }
 
     public override void OnChanged() {
-
         if (nonConsumableSummons) {
             GlobalFeatures.enableFeature(Mod, "nonConsumableSummons");
         }
@@ -474,6 +475,7 @@ public class QoLConfig : ModConfig {
             GlobalFeatures.disableFeature(Mod, "nonConsumableSummons");
         }
     }
+
     public override ConfigScope Mode => ConfigScope.ServerSide;
 }
 

@@ -17,7 +17,7 @@ QoLConfig: {
 	}
 
 	Headers: {
-		tooltips: "[i:3095] Tooltips"
+		information: "[i:3095] Information"
 		gameplay: "[i:3515] Gameplay"
 		fixes: "[i:3625] Fixes"
 		content: "[i:757] Content"
