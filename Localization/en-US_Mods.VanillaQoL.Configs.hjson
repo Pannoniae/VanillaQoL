@@ -418,7 +418,7 @@ QoLConfig: {
 	}
 
 	ninja: {
-		Label: "[npc/n:VanillaQoL/Ninja] Ninja"
+		Label: "[i:256] Ninja"
 		Tooltip: If enabled, a Ninja Town NPC is added. He can be rescued from King Slime upon defeating him.
 	}
 

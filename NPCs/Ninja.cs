@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using ThoriumMod.NPCs;
 
 namespace VanillaQoL.NPCs;
 
@@ -17,9 +16,9 @@ public class Ninja : ModNPC {
     public static LocalizedText chat3 = null!;
     public static LocalizedText chat4 = null!;
 
-    //public override bool IsLoadingEnabled(Mod mod) {
-    //    return QoLConfig.Instance.ninja;
-    //}
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.ninja;
+    }
 
     public override void SetStaticDefaults() {
         Main.npcFrameCount[Type] = 26;
@@ -45,9 +44,8 @@ public class Ninja : ModNPC {
             Velocity = 1f, // Draws the NPC in the bestiary as if it's walking +1 tiles in the x direction
             Direction = -1 // Faces left
         };
-        if (QoLConfig.Instance.ninja) {
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
-        }
+        NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+
 
         // chat
         chat1 = this.GetLocalization("chat1");
