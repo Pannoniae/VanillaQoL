@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -18,6 +19,9 @@ public class VeinMiningPlayer : ModPlayer {
 
     private PriorityQueue<Point16, double> picks = new();
 
+    // to stop cheating :P
+    public int pickPower;
+
     public override void Initialize() {
         canMine = true;
     }
@@ -32,6 +36,10 @@ public class VeinMiningPlayer : ModPlayer {
 
 
     public override void PreUpdate() {
+        // reflection
+        var GetPickaxeDamage =
+            typeof(Player).GetMethod("GetPickaxeDamage", BindingFlags.Instance | BindingFlags.NonPublic)!;
+
         cd--;
         mcd--;
         if (cd == 0) {
@@ -41,11 +49,21 @@ public class VeinMiningPlayer : ModPlayer {
         if (mcd <= 0) {
             var success = picks.TryDequeue(out var tile, out var _);
             if (success) {
-                WorldGen.KillTile(tile.X, tile.Y);
-                if (Main.netMode == NetmodeID.MultiplayerClient) {
-                    NetMessage.SendData(MessageID.TileManipulation, number2: tile.X, number3: tile.Y);
+                var x = tile.X;
+                var y = tile.Y;
+                int dmg = (int)GetPickaxeDamage.Invoke(Player, new object[] { x, y, pickPower, 0, Main.tile[x, y] })!;
+                if (!WorldGen.CanKillTile(x, y)) {
+                    dmg = 0;
                 }
-                mcd = miningSpeed;
+
+                if (dmg != 0) {
+                    WorldGen.KillTile(tile.X, tile.Y);
+                    if (Main.netMode == NetmodeID.MultiplayerClient) {
+                        NetMessage.SendData(MessageID.TileManipulation, number2: tile.X, number3: tile.Y);
+                    }
+
+                    mcd = miningSpeed;
+                }
             }
         }
     }

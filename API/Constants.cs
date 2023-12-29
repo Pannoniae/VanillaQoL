@@ -148,7 +148,7 @@ public class Constants {
     }
 
     public static bool isOre(Tile tile) {
-        if (TileID.Sets.Ore[tile.TileType] || isGem(tile)) {
+        if (TileID.Sets.Ore[tile.TileType] || isGem(tile) || tile.TileType == TileID.LunarOre) {
             return true;
         }
 

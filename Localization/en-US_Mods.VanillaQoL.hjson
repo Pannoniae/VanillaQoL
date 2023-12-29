@@ -31,7 +31,10 @@ Tooltips: {
 		ammoFireDarts: Fires darts and seeds
 	}
 
-	WingSlot.wingSlotText: " in wing slot"
+	WingSlot: {
+		wingSlotText: " in wing slot"
+		wingSlotTextFull: Equipable in wing slot
+	}
 }
 
 UI: {

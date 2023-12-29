@@ -427,9 +427,14 @@ QoLConfig: {
 		Tooltip: If there are favourited potions in the inventory, Quick Buff will only consume the ones which are favourited.
 	}
 
-	noFullHealPickup: {
+	noFullHeartPickup: {
 		Label: "[i:58] Don't Consume Hearts when at Full HP"
 		Tooltip: If enabled and the player has full HP, they won't pick up hearts. Similarly, if the player has full mana, they won't pick up mana crystals.
+	}
+
+	heartTime: {
+		Label: "[i:58] Heart Despawn Time"
+		Tooltip: Controls how long hearts and mana crystals remain in the world before despawning, in seconds. The default value is 300, which is 5 minutes.
 	}
 }
 

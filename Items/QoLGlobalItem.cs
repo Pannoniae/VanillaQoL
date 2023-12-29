@@ -27,6 +27,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText hSpeedText = null!;
 
     public static LocalizedText wingSlotText = null!;
+    public static LocalizedText wingSlotTextFull = null!;
 
     public static LocalizedText shimmerable = null!;
     public static LocalizedText shimmerItem = null!;
@@ -65,6 +66,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         hoverText = LocalisationUtils.GetLocalization(this, wings, nameof(hoverText));
         hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
         wingSlotText = LocalisationUtils.GetLocalization(this, wingSlot, nameof(wingSlotText));
+        wingSlotTextFull = LocalisationUtils.GetLocalization(this, wingSlot, nameof(wingSlotTextFull));
         shimmerable = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerable));
         shimmerItem = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerItem));
         shimmerPostSkeletron = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerPostSkeletron));
@@ -390,8 +392,25 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     public static void addWingSlotTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {
-        var equipableTooltip = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Equipable")!;
-        equipableTooltip.Text += tooltip.Text;
+        var equipableTooltip = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Equipable");
+        if (equipableTooltip == null) {
+            // social slot
+            var social = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Social");
+            if (social != null) {
+                tooltip = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
+                tooltips.AddAfter(social, tooltip);
+            }
+            // we really didn't find it
+            else {
+                var lastVanilla = tooltips.FindLast(t => t.Mod == "Terraria")!;
+                tooltip = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
+                tooltips.AddAfter(lastVanilla, tooltip);
+            }
+        }
+
+        else {
+            equipableTooltip.Text += tooltip.Text;
+        }
     }
 
     public static void addShimmerTooltip(List<TooltipLine> tooltips, TooltipLine tooltip) {

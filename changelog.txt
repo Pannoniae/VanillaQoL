@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Reorganise config in a more logical way.
+[*] Fixed the Red Shiny Balloon's tooltip causing an exception. More cases covered. Pinkie promiseeeee
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

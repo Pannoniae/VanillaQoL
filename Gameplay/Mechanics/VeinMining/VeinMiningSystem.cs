@@ -52,6 +52,7 @@ public class VeinMiningSystem : ModSystem {
         var tile = Framing.GetTileSafely(x, y);
         var modPlayer = player.GetModPlayer<VeinMiningPlayer>();
         if (tile.HasTile && Constants.isOre(tile) && modPlayer.canMine) {
+            modPlayer.pickPower = pickPower;
             foreach (var coords in tileRot(x, y)) {
                 var tile2 = Framing.GetTileSafely(coords.x, coords.y);
 

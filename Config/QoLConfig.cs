@@ -241,7 +241,14 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
-    public bool noFullHealPickup { get; set; }
+    public bool noFullHeartPickup { get; set; }
+
+    // Heart
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(300)]
+    [Range(0, 5000)]
+    [ReloadRequired]
+    public int heartTime { get; set; }
 
     [Header("fixes")]
 
