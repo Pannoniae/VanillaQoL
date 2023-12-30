@@ -409,6 +409,13 @@ public class QoLConfig : ModConfig {
     public bool cactusHurts { get; set; }
 
 
+    // Vine (210)
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool jungleThornsAreSticky { get; set; }
+
+
     // Tungsten Clock
     [Header("respawn")]
     // Fast Clock

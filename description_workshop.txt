@@ -74,6 +74,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] At full HP/mana, the player won't pick up hearts or mana crystals.
  [*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
  [*] Cactus hurts when you step on it.
+ [*] Thorns slow the player down like cobweb.
 [/list]
 
 [b]Credits:[/b]

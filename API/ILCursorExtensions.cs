@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 
@@ -17,6 +19,18 @@ public static class ILCursorExtensions {
         }
 
         return ret;
+    }
+
+    public static bool forAll(this ILCursor cursor, MoveType moveType, out List<ILCursor> cursors, int minSuccesses = 1, params Func<Instruction, bool>[] predicates) {
+        // ReSharper disable once AssignmentInConditionalExpression
+        cursors = new List<ILCursor>();
+        var ctr = 0;
+        while (cursor.TryGotoNext(moveType, predicates)) {
+            cursors.Add(new ILCursor(cursor));
+            ctr++;
+        }
+
+        return ctr >= minSuccesses;
     }
 
     public static ILCursor EmitCall<T>(this ILCursor ilCursor, string memberName) =>

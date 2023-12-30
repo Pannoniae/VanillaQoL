@@ -106,6 +106,10 @@ public class Constants {
         "Opal",
     };
 
+    public static bool isSticky(int type) {
+        return type is TileID.JungleThorns or TileID.CorruptThorns or TileID.CrimsonThorns or TileID.PlanteraThorns;
+    }
+
 
     public static bool isDrill(int type) {
         return ItemID.Sets.IsDrill[type] || ItemID.Sets.IsChainsaw[type] || type == ItemID.ChlorophyteJackhammer;

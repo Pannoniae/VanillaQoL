@@ -446,6 +446,11 @@ QoLConfig: {
 		Label: "[i:276] Cactus Hurts Players"
 		Tooltip: If enabled, touching Cactus deals 10 damage, just like in good old 1.1.
 	}
+
+	jungleThornsAreSticky: {
+		Label: "[i:210] Thorns are Sticky"
+		Tooltip: If enabled, thorns slow the player down like cobwebs do.
+	}
 }
 
 Team: {
