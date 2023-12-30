@@ -402,6 +402,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool enemiesBreakDoors { get; set; }
 
+    // Cactus
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool cactusHurts { get; set; }
+
 
     // Tungsten Clock
     [Header("respawn")]

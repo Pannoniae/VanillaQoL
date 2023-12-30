@@ -21,4 +21,19 @@ public static class ILCursorExtensions {
 
     public static ILCursor EmitCall<T>(this ILCursor ilCursor, string memberName) =>
         ilCursor.Emit<T>(OpCodes.Call, memberName);
+
+    public static ILCursor EmitCallvirt<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Callvirt, memberName);
+
+    public static ILCursor EmitLdfld<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Ldfld, memberName);
+
+    public static ILCursor EmitLdsfld<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Ldsfld, memberName);
+
+    public static ILCursor EmitStfld<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Stfld, memberName);
+
+    public static ILCursor EmitStsfld<T>(this ILCursor ilCursor, string memberName) =>
+        ilCursor.Emit<T>(OpCodes.Stsfld, memberName);
 }

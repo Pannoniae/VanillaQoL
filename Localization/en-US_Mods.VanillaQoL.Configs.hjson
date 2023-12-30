@@ -441,6 +441,11 @@ QoLConfig: {
 		Label: "[i:4956] Calamity Rarity Fix"
 		Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
 	}
+
+	cactusHurts: {
+		Label: "[i:276] Cactus Hurts Players"
+		Tooltip: If enabled, touching Cactus deals 10 damage, just like in good old 1.1.
+	}
 }
 
 Team: {

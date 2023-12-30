@@ -65,6 +65,7 @@ Features:
  - If there are favourited potions in the inventory, Quick Buff will only consume those.
  - At full HP/mana, the player won't pick up hearts or mana crystals.
  - Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
+ - Cactus hurts when you step on it.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
