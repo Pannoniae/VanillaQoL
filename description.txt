@@ -2,6 +2,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
 
 If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
+GitHub repository: https://github.com/Pannoniae/VanillaQoL
 
 [NEW!]
  - VeinMining™! No need to press a keybind for this one.
