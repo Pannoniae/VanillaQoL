@@ -72,6 +72,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Axes replant acorns.
  [*] If there are favourited potions in the inventory, Quick Buff will only consume those.
  [*] At full HP/mana, the player won't pick up hearts or mana crystals.
+ [*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
 [/list]
 
 [b]Credits:[/b]
