@@ -436,6 +436,11 @@ QoLConfig: {
 		Label: "[i:58] Heart Despawn Time"
 		Tooltip: Controls how long hearts and mana crystals remain in the world before despawning, in seconds. The default value is 300, which is 5 minutes.
 	}
+
+	calamityInWorldRarity: {
+		Label: "[i:4956] Calamity Rarity Fix"
+		Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
+	}
 }
 
 Team: {

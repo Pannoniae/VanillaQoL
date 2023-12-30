@@ -293,6 +293,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public Credits moveCredits { get; set; }
 
+    // Tinkerer's Workshop
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool calamityInWorldRarity { get; set; }
+
     [Header("content")]
 
     // Bouncy Dirt Bomb

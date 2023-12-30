@@ -125,7 +125,10 @@ public class VanillaQoL : Mod {
         ChatManager.Register<NPCTagHandler>("npc");
     }
 
-    // use at load time
+    /// <summary>
+    /// Use to check for Calamity at load time.
+    /// </summary>
+    /// <returns></returns>
     public static bool isCalamityLoaded() {
         return ModLoader.HasMod("CalamityMod");
     }
