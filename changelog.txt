@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Update description to fix links so they don't start with a bracket.
+[*] Cactus hurts players.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
