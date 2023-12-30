@@ -33,7 +33,7 @@ public class CalamityRarities : GlobalItem {
         else if (item.type == ModContent.ItemType<TheDanceofLight>()) {
             item.rare = ModContent.RarityType<RTheDanceofLight>();
         }
-        else if (item.type == ModContent.ItemType<CalamityMod.Items.Weapons.Rogue.NanoblackReaper>()) {
+        else if (item.type == ModContent.ItemType<NanoblackReaper>()) {
             item.rare = ModContent.RarityType<RNanoblackReaper>();
         }
         else if (item.type == ModContent.ItemType<ShatteredCommunity>()) {
@@ -42,7 +42,7 @@ public class CalamityRarities : GlobalItem {
         else if (item.type == ModContent.ItemType<ProfanedSoulCrystal>()) {
             item.rare = ModContent.RarityType<RProfanedSoulCrystal>();
         }
-        else if (item.type != ModContent.ItemType<TemporalUmbrella>()) {
+        else if (item.type == ModContent.ItemType<TemporalUmbrella>()) {
             item.rare = ModContent.RarityType<RTemporalUmbrella>();
         }
         else if (item.type == ModContent.ItemType<Endogenesis>()) {

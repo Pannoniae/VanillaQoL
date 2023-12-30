@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Disable ninja entirely when it's disabled.
+[*] We pretend that thing didn't happen with rarities.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
