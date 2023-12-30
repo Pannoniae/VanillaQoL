@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] We pretend that thing didn't happen with rarities.
+[*] Update description to fix links so they don't start with a bracket.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

@@ -39,7 +39,6 @@ public class VeinMiningPlayer : ModPlayer {
         // reflection
         var GetPickaxeDamage =
             typeof(Player).GetMethod("GetPickaxeDamage", BindingFlags.Instance | BindingFlags.NonPublic)!;
-
         cd--;
         mcd--;
         if (cd == 0) {

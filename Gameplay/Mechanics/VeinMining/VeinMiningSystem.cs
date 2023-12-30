@@ -6,8 +6,7 @@ using Terraria.ModLoader;
 namespace VanillaQoL.Gameplay.VeinMining;
 
 public class VeinMiningSystem : ModSystem {
-
-    public static int threshold = 80;
+    public static int threshold = 120;
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.veinMining;
@@ -41,26 +40,38 @@ public class VeinMiningSystem : ModSystem {
         }
 
         ilCursor.EmitLdarg0();
+        ilCursor.EmitCall<VeinMiningSystem>("clearCD");
+        ilCursor.EmitLdarg0();
         ilCursor.EmitLdarg1();
         ilCursor.EmitLdarg2();
         ilCursor.EmitLdarg3();
         ilCursor.EmitCall<VeinMiningSystem>("veinMine");
     }
 
+    public static void clearCD(Player player) {
+        // we reset counter *before* mining. Could do with additional parameter to veinMine functional-style
+        // but eh, injecting another call is way easier
+        var modPlayer = player.GetModPlayer<VeinMiningPlayer>();
+        modPlayer.ctr = 0;
+    }
+
     public static void veinMine(Player player, int x, int y, int pickPower) {
         // if this is ore, don't even bother so we won't fall into recursion
         var tile = Framing.GetTileSafely(x, y);
         var modPlayer = player.GetModPlayer<VeinMiningPlayer>();
+
         if (tile.HasTile && Constants.isOre(tile) && modPlayer.canMine) {
             modPlayer.pickPower = pickPower;
             foreach (var coords in tileRot(x, y)) {
                 var tile2 = Framing.GetTileSafely(coords.x, coords.y);
 
                 bool notInQueue = modPlayer.notInQueue(coords.x, coords.y);
+
                 if (tile2.HasTile && Constants.isOre(tile2) && notInQueue) {
                     // handle limits
                     modPlayer.ctr++;
                     if (modPlayer.ctr > threshold) {
+                        VanillaQoL.instance.Logger.Warn("Reached threshold!");
                         modPlayer.ctr = 0;
                         modPlayer.canMine = false;
                     }
