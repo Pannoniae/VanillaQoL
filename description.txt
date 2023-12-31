@@ -67,6 +67,7 @@ Features:
  - Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
  - Cactus hurts when you step on it.
  - Thorns slow the player down like cobweb.
+ - The defense shield shows the damage reduction stat.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

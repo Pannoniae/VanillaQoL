@@ -203,3 +203,5 @@ NPCs: {
 		chat4: I would ask you to hire me for my services, but you clearly don't need it.
 	}
 }
+
+Shield.DamageReductionShield.damageReduction: "{0}% Damage Reduction"

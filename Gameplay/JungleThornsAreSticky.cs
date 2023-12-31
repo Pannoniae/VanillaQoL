@@ -42,8 +42,6 @@ public class JungleThornsAreSticky : ModSystem {
         ilCursor.EmitAnd();
         // if != 51 or isSticky, skip
         ilCursor.Next!.OpCode = OpCodes.Brtrue;
-
-        MonoModHooks.DumpIL(VanillaQoL.instance, il);
     }
 
     public void stickyTilesPatch(ILContext il) {
@@ -82,9 +80,7 @@ public class JungleThornsAreSticky : ModSystem {
         if (ctr == 0) {
             VanillaQoL.instance.Logger.Warn("Couldn't match cobweb type checks in Collision.StickyTiles!");
         }
-        VanillaQoL.instance.Logger.Info("Patched Collision.StickyTiles {ctr} times!");
-
-        MonoModHooks.DumpIL(VanillaQoL.instance, il);
+        VanillaQoL.instance.Logger.Info($"Patched Collision.StickyTiles {ctr} times!");
     }
 
     public static bool isNotSticky(int type) {

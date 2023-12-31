@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Thorns slow the player down.
+[*] The defense shield shows the damage reduction stat now.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

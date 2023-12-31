@@ -451,6 +451,11 @@ QoLConfig: {
 		Label: "[i:210] Thorns are Sticky"
 		Tooltip: If enabled, thorns slow the player down like cobwebs do.
 	}
+
+	drShield: {
+		Label: "[i:156] Damage Reduction on Shield"
+		Tooltip: If enabled, the defense shield shows the damage reduction stat as well.
+	}
 }
 
 Team: {

@@ -163,6 +163,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool removeThoriumEnabledCraftingTooltips { get; set; }
 
+    // Cobalt Shield
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool drShield { get; set; }
+
     [Header("tweaks")]
     // Work Bench
     [BackgroundColor(192, 54, 128, 192)]
