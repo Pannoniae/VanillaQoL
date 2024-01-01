@@ -1,5 +1,6 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Add appropriate content tags to the mod.
+[*] Fix Santa suddenly exploding after holidays end.
+[*] Shop expander now expands automatically when you sell items.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

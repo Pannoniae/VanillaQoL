@@ -300,6 +300,11 @@ QoLConfig: {
 		Tooltip: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
 	}
 
+	extraSellPages: {
+		Label: "[i:72] Extra Sell Pages"
+		Tooltip: If enabled, when a shop becomes full by selling items into it, a new page is created to expand the shop.
+	}
+
 	lifeCrystalGlow: {
 		Label: "[i:29] Life Crystals Glow"
 		Tooltip: If enabled, Life Crystals emit a faint light to make them easier to find.
@@ -455,6 +460,11 @@ QoLConfig: {
 	drShield: {
 		Label: "[i:156] Damage Reduction on Shield"
 		Tooltip: If enabled, the defense shield shows the damage reduction stat as well.
+	}
+
+	stopSantaFromExploding: {
+		Label: "[i:588] Stop Santa from Exploding"
+		Tooltip: If enabled, Santa won't suddenly explode after the end of the holiday season.
 	}
 }
 

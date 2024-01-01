@@ -10,6 +10,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
 [list]
  [*] VeinMining™! No need to press a keybind for this one.
  [*] WingSlot™! This one respects loadout colours.
+ [*] A better Shop Expander, with proper buttons instead of fake items! It expands automatically when you sell items.
 [/list]
 
 [b]Features:[/b]
@@ -45,7 +46,6 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Respawning rework (fully configurable)
  [*] The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
  [*] Seasonal events all year. <3
- [*] A better Shop Expander, with proper buttons instead of fake items!
  [*] Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
  [code]
   InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
@@ -76,6 +76,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Cactus hurts when you step on it.
  [*] Thorns slow the player down like cobweb.
  [*] The defense shield shows the damage reduction stat.
+ [*] Santa won't suddenly explode after holidays end.
 [/list]
 
 [b]Credits:[/b]

@@ -20,6 +20,14 @@ public class ShopExpander : ModSystem {
 
     public Item[] currentItems = new Item[Chest.maxItems];
 
+    public int pageidx(int index) {
+        return page * 40 + index;
+    }
+
+    public bool notIn(int index) {
+        return index < 0 || index >= items.Count;
+    }
+
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.shopExpander;
     }
@@ -27,11 +35,17 @@ public class ShopExpander : ModSystem {
     public override void Load() {
         instance = this;
         IL_Chest.SetupShop_string_NPC += shopExpanderPatch;
+        if (QoLConfig.Instance.extraSellPages) {
+            IL_Chest.AddItemToShop += sellPagesPatch;
+        }
     }
 
     public override void Unload() {
         instance = null!;
+        IL_Chest.SetupShop_string_NPC -= shopExpanderPatch;
+        IL_Chest.AddItemToShop -= sellPagesPatch;
     }
+
 
     public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
         var index = layers.FindIndex((Predicate<GameInterfaceLayer>)(layer => layer.Name.Equals("Vanilla: Inventory")));
@@ -61,8 +75,10 @@ public class ShopExpander : ModSystem {
 
         // fill it up to 40 for idiot mods who strictly expect a 40-item array
         var rem = 40 - items.Count;
-        for (int i = 0; i < rem; i++) {
-            items.Add(new Item());
+        if (rem > 0) {
+            for (int i = 0; i < rem; i++) {
+                items.Add(new Item());
+            }
         }
 
         // time for lots of copying
@@ -70,6 +86,7 @@ public class ShopExpander : ModSystem {
         if (npc != null) {
             NPCLoader.ModifyActiveShop(npc, shopName, itemsToModify);
         }
+
         // copy the array back lol
         items = new List<Item?>(itemsToModify);
 
@@ -94,6 +111,7 @@ public class ShopExpander : ModSystem {
         if (items.Count % 40 == 0 && items[Chest.maxItems - 1].type != ItemID.None) {
             pageCount += 1;
         }
+
         refresh();
     }
 
@@ -108,7 +126,64 @@ public class ShopExpander : ModSystem {
             else {
                 currentItems[ctr] = new Item();
             }
+
             ctr++;
         }
+    }
+
+    public void sellPagesPatch(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        ilCursor.EmitLdarg0();
+        ilCursor.EmitLdarg1();
+        ilCursor.Emit<ShopExpander>(OpCodes.Call, "hijackAddItem");
+        ilCursor.EmitRet();
+    }
+
+    public static int hijackAddItem(Chest self, Item newItem) {
+        int amount = Main.shopSellbackHelper.Remove(newItem);
+        if (amount >= newItem.stack) {
+            return 0;
+        }
+
+        for (int shop = 0; shop < 39; ++shop) {
+            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! || instance.items[instance.pageidx(shop)].type == ItemID.None) {
+                if (instance.notIn(instance.pageidx(shop))) {
+                    instance.items.Add(newItem.Clone());
+                }
+                else {
+                    instance.items[instance.pageidx(shop)] = newItem.Clone();
+                }
+
+                instance.items[instance.pageidx(shop)].favorited = false;
+                instance.items[instance.pageidx(shop)].buyOnce = true;
+                instance.items[instance.pageidx(shop)].stack -= amount;
+                //int value = instance.items[shop].value;
+                instance.refresh();
+                return shop;
+            }
+        }
+
+        // if still not found (i = 40), expand shop
+        instance.pageCount += 1;
+        instance.page += 1;
+        instance.refresh();
+        for (int shop = 0; shop < 39; ++shop) {
+            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! || instance.items[instance.pageidx(shop)].type == ItemID.None) {
+                if (instance.notIn(instance.pageidx(shop))) {
+                    instance.items.Add(newItem.Clone());
+                }
+                else {
+                    instance.items[instance.pageidx(shop)] = newItem.Clone();
+                }
+                instance.items[instance.pageidx(shop)].favorited = false;
+                instance.items[instance.pageidx(shop)].buyOnce = true;
+                instance.items[instance.pageidx(shop)].stack -= amount;
+                //int value = instance.items[shop].value;
+                instance.refresh();
+                return shop;
+            }
+        }
+
+        return 0;
     }
 }

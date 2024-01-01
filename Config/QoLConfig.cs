@@ -40,6 +40,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool shopExpander { get; set; }
 
+    // Silver Coin
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool extraSellPages { get; set; }
+
     // Nerdy Slime
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
@@ -336,6 +342,11 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool halloweenAllYear { get; set; }
+
+    // Santa Hat
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool stopSantaFromExploding { get; set; }
 
     // Magma Skull
     [Header("cheats")]
