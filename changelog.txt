@@ -1,6 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix Santa suddenly exploding after holidays end.
-[*] Shop expander now expands automatically when you sell items.
+[*] Fix being able to put items in the 40th slot after the second page.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

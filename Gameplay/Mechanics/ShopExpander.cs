@@ -116,16 +116,19 @@ public class ShopExpander : ModSystem {
     }
 
     public void refresh() {
+        // fill it up multiples of 40
+        var rem = 40 * pageCount - items.Count;
+        if (rem > 0) {
+            for (int i = 0; i < rem; i++) {
+                items.Add(new Item());
+            }
+        }
+
         var index = page * Chest.maxItems;
         var end = index + Chest.maxItems;
         var ctr = 0;
         for (int i = index; i < end; i++) {
-            if (i < items.Count) {
-                currentItems[ctr] = items[i];
-            }
-            else {
-                currentItems[ctr] = new Item();
-            }
+            currentItems[ctr] = items[i];
 
             ctr++;
         }
@@ -146,7 +149,8 @@ public class ShopExpander : ModSystem {
         }
 
         for (int shop = 0; shop < 39; ++shop) {
-            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! || instance.items[instance.pageidx(shop)].type == ItemID.None) {
+            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! ||
+                instance.items[instance.pageidx(shop)].type == ItemID.None) {
                 if (instance.notIn(instance.pageidx(shop))) {
                     instance.items.Add(newItem.Clone());
                 }
@@ -163,18 +167,27 @@ public class ShopExpander : ModSystem {
             }
         }
 
-        // if still not found (i = 40), expand shop
-        instance.pageCount += 1;
-        instance.page += 1;
+        // if we are selling on first page and we don't have more space, expand
+        // this checks the next page's first item, if it's not in the list, expand
+        if (instance.notIn(instance.pageidx(0) + 40)) {
+            // if still not found (i = 40), expand shop
+            instance.pageCount += 1;
+        }
+
+        // TODO don't allow putting items into the 40th slot after the first page as well
+        // instead of items.Add, make items properly expand to 40 after each refresh
+        instance.page = instance.pageCount - 1;
         instance.refresh();
         for (int shop = 0; shop < 39; ++shop) {
-            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! || instance.items[instance.pageidx(shop)].type == ItemID.None) {
+            if (instance.notIn(instance.pageidx(shop)) || instance.items[instance.pageidx(shop)] == null! ||
+                instance.items[instance.pageidx(shop)].type == ItemID.None) {
                 if (instance.notIn(instance.pageidx(shop))) {
                     instance.items.Add(newItem.Clone());
                 }
                 else {
                     instance.items[instance.pageidx(shop)] = newItem.Clone();
                 }
+
                 instance.items[instance.pageidx(shop)].favorited = false;
                 instance.items[instance.pageidx(shop)].buyOnce = true;
                 instance.items[instance.pageidx(shop)].stack -= amount;
