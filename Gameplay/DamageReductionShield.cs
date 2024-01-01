@@ -9,7 +9,7 @@ public class DamageReductionShield : ModSystem, ILocalizedModType {
 
     public string LocalizationCategory => "Shield";
 
-    public static LocalizedText damageReduction;
+    public static LocalizedText damageReduction = null!;
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.drShield;
