@@ -48,7 +48,7 @@ public class ShopExpander : ModSystem {
 
 
     public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
-        var index = layers.FindIndex((Predicate<GameInterfaceLayer>)(layer => layer.Name.Equals("Vanilla: Inventory")));
+        var index = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
         if (index == -1) {
             return;
         }
@@ -116,7 +116,7 @@ public class ShopExpander : ModSystem {
     }
 
     public void refresh() {
-        // fill it up multiples of 40
+        // fill it up to multiples of 40
         var rem = 40 * pageCount - items.Count;
         if (rem > 0) {
             for (int i = 0; i < rem; i++) {
@@ -174,8 +174,7 @@ public class ShopExpander : ModSystem {
             instance.pageCount += 1;
         }
 
-        // TODO don't allow putting items into the 40th slot after the first page as well
-        // instead of items.Add, make items properly expand to 40 after each refresh
+        // don't allow putting items into the 40th slot after the first page as well
         instance.page = instance.pageCount - 1;
         instance.refresh();
         for (int shop = 0; shop < 39; ++shop) {
