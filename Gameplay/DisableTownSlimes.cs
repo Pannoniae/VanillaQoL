@@ -38,7 +38,7 @@ public class DisableTownSlimes : ModSystem {
     public override void OnWorldLoad() {
         foreach (var npc in Main.npc) {
             if (npc.active && Constants.slimes.Contains(npc.type)) {
-                npc.StrikeInstantKill();
+                npc.active = false;
             }
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using Terraria.ModLoader;
 
 namespace VanillaQoL.API;
 

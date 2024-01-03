@@ -136,10 +136,21 @@ public class ShopExpander : ModSystem {
 
     public void sellPagesPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
+        var label = ilCursor.DefineLabel();
+        ilCursor.EmitLdarg0();
+        ilCursor.EmitLdarg1();
+        ilCursor.Emit<ShopExpander>(OpCodes.Call, "shouldhHijackAddItem");
+        // if false, skip it
+        ilCursor.EmitBrfalse(label);
         ilCursor.EmitLdarg0();
         ilCursor.EmitLdarg1();
         ilCursor.Emit<ShopExpander>(OpCodes.Call, "hijackAddItem");
         ilCursor.EmitRet();
+        ilCursor.MarkLabel(label);
+    }
+
+    public static bool shouldhHijackAddItem(Chest self, Item newItem) {
+        return Main.npcShop > 0;
     }
 
     public static int hijackAddItem(Chest self, Item newItem) {
