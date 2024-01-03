@@ -9,6 +9,10 @@ namespace VanillaQoL.Tests;
 
 // straight copied from that mod which doesn't work, more testing;)
 public sealed class FighterAIDoorBehaviourModifier : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.testing;
+    }
+
     public override void Load() {
         IL_NPC.AI_003_Fighters += PreventDoorInteractions;
     }

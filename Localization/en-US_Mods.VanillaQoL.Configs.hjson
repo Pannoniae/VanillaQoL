@@ -358,7 +358,7 @@ QoLConfig: {
 	}
 
 	disableShimmering: {
-		Label: "[i:5349] No Falling Through Shimmer"
+		Label: "[t:VanillaQoL/UI/Shimmer] No Falling Through Shimmer"
 		Tooltip: If enabled, you will not fall through the world when falling into shimmer. You can take a bath in it :)
 	}
 
@@ -443,7 +443,7 @@ QoLConfig: {
 	}
 
 	calamityInWorldRarity: {
-		Label: "[i:4956] Calamity Rarity Fix"
+		Label: "[t:VanillaQoL/UI/Wrench] Calamity Rarity Fix"
 		Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
 	}
 

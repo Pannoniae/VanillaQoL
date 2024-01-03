@@ -123,6 +123,7 @@ public class VanillaQoL : Mod {
         // load chat tags
         // since recipe browser's broken chat tags are loaded in Load(), we do it later to overwrite it:))
         ChatManager.Register<NPCTagHandler>("npc");
+        ChatManager.Register<TextureTagHandler>("t");
     }
 
     /// <summary>
