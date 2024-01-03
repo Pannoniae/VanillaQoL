@@ -17,7 +17,6 @@ public static class ILCursorExtensions {
         while (cursor.TryGotoNext(moveType, i => i.MatchRet())) {
             ret = true;
         }
-
         return ret;
     }
 

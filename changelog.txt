@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] New config icon textures and TextureTagHandler.
+[*] Updated to tML 2023.11.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
