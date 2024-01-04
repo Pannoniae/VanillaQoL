@@ -101,9 +101,11 @@ public class RespawningReworkPlayer : ModPlayer {
         if (RespawningRework.instance.bossAlive) {
             respawnTime = config.bossRespawnTime;
         }
+
         if (RespawningRework.instance.eventAlive) {
             respawnTime = config.eventRespawnTime;
         }
+
         int c = 0;
         for (int index = 0; index < Main.maxPlayers; ++index) {
             Player player = Main.player[index];
@@ -111,6 +113,7 @@ public class RespawningReworkPlayer : ModPlayer {
                 c++;
             }
         }
+
         // first, base * expertMode
         if (Main.expertMode) {
             respawnTime *= config.respawnFactorExpertMode;
@@ -121,8 +124,9 @@ public class RespawningReworkPlayer : ModPlayer {
         }
 
         if (c > 0 && RespawningRework.instance.bossAlive) {
-            respawnTime *= c * config.bossMultiplayerMultiplier;
+            respawnTime *= MathF.Pow(config.bossMultiplayerMultiplier, c);
         }
+
         Player.respawnTimer = (int)(respawnTime * 60f);
     }
 }
