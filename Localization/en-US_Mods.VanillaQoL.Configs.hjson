@@ -466,6 +466,11 @@ QoLConfig: {
 		Label: "[i:588] Stop Santa from Exploding"
 		Tooltip: If enabled, Santa won't suddenly explode after the end of the holiday season.
 	}
+
+	truffleKingAndQueenStatue: {
+		Label: "[i:ShrimpyTruffle] Truffle Is Non-Binary"
+		Tooltip: If enabled, the Truffle will teleport to the king and queen statue
+	}
 }
 
 Team: {

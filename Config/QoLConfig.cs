@@ -262,6 +262,11 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public int heartTime { get; set; }
 
+    // Shrimpy Truffle
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    public bool truffleKingAndQueenStatue { get; set; }
+
     [Header("fixes")]
 
     // Amethyst
