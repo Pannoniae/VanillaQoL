@@ -468,8 +468,8 @@ QoLConfig: {
 	}
 
 	truffleKingAndQueenStatue: {
-		Label: "[i:ShrimpyTruffle] Truffle Is Non-Binary"
-		Tooltip: If enabled, the Truffle will teleport to the king and queen statue
+		Label: "[i:ShrimpyTruffle] Truffle is Non-Binary"
+		Tooltip: If enabled, the Truffle will teleport to both the King and Queen statue.
 	}
 }
 
