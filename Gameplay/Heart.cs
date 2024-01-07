@@ -18,7 +18,7 @@ public class Heart : GlobalItem {
 
         return item.type switch {
             ItemID.Heart or ItemID.CandyApple or ItemID.CandyCane => player.statLife <= player.statLifeMax2 - 20,
-            ItemID.Star or ItemID.SoulCake or ItemID.SugarPlum => player.statMana <= player.statManaMax2 - 100,
+            ItemID.Star or ItemID.SoulCake or ItemID.SugarPlum => canPickupMana(player),
             // fuckup
             _ => throw new InvalidOperationException()
         };
@@ -32,5 +32,10 @@ public class Heart : GlobalItem {
             item.TurnToAir(true);
             item.active = false;
         }
+    }
+
+    public static bool canPickupMana(Player player) {
+        // mana is less than 100 than the maximum, OR player has low mana so always pick it up except if full
+        return player.statMana <= player.statManaMax2 - 100 || (player.statManaMax < 100 && player.statMana <= player.statManaMax2 - 20);
     }
 }

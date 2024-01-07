@@ -139,7 +139,7 @@ public class ShopExpander : ModSystem {
         var label = ilCursor.DefineLabel();
         ilCursor.EmitLdarg0();
         ilCursor.EmitLdarg1();
-        ilCursor.Emit<ShopExpander>(OpCodes.Call, "shouldhHijackAddItem");
+        ilCursor.Emit<ShopExpander>(OpCodes.Call, "shouldHijackAddItem");
         // if false, skip it
         ilCursor.EmitBrfalse(label);
         ilCursor.EmitLdarg0();
@@ -149,7 +149,8 @@ public class ShopExpander : ModSystem {
         ilCursor.MarkLabel(label);
     }
 
-    public static bool shouldhHijackAddItem(Chest self, Item newItem) {
+    // STOP MISUSING AddItemToShop, stupid mods!
+    public static bool shouldHijackAddItem(Chest self, Item newItem) {
         return Main.npcShop > 0;
     }
 

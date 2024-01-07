@@ -52,6 +52,11 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         { 5364, 3031 }
     };
 
+    public static Dictionary<string, string> replacements = new() {
+        { "CalamityMod", "Calamity" },
+        { "ThoriumMod", "Thorium" }
+    };
+
     public const string hooks = "Hooks";
     public const string wings = "Wings";
     public const string wingSlot = "WingSlot";
@@ -567,13 +572,20 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public void modNameTooltips(Item item, List<TooltipLine> tooltips) {
         if (item.ModItem != null) {
             var name = item.ModItem.Mod.DisplayName;
-            var internalName = item.ModItem.Mod.DisplayName;
+            var internalName = item.ModItem.Mod.Name;
             if (!item.Name.Contains("[" + internalName + "]") && !item.Name.Contains("[" + name + "]")) {
-                var line = new TooltipLine(Mod, Mod.Name, "[" + name + "]") {
+                var line = new TooltipLine(Mod, internalName, "[" + name + "]") {
                     OverrideColor = Colors.RarityPurple
                 };
+                doReplacements(line, internalName);
                 tooltips.Add(line);
             }
+        }
+    }
+
+    public static void doReplacements(TooltipLine line, string name) {
+        if (replacements.TryGetValue(name, out var replacement)) {
+            line.Text = "[" + replacement + "]";
         }
     }
 

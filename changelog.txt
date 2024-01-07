@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Truffle.
+[*] Made the mana star pickup feature's behaviour better when the player has low maximum mana in the early game.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
