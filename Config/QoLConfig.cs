@@ -1,21 +1,36 @@
 using System.ComponentModel;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 using VanillaQoL.Shared;
 
 namespace VanillaQoL.Config;
 
+public enum Credits
+{
+    Vanilla,
+    AfterModsFinalBoss,
+    Disabled
+}
+
+public enum Team
+{
+    White = 0,
+    Red = 1,
+    Green = 2,
+    Blue = 3,
+    Yellow = 4,
+    Pink = 5
+}
+
 [BackgroundColor(16, 0, 2, 1)]
 public class QoLConfig : ModConfig {
-    // magic tModLoader-managed field, assigned
-    // ReSharper disable once UnusedMember.Global
-    // ReSharper disable once UnassignedField.Global
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-    public static QoLConfig Instance;
+    public static QoLConfig Instance => ModContent.GetInstance<QoLConfig>();
+    public override ConfigScope Mode => ConfigScope.ServerSide;
 
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    #region Gameplay
 
-    // Tungsten Pickaxe
     [Header("gameplay")]
+
     // Universal Pylon
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -111,8 +126,10 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool wingSlot { get; set; }
 
+    #endregion
 
-    // Tally Counter
+    #region Information
+
     [Header("information")]
 
     // Compass
@@ -180,7 +197,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool drShield { get; set; }
 
+    #endregion
+
+    #region Tweaks
+
     [Header("tweaks")]
+
     // Work Bench
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -278,6 +300,10 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool persistentBuffs { get; set; }
 
+    #endregion
+
+    #region Fixes
+
     [Header("fixes")]
 
     // Amethyst
@@ -327,6 +353,10 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool calamityInWorldRarity { get; set; }
 
+    #endregion
+
+    #region Content
+
     [Header("content")]
 
     // Bouncy Dirt Bomb
@@ -347,8 +377,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool ninja { get; set; }
 
-    // Snow Globe
+    #endregion
+
+    #region Holiday Cheer
+
     [Header("holidayCheer")]
+
     // Pine Tree
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -364,7 +398,10 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool stopSantaFromExploding { get; set; }
 
-    // Magma Skull
+    #endregion
+
+    #region Cheats
+
     [Header("cheats")]
 
     // Demon Heart
@@ -412,8 +449,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool disableShimmering { get; set; }
 
+    #endregion
+
+    #region Suffering
 
     [Header("suffering")]
+
     // Sandgun
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -441,16 +482,18 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool cactusHurts { get; set; }
 
-
     // Vine (210)
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
     public bool jungleThornsAreSticky { get; set; }
 
+    #endregion
 
-    // Tungsten Clock
+    #region Respawning
+
     [Header("respawn")]
+
     // Fast Clock
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -499,6 +542,10 @@ public class QoLConfig : ModConfig {
     [CustomModConfigItem(typeof(FloatInputElement))]
     public float bossMultiplayerMultiplier { get; set; }
 
+    #endregion
+
+    #region Multiplayer
+
     [Header("multiplayer")]
 
     // Amethyst
@@ -517,6 +564,8 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     [ReloadRequired]
     public bool mapSharing { get; set; }
+
+    #endregion
 
     [Header("testing")]
 
@@ -541,21 +590,4 @@ public class QoLConfig : ModConfig {
             GlobalFeatures.disableFeature(Mod, "nonConsumableSummons");
         }
     }
-
-    public override ConfigScope Mode => ConfigScope.ServerSide;
-}
-
-public enum Credits {
-    Vanilla,
-    AfterModsFinalBoss,
-    Disabled
-}
-
-public enum Team {
-    White = 0,
-    Red = 1,
-    Green = 2,
-    Blue = 3,
-    Yellow = 4,
-    Pink = 5
 }
