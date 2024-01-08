@@ -1,6 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fixed shops selling items.
-[*] Added additional shop selling option to this mod too.
+[*] Made buffs that persist when saving persist when dying.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

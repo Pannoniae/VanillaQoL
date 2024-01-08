@@ -272,6 +272,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool truffleKingAndQueenStatue { get; set; }
 
+    // Gravitation Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool persistentBuffs { get; set; }
+
     [Header("fixes")]
 
     // Amethyst

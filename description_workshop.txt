@@ -78,6 +78,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] The defense shield shows the damage reduction stat.
  [*] Santa won't suddenly explode after holidays end.
  [*] Made the Truffle non-binary. Before you ask why, I don't know either.
+ [*] Made buffs that persist when saving persist when dying.
 [/list]
 
 [b]Credits:[/b]

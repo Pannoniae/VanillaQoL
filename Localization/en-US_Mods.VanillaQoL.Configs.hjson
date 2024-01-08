@@ -476,6 +476,11 @@ QoLConfig: {
 		Label: "[i:73] Town NPCs Sell Additional Items"
 		Tooltip: If enabled, Town NPCs sell potions, various materials and other things intended to reduce grinding.
 	}
+
+	persistentBuffs: {
+		Label: "[i:GravitationPotion] Potions Persist upon Death "
+		Tooltip: If enabled, all buffs that persist when saving (potions in vanilla) will persist when the player dies.
+	}
 }
 
 Team: {
