@@ -1,5 +1,6 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Made the mana star pickup feature's behaviour better when the player has low maximum mana in the early game.
+[*] Fixed shops selling items.
+[*] Added additional shop selling option to this mod too.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

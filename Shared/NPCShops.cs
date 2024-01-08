@@ -9,8 +9,11 @@ using Terraria.ModLoader;
 namespace VanillaQoL.Shared;
 
 public class NPCShops : GlobalNPC {
-
     public override void ModifyShop(NPCShop shop) {
+        if (!GlobalFeatures.NPCShops) {
+            return;
+        }
+
         // 2 gold at start, 4 in hardmode and 8 post-ML
         int cost = 2;
         if (Main.hardMode) {
@@ -29,8 +32,6 @@ public class NPCShops : GlobalNPC {
                     Item.buyPrice(0, 0, 25, 0));
                 addToShop(shop, ItemID.ArcheryPotion, Condition.DownedEyeOfCthulhu,
                     Item.buyPrice(0, cost, 0, 0));
-                addToShop(shop, ItemID.HealingPotion, Condition.DownedEowOrBoc);
-                addToShop(shop, ItemID.ManaPotion, Condition.DownedEowOrBoc);
                 addToShop(shop, ItemID.TitanPotion, Condition.DownedSkeletron,
                     Item.buyPrice(0, 2, 0, 0));
                 addToShop(shop, ItemID.ApprenticeBait, Condition.DownedEyeOfCthulhu);
@@ -204,9 +205,6 @@ public class NPCShops : GlobalNPC {
     /// <param name="description">The description to use for the condition.</param>
     private void addToShop(NPCShop shop, int itemID, int? price = null, Func<bool>? cond = null,
         LocalizedText? description = null) {
-        if (!GlobalFeatures.NPCShops) {
-            return;
-        }
 
         if (alreadyHasEntry(shop, itemID)) {
             return;
@@ -214,24 +212,25 @@ public class NPCShops : GlobalNPC {
 
         description ??= LocalizedText.Empty;
 
-        // null means always true
-        cond ??= () => true;
-
         var shopItem = new Item(itemID) {
             shopCustomPrice = price
         };
-        shop.Add(shopItem, new Condition(description, cond));
+        if (cond != null) {
+            shop.Add(shopItem, new Condition(description, cond));
+        }
+        else {
+            shop.Add(shopItem);
+        }
     }
 
-    private bool alreadyHasEntry(NPCShop shop, int item) {
-        return shop.Entries.Any(entry => entry.Item.type == item);
+    private static bool alreadyHasEntry(NPCShop shop, int item) {
+        return shop.Entries.Any(entry => entry.Item.type == item && !entry.Disabled);
     }
 
     private void addToShop(NPCShop shop, int itemID, Condition cond, int? price = null) {
-        if (!GlobalFeatures.NPCShops) {
+        if (alreadyHasEntry(shop, itemID)) {
             return;
         }
-
         var shopItem = new Item(itemID) {
             shopCustomPrice = price
         };

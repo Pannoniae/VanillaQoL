@@ -471,6 +471,11 @@ QoLConfig: {
 		Label: "[i:ShrimpyTruffle] Truffle is Non-Binary"
 		Tooltip: If enabled, the Truffle will teleport to both the King and Queen statue.
 	}
+
+	sellAdditionalItems: {
+		Label: "[i:73] Town NPCs Sell Additional Items"
+		Tooltip: If enabled, Town NPCs sell potions, various materials and other things intended to reduce grinding.
+	}
 }
 
 Team: {

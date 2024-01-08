@@ -60,15 +60,12 @@ public class Ninja : ModNPC {
         NPC.width = 18;
         NPC.height = 40;
         NPC.aiStyle = NPCAIStyleID.Passive; // Copies the AI of passive NPCs. This is AI Style 7.
-        NPC.damage =
-            10;
-        NPC.defense =
-            15;
+        NPC.damage = 10;
+        NPC.defense = 15;
         NPC.lifeMax = 250;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath1;
-        NPC.knockBackResist =
-            0.5f;
+        NPC.knockBackResist = 0.5f;
 
         AnimationType = NPCID.Guide;
     }

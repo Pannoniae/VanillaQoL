@@ -46,6 +46,11 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool extraSellPages { get; set; }
 
+    [BackgroundColor(192, 64, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool sellAdditionalItems { get; set; }
+
     // Nerdy Slime
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
@@ -516,6 +521,13 @@ public class QoLConfig : ModConfig {
     public bool testing { get; set; }
 
     public override void OnChanged() {
+        if (sellAdditionalItems) {
+            GlobalFeatures.enableFeature(Mod, "NPCShops");
+        }
+        else {
+            GlobalFeatures.disableFeature(Mod, "NPCShops");
+        }
+
         if (nonConsumableSummons) {
             GlobalFeatures.enableFeature(Mod, "nonConsumableSummons");
         }
