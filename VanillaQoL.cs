@@ -76,6 +76,7 @@ public class VanillaQoL : Mod {
             (ConcurrentDictionary<string, ITagHandler>)handlers.GetValue(null)!;
 
         _handlers["npc"] = null!;
+        _handlers["t"] = null!;
 
         // unload
         if (LanguagePatch.loaded) {
