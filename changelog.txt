@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Made buffs that persist when saving persist when dying.
+[*] Also don't persist light pets.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

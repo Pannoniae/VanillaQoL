@@ -4,21 +4,32 @@ using Terraria.ModLoader;
 
 namespace VanillaQoL.Gameplay;
 
-public class BuffsPersistOnDeath : ModSystem
-{
-    private static Dictionary<int, bool>? _persistentBuffs;
+public class BuffsPersistOnDeath : ModSystem {
+    private static Dictionary<int, bool> _persistentBuffs = null!;
 
     public override bool IsLoadingEnabled(Mod mod) => QoLConfig.Instance.persistentBuffs;
 
-    public override void Load()
-    {
+    public override void PostSetupContent() {
         _persistentBuffs = new();
 
         // Make all saveable buffs persistent
-        for (int buff = 0; buff < BuffLoader.BuffCount; buff++)
-        {
-            if (Main.buffNoSave[buff])
+        for (int buff = 0; buff < BuffLoader.BuffCount; buff++) {
+            if (Main.buffNoSave[buff]) {
                 continue;
+            }
+
+            // if permabuff, don't
+            if (Main.buffNoTimeDisplay[buff]) {
+                continue;
+            }
+
+            if (Main.vanityPet[buff]) {
+                continue;
+            }
+
+            if (Main.lightPet[buff]) {
+                continue;
+            }
 
             // Cache the original value so we can unload
             _persistentBuffs.Add(buff, Main.persistentBuff[buff]);
@@ -27,14 +38,12 @@ public class BuffsPersistOnDeath : ModSystem
     }
 
     // We have to manually undo changes to the array ;-;
-    public override void Unload()
-    {
-        foreach ((int buff, bool originalValue) in _persistentBuffs)
-        {
+    public override void Unload() {
+        foreach ((int buff, bool originalValue) in _persistentBuffs) {
             Main.persistentBuff[buff] = originalValue;
         }
 
-        _persistentBuffs?.Clear();
-        _persistentBuffs = null;
+        _persistentBuffs.Clear();
+        _persistentBuffs = null!;
     }
 }

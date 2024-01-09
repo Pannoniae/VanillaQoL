@@ -478,7 +478,7 @@ QoLConfig: {
 	}
 
 	persistentBuffs: {
-		Label: "[i:GravitationPotion] Potions Persist upon Death "
+		Label: "[i:GravitationPotion] Potions Persist upon Death"
 		Tooltip: If enabled, all buffs that persist when saving (potions in vanilla) will persist when the player dies.
 	}
 }
