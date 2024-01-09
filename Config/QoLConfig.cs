@@ -24,7 +24,11 @@ public enum Team
 
 [BackgroundColor(16, 0, 2, 1)]
 public class QoLConfig : ModConfig {
-    public static QoLConfig Instance => ModContent.GetInstance<QoLConfig>();
+    // Field automagically set by tML
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public static QoLConfig Instance;
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
     public override ConfigScope Mode => ConfigScope.ServerSide;
 
     #region Gameplay
