@@ -18,6 +18,10 @@ public class BuffsPersistOnDeath : ModSystem {
                 continue;
             }
 
+            if (Main.debuff[buff]) {
+                continue;
+            }
+
             // if permabuff, don't
             if (Main.buffNoTimeDisplay[buff]) {
                 continue;
