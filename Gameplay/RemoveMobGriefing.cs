@@ -83,9 +83,11 @@ public class RemoveTombstones : GlobalProjectile {
                     NetMessage.SendData(MessageID.SyncItem, number: number, number2: 1f);
                 }
             }
+
+            projectile.Kill();
+            return false;
         }
 
-        projectile.Kill();
-        return false;
+        return true;
     }
 }
