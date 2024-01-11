@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] More unloading.
+[*] Fix potions not actually being persistent.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

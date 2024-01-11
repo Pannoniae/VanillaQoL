@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using VanillaQoL.IL;
 
 namespace VanillaQoL.Gameplay;
 
@@ -10,6 +11,7 @@ public class BuffsPersistOnDeath : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) => QoLConfig.Instance.persistentBuffs;
 
     public override void PostSetupContent() {
+
         _persistentBuffs = new();
 
         // Make all saveable buffs persistent
@@ -33,6 +35,11 @@ public class BuffsPersistOnDeath : ModSystem {
 
             if (Main.lightPet[buff]) {
                 continue;
+            }
+
+            // patch calamity because they hardcode persistent buffs.....
+            if (VanillaQoL.isCalamityLoaded()) {
+                CalamityLogic3.addBuff(buff);
             }
 
             // Cache the original value so we can unload

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using CalamityMod;
 using CalamityMod.CalPlayer;
 using CalamityMod.Items.PermanentBoosters;
 using MagicStorage.UI.States;
@@ -183,5 +184,12 @@ public static class CalamityLogic2 {
         }
         // TryFindNext returns before, go to after
         ilCursor.EmitBr(c[0].Next!.Next);
+    }
+}
+
+[JITWhenModsEnabled("CalamityMod")]
+public static class CalamityLogic3 {
+    public static void addBuff(int buff) {
+        CalamityLists.persistentBuffList.Add(buff);
     }
 }
