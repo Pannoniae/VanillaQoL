@@ -407,6 +407,11 @@ QoLConfig: {
 		Tooltip: Controls the delay between tiles breaking. A lower value means faster veinmining.
 	}
 
+	extendedOres: {
+		Label: "[i:424] ExtendedOres™ Technology"
+		Tooltip: If enabled, our trademarked and patented technology adds new, exciting and impactful ores to VeinMine™!
+	}
+
 	wingSlot: {
 		Label: "[i:1162] WingSlot™"
 		Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.

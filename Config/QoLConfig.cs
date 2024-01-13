@@ -123,6 +123,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public int veinMiningSpeed { get; set; }
 
+    // Silt Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool extendedOres { get; set; }
+
 
     // Leaf Wings
     [BackgroundColor(192, 54, 128, 192)]

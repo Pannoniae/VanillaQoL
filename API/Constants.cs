@@ -88,6 +88,13 @@ public class Constants {
         "DoomSayersCoin"
     };
 
+    public static readonly List<int> extendedOres = new() {
+        TileID.Silt,
+        TileID.Slush,
+        TileID.FossilOre,
+        TileID.DesertFossil
+    };
+
     public static readonly List<string> calamityOres = new() {
         "SeaPrism"
     };
@@ -152,8 +159,13 @@ public class Constants {
     }
 
     public static bool isOre(Tile tile) {
-        if (TileID.Sets.Ore[tile.TileType] || isGem(tile) || tile.TileType == TileID.LunarOre) {
+        var type = tile.TileType;
+        if (TileID.Sets.Ore[type] || isGem(tile) || type == TileID.LunarOre) {
             return true;
+        }
+
+        if (QoLConfig.Instance.extendedOres && extendedOres.Contains(type)) {
+
         }
 
         var modTile = ModContent.GetModTile(tile.TileType);
