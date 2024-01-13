@@ -302,6 +302,7 @@ public static class ModLeakFix {
         // This is a RuntimeType
         // get the LoaderAllocator
         var loaderallocator =
+            // ReSharper disable once PossibleMistakenCallToGetType.2
             type.GetType().GetField("m_keepalive", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(type)!;
         object[] m_slots =
             (object[])loaderallocator.GetType().GetField("m_slots", BindingFlags.Instance | BindingFlags.NonPublic)!

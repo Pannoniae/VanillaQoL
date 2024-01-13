@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix tombstones not appearing when tombstone littering is disabled.
+[*] Compatibility update for Calamity UnNerfs.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
