@@ -37,6 +37,13 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - enemies spread corruption/crimson/hallow with attacks
 
+- remove adjacent to air requirement from removing walls (Player.CanPlayerSmashWall should always return true)#
+- calamity reforge rework
+- aether monolith can craft shimmer recipes
+- keep position in world upon quitting
+- "starter bag" for magic storage - add items to calamity bag / add "Hoarder" class to New Beginnings
+- cat named Pannoniae? idk people have said so
+
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked
  of course if you don't implement all of the spoofed mod this will still crash but eh
