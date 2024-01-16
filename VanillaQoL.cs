@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
+using Terraria;
+using Terraria.Localization;
+using Terraria.Map;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -69,6 +72,9 @@ public class VanillaQoL : Mod {
     }
 
     public override void Unload() {
+        // unload modded keys
+        LanguagePatch.unloadModdedKeys();
+
         // unregister
         var type = typeof(ChatManager);
         var handlers = type.GetField("_handlers", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;
@@ -88,28 +94,7 @@ public class VanillaQoL : Mod {
 
         // unload *all* the IL edits
         // IL patch static lambdas are leaking memory, wipe them
-        Utils.completelyWipeClass(typeof(ILEdits));
-        Utils.completelyWipeClass(typeof(ModILEdits));
-        Utils.completelyWipeClass(typeof(LanguagePatch));
-        Utils.completelyWipeClass(typeof(RecipeBrowserLogic));
-        Utils.completelyWipeClass(typeof(MagicStorageLogic));
-        Utils.completelyWipeClass(typeof(CalamityLogic));
-        Utils.completelyWipeClass(typeof(CalamityLogic2));
-        Utils.completelyWipeClass(typeof(QoLSharedMapSystem));
-        Utils.completelyWipeClass(typeof(LockOn));
-        Utils.completelyWipeClass(typeof(DisableTownSlimes));
-        Utils.completelyWipeClass(typeof(NurseHealing));
-        Utils.completelyWipeClass(typeof(AccessoryLoadoutSupport));
-        Utils.completelyWipeClass(typeof(AccessorySlotUnlock));
-        Utils.completelyWipeClass(typeof(SliceOfCake));
-        Utils.completelyWipeClass(typeof(Explosives));
-        Utils.completelyWipeClass(typeof(DrillRework));
-        Utils.completelyWipeClass(typeof(RespawningRework));
-        Utils.completelyWipeClass(typeof(NPCShops));
-        Utils.completelyWipeClass(typeof(GlobalFeatures));
-        Utils.completelyWipeClass(typeof(PrefixRarity));
-
-        // Func<bool> is a static lambda, this would leak as well
+        // this is now handled in TypeCaching.OnClear
 
 
         instance = null!;
@@ -120,11 +105,27 @@ public class VanillaQoL : Mod {
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggled");
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggledSteamBattery");
         }
+        // conditional localisation is not a thing....
+        if (QoLConfig.Instance.pannoniaeCat) {
+            instance.Logger.Info("meow!");
+            LanguagePatch.addToCategory("CatNames_Siamese", "Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_Black", "Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_OrangeTabby", "Pannoniae",  "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_RussianBlue","Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_Silver","Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_White","Pannoniae", "Pannoniae");
+        }
+
 
         // load chat tags
         // since recipe browser's broken chat tags are loaded in Load(), we do it later to overwrite it:))
         ChatManager.Register<NPCTagHandler>("npc");
         ChatManager.Register<TextureTagHandler>("t");
+        //instance.Logger.Info("cat!");
+        //foreach (var cat in LanguageManager.Instance.GetKeysInCategory("CatNames_Siamese")) {
+        //    instance.Logger.Info(cat);
+        //}
+
     }
 
     /// <summary>

@@ -69,7 +69,9 @@ public class QoLSharedMapSystem : ModSystem {
         // we apply to two places, UpdateLighting and Update.
         IL_WorldMap.UpdateLighting += updateMapPatch2;
         //IL_WorldMap.Update += updateMapPatch;
-        IL_WorldMap.Load += joinWorldPatch;
+
+        // we don't *actually* need to sync straight up on world load.... it seems to corrupt map files, probably due to the world being empty
+        //IL_WorldMap.Load += joinWorldPatch;
 
         shareKeybind = KeybindLoader.RegisterKeybind(Mod, "ShareMap", "P");
     }
@@ -83,10 +85,10 @@ public class QoLSharedMapSystem : ModSystem {
         return Main.player.Count(p => p.active) == 1;
     }
 
-    private void joinWorldPatch(ILContext il) {
+    /*private void joinWorldPatch(ILContext il) {
         var c = new ILCursor(il);
         var emitted = false;
-        while (c.TryGotoNext(MoveType.Before, i => i.MatchRet())) {
+        while (c.TryGotoNext(MoveType.Before, i => i.MatchRet())) {ene
             c.Emit<QoLSharedMapSystem>(OpCodes.Call, "joinWorld");
             // increment so no infinite loop!
             c.Index++;
@@ -104,7 +106,7 @@ public class QoLSharedMapSystem : ModSystem {
         if (Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled && !isForeverAlone()) {
             instance.sendSyncRequestPacket();
         }
-    }
+    }*/
 
     public static void updateMapPatch(ILContext il) {
         var c = new ILCursor(il);
@@ -376,7 +378,7 @@ public class QoLSharedMapSystem : ModSystem {
                         tile.Light = Math.Max(l, tile.Light);
                         tile.Color = c;
                         tile.IsChanged = true;
-                        map.SetTile(x, y, ref tile);
+                        //map.SetTile(x, y, ref tile);
                         updateMapTile(x, y);
                     }
                 }

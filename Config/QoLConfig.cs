@@ -498,6 +498,13 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool jungleThornsAreSticky { get; set; }
 
+
+    // Cat 637
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool pannoniaeCat { get; set; }
+
     #endregion
 
     #region Respawning
@@ -569,15 +576,15 @@ public class QoLConfig : ModConfig {
     [DrawTicks]
     public Team teamToAutoJoin { get; set; }
 
+    #endregion
+
+    [Header("testing")]
+
     // Trifold Map
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     [ReloadRequired]
     public bool mapSharing { get; set; }
-
-    #endregion
-
-    [Header("testing")]
 
     // Dirt
     [BackgroundColor(192, 54, 128, 192)]

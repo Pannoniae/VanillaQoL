@@ -42,7 +42,7 @@ add weapon selling so you don't have to kill the poor NPCs
 - aether monolith can craft shimmer recipes
 - keep position in world upon quitting
 - "starter bag" for magic storage - add items to calamity bag / add "Hoarder" class to New Beginnings
-- cat named Pannoniae? idk people have said so
+- f1 button to turn the UI off
 
  !!! we can ignore tml's stupid verify by slapping a ExtendsFromModAttribute on it with a nonexisting mod :))
  then we can derive from Mod again with a secondary class to return from TryGetMod/GetMod so strong references won't be fucked
