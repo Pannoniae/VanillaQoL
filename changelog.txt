@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix problems on reload.
+[*] Add No Breaking Doors to the incompatibility list.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
