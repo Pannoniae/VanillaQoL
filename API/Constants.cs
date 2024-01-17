@@ -75,6 +75,11 @@ public class Constants {
         WallID.LihzahrdBrick, WallID.LihzahrdBrickUnsafe
     };
 
+    public static readonly List<int> spikes = new() {
+        TileID.Spikes,
+        TileID.WoodenSpikes
+    };
+
     public static readonly List<string> thoriumSummons = new() {
         "StormFlare",
         "JellyfishResonator",
@@ -112,6 +117,18 @@ public class Constants {
         "Aquamarine",
         "Opal",
     };
+
+    public static readonly List<int> recalls = new() {
+        ItemID.MagicMirror,
+        ItemID.IceMirror,
+        ItemID.CellPhone,
+        ItemID.Shellphone,
+        ItemID.ShellphoneSpawn
+    };
+
+    public static bool isSpike(int type) {
+        return spikes.Contains(type);
+    }
 
     public static bool isSticky(int type) {
         return type is TileID.JungleThorns or TileID.CorruptThorns or TileID.CrimsonThorns or TileID.PlanteraThorns;
@@ -168,7 +185,7 @@ public class Constants {
 
         }
 
-        var modTile = ModContent.GetModTile(tile.TileType);
+        var modTile = ModContent.GetModTile(type);
         if (modTile != null) {
             var mod = modTile.Mod;
             var name = modTile.Name;
@@ -206,5 +223,9 @@ public class Constants {
     public static bool isBottle(Item item) {
         return item.type is ItemID.CloudinaBottle or ItemID.BlizzardinaBottle or ItemID.SandstorminaBottle
             or ItemID.TsunamiInABottle or ItemID.FartinaJar;
+    }
+
+    public static bool isRecall(Item item) {
+        return recalls.Contains(item.type);
     }
 }

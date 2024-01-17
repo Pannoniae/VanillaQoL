@@ -60,14 +60,14 @@ public class VeinMiningSystem : ModSystem {
         var tile = Framing.GetTileSafely(x, y);
         var modPlayer = player.GetModPlayer<VeinMiningPlayer>();
 
-        if (tile.HasTile && Constants.isOre(tile) && modPlayer.canMine) {
+        if (tile.HasTile && canVeinMine(tile) && modPlayer.canMine) {
             modPlayer.pickPower = pickPower;
             foreach (var coords in tileRot(x, y)) {
                 var tile2 = Framing.GetTileSafely(coords.x, coords.y);
 
                 bool notInQueue = modPlayer.notInQueue(coords.x, coords.y);
 
-                if (tile2.HasTile && Constants.isOre(tile2) && notInQueue) {
+                if (tile2.HasTile && canVeinMine(tile2) && notInQueue) {
                     // handle limits
                     modPlayer.ctr++;
                     if (modPlayer.ctr > threshold) {
@@ -83,6 +83,10 @@ public class VeinMiningSystem : ModSystem {
                 }
             }
         }
+    }
+
+    public static bool canVeinMine(Tile tile) {
+        return Constants.isOre(tile) || (QoLConfig.Instance.veinMineSpikes && Constants.isSpike(tile.TileType));
     }
 
     // the other kind of rot

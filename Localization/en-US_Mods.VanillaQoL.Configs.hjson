@@ -491,6 +491,20 @@ QoLConfig: {
 		Label: "[npc/n:637] Pannoniae Cat"
 		Tooltip: If enabled, Pannoniae is a cat.
 	}
+
+	panicKey: {
+		Label: "[i:1290] Panic Hotkey"
+		Tooltip: If enabled, a hotkey is added which allows you to quickly use a recall item. Recall Potions are preferred over Magic Mirrors.
+	}
+
+	veinMineSpikes: {
+		Label: "[i:1150] VeinMining™ Spike Expansion"
+		Tooltip:
+			'''
+			If enabled, the renowned VeinMining™ technology also works flawlessly with those pesky spikes in your world.
+			Try it today and if you don't like it, get your money back!
+			'''
+	}
 }
 
 Team: {

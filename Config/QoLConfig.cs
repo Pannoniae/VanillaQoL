@@ -5,15 +5,13 @@ using VanillaQoL.Shared;
 
 namespace VanillaQoL.Config;
 
-public enum Credits
-{
+public enum Credits {
     Vanilla,
     AfterModsFinalBoss,
     Disabled
 }
 
-public enum Team
-{
+public enum Team {
     White = 0,
     Red = 1,
     Green = 2,
@@ -310,6 +308,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool persistentBuffs { get; set; }
 
+    // Panic Necklace
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool panicKey { get; set; }
+
     #endregion
 
     #region Fixes
@@ -458,6 +462,13 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     public bool disableShimmering { get; set; }
+
+    // Wooden Spike
+    [BackgroundColor(192, 54, 128, 192)]
+    [Range(0, 15)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool veinMineSpikes { get; set; }
 
     #endregion
 
