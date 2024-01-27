@@ -133,6 +133,8 @@ public class NPCShops : GlobalNPC {
                     Item.buyPrice(0, cost, 0, 0));
                 addToShop(shop, ItemID.MagicPowerPotion,
                     Item.buyPrice(0, cost, 0, 0));
+                addToShop(shop, ItemID.LifeforcePotion,
+                    Item.buyPrice(0, cost, 0, 0));
                 addToShop(shop, ItemID.GravitationPotion,
                     Item.buyPrice(0, 2, 0, 0));
                 addToShop(shop, ItemID.PotionOfReturn,

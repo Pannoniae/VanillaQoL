@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Cellphones also work now.
+[*] Lifeforce Potion is sold by the Wizard because fuck fishing in the Hallow.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

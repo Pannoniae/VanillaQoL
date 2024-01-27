@@ -182,7 +182,7 @@ public class Constants {
         }
 
         if (QoLConfig.Instance.extendedOres && extendedOres.Contains(type)) {
-
+            return true;
         }
 
         var modTile = ModContent.GetModTile(type);
