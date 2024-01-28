@@ -11,7 +11,6 @@ public class BuffsPersistOnDeath : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) => QoLConfig.Instance.persistentBuffs;
 
     public override void PostSetupContent() {
-
         _persistentBuffs = new();
 
         // Make all saveable buffs persistent
@@ -50,11 +49,13 @@ public class BuffsPersistOnDeath : ModSystem {
 
     // We have to manually undo changes to the array ;-;
     public override void Unload() {
-        foreach ((int buff, bool originalValue) in _persistentBuffs) {
-            Main.persistentBuff[buff] = originalValue;
-        }
+        if (_persistentBuffs != null) {
+            foreach ((int buff, bool originalValue) in _persistentBuffs) {
+                Main.persistentBuff[buff] = originalValue;
+            }
 
-        _persistentBuffs.Clear();
-        _persistentBuffs = null!;
+            _persistentBuffs.Clear();
+            _persistentBuffs = null!;
+        }
     }
 }
