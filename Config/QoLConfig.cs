@@ -391,6 +391,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool ninja { get; set; }
 
+    // Hallow Pylon
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool morePylons { get; set; }
+
     #endregion
 
     #region Holiday Cheer

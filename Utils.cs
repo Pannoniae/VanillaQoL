@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace VanillaQoL;
 
@@ -134,6 +137,37 @@ public class Utils {
         // collect all static fields
         var fieldInfos = type.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
         return fieldInfos;
+    }
+
+    /// <returns>
+    /// A <see cref="LocalizedText"/> instance which will have the item's translated name.
+    /// <para>NOTE: Modded translations are not loaded until after PostSetupContent.</para>Caching the result is suggested.
+    /// </returns>
+    public static LocalizedText GetItemName<T>() where T : ModItem =>
+        GetTextFromModItem(ModContent.ItemType<T>(), "DisplayName");
+
+    /// <param name="itemID">The item's ID.</param>
+    /// <param name="suffix">The desired suffix.</param>
+    /// <returns>
+    /// A <see cref="LocalizedText"/> instance for the given item and suffix
+    /// <para>NOTE: Modded translations are not loaded until after PostSetupContent.</para>Caching the result is suggested.
+    /// </returns>
+    public static LocalizedText GetTextFromModItem(int itemID, string suffix) {
+        var modItem = ItemLoader.GetItem(itemID);
+        return modItem.GetLocalization(suffix);
+    }
+
+    /// <param name="itemID">The item's ID.</param>
+    /// <returns>
+    /// A <see cref="LocalizedText"/> instance for an item's name.
+    /// <para>NOTE: Modded translations are not loaded until after PostSetupContent.</para>Caching the result is suggested.
+    /// </returns>
+    public static LocalizedText GetItemName(int itemID) {
+        if (itemID < ItemID.Count) {
+            return Language.GetText("ItemName." + ItemID.Search.GetName(itemID));
+        }
+
+        return GetTextFromModItem(itemID, "DisplayName");
     }
 }
 
