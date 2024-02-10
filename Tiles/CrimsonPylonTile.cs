@@ -31,5 +31,22 @@ public class CrimsonPylonTile  : BasePylonTile {
     }
 
     public override bool ValidTeleportCheck_BiomeRequirements(TeleportPylonInfo pylonInfo, SceneMetrics sceneData) =>
-        Main.SceneMetrics.BloodTileCount >= 100;
+        validDestination(pylonInfo);
+
+    private static bool validDestination(TeleportPylonInfo info) {
+        var _sceneMetrics = new SceneMetrics();
+        try
+        {
+            _sceneMetrics.ScanAndExportToMain(new SceneMetricsScanSettings()
+            {
+                VisualScanArea = new Rectangle?(),
+                BiomeScanCenterPositionInWorld = new Vector2?(info.PositionInTiles.ToWorldCoordinates()),
+                ScanOreFinderData = false
+            });
+            return _sceneMetrics.EnoughTilesForCrimson;
+        }
+        catch {
+            return false;
+        }
+    }
 }
