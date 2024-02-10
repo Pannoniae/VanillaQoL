@@ -8,6 +8,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  - VeinMining™! No need to press a keybind for this one.
  - WingSlot™! This one respects loadout colours.
  - A better Shop Expander, with proper buttons instead of fake items! It expands automatically when you sell items.
+ - New Corruption/Crimson Pylons!
 
 Features:
  - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.

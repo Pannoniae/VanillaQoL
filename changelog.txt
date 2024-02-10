@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Lifeforce Potion is sold by the Wizard because fuck fishing in the Hallow.
+[*] New Corruption/Crimson Pylons!
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

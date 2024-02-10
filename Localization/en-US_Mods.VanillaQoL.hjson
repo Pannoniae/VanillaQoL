@@ -159,6 +159,18 @@ Items: {
 			'Tossing may be difficult.'
 			'''
 	}
+
+	Placeables: {
+		CorruptionPylon: {
+			DisplayName: Corruption Pylon
+			Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+		}
+
+		CrimsonPylon: {
+			DisplayName: Crimson Pylon
+			Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+		}
+	}
 }
 
 Projectiles: {
@@ -206,3 +218,8 @@ NPCs: {
 }
 
 Shield.DamageReductionShield.damageReduction: "{0}% Damage Reduction"
+
+Tiles: {
+	CrimsonPylonTile.inCrimson: While in the Crimson
+	CorruptionPylonTile.inCorruption: While in the Corruption
+}

@@ -505,6 +505,15 @@ QoLConfig: {
 			Try it today and if you don't like it, get your money back!
 			'''
 	}
+
+	morePylons: {
+		Label: "[i:4916] More Pylons"
+		Tooltip:
+			'''
+			If enabled, Vanilla+ QoL adds a Corruption and a Crimson Pylon for NPCs to use.
+			It is advised to enable the config option of NPCs living in evil biomes.
+			'''
+	}
 }
 
 Team: {
