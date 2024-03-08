@@ -532,3 +532,67 @@ Credits: {
 	AfterModsFinalBoss.Label: After Final Boss (modded)
 	Disabled.Label: No Credits
 }
+
+UIConfig: {
+	DisplayName: UI Config
+
+	npcSellPriceYOffset: {
+		Tooltip: How far down from the NPC to show the price display  (Default 0)
+		Label: Y Offset
+	}
+
+	npcSellPriceXOffset: {
+		Tooltip: How far right from the NPC to show the price display (Default: 50)
+		Label: X Offset
+	}
+
+	showPriceMultiplier: {
+		Tooltip: When enabled, the percentage of the NPC's specific price adjustment will be displayed.
+		Label: Show Price Multiplier
+	}
+
+	showCoinIcon: {
+		Tooltip: When enabled, the icon of each coin will be displayed next to the amount.
+		Label: Show Coin Icon
+	}
+
+	backgroundColor: {
+		Label: Background Color
+		Tooltip: ""
+	}
+
+	dynamicBackgroundColor: {
+		Label: Dynamic Background Color
+		Tooltip:
+			'''
+			When enabled, background color will be adjusted based on each NPC's price adjustment: 
+			Red for unhappy npcs, Green for happy npcs.
+			'''
+	}
+
+	enableNPCSellPrices: {
+		Label: Enable NPC Sell Prices
+		Tooltip:
+			'''
+			If enabled, when holding the `favorite` keybind over an item, a display of each 
+			town NPC's sell prices for that item will appear next to each NPC.
+			'''
+	}
+
+	npcSellPriceShowBackground: {
+		Tooltip: When enabled, the NPC price display will appear with a background panel.
+		Label: Show Background
+	}
+
+	npcSellPriceBackgroundPadding: {
+		Tooltip: Size of the NPC price display background (Default: 5)
+		Label: Background Size
+	}
+
+	npcSellPriceBackgroundColor: {
+		Tooltip: The background color of the NPC price display
+		Label: Background Color
+	}
+
+	Headers.DisplayNPCSellPrices: NPC Sell Prices Display
+}
