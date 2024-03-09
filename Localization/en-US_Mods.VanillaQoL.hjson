@@ -78,6 +78,7 @@ Keybinds: {
 	ShareMap.DisplayName: Share Map
 	LockOn.DisplayName: Lock On
 	PanicKey.DisplayName: Panic Key
+	VeinMineToggleKey.DisplayName: VeinMine™ Toggle Key
 }
 
 Buffs: {

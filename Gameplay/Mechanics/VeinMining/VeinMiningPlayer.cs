@@ -4,6 +4,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -22,6 +23,10 @@ public class VeinMiningPlayer : ModPlayer {
     // to stop cheating :P
     public int pickPower;
 
+    public override bool IsLoadingEnabled(Mod mod) {
+        return QoLConfig.Instance.veinMining;
+    }
+
     public override void Initialize() {
         canMine = true;
     }
@@ -31,6 +36,12 @@ public class VeinMiningPlayer : ModPlayer {
         set {
             cd = 60;
             _canMine = value;
+        }
+    }
+
+    public override void ProcessTriggers(TriggersSet triggersSet) {
+        if (VeinMiningSystem.toggle.JustPressed) {
+            VeinMiningSystem.toggleState = !VeinMiningSystem.toggleState;
         }
     }
 

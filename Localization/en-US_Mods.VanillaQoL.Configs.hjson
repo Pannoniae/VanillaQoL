@@ -537,13 +537,13 @@ UIConfig: {
 	DisplayName: UI Config
 
 	npcSellPriceYOffset: {
-		Tooltip: How far down from the NPC to show the price display  (Default 0)
-		Label: Y Offset
+		Tooltip: How far down from the NPC to show the price display (default: 0)
+		Label: Y-Offset
 	}
 
 	npcSellPriceXOffset: {
-		Tooltip: How far right from the NPC to show the price display (Default: 50)
-		Label: X Offset
+		Tooltip: How far right from the NPC to show the price display (default: 50)
+		Label: X-Offset
 	}
 
 	showPriceMultiplier: {
@@ -557,16 +557,16 @@ UIConfig: {
 	}
 
 	backgroundColor: {
-		Label: Background Color
+		Label: Background Colour
 		Tooltip: ""
 	}
 
 	dynamicBackgroundColor: {
-		Label: Dynamic Background Color
+		Label: Dynamic Background Colour
 		Tooltip:
 			'''
-			When enabled, background color will be adjusted based on each NPC's price adjustment: 
-			Red for unhappy npcs, Green for happy npcs.
+			When enabled, the background colour will be adjusted based on each NPC's price adjustment.
+			[c/FF0000:Red] for unhappy ones, [c/22EE00:Green] for happy ones.
 			'''
 	}
 
@@ -574,7 +574,7 @@ UIConfig: {
 		Label: Enable NPC Sell Prices
 		Tooltip:
 			'''
-			If enabled, when holding the `favorite` keybind over an item, a display of each 
+			If enabled, when holding the `favourite` keybind over an item, a display of each
 			town NPC's sell prices for that item will appear next to each NPC.
 			'''
 	}
@@ -585,13 +585,13 @@ UIConfig: {
 	}
 
 	npcSellPriceBackgroundPadding: {
-		Tooltip: Size of the NPC price display background (Default: 5)
+		Tooltip: Controls the size of the NPC price display background (default: 5)
 		Label: Background Size
 	}
 
 	npcSellPriceBackgroundColor: {
-		Tooltip: The background color of the NPC price display
-		Label: Background Color
+		Tooltip: Controls the background colour of the NPC price display
+		Label: Background Colour
 	}
 
 	Headers.DisplayNPCSellPrices: NPC Sell Prices Display

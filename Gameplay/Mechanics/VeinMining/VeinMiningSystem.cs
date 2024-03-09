@@ -6,6 +6,10 @@ using Terraria.ModLoader;
 namespace VanillaQoL.Gameplay.VeinMining;
 
 public class VeinMiningSystem : ModSystem {
+
+    public static ModKeybind toggle;
+    public static bool toggleState;
+
     public static int threshold = 120;
 
     public override bool IsLoadingEnabled(Mod mod) {
@@ -14,6 +18,8 @@ public class VeinMiningSystem : ModSystem {
 
     public override void Load() {
         IL_Player.PickTile += pickTilePatch;
+        toggle = KeybindLoader.RegisterKeybind(Mod, "VeinMineToggleKey", "N");
+        toggleState = true;
     }
 
     public override void Unload() {
@@ -60,7 +66,7 @@ public class VeinMiningSystem : ModSystem {
         var tile = Framing.GetTileSafely(x, y);
         var modPlayer = player.GetModPlayer<VeinMiningPlayer>();
 
-        if (tile.HasTile && canVeinMine(tile) && modPlayer.canMine) {
+        if (tile.HasTile && toggleState && canVeinMine(tile) && modPlayer.canMine) {
             modPlayer.pickPower = pickPower;
             foreach (var coords in tileRot(x, y)) {
                 var tile2 = Framing.GetTileSafely(coords.x, coords.y);
