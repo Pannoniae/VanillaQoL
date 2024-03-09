@@ -1,0 +1,208 @@
+Tooltips: {
+	Hooks: {
+		// reachText: Alcanza {0} bloques de distancia
+		// numHooksText1: Lanza un garfio
+		// numHooksText2Plus: Lanza {0} garfios
+	}
+
+	Wings: {
+		// timeText: Proporciona vuelo durante {0} segundos
+		// hoverText: Tiene la capacidad de flotar
+		// hSpeedText: "{0} mph velocidad horizontal"
+	}
+
+	Shimmer: {
+		// shimmerable: Puede brillar
+		// shimmerItem: " en [i:{0}] {1}"
+		// shimmerPostSkeletron: Puede desarmarse después de derrotar a Skeletron
+		// shimmerPostGolem: Puede desarmarse después de derrotar a Golem
+		// shimmerPostML: " después de derrotar al Señor de la Luna"
+		// shimmerDecraft: ", puede desarmarse"
+		// shimmerNPC: ", transformándose en {0}"
+		// shimmerCoinLuck: " en suerte de moneda"
+	}
+
+	Ammo: {
+		// ammoFire: Disparando [i:{0}] {1}
+		// ammoFireArrows: Dispara flechas
+		// ammoFireBullets: Dispara balas
+		// ammoFireCoins: Dispara monedas
+		// ammoFireRockets: Dispara cohetes
+		// ammoFireDarts: Dispara dardos y semillas
+	}
+
+	WingSlot: {
+		// wingSlotText: " en el espacio de alas"
+		// wingSlotTextFull: Equipable en el espacio de alas
+	}
+}
+
+UI: {
+	// timeText: ""
+	// westWind: " ({0} km/h O)"
+	// eastWind: " ({0} km/h E)"
+	// compassWest: "{0} m al Oeste"
+	// compassEast: "{0} m al Este"
+	// depth: "{0} m"
+	// speed: "{0} km/h"
+}
+
+InfoDisplays: {
+	LuckInfoDisplay: {
+		// luckText: "{0} Suerte"
+		// DisplayName: Suerte
+	}
+}
+
+Info: {
+	UIInfo: {
+		// demonHeart: Usó el Corazón de Demonio
+		// torchGod: Tiene el Favor del Dios Antorcha
+		// artisanBread: Comió la Hogaza de Artesano
+		// aegisCrystal: Usó un Cristal Aegis
+		// aegisFruit: Comió Fruta Aegis
+		// arcaneCrystal: Usó un Cristal Arcano
+		// ambrosia: Comió Ambrosía
+		// gummyWorm: Usó un Gusano de Goma
+		// galaxyPearl: Usó la Perla Galáctica
+		// minecartUpgradeKit: Usó el Kit de Mejora del Vagoneta
+		// hardMode: Está en Modo Difícil
+		// killedML: Derrotó al Señor de la Luna
+		// combatBook: Usó Técnicas Avanzadas de Combate
+		// combatBookVolumeTwo: Usó Técnicas Avanzadas de Combate: Volumen Dos
+		// peddlersSatchel: Usó el Taleguillo del Vendedor Ambulante
+	}
+}
+
+Keybinds: {
+	// ShareMap.DisplayName: Compartir Mapa
+	// LockOn.DisplayName: Fijar Objetivo
+	// PanicKey.DisplayName: Tecla de Pánico
+}
+
+Buffs: {
+	NurseHeal: {
+		// DisplayName: Curación de la Enfermera
+		// Description: ¡La enfermera te está curando!
+	}
+}
+
+Items: {
+	NightsEdge: {
+		// DisplayName: Antiguo Filo de la Noche
+		// Tooltip: ""
+	}
+
+	TrueNightsEdge: {
+		// DisplayName: Antiguo Verdadero Filo de la Noche
+		// Tooltip: ""
+	}
+
+	BladeOfGrass: {
+		// DisplayName: Antigua Hoja de Hierba
+		// Tooltip: ""
+	}
+
+	FieryGreatsword: {
+		// DisplayName: Gran Espada Ígnea
+		// Tooltip: ""
+	}
+
+	Muramasa: {
+		// DisplayName: Antigua Muramasa
+		// Tooltip: ""
+	}
+
+	TrueExcalibur: {
+		// DisplayName: Antiguo Verdadero Excalibur
+		// Tooltip: ""
+	}
+
+	TerraBlade: {
+		// DisplayName: Antigua Terra Blade
+		// Tooltip: ""
+	}
+
+	Excalibur: {
+		// DisplayName: Antiguo Excalibur
+		// Tooltip: ""
+	}
+
+	BouncyDirtBomb: {
+		// DisplayName: Bomba de Tierra Rebote
+		/* Tooltip:
+			'''
+			Una pequeña explosión que esparcirá tierra
+			Muy rebotante
+			''' */
+	}
+
+	BouncyDirtDynamite: {
+		// DisplayName: Dinamita de Tierra Rebote
+		/* Tooltip:
+			'''
+			Una gran explosión que esparcirá tierra
+			'Esto demostrará ser una terrible idea'
+			''' */
+	}
+
+	DirtDynamite: {
+		// DisplayName: Dinamita de Tierra
+		// Tooltip: Una gran explosión que esparcirá tierra
+	}
+
+	StickyDirtDynamite: {
+		// DisplayName: Dinamita Pegajosa de Tierra
+		/* Tooltip:
+			'''
+			Una gran explosión que esparcirá tierra
+			'Lanzarla puede ser difícil.'
+			''' */
+	}
+}
+
+Projectiles: {
+	// BouncyDirtBombProjectile.DisplayName: Proyectil de Bomba de Tierra Rebote
+	// BouncyDirtDynamiteProjectile.DisplayName: Proyectil de Dinamita de Tierra Rebote
+	// DirtDynamiteProjectile.DisplayName: Proyectil de Dinamita de Tierra
+	// StickyDirtDynamiteProjectile.DisplayName: Proyectil de Dinamita Pegajosa de Tierra
+}
+
+Wings: {
+	WingSlotSystem: {
+		// socialWings: Alas Sociales
+		// wings: Alas
+	}
+}
+
+NPCs: {
+	Ninja: {
+		// DisplayName: Ninja
+
+		TownNPCMood: {
+			// Content: Estoy contento.
+			// NoHome: Odio no tener un hogar.
+			// FarFromHome: Estoy demasiado lejos de casa.
+			// LoveSpace: Me encanta tener tanto espacio.
+			// DislikeCrowded: No me gusta lo abarrotado que estoy.
+			// HateCrowded: Odio lo abarrotado que estoy.
+			// LikeNPC_Princess: Me gusta {NPCName}.
+			// Princess_LovesNPC: Me gusta {NPCName}.
+			// LikeBiome: Me gusta {BiomeName}.
+			// DislikeBiome: No me gusta {BiomeName}.
+			// LoveNPC: Amo a {NPCName}.
+			// LikeNPC: Me gusta {NPCName}.
+			// DislikeNPC: No me gusta {NPCName}.
+			// HateNPC: Odio a {NPCName}.
+		}
+
+		// Census.SpawnCondition: Derrota al Rey Slime
+		// Bestiary: Un ninja ligeramente torpe que quedó atrapado en el Rey Slime. Está realmente agradecido por liberarlo.
+		// chat1: Me atraparon una vez, ahora todos piensan en mí como un tonto incompetente.
+		// chat2: Reducido a un simple vendedor ambulante, qué indigno para un asesino como yo.
+		// chat3: ¿Quieres saber cómo podía respirar durante tanto tiempo dentro de ese slime? Mira mis mercancías.
+		// chat4: Te pediría que me contrataras por mis servicios, pero claramente no lo necesitas.
+	}
+}
+
+// Shield.DamageReductionShield.damageReduction: "{0}% de Reducción de Daño"
