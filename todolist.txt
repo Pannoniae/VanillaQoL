@@ -53,4 +53,16 @@ add weapon selling so you don't have to kill the poor NPCs
 
 cheaty qol, all of these should have a debuff if user enables it:
 - NPCs sell potions, but player gets potion sickness if too many? maybe too exploitable
+
+
+- calamity reforge system
+- fix shared map feature eating maps
+- veinminer instant item pickup
+- maybe veinminer instant break? kind of a cheat lol
+- restore Jetstream Sam for muramasa
+- unnerf lifesteal
+- unnerf hallowed armour dodge
+- look at green halo thingie when using mount unnerf in unnerfs
+- unnerf rod of harmony shimmering (post-ML, not post SC)
+- unsafe walls being mined from the edges
 -

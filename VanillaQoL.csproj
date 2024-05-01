@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\tModLoader.targets"/>
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <PlatformTarget>AnyCPU</PlatformTarget>
         <LangVersion>default</LangVersion>
         <PackageId>VanillaQoL</PackageId>
@@ -21,10 +21,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-<!--        <PackageReference Include="Fody" Version="6.8.0">-->
-<!--            <PrivateAssets>all</PrivateAssets>-->
-<!--            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
-<!--        </PackageReference>-->
         <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
@@ -40,7 +36,6 @@
         <Reference Include="ImproveGame">
           <HintPath>..\..\ModReader\ImproveGame\ImproveGame.dll</HintPath>
         </Reference>
-        <Reference Include="lib/ILProj.dll"/>
         <Reference Include="CalamityDemutation">
           <HintPath>..\..\ModReader\CalamityDemutation\CalamityDemutation.dll</HintPath>
         </Reference>
@@ -106,34 +101,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-<!--        <WeaverFiles Include="$(SolutionDir)Weaver\bin\$(Configuration)\netstandard2.0\Weaver.dll"-->
-<!--                     WeaverClassNames="ModuleWeaver"/>-->
-    </ItemGroup>
-    <ItemGroup>
         <Folder Include="lib\"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="ILLib\ILProj.ilproj"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Remove="ILLib\bin\**"/>
-        <Compile Remove="ILLib\obj\**"/>
-        <Compile Remove="Weaver\**"/>
-    </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Remove="ILLib\bin\**"/>
-        <EmbeddedResource Remove="ILLib\obj\**"/>
-        <EmbeddedResource Remove="Weaver\**"/>
-    </ItemGroup>
-    <ItemGroup>
-        <AdditionalFiles Remove="ILLib\bin\**"/>
-        <AdditionalFiles Remove="ILLib\obj\**"/>
-        <AdditionalFiles Remove="Weaver\**"/>
-    </ItemGroup>
-    <ItemGroup>
-        <None Remove="ILLib\bin\**"/>
-        <None Remove="ILLib\obj\**"/>
-        <None Remove="Weaver\**"/>
     </ItemGroup>
     <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll"/>

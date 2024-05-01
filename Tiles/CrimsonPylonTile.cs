@@ -33,7 +33,7 @@ public class CrimsonPylonTile  : BasePylonTile {
     public override bool ValidTeleportCheck_BiomeRequirements(TeleportPylonInfo pylonInfo, SceneMetrics sceneData) =>
         validDestination(pylonInfo);
 
-    private static bool validDestination(TeleportPylonInfo info) {
+    static private bool validDestination(TeleportPylonInfo info) {
         var _sceneMetrics = new SceneMetrics();
         try
         {

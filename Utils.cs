@@ -35,7 +35,7 @@ public class Utils {
             }
 
             //staticField.SetValue(null, null);
-            ILProj.Util.wipeReadonlyFieldIL(staticField);
+            wipeReadonlyFieldIL(staticField);
         }
     }
 
@@ -51,23 +51,23 @@ public class Utils {
                 }
 
                 //staticField.SetValue(null, null);
-                ILProj.Util.wipeReadonlyFieldIL(staticField);
+                wipeReadonlyFieldIL(staticField);
             }
         }
     }
 
     // This is the code, just written in IL. This will come back when tML is .NET 8 so the fucking compiler won't refuse to compile this.
-    /*private static unsafe void wipeReadonlyFieldIL(FieldInfo field) {
+    unsafe static private void wipeReadonlyFieldIL(FieldInfo field) {
         var f = field.GetValue(null);
         var addr = &f;
         *addr = null;
     }
 
-    private static unsafe void setReadonlyFieldIL<T>(FieldInfo field, T value) {
+    unsafe static private void setReadonlyFieldIL<T>(FieldInfo field, T value) {
        T f = (T)field.GetValue(null);
        var addr = &f;
        *addr = value;
-    }*/
+    }
 
     /// <summary>
     /// Sets the value of a readonly field on an object.
