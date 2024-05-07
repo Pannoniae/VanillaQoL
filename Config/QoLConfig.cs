@@ -314,6 +314,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool panicKey { get; set; }
 
+    // Honey Lamp
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool honeyImmuneHoneyLamps { get; set; }
+
     #endregion
 
     #region Fixes

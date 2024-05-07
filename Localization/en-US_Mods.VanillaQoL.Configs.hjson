@@ -125,7 +125,7 @@ QoLConfig: {
 
 	mapSharing: {
 		Label: "[i:893] Enable Map Sharing"
-		Tooltip: If enabled, players in the same team will share the map with each other.
+		Tooltip: MIGHT BE UNSTABLE! If enabled, players in the same team will share the map with each other.
 	}
 
 	overTimeNurseHealing: {
@@ -493,8 +493,8 @@ QoLConfig: {
 	}
 
 	panicKey: {
-		Label: "[i:1290] Panic Hotkey"
-		Tooltip: If enabled, a hotkey is added which allows you to quickly use a recall item. Recall Potions are preferred over Magic Mirrors.
+		Label: "[i:2129] Honey-Immune Honey Lamps"
+		Tooltip: If enabled, Honey Lamps do not break when placed in honey.
 	}
 
 	veinMineSpikes: {
@@ -513,6 +513,11 @@ QoLConfig: {
 			If enabled, Vanilla+ QoL adds a Corruption and a Crimson Pylon for NPCs to use.
 			It is advised to enable the config option of NPCs living in evil biomes.
 			'''
+	}
+
+	honeyImmuneHoneyLamps: {
+		Label: honey Immune Honey Lamps
+		Tooltip: ""
 	}
 }
 

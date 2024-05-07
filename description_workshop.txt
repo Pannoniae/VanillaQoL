@@ -82,6 +82,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Made buffs that persist when saving persist when dying.
  [*] VeinMining™ for spikes.
  [*] Quick recall hotkey.
+ [*] Honey-immune Honey Lamps.
 [/list]
 
 [b]Credits:[/b]
