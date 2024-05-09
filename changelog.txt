@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Added honey-immune honey lamps.
+[*] Unsafe walls can be broken anywhere, not just from the edges.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

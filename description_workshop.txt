@@ -83,6 +83,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] VeinMining™ for spikes.
  [*] Quick recall hotkey.
  [*] Honey-immune Honey Lamps.
+ {*] Unsafe walls can be broken anywhere, not just from the edges.
 [/list]
 
 [b]Credits:[/b]

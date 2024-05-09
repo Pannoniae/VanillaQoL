@@ -493,8 +493,8 @@ QoLConfig: {
 	}
 
 	panicKey: {
-		Label: "[i:2129] Honey-Immune Honey Lamps"
-		Tooltip: If enabled, Honey Lamps do not break when placed in honey.
+        Label: "[i:1290] Panic Hotkey"
+        Tooltip: If enabled, a hotkey is added which allows you to quickly use a recall item. Recall Potions are preferred over Magic Mirrors.
 	}
 
 	veinMineSpikes: {
@@ -516,9 +516,14 @@ QoLConfig: {
 	}
 
 	honeyImmuneHoneyLamps: {
-		Label: honey Immune Honey Lamps
-		Tooltip: ""
-	}
+        Label: "[i:2129] Honey-Immune Honey Lamps"
+        Tooltip: If enabled, Honey Lamps do not break when placed in honey.
+    }
+
+    mineWallsFromInside: {
+        Label: "[i:30] Break Unsafe Walls Anywhere"
+        Tooltip: If enabled, unsafe walls do not need to be exposed to be air to be broken.
+    }
 }
 
 Team: {

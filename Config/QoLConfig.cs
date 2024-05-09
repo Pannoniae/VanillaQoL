@@ -320,6 +320,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool honeyImmuneHoneyLamps { get; set; }
 
+    // Dirt Wall
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool mineWallsFromInside { get; set; }
+
     #endregion
 
     #region Fixes
