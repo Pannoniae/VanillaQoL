@@ -60,6 +60,9 @@
         <Reference Include="ImprovedRespawning">
             <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
         </Reference>
+        <Reference Include="LavalessLavaSlime">
+          <HintPath>..\..\ModReader\LavalessLavaSlime\LavalessLavaSlime.dll</HintPath>
+        </Reference>
         <Reference Include="LessTools">
             <HintPath>..\..\ModReader\LessTools\LessTools.dll</HintPath>
         </Reference>

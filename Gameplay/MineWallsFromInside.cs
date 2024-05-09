@@ -14,6 +14,10 @@ public class MineWallsFromInside : ModSystem {
         IL_Player.CanPlayerSmashWall += mineWallPatch;
     }
 
+    public override void Unload() {
+        IL_Player.CanPlayerSmashWall -= mineWallPatch;
+    }
+
 
     // just return true lol
     public void mineWallPatch(ILContext il) {

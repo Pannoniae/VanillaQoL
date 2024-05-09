@@ -2,6 +2,8 @@
 
 Vanilla Quality of Life mod intended to make the game more fun :)
 
+[quote=me]Why install 50 janky mods when you can install one?[/quote]
+
 If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
 GitHub repository: https://github.com/Pannoniae/VanillaQoL
@@ -84,6 +86,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Quick recall hotkey.
  [*] Honey-immune Honey Lamps.
  {*] Unsafe walls can be broken anywhere, not just from the edges.
+ [*] Lava Slimes do not drop lava on death in Expert Mode.
 [/list]
 
 [b]Credits:[/b]

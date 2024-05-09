@@ -326,6 +326,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool mineWallsFromInside { get; set; }
 
+    // Lava Slime
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool noLavaSlime { get; set; }
+
     #endregion
 
     #region Fixes
@@ -607,6 +613,8 @@ public class QoLConfig : ModConfig {
 
     #endregion
 
+    #region testing
+
     [Header("testing")]
 
     // Trifold Map
@@ -621,6 +629,7 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool testing { get; set; }
 
+    #endregion
     public override void OnChanged() {
         if (sellAdditionalItems) {
             GlobalFeatures.enableFeature(Mod, "NPCShops");

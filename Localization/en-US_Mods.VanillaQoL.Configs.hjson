@@ -524,6 +524,11 @@ QoLConfig: {
 		Label: "[i:30] Break Unsafe Walls Anywhere"
 		Tooltip: If enabled, unsafe walls do not need to be exposed to be air to be broken.
 	}
+
+	noLavaSlime: {
+		Label: "[npc/n:59] No Lava from Lava Slime"
+		Tooltip: If enabled, Lava Slimes do not drop lava on death in Expert Mode.
+	}
 }
 
 Team: {
