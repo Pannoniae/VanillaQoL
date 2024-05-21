@@ -125,7 +125,7 @@ QoLConfig: {
 
 	mapSharingTESTING: {
 		Label: "[i:893] Enable Map Sharing"
-		Tooltip: [c/FF0000:WILL PROBABLY CORRUPT YOUR MAP!] If enabled, players in the same team will share the map with each other.
+		Tooltip: "[c/FF0000:WILL PROBABLY CORRUPT YOUR MAP!] If enabled, players in the same team will share the map with each other."
 	}
 
 	overTimeNurseHealing: {

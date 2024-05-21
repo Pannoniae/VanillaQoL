@@ -28,7 +28,7 @@ public class QoLPlayer : ModPlayer {
     }
 
     public override void ProcessTriggers(TriggersSet triggersSet) {
-        if (QoLConfig.Instance.mapSharing && Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled &&
+        if (QoLConfig.Instance.mapSharingTESTING && Main.netMode == NetmodeID.MultiplayerClient && Main.mapEnabled &&
             QoLSharedMapSystem.shareKeybind.JustPressed) {
             QoLSharedMapSystem.instance.sendSyncRequestPacket();
             Main.NewText("Requested map sync.");
@@ -60,7 +60,7 @@ public class QoLSharedMapSystem : ModSystem {
     private const int lightTolerance = 15000;
 
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.mapSharing;
+        return QoLConfig.Instance.mapSharingTESTING;
     }
 
 
