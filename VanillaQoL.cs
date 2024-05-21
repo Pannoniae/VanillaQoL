@@ -137,7 +137,7 @@ public class VanillaQoL : Mod {
     }
 
     public override void HandlePacket(BinaryReader reader, int whoAmI) {
-        if (QoLConfig.Instance.mapSharing) {
+        if (QoLConfig.Instance.mapSharingTESTING) {
             QoLSharedMapSystem.instance.HandlePacket(reader, whoAmI);
         }
         else {

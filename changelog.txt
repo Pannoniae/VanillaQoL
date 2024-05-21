@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Unsafe walls can be broken anywhere, not just from the edges.
+[*] Add huge warning with map sharing (it sometimes voids maps)
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

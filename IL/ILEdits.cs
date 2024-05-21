@@ -290,6 +290,7 @@ public class ILEdits : ModSystem {
         IL_Main.UpdateTime -= townNPCPatch;
         IL_NPC.AI_007_TownEntities -= townNPCTeleportPatch;
         IL_Main.DrawPVPIcons -= PvPUIPatch;
+        IL_Main.DrawNPCHousesInUI -= PvPNPCDrawPatch;
         IL_Main.DrawInfoAccs -= stopwatchMetricPatch;
         IL_Wiring.XferWater -= disableShimmerPumpingPatch;
 

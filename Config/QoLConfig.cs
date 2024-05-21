@@ -621,7 +621,7 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     [ReloadRequired]
-    public bool mapSharing { get; set; }
+    public bool mapSharingTESTING { get; set; }
 
     // Dirt
     [BackgroundColor(192, 54, 128, 192)]
