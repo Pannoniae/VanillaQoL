@@ -27,6 +27,9 @@
         <Reference Include="BAM">
           <HintPath>..\..\ModReader\BAM\BAM.dll</HintPath>
         </Reference>
+        <Reference Include="CalValEX">
+          <HintPath>..\..\ModReader\CalValEX\CalValEX.dll</HintPath>
+        </Reference>
         <Reference Include="Consolaria">
           <HintPath>..\..\ModReader\Consolaria\Consolaria.dll</HintPath>
         </Reference>

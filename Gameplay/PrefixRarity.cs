@@ -24,7 +24,7 @@ public class PrefixRarity : ModSystem {
         // IL_0312: ldarg.0      // this
         // IL_0313: ldfld        int32 Terraria.Item::rare
         // IL_0318: stloc.s      rare
-        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg0(),
+        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdarg0(),
                 i => i.MatchLdfld<Item>("rare"),
                 i => i.MatchStloc(out var _))) {
             // should be 12
@@ -41,7 +41,7 @@ public class PrefixRarity : ModSystem {
         // IL_0402: stloc.s      valueMult
 
         var ilCursor2 = new ILCursor(ilCursor);
-        if (ilCursor2.TryGotoNext(MoveType.Before, i => i.MatchLdloc(out var _),
+        if (ilCursor2.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdloc(out var _),
                 i => i.MatchLdloc(out var _),
                 i => i.MatchMul(),
                 i => i.MatchStloc(out var _))) {
