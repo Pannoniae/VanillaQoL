@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Build on 2024.4. Maybe this fixes the mod for some users.
+[*] Fix PvP icons when Census is installed and there is less than one row of NPCs.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

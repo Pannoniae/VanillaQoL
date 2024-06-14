@@ -328,9 +328,9 @@ public static class CensusLogic {
         }
     }
 
-    public static int numberOfNPCColumns() {
+    public static int numberOfNPCs() {
         // with census, we need the number of all NPCs divided by the NPC's per column
         var numberOfNPCs = lengthOfTheList;
-        return (int)Math.Ceiling((float)numberOfNPCs / UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
+        return numberOfNPCs;
     }
 }

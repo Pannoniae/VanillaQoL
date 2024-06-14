@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.UI.Gamepad;
@@ -11,6 +12,8 @@ using VanillaQoL.UI;
 namespace VanillaQoL.API;
 
 public class GlobalHooks {
+    private static readonly FieldInfo mHField = typeof(Main).GetField("mH", BindingFlags.NonPublic | BindingFlags.Static)!;
+    
     /// <summary>
     /// Convert speed to km/h.
     /// </summary>
@@ -28,19 +31,45 @@ public class GlobalHooks {
 
         var numberOfNPCColumns = (int)Math.Ceiling((float)UILinkPointNavigator.Shortcuts.NPCS_IconsTotal /
                                                    UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
-        if (VanillaQoL.instance.hasCensus) {
-            numberOfNPCColumns = CensusLogic.numberOfNPCColumns();
-            // fix for census + 1 column, it produces really large numbers because the first column isn't full
-            if (UILinkPointNavigator.Shortcuts.NPCS_IconsTotal - 1 <=
-                UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn) {
-                // fuck this we have to estimate ourselves
-                var maxY = Main.screenHeight - 80;
 
-                var iconsPerColumn = (maxY - y) / 56; // why 56? idk, vanilla says the size is 56
-                numberOfNPCColumns = CensusLogic.numberOfNPCColumns() / iconsPerColumn;
+        int iconsPerColumn = 1;
+        if (VanillaQoL.instance.hasCensus) {
+            numberOfNPCColumns = (int)Math.Ceiling(CensusLogic.numberOfNPCs() / (float)UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
+            // fix for census + 1 column, it produces really large numbers because the first column isn't full
+            if (UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn == 1) {
+                // fuck this we have to estimate ourselves
+                //var maxY = Main.screenHeight - 80;
+                int mH = (int)mHField.GetValue(null)!;
+                int num2 = 0;
+                int num3 = 0;
+                int num5 = 0;
+                var inventoryScale = 0.85f;
+                iconsPerColumn = 1;
+                for (int idx = 0; idx < CensusLogic.numberOfNPCs() + 1; ++idx) {
+                    int num7 = Main.screenWidth - 64 - 28 + num3;
+                    int num8 = (int)(174 + mH + idx * 56 * (double)inventoryScale) + num2;
+                    if (num8 > Main.screenHeight - 80) {
+                        num3 -= 48;
+                        num2 -= num8 - (174 + mH);
+                        num7 = Main.screenWidth - 64 - 28 + num3;
+                        num8 = (int)(174 + mH + idx * 56 * (double)inventoryScale) + num2;
+                        //VanillaQoL.instance.Logger.Warn("num5: " + num5);
+                        iconsPerColumn = num5;
+                        num5 = 0;
+                    }
+                    num5++;
+                }
+
+                //var iconsPerColumn = (maxY - y) / 56; // why 56? idk, vanilla says the size is 56
+                // columns = NPC icons + census icons / icons per column
+                numberOfNPCColumns = (int)Math.Ceiling((CensusLogic.numberOfNPCs() + 1) / (float)iconsPerColumn);
             }
         }
-
+        //VanillaQoL.instance.Logger.Warn(numberOfNPCColumns);
+        //VanillaQoL.instance.Logger.Warn(CensusLogic.numberOfNPCs());
+        //VanillaQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsTotal);
+        //VanillaQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
+        //VanillaQoL.instance.Logger.Warn(iconsPerColumn);
 
         var columnsAfter3 = numberOfNPCColumns - 3;
         return two - (one + one / 2 + margin) * columnsAfter3;
