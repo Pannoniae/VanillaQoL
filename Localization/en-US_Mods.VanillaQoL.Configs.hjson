@@ -529,6 +529,11 @@ QoLConfig: {
 		Label: "[npc/n:59] No Lava from Lava Slime"
 		Tooltip: If enabled, Lava Slimes do not drop lava on death in Expert Mode.
 	}
+
+	instantPlatformFallthrough: {
+		Label: "[i:94] Instant Platform Fallthrough"
+		Tooltip: If enabled, you can fall through platforms instantly by holding the down key.
+	}
 }
 
 Team: {

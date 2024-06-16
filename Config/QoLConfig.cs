@@ -134,6 +134,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool wingSlot { get; set; }
 
+    // Wood Platform
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool instantPlatformFallthrough { get; set; }
+
     #endregion
 
     #region Information

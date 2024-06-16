@@ -85,7 +85,7 @@ public class Ninja : ModNPC {
         return chat;
     }
 
-    public override List<string> SetNPCNameList() {
+    public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */ {
         return new List<string> {
             "Danzo",
             "Ebisu",

@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\tModLoader.targets"/>
+    <Import Project="..\tModLoader.targets" />
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <PlatformTarget>AnyCPU</PlatformTarget>
         <LangVersion>default</LangVersion>
         <PackageId>VanillaQoL</PackageId>
         <Nullable>enable</Nullable>
@@ -21,7 +19,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5"/>
     </ItemGroup>
     <ItemGroup>
         <Reference Include="BAM">
@@ -62,6 +59,12 @@
         </Reference>
         <Reference Include="ImprovedRespawning">
             <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
+        </Reference>
+        <Reference Include="InstantPlatformFallthrough">
+          <HintPath>..\..\ModReader\InstantPlatformFallthrough\InstantPlatformFallthrough.dll</HintPath>
+        </Reference>
+        <Reference Include="InstantPlatformFallthrough">
+          <HintPath>..\..\ModReader\InstantPlatformFallthrough\InstantPlatformFallthrough.dll</HintPath>
         </Reference>
         <Reference Include="LavalessLavaSlime">
           <HintPath>..\..\ModReader\LavalessLavaSlime\LavalessLavaSlime.dll</HintPath>
@@ -107,9 +110,9 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="lib\"/>
+        <Folder Include="lib\" />
     </ItemGroup>
     <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
-        <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll" />
     </Target>
 </Project>

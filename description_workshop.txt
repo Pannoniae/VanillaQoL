@@ -87,6 +87,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Honey-immune Honey Lamps.
  [*] Unsafe walls can be broken anywhere, not just from the edges.
  [*] Lava Slimes do not drop lava on death in Expert Mode.
+ [*] Instant Platform Fallthrough.
 [/list]
 
 [b]Credits:[/b]
