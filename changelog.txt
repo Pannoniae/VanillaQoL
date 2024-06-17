@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Instant Platform Fallthrough.
+[*] Fix Forbidden Armour misbehaving with Instant Platform Fallthrough.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

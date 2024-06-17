@@ -29,11 +29,19 @@ public class InstantPlatformFallthrough : ModSystem {
     // IL_7e9a: stloc.s      fallThrough
     private void instantPlatformFallthroughPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
-        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(0), i => i.MatchStloc(out int ignorePlats),
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg0(), i => i.MatchLdcI4(0), i=> i.MatchStfld<Player>("slideDir"), i => i.MatchLdcI4(0), i => i.MatchStloc(out int ignorePlats),
                 i => i.MatchLdarg0(), i => i.MatchLdfld<Player>("controlDown"), i => i.MatchStloc(out int fallThrough))) {
             VanillaQoL.instance.Logger.Warn("Couldn't match Player.slideDir in Player.Update!");
         }
-        // replace ignorePlats with 1!
-        ilCursor.Next!.OpCode = OpCodes.Ldc_I4_1;
+        // we skip the first three instructions
+        ilCursor.Index += 3;
+
+        // replace ignorePlats with this:
+        // IL_7e94: ldarg.0      // this
+        // IL_7e95: ldfld        bool Terraria.Player::controlDown
+        ilCursor.Remove();
+        ilCursor.EmitLdarg0();
+        ilCursor.EmitLdfld<Player>("controlDown");
+        // dump IL code
     }
 }
