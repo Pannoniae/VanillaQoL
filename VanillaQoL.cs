@@ -116,6 +116,10 @@ public class VanillaQoL : Mod {
             LanguagePatch.addToCategory("CatNames_White","Pannoniae", "Pannoniae");
         }
 
+        if (QoLConfig.Instance.coincumberingStoneRename) {
+            LanguagePatch.modifyKey("ItemName.EncumberingStone", "Coincumbering Stone");
+        }
+
 
         // load chat tags
         // since recipe browser's broken chat tags are loaded in Load(), we do it later to overwrite it:))

@@ -25,6 +25,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public static LocalizedText timeText = null!;
     public static LocalizedText hoverText = null!;
     public static LocalizedText hSpeedText = null!;
+    public static LocalizedText hSpeedTextM = null!;
 
     public static LocalizedText wingSlotText = null!;
     public static LocalizedText wingSlotTextFull = null!;
@@ -70,6 +71,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         timeText = LocalisationUtils.GetLocalization(this, wings, nameof(timeText));
         hoverText = LocalisationUtils.GetLocalization(this, wings, nameof(hoverText));
         hSpeedText = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedText));
+        hSpeedTextM = LocalisationUtils.GetLocalization(this, wings, nameof(hSpeedTextM));
         wingSlotText = LocalisationUtils.GetLocalization(this, wingSlot, nameof(wingSlotText));
         wingSlotTextFull = LocalisationUtils.GetLocalization(this, wingSlot, nameof(wingSlotTextFull));
         shimmerable = LocalisationUtils.GetLocalization(this, shimmer, nameof(shimmerable));
@@ -248,7 +250,13 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public string wingStats(float time, bool hover, float horizontalSpeed) {
         var sb = new StringBuilder();
         sb.AppendLine(timeText.Format(time.ToString("0.##")));
-        sb.Append(hSpeedText.Format(horizontalSpeed.ToString("0")));
+        if (QoLConfig.Instance.metricSystem) {
+            horizontalSpeed *= Constants.mphToKph;
+            sb.Append(hSpeedText.Format(horizontalSpeed.ToString("0")));
+        }
+        else {
+            sb.Append(hSpeedText.Format(horizontalSpeed.ToString("0")));
+        }
         //if (hover) {
         //    sb.AppendLine();
         //    sb.Append(hoverText);

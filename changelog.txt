@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix Forbidden Armour misbehaving with Instant Platform Fallthrough.
+[*] Adjusted wing stat tooltips to km/h instead of mph when Metric System is enabled.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

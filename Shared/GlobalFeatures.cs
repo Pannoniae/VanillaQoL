@@ -33,17 +33,15 @@ public class GlobalFeatures {
         }
 
         // if it's not contained, do nothing
-        if (features[name].enabledMods.Contains(mod)) {
-            features[name].enabledMods.Remove(mod);
-        }
+        features[name].enabledMods.Remove(mod);
     }
 
     public static bool enabled(string name) {
-        if (!features.ContainsKey(name)) {
+        if (!features.TryGetValue(name, out var feature)) {
             return false;
         }
 
-        return features[name].enabledMods.Count > 0;
+        return feature.enabledMods.Count > 0;
     }
 
     public static bool NPCShops => enabled(nameof(NPCShops));

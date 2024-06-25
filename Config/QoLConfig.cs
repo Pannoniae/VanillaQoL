@@ -338,6 +338,18 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool noLavaSlime { get; set; }
 
+    // Encumbering Stone
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool coincumberingStone { get; set; }
+
+    // Encumbering Stone
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool coincumberingStoneRename { get; set; }
+
     #endregion
 
     #region Fixes
@@ -408,12 +420,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool ancientSwords { get; set; }
-
-    // Ninja
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    [ReloadRequired]
-    public bool ninja { get; set; }
 
     // Hallow Pylon
     [BackgroundColor(192, 54, 128, 192)]

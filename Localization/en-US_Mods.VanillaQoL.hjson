@@ -9,6 +9,7 @@ Tooltips: {
 		timeText: Provides flight for {0} seconds
 		hoverText: Has hover
 		hSpeedText: "{0} mph horizontal speed"
+		hSpeedTextM: "{0} km/h horizontal speed"
 	}
 
 	Shimmer: {

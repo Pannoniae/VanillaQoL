@@ -534,6 +534,16 @@ QoLConfig: {
 		Label: "[i:94] Instant Platform Fallthrough"
 		Tooltip: If enabled, you can fall through platforms instantly by holding the down key.
 	}
+
+	coincumberingStone: {
+		Label: "[i:4346] Coincumbering Stone"
+		Tooltip: If enabled, the player with the Encumbering Stone can still pick up coins.
+	}
+
+	coincumberingStoneRename: {
+		Label: "[i:4346] Coincumbering Stone Rename"
+		Tooltip: If enabled, the Encumbering Stone is renamed the Coincumbering Stone.
+	}
 }
 
 Team: {

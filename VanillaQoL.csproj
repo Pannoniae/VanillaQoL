@@ -30,6 +30,9 @@
         <Reference Include="Consolaria">
           <HintPath>..\..\ModReader\Consolaria\Consolaria.dll</HintPath>
         </Reference>
+        <Reference Include="EncumberingStoneButItPickupCoins">
+          <HintPath>..\..\ModReader\EncumberingStoneButItPickupCoins\EncumberingStoneButItPickupCoins.dll</HintPath>
+        </Reference>
         <Reference Include="FargowiltasSouls">
           <HintPath>..\..\ModReader\FargowiltasSouls\FargowiltasSouls.dll</HintPath>
         </Reference>
@@ -117,6 +120,7 @@
     </ItemGroup>
     <ItemGroup>
         <Folder Include="lib\" />
+        <Folder Include="NPCs\" />
     </ItemGroup>
     <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll" />

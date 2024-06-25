@@ -88,6 +88,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Unsafe walls can be broken anywhere, not just from the edges.
  [*] Lava Slimes do not drop lava on death in Expert Mode.
  [*] Instant Platform Fallthrough.
+ [*] The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
 [/list]
 
 [b]Credits:[/b]
