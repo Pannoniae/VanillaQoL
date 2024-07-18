@@ -1,0 +1,525 @@
+QoLConfig: {
+	DisplayName: "Configuración de Calidad de Vida"
+
+	townNPCsSpawningAtNight: {
+		Label: "[i:4951] Permitir que los PNJs del Pueblo aparezcan de noche"
+		Tooltip: "Si está habilitado, los PNJs del Pueblo también pueden aparecer de noche."
+	}
+
+	townNPCsMovingAtDay: {
+		Label: "[i:4951] Permitir que los PNJs del Pueblo se teletransporten de día"
+		Tooltip: "Si está habilitado, los PNJs del Pueblo pueden teletransportarse a sus casas durante el día."
+	}
+
+	townPetsInvincible: {
+		Label: "[i:4829] Las Mascotas del Pueblo y los Slimes son invulnerables"
+		Tooltip: "Si está habilitado, las adorables mascotas del pueblo y los slimes no serán dañados por enemigos o jefes."
+	}
+
+	Headers: {
+		information: "[i:3095] Información"
+		gameplay: "[i:3515] Jugabilidad"
+		fixes: "[i:3625] Soluciones"
+		content: "[i:757] Contenido"
+		respawn: "[i:708] Respawn"
+		suffering: "[npc/n:369] Sufrimiento"
+		multiplayer: "[i:181] Multijugador"
+		holidayCheer: "[i:602] Alegría Festiva"
+		cheats: "[i:3999] Trucos"
+		testing: "[i:2] Pruebas"
+		tweaks: "[i:1344] Ajustes"
+	}
+
+	showHookTooltips: {
+		Label: "[i:185] Mostrar Consejos de Gancho"
+		Tooltip: "Si está habilitado, los ganchos mostrarán su alcance de agarre y cuántos ganchos pueden disparar simultáneamente en su consejo."
+	}
+
+	showWingTooltips: {
+		Label: "[i:1162] Mostrar Consejos de Alas"
+		Tooltip: "Si está habilitado, las alas mostrarán su tiempo de vuelo y velocidad horizontal en su consejo."
+	}
+
+	ammunitionTooltips: {
+		Label: "[i:4915] Mostrar Consejos de Munición"
+		Tooltip: "Si está habilitado, las armas de largo alcance mostrarán la munición que disparan."
+	}
+
+	shimmerableTooltip: {
+		Label: "[i:5348] Consejo Destellante"
+		Tooltip: "Si está habilitado, los objetos mostrarán a qué se transforman cuando se lanzan al Destello."
+	}
+
+	worldAndPlayerInfo: {
+		Label: "[i:393] Mostrar información en la pantalla de selección"
+		Tooltip: "Si está habilitado, los mundos y jugadores mostrarán información útil en su pantalla de selección, como si un mundo está en modo difícil, qué mejoras se han utilizado, etc."
+	}
+
+	fixPvPUI: {
+		Label: "[i:181] Corregir posicionamiento del icono de equipo"
+		Tooltip:
+			'''
+			Cuando se instalan mods con muchos PNJs del Pueblo, los iconos de equipo y PvP se superponen a la vivienda del PNJ.
+			Si está habilitado, los iconos se mueven para evitar la superposición.
+			'''
+	}
+
+	fixMemoryLeaks: {
+		Label: "[i:1344] Corregir pérdidas de memoria"
+		Tooltip: Muchos mods están mal escritos y pierden memoria, ralentizando el juego si recargas tus mods. Si está habilitado, VanillaQoL intenta corregir las pérdidas de memoria en cierta medida.
+	}
+
+	vanillaThoriumTooltips: {
+		Label: "[i:3572] Consejos de Herramientas de Vanilla Thorium"
+		Tooltip:
+			'''
+			Muchos consejos en el mod Thorium lucen diferentes a los consejos de Terraria.
+			Si está habilitado, esta opción los ajusta más al estilo del juego base.
+			'''
+	}
+
+	removeThoriumEnabledCraftingTooltips: {
+		Label: "[i:666] Eliminar condiciones de receta innecesarias"
+		Tooltip:
+			'''
+			Los objetos de Thorium añaden una condición "Habilitado en la Configuración del Mod Thorium" a los objetos de donante.
+			En Magic Storage y Recipe Browser, el texto es demasiado largo y totalmente innecesario.
+			Si está habilitado, esta opción elimina esos textos de la descripción de los objetos de elaboración.
+			'''
+	}
+
+	invertRecipeListScrolling: {
+		Label: "[i:36] Invertir desplazamiento de la lista de recetas"
+		Tooltip: Si está habilitado, la lista de recetas se desplaza en la dirección correcta.
+	}
+
+	metricSystem: {
+		Label: "[i:393] Usar sistema métrico"
+		Tooltip: ¿Estás utilizando el sistema métrico como el 96% de la población mundial? Si está habilitado, las unidades se mostrarán en unidades métricas.
+	}
+
+	twentyFourHourTime: {
+		Label: "[i:709] Hora de 24 horas"
+		Tooltip: ¿Estás utilizando el sistema métrico como el 96% de la población mundial? Si está habilitado, los relojes mostrarán la hora en formato de 24 horas.
+	}
+
+	showLuck: {
+		Label: "[i:4361] Mostrar Estadística de Suerte"
+		Tooltip: "Si está habilitado, el Detector de Metales (o sus mejoras) muestra la suerte que tienes."
+	}
+
+	disableShimmerPumping: {
+		Label: "[i:581] Corregir Explotación de Bombeo de Destello"
+		Tooltip: "Si está habilitado, desactiva el movimiento de Destello con bombas antes de derrotar al Señor de la Luna para evitar que Destello se mueva demasiado pronto."
+	}
+
+	autoJoinTeam: {
+		Label: "[i:181] Unirse Automáticamente al Equipo Multijugador"
+		Tooltip: "Si está habilitado, el juego se une automáticamente al equipo seleccionado al unirse a un servidor multijugador."
+	}
+
+	teamToAutoJoin: {
+		Label: "[i:182] Equipo para unirse automáticamente"
+		Tooltip: "Selecciona a qué equipo unirse automáticamente."
+	}
+
+	mapSharing: {
+		Label: "[i:893] Habilitar Compartir Mapa"
+		Tooltip: "Si está habilitado, los jugadores en el mismo equipo compartirán el mapa entre ellos."
+	}
+
+	overTimeNurseHealing: {
+		Label: "[npc/n:18] Corrección de Curación de la Enfermera con el Tiempo"
+		Tooltip: "Si está habilitado, la Enfermera cura a los jugadores con el tiempo para evitar el abuso de su función de curación."
+	}
+
+	nurseHealingTime: {
+		Label: "[i:73] Tiempo de Curación de la Enfermera"
+		Tooltip: "Controla cuánto tiempo debería curar la Enfermera al jugador. Cuanto mayor sea el valor, más lenta será la curación."
+	}
+
+	disableTownSlimes: {
+		Label: "[npc/n:670] Desactivar Slimes del Pueblo"
+		Tooltip: "Esta opción desactiva los slimes del pueblo. También asesina a esas pobres criaturas cuando te unes al mundo, eres un monstruo."
+	}
+
+	ancientSwords: {
+		Label: "[i:757] Habilitar Espadas Antiguas"
+		Tooltip:
+			'''
+			Si está habilitado, se agregan variantes más antiguas de espadas que fueron retrabajadas en la versión 1.4.4 para ser más basadas en proyectiles.
+			¡Recupera la clásica Espada de la Noche y la Espada de la Tierra!
+			'''
+	}
+
+	enableLockOn: {
+		Label: "[g:1] Habilitar Fijación Automática"
+		Tooltip: "Si está habilitado, carga el sistema necesario para activar la Fijación Automática con ratón y teclado. Requiere reiniciar."
+	}
+
+	lockOn: {
+		Label: "[g:1] Fijación Automática"
+		Tooltip: "Si está habilitado, permite el uso de la Fijación Automática si usas ratón y teclado."
+	}
+
+	moreBuffSlots: {
+		Label: "[i:292] Más Espacios para Mejoras"
+		Tooltip: "Aumenta la cantidad de espacios para mejoras según el valor de esta entrada de configuración. Establece en 0 para desactivar."
+	}
+
+	queenBeeLarvaeBreak: {
+		Label: "[i:1133] Crías de Abeja Reina Menos Frágiles"
+		Tooltip: "Si está habilitado, las crías de la Abeja Reina ya no pueden romperse con el balanceo aleatorio de la espada o proyectiles perdidos, solo con un pico."
+	}
+
+	disablePrefixChangingRarity: {
+		Label: "[i:398] Desactivar Cambio de Rareza por Prefijo"
+		Tooltip: "Si está habilitado, los objetos reforjados no cambiarán de rareza. No se aplica a objetos existentes."
+	}
+
+	softDungeonBricks: {
+		Label: "[i:139] Ladrillos Blandos de Mazmorra"
+		Tooltip: "Si está habilitado, los ladrillos de la mazmorra son demasiado blandos para tu pico, justo como el pequeño blandito que eres."
+	}
+
+	accessoryLoadoutSupport: {
+		Label: "[i:3119] Soporte de Equipamiento para Accesorios"
+		Tooltip:
+			'''
+			Si está habilitado, Vanilla+ QoL intenta hacer que los accesorios modificados funcionen con los equipamientos de la versión 1.4.4.
+			[c/FF0000:¡ADVERTENCIA!] Si eliminas este mod, solo se conservarán las ranuras de accesorios del equipamiento actual.
+			'''
+	}
+
+	assetFix: {
+		Label: "[i:38] Corregir DragonLens en Linux"
+		Tooltip:
+			'''
+			Si está habilitado, Vanilla+ QoL cambia la capitalización de los activos de Terraria. Esto soluciona varios mods que intentan cargar archivos pero son sensibles a mayúsculas y minúsculas.
+			Esto sucede porque los sistemas de archivos en Linux son sensibles a mayúsculas y minúsculas, por lo que "Projectile" y "projectile" son dos archivos diferentes.
+			(Necesitas reiniciar tu juego después de habilitar esto para detener el error.)
+			'''
+	}
+
+	accessorySlotUnlock: {
+		Label: "[i:3335] Desbloquear Espacios de Accesorios en Modo Experto/Maestro"
+		Tooltip:
+			'''
+			Si está habilitado, los 8 espacios de accesorios son desbloqueables en todas las dificultades.
+			Todavía no puedes obtener un Corazón de Demonio de la Muralla de Carne en el Modo Clásico, tendrás que usar un mundo en Modo Experto.
+			'''
+	}
+
+	drillRework: {
+		Label: "[i:2774] Rework de Taladros"
+		Tooltip:
+			'''
+			Si está habilitado, los taladros se rediseñan para poder recibir prefijos de velocidad de cuerpo a cuerpo y beneficiarse de la velocidad de minería.
+			Además, también pueden romper la hierba de un golpe.
+			A cambio, su velocidad base se reduce, solo obtienen un aumento de velocidad de minería del 25% en lugar del 60%.
+			'''
+	}
+
+	sliceOfCakeUntilDeath: {
+		Label: "[i:3750] La Rebanada de Pastel Dura Hasta la Muerte"
+		Tooltip: "Si está habilitado, el beneficio otorgado por la Rebanada de Pastel dura hasta que el jugador muere, en lugar de dos minutos."
+	}
+
+	wallsDontExplode: {
+		Label: "[i:1101] Paredes a Prueba de Explosiones"
+		Tooltip: "Si está habilitado, las Paredes Lihzahrd y las Paredes de la Mazmorra (tanto seguras como inseguras) son a prueba de explosiones, al igual que sus contrapartes de bloque."
+	}
+
+	hardModeOresCanExplode: {
+		Label: "[i:1106] Los Minerales del Modo Difícil Pueden Explotar"
+		Tooltip: "Si está habilitado, los minerales del Modo Difícil pueden ser destruidos con explosivos después de derrotar a los jefes mecánicos."
+	}
+
+	dynamicDCUPickaxe: {
+		Label: "[i:2768] DCU Dinámico"
+		Tooltip: "Si está habilitado, la Unidad de Contención de Taladros tiene en cuenta el poder de pico de la pico superior izquierda en tu inventario."
+	}
+
+	moreExplosives: {
+		Label: "[i:VanillaQoL/BouncyDirtDynamite] Más Explosivos"
+		Tooltip: "Si está habilitado, añade más variantes de explosivos al juego."
+	}
+
+	respawningRework: {
+		Label: "[i:889] Rework de Respawn"
+		Tooltip: "Si está habilitado, activa el sistema necesario para cargar ajustes en esta sección."
+	}
+
+	naturesGiftGlow: {
+		Label: "[i:223] Brillo de Nature's Gift y Jungle Rose"
+		Tooltip: "Si está habilitado, el Nature's Gift y la Jungle Rose brillan en la jungla de manera similar a las Jungle Spores para hacerlos más fáciles de encontrar."
+	}
+
+	respawnTime: {
+		Label: "[i:3230] Tiempo de Respawn"
+		Tooltip: "Controla el tiempo base de respawn."
+	}
+
+	respawnFactorExpertMode: {
+		Label: "[i:3223] Factor de Modo Experto"
+		Tooltip: "Controla el multiplicador de tiempo de respawn en Modo Experto."
+	}
+
+	respawnFactorMasterMode: {
+		Label: "[i:4924] Factor de Modo Maestro"
+		Tooltip: "Controla el multiplicador de tiempo de respawn en Modo Maestro."
+	}
+
+	bossRespawnTime: {
+		Label: "[i:43] Tiempo de Respawn (jefe)"
+		Tooltip: "Controla el tiempo base de respawn cuando un jefe está vivo."
+	}
+
+	eventRespawnTime: {
+		Label: "[i:1844] Tiempo de Respawn (evento)"
+		Tooltip: "Controla el tiempo base de respawn cuando un jefe no está vivo pero hay un evento en curso."
+	}
+
+	bossMultiplayerMultiplier: {
+		Label: "[i:1969] Multiplicador por Jugador"
+		Tooltip: "Multiplica el tiempo de respawn por este valor, multiplicado por el número de otros jugadores en el servidor."
+	}
+
+	christmasAllYear: {
+		Label: "[i:1872] Navidad Todos los Días"
+		Tooltip: "Si está habilitado, el espíritu navideño está presente durante todo el año."
+	}
+
+	halloweenAllYear: {
+		Label: "[i:1813] Halloween Todos los Días"
+		Tooltip: "Si está habilitado, los fantasmas de las almas fallecidas están presentes durante todo el año."
+	}
+
+	shopExpander: {
+		Label: "[i:73] Expansor de Tiendas"
+		Tooltip: "Si está habilitado, Vanilla+ QoL agrega páginas a las tiendas para que quepan todos los artículos, los cuales puedes cambiar utilizando dos botones."
+	}
+
+	extraSellPages: {
+		Label: "[i:72] Páginas de Venta Adicionales"
+		Tooltip: "Si está habilitado, cuando una tienda se llena vendiendo artículos, se crea una nueva página para expandir la tienda."
+	}
+
+	lifeCrystalGlow: {
+		Label: "[i:29] Brillo de Life Crystals"
+		Tooltip: "Si está habilitado, las Life Crystals emiten una luz tenue para facilitar su ubicación."
+	}
+
+	lifeFruitGlow: {
+		Label: "[i:1291] Brillo de Life Fruits"
+		Tooltip: "Si está habilitado, las Life Fruits brillan de manera similar a las Jungle Spores para facilitar su ubicación."
+	}
+
+	NPCsLiveInEvilBiomes: {
+		Label: "[i:8] Los NPCs Pueden Vivir en Biomas Corruptos"
+		Tooltip:
+			'''
+			Si está habilitado, los NPCs toleran de mala gana la Corrupción y el Carmesí.
+			Aunque todavía te odiarán y estarán muy infelices. No seas cruel.
+			'''
+	}
+
+	noDroppedSand: {
+		Label: "[i:169] Sin Arena Caída"
+		Tooltip: "Si está habilitado, las Hormigas León no contaminarán tu mundo con arena, sino que la soltarán en forma de objeto."
+	}
+
+	noDroppedSnow: {
+		Label: "[i:593] Sin Nieve Caída"
+		Tooltip: "Si está habilitado, los Hombres de Nieve... quiero decir, los Muñecos de Nieve, no contaminarán tu mundo con nieve, sino que la soltarán en forma de objeto."
+	}
+
+	noDroppedTombstones: {
+		Label: "[i:1175] Sin Tumbas Caídas"
+		Tooltip:
+			'''
+			Si está habilitado, las lápidas se soltarán como un objeto en lugar de colocarse y crear un cementerio.
+			'Para aquellos con problemas de habilidad'
+			'''
+	}
+
+	noDroppedSandgun: {
+		Label: "[i:266] Sin Arena Caída (Sandgun)"
+		Tooltip:
+			'''
+			Si está habilitado, la Sandgun ya no coloca arena al usarla.
+			Si habilitas esto, deberías sentirte mal, ya que esto hará que la pistola sea hilarantemente poderosa.
+			'''
+	}
+
+	mountFallDamage: {
+		Label: "[i:2430] Sin Daño por Caída con Montura"
+		Tooltip: "Si está habilitado, no recibirás daño por caída mientras estés montado en cualquier montura."
+	}
+
+	disableShimmering: {
+		Label: "[t:VanillaQoL/UI/Shimmer] No Caer a Través de Shimmer"
+		Tooltip: "Si está habilitado, no caerás a través del mundo al caer en Shimmer. ¡Puedes darte un baño en él! :)"
+	}
+
+	modNameTooltip: {
+		Label: "[i:2208] Tooltip del Nombre del Mod"
+		Tooltip: "Si está habilitado, los objetos muestran de qué mod provienen en su tooltip."
+	}
+
+	testing: {
+		Label: "[i:2] Pruebas"
+		Tooltip: "Si habilitas esto, prepárate para lo peor :)"
+	}
+
+	jungleMimic: {
+		Label: "[npc/n:476] Los Mimics de la Jungla Aparecen en la Jungla del Modo Difícil"
+		Tooltip: "Si está habilitado, tu experiencia en la Jungla Subterránea se verá mejorada con la aparición de Mimics de la Jungla."
+	}
+
+	clownExplosions: {
+		Label: "[npc/n:109] Bombas Felices de Payaso Destruyen Bloques"
+		Tooltip: "Si está habilitado, las Bombas Felices arrojadas por los Payasos destruyen bloques en una pequeña explosión."
+	}
+
+	naturalFrostLegion: {
+		Label: "[i:602] La Legión de Escarcha Aparece Naturalmente"
+		Tooltip: "Si está habilitado, la Legión de Escarcha puede aparecer aleatoriamente durante la noche cuando hay una tormenta de nieve."
+	}
+
+	enemiesBreakDoors: {
+		Label: "[i:25] Los Enemigos Rompen Puertas"
+		Tooltip: "Si está habilitado, los enemigos no golpean educadamente, sino que rompen la puerta como lo hacen los goblins."
+	}
+
+	nonConsumableSummons: {
+		Label: "[i:43] Invocaciones de Jefes No Consumibles"
+		Tooltip: "Si está habilitado, las invocaciones de jefes no se consumen."
+	}
+
+	veinMining: {
+		Label: "[i:385] VeinMining™"
+		Tooltip: "Si está habilitado, romper un bloque de mineral hace que se extraigan también los minerales adyacentes."
+	}
+
+	veinMiningSpeed: {
+		Label: "[i:3509] Velocidad de VeinMining™"
+		Tooltip: "Controla el tiempo entre la rotura de bloques. Un valor más bajo significa un veinmining más rápido."
+	}
+
+	extendedOres: {
+		Label: "[i:424] Tecnología ExtendedOres™"
+		Tooltip: "Si está habilitado, nuestra tecnología patentada y registrada agrega minerales nuevos, emocionantes e impactantes a VeinMine™."
+	}
+
+	wingSlot: {
+		Label: "[i:1162] Ranura de Alas WingSlot™"
+		Tooltip: "Si está habilitado, se agrega una ranura de accesorios para alas al jugador. Solo se pueden colocar alas en esta ranura."
+	}
+
+	moveCredits: {
+		Label: "[i:5044] Créditos"
+		Tooltip: "Controla cómo se muestran los créditos al final del juego."
+	}
+
+	axeReplanting: {
+		Label: "[i:3506] Hachas Replantan Bellotas"
+		Tooltip: "Si está habilitado, talar un árbol con un hacha siempre replanta una bellota en su lugar."
+	}
+
+	ninja: {
+		Label: "[i:256] Ninja"
+		Tooltip: "Si está habilitado, se agrega un NPC llamado Ninja a la ciudad. Puede ser rescatado de King Slime al derrotarlo."
+	}
+
+	quickBuffFavourite: {
+		Label: "[i:289] Solo Consumir Pociones Favoritas con Quick Buff"
+		Tooltip: "Si hay pociones marcadas como favoritas en el inventario, Quick Buff solo consumirá las que estén marcadas como favoritas."
+	}
+
+	noFullHeartPickup: {
+		Label: "[i:58] No Recoger Corazones cuando la Vida Está Llena"
+		Tooltip: "Si está habilitado y el jugador tiene la vida llena, no recogerán corazones. De manera similar, si el jugador tiene la mana llena, no recogerán cristales de mana."
+	}
+
+	heartTime: {
+		Label: "[i:58] Tiempo de Despawn de Corazones"
+		Tooltip: "Controla cuánto tiempo permanecen en el mundo los corazones y los cristales de mana antes de despawnear, en segundos. El valor predeterminado es 300, que son 5 minutos."
+	}
+
+	calamityInWorldRarity: {
+		Label: "[t:VanillaQoL/UI/Wrench] Arreglo de Rareza de Calamity"
+		Tooltip: "Si está habilitado, los colores de rareza de las armas de Calamity se muestran correctamente en el texto de recogida o cuando los objetos flotan en el mundo."
+	{
+
+	"cactusHurts": {
+		"Label": "[i:276] Los cactus hieren a los jugadores",
+		"Tooltip": "Si está habilitado, tocar un cactus inflige 10 de daño, al igual que en la buena época de la versión 1.1."
+	}
+
+	"jungleThornsAreSticky": {
+		"Label": "[i:210] Las espinas de la jungla son pegajosas",
+		"Tooltip": "Si está habilitado, las espinas ralentizan al jugador, al igual que las telarañas."
+	}
+
+	"drShield": {
+		"Label": "[i:156] Reducción de daño en el escudo",
+		"Tooltip": "Si está habilitado, el escudo defensivo también muestra la estadística de reducción de daño."
+	}
+
+	"stopSantaFromExploding": {
+		"Label": "[i:588] Evitar que Santa explote",
+		"Tooltip": "Si está habilitado, Santa no explotará repentinamente después del final de la temporada navideña."
+	}
+
+	"truffleKingAndQueenStatue": {
+		"Label": "[i:ShrimpyTruffle] El Trufa no es binario",
+		"Tooltip": "Si está habilitado, el Trufa se teletransportará tanto a la estatua del Rey como a la de la Reina."
+	}
+
+	"sellAdditionalItems": {
+		"Label": "[i:73] Los PNJ de la ciudad venden artículos adicionales",
+		"Tooltip": "Si está habilitado, los PNJ de la ciudad venden pociones, diversos materiales y otras cosas destinadas a reducir la molienda."
+	}
+
+	"persistentBuffs": {
+		"Label": "[i:GravitationPotion] Las pociones persisten después de la muerte",
+		"Tooltip": "Si está habilitado, todos los beneficios que persisten al guardar (pociones en el juego base) persistirán cuando el jugador muera."
+	}
+
+	"pannoniaeCat": {
+		"Label": "[npc/n:637] Gato Pannoniae",
+		"Tooltip": "Si está habilitado, Pannoniae es un gato."
+	}
+
+	"panicKey": {
+		"Label": "[i:1290] Tecla de pánico",
+		"Tooltip": "Si está habilitado, se agrega una tecla de pánico que te permite usar rápidamente un objeto de regreso. Las pociones de retorno tienen preferencia sobre los Espejos Mágicos."
+	}
+
+	veinMineSpikes: {
+		Label: "[i:1150] Expansión de las espigas con la tecnología VeinMining™"
+		Tooltip:
+			'''
+			Si está habilitado, la renombrada tecnología VeinMining™ también funciona perfectamente con esas molestas espigas en tu mundo.
+			¡Pruebalo hoy y si no te gusta, te devolvemos tu dinero!
+			'''
+	}
+}
+
+Team: {
+	White.Label: "[i:182] Blanco"
+	Red.Label: "[i:178] Rojo"
+	Green.Label: "[i:179] Verde"
+	Blue.Label: "[i:177] Azul"
+	Yellow.Label: "[i:180] Amarillo"
+	Pink.Label: "[i:181] Rosa"
+	Tooltip: ""
+}
+
+Credits: {
+	Tooltip: ""
+	Vanilla.Label: Despues de Señor de la Luna
+	AfterModsFinalBoss.Label: Después del Jefe Final (modificado)
+	Disabled.Label: Sin créditos
+}
