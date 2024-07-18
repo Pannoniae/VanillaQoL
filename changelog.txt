@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Adjusted wing stat tooltips to km/h instead of mph when Metric System is enabled.
+[*] Update containing nothing just so it's for the latest tML version!
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)
