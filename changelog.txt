@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Update containing nothing just so it's for the latest tML version!
+[*] Fix a crash with not very well behaving mods.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

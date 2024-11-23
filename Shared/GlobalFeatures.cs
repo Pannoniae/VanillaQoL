@@ -37,6 +37,9 @@ public class GlobalFeatures {
     }
 
     public static bool enabled(string name) {
+        if (features == null!) {
+            return false;
+        }
         if (!features.TryGetValue(name, out var feature)) {
             return false;
         }
