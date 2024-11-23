@@ -53,6 +53,7 @@ public class QoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
             else if (Main.player[Main.myPlayer].accWatch == 2)
                 minutesStr = minutes >= 30.0 ? "30" : "00";
             displayValue = exactHours + ":" + minutesStr + " ";
+
         }
 
         if (QoLConfig.Instance.metricSystem) {

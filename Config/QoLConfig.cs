@@ -506,6 +506,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool veinMineSpikes { get; set; }
 
+    // Moon Lord Relic
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool soyMasterMode { get; set; }
+
     #endregion
 
     #region Suffering

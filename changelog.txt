@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Fix a crash with not very well behaving mods.
+[*] Add a Master Mode Stat-nerf option.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

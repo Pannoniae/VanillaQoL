@@ -89,6 +89,7 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  [*] Lava Slimes do not drop lava on death in Expert Mode.
  [*] Instant Platform Fallthrough.
  [*] The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
+ [*] Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
 [/list]
 
 [b]Credits:[/b]

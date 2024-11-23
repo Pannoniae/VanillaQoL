@@ -506,6 +506,11 @@ QoLConfig: {
 			'''
 	}
 
+	soyMasterMode: {
+		Label: "[i:4938] Master Mode Stat-nerf"
+		Tooltip: If enabled, enemies in Master Mode have Expert Mode stats. Good if you don't like being impaled by bunnies upon spawning.
+	}
+
 	morePylons: {
 		Label: "[i:4916] More Pylons"
 		Tooltip:
