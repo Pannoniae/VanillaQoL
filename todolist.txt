@@ -32,7 +32,6 @@ add weapon selling so you don't have to kill the poor NPCs
 
 - enemies spread corruption/crimson/hallow with attacks
 
-- remove adjacent to air requirement from removing walls (Player.CanPlayerSmashWall should always return true)#
 - calamity reforge rework
 - aether monolith can craft shimmer recipes
 - keep position in world upon quitting
@@ -59,5 +58,3 @@ cheaty qol, all of these should have a debuff if user enables it:
 - unnerf hallowed armour dodge
 - look at green halo thingie when using mount unnerf in unnerfs
 - unnerf rod of harmony shimmering (post-ML, not post SC)
-
-- unsafe walls being mined from the edges
