@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class CoincumberingStone : ModSystem {
 

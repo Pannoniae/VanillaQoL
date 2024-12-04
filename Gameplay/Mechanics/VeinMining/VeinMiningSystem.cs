@@ -3,7 +3,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay.VeinMining;
+namespace ZenithQoL.Gameplay.VeinMining;
 
 public class VeinMiningSystem : ModSystem {
 
@@ -41,7 +41,7 @@ public class VeinMiningSystem : ModSystem {
                 i => i.MatchLdcI4(0),
                 i => i.MatchLdcI4(0),
                 i => i.MatchCall<WorldGen>("KillTile"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't find the actual WorldGen.KillTile call in Player.PickTile!");
+            ZenithQoL.instance.Logger.Warn("Couldn't find the actual WorldGen.KillTile call in Player.PickTile!");
             return;
         }
 
@@ -77,7 +77,7 @@ public class VeinMiningSystem : ModSystem {
                     // handle limits
                     modPlayer.ctr++;
                     if (modPlayer.ctr > threshold) {
-                        VanillaQoL.instance.Logger.Warn("Reached threshold!");
+                        ZenithQoL.instance.Logger.Warn("Reached threshold!");
                         modPlayer.ctr = 0;
                         modPlayer.canMine = false;
                     }

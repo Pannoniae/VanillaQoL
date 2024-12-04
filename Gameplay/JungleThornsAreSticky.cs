@@ -4,7 +4,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 [SuppressMessage("ReSharper", "NotAccessedOutParameterVariable")]
 public class JungleThornsAreSticky : ModSystem {
@@ -28,7 +28,7 @@ public class JungleThornsAreSticky : ModSystem {
         ILLabel label;
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdloc(out num), i => i.MatchLdcI4(51),
                 i => i.MatchBneUn(out label!))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match cobweb type checks in Player.StickyMovement!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match cobweb type checks in Player.StickyMovement!");
             return;
         }
 
@@ -78,9 +78,9 @@ public class JungleThornsAreSticky : ModSystem {
         }
 
         if (ctr == 0) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match cobweb type checks in Collision.StickyTiles!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match cobweb type checks in Collision.StickyTiles!");
         }
-        VanillaQoL.instance.Logger.Info($"Patched Collision.StickyTiles {ctr} times!");
+        ZenithQoL.instance.Logger.Info($"Patched Collision.StickyTiles {ctr} times!");
     }
 
     public static bool isNotSticky(int type) {

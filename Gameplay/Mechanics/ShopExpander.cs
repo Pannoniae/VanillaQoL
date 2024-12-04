@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.ID;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class ShopExpander : ModSystem {
     public static ShopExpander instance = null!;

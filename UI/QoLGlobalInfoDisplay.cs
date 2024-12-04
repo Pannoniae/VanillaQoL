@@ -6,7 +6,7 @@ using Terraria.GameContent.Events;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.UI;
+namespace ZenithQoL.UI;
 
 public class QoLGlobalInfoDisplay : GlobalInfoDisplay, ILocalizedModType {
     public string LocalizationCategory => "UI";

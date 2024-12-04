@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Tests;
+namespace ZenithQoL.Tests;
 
 // straight copied from that mod which doesn't work, more testing;)
 public sealed class FighterAIDoorBehaviourModifier : ModSystem {
@@ -84,7 +84,7 @@ public sealed class FighterAIDoorBehaviourModifier : ModSystem {
         c.EmitDelegate(() => !QoLConfig.Instance.testing);
         c.Emit(OpCodes.And);
         c.Emit(OpCodes.Stloc, localIndex);
-        c.EmitDelegate(() => VanillaQoL.instance.Logger.Info("Door break called! (1)"));
+        c.EmitDelegate(() => ZenithQoL.instance.Logger.Info("Door break called! (1)"));
 
         #endregion Opening Door Change
 
@@ -114,7 +114,7 @@ public sealed class FighterAIDoorBehaviourModifier : ModSystem {
         // Replace 26 with NPCID.None. The code now checks if npc.type == NPCID.None.
         // The OpCode here is ldc.i4.s, so I'm constrained to the range of an sbyte.
         c.Next!.Operand = NPCID.None;
-        c.EmitDelegate(() => VanillaQoL.instance.Logger.Info("Door break called! (2)"));
+        c.EmitDelegate(() => ZenithQoL.instance.Logger.Info("Door break called! (2)"));
 
         #endregion Peon Change
     }

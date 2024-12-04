@@ -1,10 +1,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
-using VanillaQoL.Items;
+using ZenithQoL.Items;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class AddMobGriefing : GlobalProjectile {
     public override void OnKill(Projectile projectile, int timeLeft) {

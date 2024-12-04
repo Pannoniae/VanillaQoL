@@ -3,13 +3,13 @@ using System.Reflection;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.UI.Gamepad;
-using VanillaQoL.IL;
-using VanillaQoL.UI;
+using ZenithQoL.IL;
+using ZenithQoL.UI;
 
 // these are hooks, don't show "unused member"
 // ReSharper disable UnusedMember.Global
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public class GlobalHooks {
     private static readonly FieldInfo mHField = typeof(Main).GetField("mH", BindingFlags.NonPublic | BindingFlags.Static)!;
@@ -33,7 +33,7 @@ public class GlobalHooks {
                                                    UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
 
         int iconsPerColumn = 1;
-        if (VanillaQoL.instance.hasCensus) {
+        if (ZenithQoL.instance.hasCensus) {
             numberOfNPCColumns = (int)Math.Ceiling(CensusLogic.numberOfNPCs() / (float)UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
             // fix for census + 1 column, it produces really large numbers because the first column isn't full
             if (UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn == 1) {
@@ -53,7 +53,7 @@ public class GlobalHooks {
                         num2 -= num8 - (174 + mH);
                         num7 = Main.screenWidth - 64 - 28 + num3;
                         num8 = (int)(174 + mH + idx * 56 * (double)inventoryScale) + num2;
-                        //VanillaQoL.instance.Logger.Warn("num5: " + num5);
+                        //ZenithQoL.instance.Logger.Warn("num5: " + num5);
                         iconsPerColumn = num5;
                         num5 = 0;
                     }
@@ -65,11 +65,11 @@ public class GlobalHooks {
                 numberOfNPCColumns = (int)Math.Ceiling((CensusLogic.numberOfNPCs() + 1) / (float)iconsPerColumn);
             }
         }
-        //VanillaQoL.instance.Logger.Warn(numberOfNPCColumns);
-        //VanillaQoL.instance.Logger.Warn(CensusLogic.numberOfNPCs());
-        //VanillaQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsTotal);
-        //VanillaQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
-        //VanillaQoL.instance.Logger.Warn(iconsPerColumn);
+        //ZenithQoL.instance.Logger.Warn(numberOfNPCColumns);
+        //ZenithQoL.instance.Logger.Warn(CensusLogic.numberOfNPCs());
+        //ZenithQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsTotal);
+        //ZenithQoL.instance.Logger.Warn(UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
+        //ZenithQoL.instance.Logger.Warn(iconsPerColumn);
 
         var columnsAfter3 = numberOfNPCColumns - 3;
         return two - (one + one / 2 + margin) * columnsAfter3;

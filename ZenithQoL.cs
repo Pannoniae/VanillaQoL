@@ -6,22 +6,18 @@ using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
-using Terraria;
-using Terraria.Localization;
-using Terraria.Map;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
-using VanillaQoL.Gameplay;
-using VanillaQoL.IL;
-using VanillaQoL.Items;
-using VanillaQoL.Shared;
-using VanillaQoL.UI;
+using ZenithQoL.Gameplay;
+using ZenithQoL.IL;
+using ZenithQoL.Shared;
+using ZenithQoL.UI;
 
-namespace VanillaQoL;
+namespace ZenithQoL;
 
-public class VanillaQoL : Mod {
-    public static VanillaQoL instance = null!;
+public class ZenithQoL : Mod {
+    public static ZenithQoL instance = null!;
 
     public bool hasThorium;
     public bool hasCalamity;
@@ -36,10 +32,10 @@ public class VanillaQoL : Mod {
         (uint)QoLConfig.Instance.moreBuffSlots;
 
 
-    static VanillaQoL() {
+    static ZenithQoL() {
     }
 
-    public VanillaQoL() {
+    public ZenithQoL() {
         instance = this;
         PreJITFilter = new Filter();
         // register modcompat for start of ModContent.Load
@@ -166,7 +162,7 @@ public class VanillaQoL : Mod {
 
 public static class ModCompat {
     public static void load() {
-        VanillaQoL.instance.Logger.Info("Handling mod compatibility...");
+        ZenithQoL.instance.Logger.Info("Handling mod compatibility...");
         var str = new StringBuilder();
         bool atLeastOne = false;
         str.Append(
@@ -193,7 +189,7 @@ public static class ModCompat {
                 var entries = content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var entry in entries) {
                     var halves = entry.Split("=");
-                    var resolvedMod = ModLoader.TryGetMod(halves[0], out var incompatMod);
+                    bool resolvedMod = ModLoader.TryGetMod(halves[0], out var incompatMod);
                     if (resolvedMod) {
                         str.Append($"\n        {incompatMod.DisplayName} ({incompatMod.Name}): {halves[1]}");
                         atLeastOne = true;
@@ -231,7 +227,7 @@ public static class ModLeakFix {
     }
 
     public static void addHandler() {
-        hasMagicStorage = VanillaQoL.instance.hasMagicStorage;
+        hasMagicStorage = ZenithQoL.instance.hasMagicStorage;
 
         var typeCaching = typeof(AssemblyManager).Assembly.GetType("Terraria.ModLoader.Core.TypeCaching");
         var ev = typeCaching!.GetEvent("OnClear", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)!;

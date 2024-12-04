@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.IL;
+namespace ZenithQoL.IL;
 
 public class AssetFix : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -29,7 +29,7 @@ public class AssetFix : ModSystem {
                     var s = char.ToUpperInvariant(name[0]);
                     var rem = name[1..];
                     File.Move(file, Path.Join(images, s + rem));
-                    VanillaQoL.instance.Logger.Info($"Moved {file} to {Path.Join(images, s + rem)}!");
+                    ZenithQoL.instance.Logger.Info($"Moved {file} to {Path.Join(images, s + rem)}!");
                 }
 
                 // special-case "TIles"
@@ -38,12 +38,12 @@ public class AssetFix : ModSystem {
                     var s = char.ToUpperInvariant(name[0]);
                     var rem = name[1..].ToLowerInvariant();
                     File.Move(file, Path.Join(images, s + rem));
-                    VanillaQoL.instance.Logger.Info($"Moved {file} to {Path.Join(images, s + rem)}!");
+                    ZenithQoL.instance.Logger.Info($"Moved {file} to {Path.Join(images, s + rem)}!");
                 }
             }
         }
         catch (Exception e) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 $"Couldn't fix file paths in the vanilla Terraria folder! Is it write-protected? {e}");
         }
     }

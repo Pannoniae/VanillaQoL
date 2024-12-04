@@ -4,7 +4,7 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class PanicKey : ModSystem {
     public static PanicKey instance = null!;

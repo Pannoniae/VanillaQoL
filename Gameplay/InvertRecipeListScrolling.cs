@@ -2,7 +2,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class InvertRecipeListScrolling : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -26,7 +26,7 @@ public class InvertRecipeListScrolling : ModSystem {
         if (!ilCursor.TryGotoNext(MoveType.After,
                 i => i.MatchCall<Player>("GetMouseScrollDelta"),
                 i => i.MatchStloc(out var loc))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match Player.GetMouseScrollDelta() in Player.Update!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match Player.GetMouseScrollDelta() in Player.Update!");
         }
 
         ilCursor.Index--;

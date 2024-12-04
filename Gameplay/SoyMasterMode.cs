@@ -1,12 +1,10 @@
 using System;
-using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 
 // Thank you Terraria Overhaul!

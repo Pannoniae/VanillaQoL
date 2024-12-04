@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class MiscRecipes : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {

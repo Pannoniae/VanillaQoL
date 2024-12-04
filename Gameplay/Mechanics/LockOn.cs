@@ -4,10 +4,8 @@ using MonoMod.Cil;
 using Terraria.GameContent.UI.States;
 using Terraria.GameInput;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class LockOn : ModSystem {
 
@@ -44,7 +42,7 @@ public class LockOn : ModSystem {
             ilCursor.Emit<LockOn>(OpCodes.Call, "addLockOnToUI");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't match OnAssembleBindPanels in UIManageControls.AssembleBindPanels!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match OnAssembleBindPanels in UIManageControls.AssembleBindPanels!");
         }
     }
 

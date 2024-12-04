@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.Default;
 using Terraria.ModLoader.IO;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class AccessoryLoadoutSupport : ModPlayer {
     public Type modAccessorySlots = typeof(ModAccessorySlotPlayer);
@@ -59,7 +59,7 @@ public class AccessoryLoadoutSupport : ModPlayer {
             }
         }
 
-        //VanillaQoL.instance.Logger.Warn($"Sync: {count}, {modAccessorySlotsPlayer.SlotCount}");
+        //ZenithQoL.instance.Logger.Warn($"Sync: {count}, {modAccessorySlotsPlayer.SlotCount}");
 
         // original fields
         modAccessorySlots.GetMethod("ResetAndSizeAccessoryArrays", BindingFlags.Instance | BindingFlags.NonPublic)!
@@ -119,7 +119,7 @@ public class AccessoryLoadoutSupport : ModPlayer {
             ilCursor.Emit<AccessoryLoadoutSupport>(OpCodes.Call, "playerInitStatic");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to find the SetupPlayer hook in Player constructor!");
+            ZenithQoL.instance.Logger.Warn("Failed to find the SetupPlayer hook in Player constructor!");
         }
     }
 
@@ -132,7 +132,7 @@ public class AccessoryLoadoutSupport : ModPlayer {
     // we cheat a bit to load slightly later than tML's ModPlayer ;)
     public void playerInit() {
         modAccessorySlotsPlayer = Player.GetModPlayer<ModAccessorySlotPlayer>();
-        //VanillaQoL.instance.Logger.Info(
+        //ZenithQoL.instance.Logger.Info(
         //    $"Loaded, {modAccessorySlotsPlayer.SlotCount}, {modAccessorySlotsPlayer.LoadedSlotCount}");
 
 
@@ -158,7 +158,7 @@ public class AccessoryLoadoutSupport : ModPlayer {
             ilCursor.Emit<AccessoryLoadoutSupport>(OpCodes.Call, "switchLoadout");
         }
         else {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Failed to find the loadout switch in TrySwitchingLoadout! (Player.CurrentLoadoutIndex)");
         }
     }
@@ -172,14 +172,14 @@ public class AccessoryLoadoutSupport : ModPlayer {
             // swap the arrays
             var count = instance.modAccessorySlotsPlayer.SlotCount;
             // offset is 0 when first loadout, SlotCount when second, SlotCount * 2 when third
-            //VanillaQoL.instance.Logger.Info($"Swapping loadouts! {count}, {instance.loadout}");
+            //ZenithQoL.instance.Logger.Info($"Swapping loadouts! {count}, {instance.loadout}");
             var offset = instance.loadout * count;
-            //VanillaQoL.instance.Logger.Warn("Loaded slots:");
+            //ZenithQoL.instance.Logger.Warn("Loaded slots:");
             //foreach (var kv in instance.slots) {
-            //    VanillaQoL.instance.Logger.Warn($"{kv.Key}, {kv.Value}");
+            //    ZenithQoL.instance.Logger.Warn($"{kv.Key}, {kv.Value}");
             //}
             for (int i = 0; i < count; i++) {
-                //VanillaQoL.instance.Logger.Warn($"{i}, {offset}, {count}");
+                //ZenithQoL.instance.Logger.Warn($"{i}, {offset}, {count}");
                 instance.origExAccessorySlot[i] = instance.exAccessorySlot[instance.accessoryIndex(instance.loadout, i, false)];
                 instance.origExAccessorySlot[i + count] = instance.exAccessorySlot[instance.accessoryIndex(instance.loadout, i, true)];
 
@@ -200,9 +200,9 @@ public class AccessoryLoadoutSupport : ModPlayer {
 
     public static void saveData(ModAccessorySlotPlayer player, TagCompound tag) {
         var instance = player.Player.GetModPlayer<AccessoryLoadoutSupport>();
-        //VanillaQoL.instance.Logger.Warn($"Save: {instance.exAccessorySlot.Length}");
+        //ZenithQoL.instance.Logger.Warn($"Save: {instance.exAccessorySlot.Length}");
         //for (int i = 0; i < instance.exAccessorySlot.Length; i++) {
-        //    VanillaQoL.instance.Logger.Warn(instance.exAccessorySlot[i]);
+        //    ZenithQoL.instance.Logger.Warn(instance.exAccessorySlot[i]);
         //}
 
         tag["order"] = instance.slots.Keys.ToList();

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class TrueExcalibur : ModItem {
     public override bool IsLoadingEnabled(Mod mod) {

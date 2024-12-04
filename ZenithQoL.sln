@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanillaQoL", "VanillaQoL.csproj", "{A63C5BB5-9C19-4949-8175-3A414105101F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZenithQoL", "ZenithQoL.csproj", "{A63C5BB5-9C19-4949-8175-3A414105101F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{16F5AEFC-2725-4312-8178-F8C1D876575A} = {16F5AEFC-2725-4312-8178-F8C1D876575A}
 	EndProjectSection

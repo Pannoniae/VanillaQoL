@@ -4,7 +4,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class HolidayCheer : ModSystem {
     public override void Load() {
@@ -58,7 +58,7 @@ public class HolidayCheer : ModSystem {
         // [50056 7 - 50056 26]
         // IL_0087: ldsfld       bool Terraria.Main::halloween
         if (!ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdsfld<Main>("halloween"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
         }
         // we do the check ourselves
         ilCursor.Emit(OpCodes.Ldarg_S, (byte)6);
@@ -69,7 +69,7 @@ public class HolidayCheer : ModSystem {
         ILLabel label = null!;
         if (!ilCursor2.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Main>("xMas"),
                  i => i.MatchBrfalse(out label!))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
             return;
         }
         //// [50063 7 - 50063 21]
@@ -115,7 +115,7 @@ public class HolidayCheer : ModSystem {
         ILLabel label;
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Main>("xMas"),
                 i => i.MatchBrtrue(out label!))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match Main.xMas in PC.AI_007_TownEntities!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match Main.xMas in PC.AI_007_TownEntities!");
         }
         // before brtrue.s
         ilCursor.Index--;

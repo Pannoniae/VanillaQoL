@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class CommonItem {
     public static void nightsEdgeEffects(Player player, Rectangle hitbox) {

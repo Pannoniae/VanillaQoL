@@ -1,2 +1,2 @@
-global using VanillaQoL.API;
-global using VanillaQoL.Config;
+global using ZenithQoL.API;
+global using ZenithQoL.Config;

@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
-using Terraria.ModLoader;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public static class ILCursorExtensions {
     // Thank you Calamity! (this code is from their utils)

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.UI;
+namespace ZenithQoL.UI;
 
 public class LuckInfoDisplay : InfoDisplay {
 

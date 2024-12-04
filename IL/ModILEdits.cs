@@ -12,23 +12,23 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.IL;
+namespace ZenithQoL.IL;
 
 public class ModILEdits {
     public static void load() {
         try {
             if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
-                if (VanillaQoL.instance.hasRecipeBrowser) {
+                if (ZenithQoL.instance.hasRecipeBrowser) {
                     RecipeBrowserLogic.load();
                 }
 
-                if (VanillaQoL.instance.hasMagicStorage) {
+                if (ZenithQoL.instance.hasMagicStorage) {
                     MagicStorageLogic.load();
                 }
             }
         }
         catch (Exception e) {
-            VanillaQoL.instance.Logger.Error(
+            ZenithQoL.instance.Logger.Error(
                 $"Couldn't load Magic Storage and Recipe Browser integration! Error message: {e}");
         }
     }
@@ -62,7 +62,7 @@ public static class RecipeBrowserLogic {
             MonoModHooks.Modify(recipeBrowserMethod2, removeHiddenConditions);
         }
         catch (Exception e) {
-            VanillaQoL.instance.Logger.Warn($"Couldn't inject into RecipeBrowser to remove hidden conditions! {e}");
+            ZenithQoL.instance.Logger.Warn($"Couldn't inject into RecipeBrowser to remove hidden conditions! {e}");
         }
     }
 
@@ -76,11 +76,11 @@ public static class RecipeBrowserLogic {
             ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditions");
             // afterwards the list is on the stack as we wanted
 
-            VanillaQoL.instance.Logger.Info(
+            ZenithQoL.instance.Logger.Info(
                 "Patched RecipeBrowser UIRecipeInfo for hiding invisible recipe conditions!");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate recipe condition check in RecipeBrowser");
+            ZenithQoL.instance.Logger.Warn("Failed to locate recipe condition check in RecipeBrowser");
         }
     }
 }
@@ -104,11 +104,11 @@ public static class MagicStorageLogic {
             ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditions");
             // afterwards the list is on the stack as we wanted
 
-            VanillaQoL.instance.Logger.Info(
+            ZenithQoL.instance.Logger.Info(
                 "Patched MagicStorage UpdateRecipeText for hiding invisible recipe conditions!");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate recipe condition check in MagicStorage");
+            ZenithQoL.instance.Logger.Warn("Failed to locate recipe condition check in MagicStorage");
         }
     }
 }
@@ -157,7 +157,7 @@ public static class CalamityLogic2 {
             ilCursor.EmitRet();
         }
         else {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match player respawn logic in CalamityPlayer.UpdateDead! (areThereAnyDamnBosses)");
         }
     }
@@ -173,13 +173,13 @@ public static class CalamityLogic2 {
                 i => i.MatchCall<ModPlayer>("get_Player"),
                 i => i.MatchLdcI4(600),
                 i => i.MatchStfld<Player>("respawnTimer"))) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match player respawn logic in CalamityPlayer.UpdateDead! (areThereAnyDamnBosses)");
         }
 
         // IL_0580: stfld        int32 [tModLoader]Terraria.Player::respawnTimer
         if (!ilCursor.TryFindNext(out var c, i => i.MatchStfld<Player>("respawnTimer"))) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match jump after player respawn logic in CalamityPlayer.UpdateDead! (Player.respawnTimer)");
         }
         // TryFindNext returns before, go to after

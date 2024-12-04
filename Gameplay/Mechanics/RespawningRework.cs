@@ -8,9 +8,9 @@ using Terraria.DataStructures;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.IL;
+using ZenithQoL.IL;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class RespawningRework : ModSystem {
     public bool bossAlive;
@@ -29,7 +29,7 @@ public class RespawningRework : ModSystem {
         // sorry calamity, we do the respawning instead.
         // this one makes it configurable, so the calamity logic needs to be bypassed
         // the defaults are close to the calamity values
-        if (VanillaQoL.isCalamityLoaded()) {
+        if (ZenithQoL.isCalamityLoaded()) {
             CalamityLogic2.load();
             checker = new CalamityThreatChecker();
         }
@@ -70,13 +70,13 @@ public class RespawningRework : ModSystem {
         ILCursor ilCursor = new ILCursor(il);
         // IL_0424: stfld        int32 Terraria.Player::respawnTimer
         if (!ilCursor.TryGotoNext(MoveType.Before, preds)) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match first respawnTimer set in Player.UpdateDead!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match first respawnTimer set in Player.UpdateDead!");
         }
 
         ilCursor.RemoveRange(3);
 
         if (!ilCursor.TryGotoNext(MoveType.Before, preds)) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match second respawnTimer set in Player.UpdateDead!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match second respawnTimer set in Player.UpdateDead!");
         }
 
         ilCursor.RemoveRange(3);

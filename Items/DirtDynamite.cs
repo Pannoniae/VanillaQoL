@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class DirtDynamite : ModItem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -45,7 +45,7 @@ public class DirtDynamite : ModItem {
 }
 
 public class DirtDynamiteProjectile : ModProjectile {
-    public override string Texture => "VanillaQoL/Items/DirtDynamite";
+    public override string Texture => "ZenithQoL/Items/DirtDynamite";
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.moreExplosives;

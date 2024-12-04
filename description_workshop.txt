@@ -1,4 +1,4 @@
-[h1] Vanilla+ QoL [/h1]
+[h1] Zenith QoL [/h1]
 
 Vanilla Quality of Life mod intended to make the game more fun :)
 
@@ -6,7 +6,7 @@ Vanilla Quality of Life mod intended to make the game more fun :)
 
 If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
-GitHub repository: https://github.com/Pannoniae/VanillaQoL
+GitHub repository: https://github.com/Pannoniae/ZenithQoL
 
 [b]NEW![/b]
 [list]

@@ -1,8 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
-using VanillaQoL.Shared;
+using ZenithQoL.Shared;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class NonConsumableSummons : GlobalItem {
     public override void SetDefaults(Item item) {

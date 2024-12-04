@@ -3,7 +3,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class DynamicDCUPickaxe : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -21,7 +21,7 @@ public class DynamicDCUPickaxe : ModSystem {
     private void fixDCUPickaxePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Mount>("drillPickPower"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match first drillPickPower in Mount.UseDrill!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match first drillPickPower in Mount.UseDrill!");
             return;
         }
 
@@ -29,7 +29,7 @@ public class DynamicDCUPickaxe : ModSystem {
         ilCursor.Emit<DynamicDCUPickaxe>(OpCodes.Call, "modifyPickPower");
 
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Mount>("drillPickPower"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match second drillPickPower in Mount.UseDrill!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match second drillPickPower in Mount.UseDrill!");
             return;
         }
 

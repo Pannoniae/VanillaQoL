@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class CrackingDungeonBricks : GlobalTile {
     public override void KillTile(int i, int j, int type, ref bool fail, ref bool effectOnly, ref bool noItem) {

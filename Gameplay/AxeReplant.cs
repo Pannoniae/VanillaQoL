@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class AxeReplant : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -41,7 +41,7 @@ public class AxeReplant : ModSystem {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<Player>("IsBottomOfTreeTrunkNoRoots"),
                 i => i.MatchStloc(out var flag))) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match bottom of the tree check in Player.ItemCheck_UseMiningTools_ActuallyUseMiningTool!");
             return;
         }
@@ -62,7 +62,7 @@ public class AxeReplant : ModSystem {
         ilCursor.EmitStloc(idx2);
 
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<WorldGen>("KillTile"))) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match WorldGen.KillTile in Player.ItemCheck_UseMiningTools_ActuallyUseMiningTool!");
             return;
         }
@@ -77,7 +77,7 @@ public class AxeReplant : ModSystem {
                 i => i.MatchLdfld<Item>("type"),
                 i => i.MatchLdcI4(5295),
                 i => i.MatchCeq())) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match Axe of Regrowth check in Player.ItemCheck_UseMiningTools_ActuallyUseMiningTool!");
             return;
         }

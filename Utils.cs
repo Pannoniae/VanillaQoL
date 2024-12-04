@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL;
+namespace ZenithQoL;
 
 public class Utils {
     /// <summary>
@@ -15,11 +15,11 @@ public class Utils {
     /// </summary>
     /// <param name="type">The type to wipe.</param>
     public static void completelyWipeClass(Type type) {
-        //VanillaQoL.instance!.Logger!.Info("type: " + type);
+        //ZenithQoL.instance!.Logger!.Info("type: " + type);
         // do the same for nested classes
         foreach (var nested in type.GetNestedTypes(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
                                                    BindingFlags.NonPublic)) {
-            //VanillaQoL.instance!.Logger!.Info("nested: " + nested);
+            //ZenithQoL.instance!.Logger!.Info("nested: " + nested);
             completelyWipeClass(nested);
         }
 

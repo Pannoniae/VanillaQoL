@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class BouncyDirtDynamite : ModItem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -49,7 +49,7 @@ public class BouncyDirtDynamite : ModItem {
 }
 
 public class BouncyDirtDynamiteProjectile : ModProjectile {
-    public override string Texture => "VanillaQoL/Items/BouncyDirtDynamite";
+    public override string Texture => "ZenithQoL/Items/BouncyDirtDynamite";
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.moreExplosives;

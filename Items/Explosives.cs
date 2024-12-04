@@ -8,7 +8,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 [SuppressMessage("ReSharper", "PossibleLossOfFraction")]
 public class Explosives : ModSystem {
@@ -33,7 +33,7 @@ public class Explosives : ModSystem {
         var ilCursor2 = new ILCursor(ilCursor);
         // ldsfld System.Boolean[] Terraria.ID.ProjectileID/Sets::RocketsSkipDamageForPlayers
         if (!ilCursor2.TryGotoNext(MoveType.Before, i => i.MatchLdsfld(out var _))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match the jump in Projectile.BombsHurtPlayers!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match the jump in Projectile.BombsHurtPlayers!");
             return;
         }
 
@@ -192,7 +192,7 @@ public class Explosives : ModSystem {
                     }
                 }
                 catch (Exception e) {
-                    VanillaQoL.instance.Logger.Error(e);
+                    ZenithQoL.instance.Logger.Error(e);
                 }
             }
 

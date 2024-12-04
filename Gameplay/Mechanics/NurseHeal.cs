@@ -2,9 +2,9 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
-using VanillaQoL.IL;
+using ZenithQoL.IL;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 
 public class NurseHeal : ModBuff {
@@ -58,7 +58,7 @@ public class NurseHealing {
     }
 
     public static void nurseAddHealing(int health) {
-        //VanillaQoL.instance.Logger.Info("Healed with Nurse!");
+        //ZenithQoL.instance.Logger.Info("Healed with Nurse!");
         // apply buff until specified health is reached
         var player = Main.LocalPlayer;
         // in ticks
@@ -99,7 +99,7 @@ public class NurseHealing {
             ILEdits.updateOffsets(ilCursor);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate nurse healing at GUIChatDrawInner (Player.statLife)");
         }
     }
 }

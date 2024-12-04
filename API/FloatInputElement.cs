@@ -15,7 +15,7 @@ using Terraria.UI;
 
 #pragma warning disable // tml shitcode anyway
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public class FloatInputElement : ConfigElement {
     public List<float> floatList { get; set; }

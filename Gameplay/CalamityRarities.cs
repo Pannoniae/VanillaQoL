@@ -11,12 +11,12 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 [JITWhenModsEnabled("CalamityMod")]
 public class CalamityRarities : GlobalItem {
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.calamityInWorldRarity && VanillaQoL.isCalamityLoaded();
+        return QoLConfig.Instance.calamityInWorldRarity && ZenithQoL.isCalamityLoaded();
     }
 
     public override void SetDefaults(Item item) {
@@ -104,7 +104,7 @@ public class CalamityRarities : GlobalItem {
 [JITWhenModsEnabled("CalamityMod")]
 public class Rarity : ModRarity {
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.calamityInWorldRarity && VanillaQoL.isCalamityLoaded();
+        return QoLConfig.Instance.calamityInWorldRarity && ZenithQoL.isCalamityLoaded();
     }
 }
 

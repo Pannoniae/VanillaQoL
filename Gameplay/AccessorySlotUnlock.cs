@@ -2,9 +2,9 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
-using VanillaQoL.IL;
+using ZenithQoL.IL;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class AccessorySlotUnlock : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -13,7 +13,7 @@ public class AccessorySlotUnlock : ModSystem {
 
     public override void OnModLoad() {
         IL_Player.IsItemSlotUnlockedAndUsable += itemSlotPatch;
-        if (VanillaQoL.instance.hasCalamity) {
+        if (ZenithQoL.instance.hasCalamity) {
             CalamityLogic.load();
         }
     }
@@ -26,7 +26,7 @@ public class AccessorySlotUnlock : ModSystem {
         var ilCursor = new ILCursor(il);
         // match expert mode
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<Main>("get_expertMode"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match expertMode check in Player.IsItemSlotUnlockedAndUsable!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match expertMode check in Player.IsItemSlotUnlockedAndUsable!");
         }
 
         // we also just pop the stack instead of just erasing the entire expert/mastermode call
@@ -38,7 +38,7 @@ public class AccessorySlotUnlock : ModSystem {
 
         // insert pop before
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<Main>("get_masterMode"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match masterMode check in Player.IsItemSlotUnlockedAndUsable!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match masterMode check in Player.IsItemSlotUnlockedAndUsable!");
         }
 
         // brtrue.s -> br.s

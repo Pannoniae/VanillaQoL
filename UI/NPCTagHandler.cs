@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 
-namespace VanillaQoL.UI;
+namespace ZenithQoL.UI;
 
 public class NPCTagHandler : ITagHandler {
     public TextSnippet Parse(string text, Color baseColor = new Color(), string? options = null) {

@@ -1,10 +1,9 @@
-using Microsoft.Xna.Framework;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class CactusHurtsPlayers : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -28,14 +27,14 @@ public class CactusHurtsPlayers : ModSystem {
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdarg0(),
                 i => i.MatchLdcI4(80),
                 i => i.MatchBneUn(out label))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ldc.i4.s 80 (TileID.Cactus) in Collision.CanTileHurt!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ldc.i4.s 80 (TileID.Cactus) in Collision.CanTileHurt!");
             return;
         }
 
         // we add another condition! If QoLConfig.Instance.cactusHurts is true, we skip too
         // [10 9 - 10 47]
-        // ldsfld       class VanillaQoL.Config.QoLConfig VanillaQoL.Config.QoLConfig::Instance
-        // callvirt     instance bool VanillaQoL.Config.QoLConfig::get_cactusHurts()
+        // ldsfld       class ZenithQoL.Config.QoLConfig ZenithQoL.Config.QoLConfig::Instance
+        // callvirt     instance bool ZenithQoL.Config.QoLConfig::get_cactusHurts()
         ilCursor.EmitLdsfld<QoLConfig>("Instance");
         ilCursor.EmitCallvirt<QoLConfig>("get_cactusHurts");
         ilCursor.EmitBrtrue(label);

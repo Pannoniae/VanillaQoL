@@ -12,7 +12,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace VanillaQoL.Gameplay.WingSlot;
+namespace ZenithQoL.Gameplay.WingSlot;
 
 [Autoload]
 public class WingSlot : ModAccessorySlot {
@@ -60,7 +60,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
     }
 
     public override void SetStaticDefaults() {
-        VanillaQoL.instance.Logger.Warn("Hey!");
+        ZenithQoL.instance.Logger.Warn("Hey!");
         wings = this.GetLocalization(nameof(wings));
         socialWings = this.GetLocalization(nameof(socialWings));
     }
@@ -80,7 +80,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
         var backgroundTexture = 0;
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCallvirt<AccessorySlotLoader>("GetBackgroundTexture"),
                 i => i.MatchStloc(out backgroundTexture))) {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match AccessorySlotLoader.GetBackgroundTexture in ItemSlot.Draw!");
         }
 

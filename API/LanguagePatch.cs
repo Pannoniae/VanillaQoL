@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria.Localization;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public class LanguagePatch {
     // mirror
@@ -90,7 +89,7 @@ public class LanguagePatch {
             loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
                 new object?[] { value });
 
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 $"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
         }
     }
@@ -114,7 +113,7 @@ public class LanguagePatch {
             _localizedTexts.Add(key, loc);
         }
         else {
-            VanillaQoL.instance.Logger.Warn($"Tried to add the same category twice! {key}");
+            ZenithQoL.instance.Logger.Warn($"Tried to add the same category twice! {key}");
         }
         if (!_categoryGroupedKeys.ContainsKey(category)) {
             _categoryGroupedKeys.Add(category, new List<string>());

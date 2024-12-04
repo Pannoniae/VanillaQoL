@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 // We add a despawn to the hearts/mana crystals else they just fucking lie around forever
 public class Heart : GlobalItem {

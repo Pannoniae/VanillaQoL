@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class MountFallDamage : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {

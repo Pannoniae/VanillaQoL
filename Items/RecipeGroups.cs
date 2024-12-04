@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class RecipeGroups : ModSystem {
     public static RecipeGroup anyNightsEdge = null!;

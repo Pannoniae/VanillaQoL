@@ -1,6 +1,6 @@
 using System;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public static class NumberExtensions {
     public static float roundTo(this float num, float to) {

@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.GameContent.Drawing;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class JungleRose : GlobalTile {
     public override bool IsLoadingEnabled(Mod mod) {

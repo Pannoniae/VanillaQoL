@@ -1,9 +1,8 @@
 using System.ComponentModel;
-using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
-using VanillaQoL.Shared;
+using ZenithQoL.Shared;
 
-namespace VanillaQoL.Config;
+namespace ZenithQoL.Config;
 
 public enum Credits {
     Vanilla,

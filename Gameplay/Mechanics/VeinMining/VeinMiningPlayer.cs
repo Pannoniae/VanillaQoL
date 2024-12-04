@@ -8,7 +8,7 @@ using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace VanillaQoL.Gameplay.VeinMining;
+namespace ZenithQoL.Gameplay.VeinMining;
 
 public class VeinMiningPlayer : ModPlayer {
     public int ctr;

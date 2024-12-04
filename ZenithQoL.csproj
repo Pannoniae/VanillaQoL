@@ -3,7 +3,7 @@
     <Import Project="..\tModLoader.targets" />
     <PropertyGroup>
         <LangVersion>default</LangVersion>
-        <PackageId>VanillaQoL</PackageId>
+        <PackageId>ZenithQoL</PackageId>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
@@ -123,6 +123,6 @@
         <Folder Include="NPCs\" />
     </ItemGroup>
     <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
-        <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="../ZenithQoL.dll" />
     </Target>
 </Project>

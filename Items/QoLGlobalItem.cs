@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 [SuppressMessage("ReSharper", "UnusedMember.Local")]
 [SuppressMessage("ReSharper", "UnusedParameter.Local")]
@@ -111,7 +111,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             ammunitionTooltips(item, tooltips);
         }
 
-        if (QoLConfig.Instance.vanillaThoriumTooltips && VanillaQoL.instance.hasThorium) {
+        if (QoLConfig.Instance.vanillaThoriumTooltips && ZenithQoL.instance.hasThorium) {
             vanillaifyThoriumTooltips(item, tooltips);
         }
 
@@ -141,7 +141,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
 
     public void wingTooltips(Item item, List<TooltipLine> tooltips) {
         // calamity does the same thing, don't apply tooltips in that case
-        if (VanillaQoL.instance.hasCalamity) {
+        if (ZenithQoL.instance.hasCalamity) {
             return;
         }
 
@@ -174,14 +174,14 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         var hover = stats.HasDownHoverStats;
 
         string tooltip = wingStats(time, hover, horizontalSpeed);
-        var tooltipLine = new TooltipLine(VanillaQoL.instance, "WingInfo", tooltip);
+        var tooltipLine = new TooltipLine(ZenithQoL.instance, "WingInfo", tooltip);
         addTooltip(tooltips, tooltipLine);
     }
 
     public void wingSlotTooltips(Item item, List<TooltipLine> tooltips) {
         if (!Constants.isWing(item) && Constants.isBalloon(item) || Constants.isBottle(item)) {
             string tooltip = wingSlotText.Value;
-            var tooltipLine = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", tooltip);
+            var tooltipLine = new TooltipLine(ZenithQoL.instance, "WingSlotInfo", tooltip);
             addWingSlotTooltip(tooltips, tooltipLine);
         }
     }
@@ -267,7 +267,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
 
     public void hookTooltips(Item item, List<TooltipLine> tooltips) {
         // calamity does the same thing, don't apply tooltips in that case
-        if (VanillaQoL.instance.hasCalamity) {
+        if (ZenithQoL.instance.hasCalamity) {
             return;
         }
 
@@ -296,7 +296,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             mproj.GrapplePullSpeed(player, ref pull);
             mproj.NumGrappleHooks(player, ref numHooks);
 
-            if (VanillaQoL.instance.hasThorium) {
+            if (ZenithQoL.instance.hasThorium) {
                 Thorium.ModifyTooltips(mproj, ref distance, ref reach, ref launch, ref reel, ref pull,
                     ref numHooks);
             }
@@ -367,7 +367,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
                     distance = 500;
                     break;
                 default:
-                    VanillaQoL.instance.Logger.Warn(
+                    ZenithQoL.instance.Logger.Warn(
                         $"unhandled hook {item.shoot}!");
                     break;
             }
@@ -395,7 +395,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         reach = distance / 16;
 
         tooltip = hookStats(reach, launch, reel, pull, numHooks);
-        var tooltipLine = new TooltipLine(VanillaQoL.instance, "HookInfo", tooltip);
+        var tooltipLine = new TooltipLine(ZenithQoL.instance, "HookInfo", tooltip);
         addTooltip(tooltips, tooltipLine);
     }
 
@@ -410,13 +410,13 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             // social slot
             var social = tooltips.Find(t => t.Mod == "Terraria" && t.Name == "Social");
             if (social != null) {
-                tooltip = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
+                tooltip = new TooltipLine(ZenithQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
                 tooltips.AddAfter(social, tooltip);
             }
             // we really didn't find it
             else {
                 var lastVanilla = tooltips.FindLast(t => t.Mod == "Terraria")!;
-                tooltip = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
+                tooltip = new TooltipLine(ZenithQoL.instance, "WingSlotInfo", wingSlotTextFull.Value);
                 tooltips.AddAfter(lastVanilla, tooltip);
             }
         }
@@ -571,7 +571,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         // Add conditions (post-skeletron/golem/ml)
 
 
-        var tooltipLine = new TooltipLine(VanillaQoL.instance, "ShimmerInfo", tooltip);
+        var tooltipLine = new TooltipLine(ZenithQoL.instance, "ShimmerInfo", tooltip);
         // we want a purple glint but until we have it, white it is
         //tooltipLine.OverrideColor = Color.LightPink;
         addShimmerTooltip(tooltips, tooltipLine);
@@ -634,7 +634,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
             tooltip = ammoFire.Format(ammoItem, itemName);
         }
 
-        var tooltipLine = new TooltipLine(VanillaQoL.instance, "AmmoInfo", tooltip);
+        var tooltipLine = new TooltipLine(ZenithQoL.instance, "AmmoInfo", tooltip);
         addAmmoTooltip(tooltips, tooltipLine);
     }
 

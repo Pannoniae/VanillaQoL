@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.Items;
+using ZenithQoL.Items;
 
-namespace VanillaQoL.Tiles;
+namespace ZenithQoL.Tiles;
 
 public class CrimsonPylonTile  : BasePylonTile {
     public LocalizedText inCrimson;

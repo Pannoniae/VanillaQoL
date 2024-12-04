@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class DisableShimmering : ModPlayer {
     public override void PostUpdateEquips() {

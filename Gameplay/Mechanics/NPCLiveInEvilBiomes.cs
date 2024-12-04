@@ -2,9 +2,8 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using VanillaQoL.Config;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class NPCsLiveInEvilBiomes : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -29,7 +28,7 @@ public class NPCsLiveInEvilBiomes : ModSystem {
     public void NpcHouseScorePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<WorldGen>("GetTileTypeCountByCategory"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't find GetTileTypeCountByCategory in WorldGen.ScoreRoom!");
+            ZenithQoL.instance.Logger.Warn("Couldn't find GetTileTypeCountByCategory in WorldGen.ScoreRoom!");
             return;
         }
         // what if we just didn't?
@@ -48,7 +47,7 @@ public class NPCsLiveInEvilBiomes : ModSystem {
             ilCursor.Next!.Operand = 2.0f;
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't find price cap in ShopHelper.LimitAndRoundMultiplier!");
+            ZenithQoL.instance.Logger.Warn("Couldn't find price cap in ShopHelper.LimitAndRoundMultiplier!");
 
         }
     }

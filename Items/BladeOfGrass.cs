@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class BladeOfGrass : ModItem {
     public override bool IsLoadingEnabled(Mod mod) {

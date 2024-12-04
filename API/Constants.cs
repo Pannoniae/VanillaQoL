@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using CalamityMod.Tiles.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.Items;
+using ZenithQoL.Items;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public class Constants {
     public const float feetToMetre = (float)1 / 4;

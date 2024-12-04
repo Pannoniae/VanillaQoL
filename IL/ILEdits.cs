@@ -5,10 +5,9 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-using Terraria.UI.Gamepad;
-using VanillaQoL.UI;
+using ZenithQoL.UI;
 
-namespace VanillaQoL.IL;
+namespace ZenithQoL.IL;
 
 public class ILEdits : ModSystem {
     // IL_0684: stloc.1      // start
@@ -28,7 +27,7 @@ public class ILEdits : ModSystem {
             ilCursor.Emit<Main>(OpCodes.Call, "UpdateTime_SpawnTownNPCs");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate daytime check (Main.eclipse)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate daytime check (Main.eclipse)");
         }
     }
 
@@ -58,7 +57,7 @@ public class ILEdits : ModSystem {
             ilCursor.EmitStloc1();
         }
         else {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Failed to locate master mode check to patch NPCs moving to their houses (Main.masterMode)");
         }
     }
@@ -93,7 +92,7 @@ public class ILEdits : ModSystem {
             updateOffsets(ilCursor);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate EquipPage check at DrawPVPIcons (Main.EquipPage)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate EquipPage check at DrawPVPIcons (Main.EquipPage)");
         }
     }
 
@@ -113,7 +112,7 @@ public class ILEdits : ModSystem {
             updateOffsets(ilCursor);
         }
         else {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Failed to locate hidePVPIcons assignment at DrawNPCHousesInUI (Main.hidePVPIcons)");
         }
     }
@@ -173,7 +172,7 @@ public class ILEdits : ModSystem {
             ilCursor.Emit(OpCodes.Stloc_S, (byte)text);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate stopwatch info text at DrawInfoAccs (GameUI.Speed)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate stopwatch info text at DrawInfoAccs (GameUI.Speed)");
         }
     }
 
@@ -228,7 +227,7 @@ public class ILEdits : ModSystem {
         }
 
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate liquid check at XferWater (Tile.liquid)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate liquid check at XferWater (Tile.liquid)");
         }
     }
 
@@ -242,7 +241,7 @@ public class ILEdits : ModSystem {
             ilCursor.Emit<UIInfo>(OpCodes.Call, "playerInfo");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate return at at IL_UICharacterListItem.ctor");
+            ZenithQoL.instance.Logger.Warn("Failed to locate return at at IL_UICharacterListItem.ctor");
         }
     }
 
@@ -253,7 +252,7 @@ public class ILEdits : ModSystem {
             ilCursor.Emit<UIInfo>(OpCodes.Call, "worldInfo");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate return at at IL_UIWorldListItem.ctor");
+            ZenithQoL.instance.Logger.Warn("Failed to locate return at at IL_UIWorldListItem.ctor");
         }
     }
 
@@ -306,7 +305,7 @@ public static class CensusLogic {
     // time to initialise the hackery
     // also seriously fuck you census for making everything internal so time for hackery
     static CensusLogic() {
-        VanillaQoL.instance.Logger.Info(
+        ZenithQoL.instance.Logger.Info(
             "If the Census developers read this, please please don't make everything internal in your mod so I don't have to suffer. <3"
         );
         try {
@@ -322,7 +321,7 @@ public static class CensusLogic {
             lengthOfTheList = (int)countProperty.GetValue(theList)!;
         }
         catch (Exception e) {
-            VanillaQoL.instance.Logger.Error($"Couldn't load Census integration! Error message: {e}");
+            ZenithQoL.instance.Logger.Error($"Couldn't load Census integration! Error message: {e}");
             // we just break it silently so it's the original behaviour instead of crashing the game
             lengthOfTheList = 0;
         }

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class DamageReductionShield : ModSystem, ILocalizedModType {
 
@@ -27,7 +27,7 @@ public class DamageReductionShield : ModSystem, ILocalizedModType {
     public void defenseCounterPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchStloc(4))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match stloc.s for the defense string in Main.DrawDefenseCounter!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match stloc.s for the defense string in Main.DrawDefenseCounter!");
         }
         ilCursor.EmitCall<DamageReductionShield>("DRString");
     }

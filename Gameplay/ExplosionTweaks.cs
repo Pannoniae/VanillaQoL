@@ -2,7 +2,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class ExplosionTweaks : GlobalWall {
     public override void Load() {
@@ -54,7 +54,7 @@ public class ExplosionTweaks : GlobalWall {
             ilCursor.EmitRet();
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't match Main.tile in Projectile.CanExplodeTile!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match Main.tile in Projectile.CanExplodeTile!");
         }
     }
 

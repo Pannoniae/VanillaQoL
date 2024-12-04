@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class QuickBuffFavourite : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -31,7 +31,7 @@ public class QuickBuffFavourite : ModSystem {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdcI4(0),
                 i => i.MatchStloc(out _))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ldc.i4.0 and stloc.s index in Player.QuickBuff!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ldc.i4.0 and stloc.s index in Player.QuickBuff!");
         }
 
         il.Body.Variables.Add(new VariableDefinition(il.Import(typeof(bool))));
@@ -42,7 +42,7 @@ public class QuickBuffFavourite : ModSystem {
         ilCursor.EmitStloc(idx);
         if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdloc(7),
                 i => i.MatchBrfalse(out var label))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match CanUseItem flag in Player.QuickBuff!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match CanUseItem flag in Player.QuickBuff!");
         }
         // after ldloc
         ilCursor.Index++;

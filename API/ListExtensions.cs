@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public static class ListExtensions {
     /// <summary>

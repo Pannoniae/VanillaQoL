@@ -5,13 +5,13 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.UI;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class ShopButtons : GameInterfaceLayer {
 
 
     public ShopButtons()
-        : base("Vanilla+ QoL: Shop Buttons", InterfaceScaleType.UI) {
+        : base("Zenith QoL: Shop Buttons", InterfaceScaleType.UI) {
     }
 
     protected override bool DrawSelf() {

@@ -6,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 // ReSharper disable All
 
-namespace VanillaQoL.Shared;
+namespace ZenithQoL.Shared;
 
 public class NPCShops : GlobalNPC {
     public override void ModifyShop(NPCShop shop) {

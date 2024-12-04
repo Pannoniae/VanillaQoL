@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using VanillaQoL.IL;
+using ZenithQoL.IL;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class BuffsPersistOnDeath : ModSystem {
     private static Dictionary<int, bool> _persistentBuffs = null!;
@@ -37,7 +37,7 @@ public class BuffsPersistOnDeath : ModSystem {
             }
 
             // patch calamity because they hardcode persistent buffs.....
-            if (VanillaQoL.isCalamityLoaded()) {
+            if (ZenithQoL.isCalamityLoaded()) {
                 CalamityLogic3.addBuff(buff);
             }
 

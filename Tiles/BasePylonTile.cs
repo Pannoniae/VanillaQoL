@@ -12,7 +12,7 @@ using Terraria.Map;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Default;
 
-namespace VanillaQoL.Tiles;
+namespace ZenithQoL.Tiles;
 
 public abstract class BasePylonTile : ModPylon {
     public const int CrystalHorizontalFrameCount = 1;
@@ -48,7 +48,7 @@ public abstract class BasePylonTile : ModPylon {
     public override void SetStaticDefaults() {
         RegisterItemDrop(AssociatedItem);
 
-        TEModdedPylon moddedPylon = ModContent.GetInstance<TEVanillaQoLPylon>();
+        TEModdedPylon moddedPylon = ModContent.GetInstance<TEZenithQoLPylon>();
         this.SetUpPylon(moddedPylon, true);
 
         TileID.Sets.InteractibleByNPCs[Type] = true;
@@ -64,7 +64,7 @@ public abstract class BasePylonTile : ModPylon {
     }
 
     public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-        ModContent.GetInstance<TEVanillaQoLPylon>().Kill(i, j);
+        ModContent.GetInstance<TEZenithQoLPylon>().Kill(i, j);
     }
 
     public override bool CreateDust(int i, int j, ref int type) => false;

@@ -1,4 +1,4 @@
-//namespace VanillaQoL.API;
+//namespace ZenithQoL.API;
 
 // we can patch the hooks into modsystem and use them, enjoy
 //public class QoLModSystem {

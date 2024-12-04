@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Shared;
+namespace ZenithQoL.Shared;
 
 
 /// <summary>

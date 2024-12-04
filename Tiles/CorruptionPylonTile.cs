@@ -1,13 +1,11 @@
-using CalamityMod.Items.Placeables.Pylons;
-using CalamityMod.Tiles.Pylons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.Items;
+using ZenithQoL.Items;
 
-namespace VanillaQoL.Tiles;
+namespace ZenithQoL.Tiles;
 
 public class CorruptionPylonTile : BasePylonTile {
 

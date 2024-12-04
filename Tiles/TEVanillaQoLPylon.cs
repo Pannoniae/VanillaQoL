@@ -1,7 +1,7 @@
 using Terraria.ModLoader.Default;
 
-namespace VanillaQoL.Tiles;
+namespace ZenithQoL.Tiles;
 
-public class TEVanillaQoLPylon : TEModdedPylon {
+public class TEZenithQoLPylon : TEModdedPylon {
 
 }

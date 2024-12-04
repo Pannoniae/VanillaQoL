@@ -2,7 +2,7 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class PrefixRarity : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -30,7 +30,7 @@ public class PrefixRarity : ModSystem {
             // should be 12
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate start of prefix code at Item.Prefix (Item.rare)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate start of prefix code at Item.Prefix (Item.rare)");
             return;
         }
 
@@ -49,7 +49,7 @@ public class PrefixRarity : ModSystem {
             ilCursor.EmitBr(label);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Failed to locate end of prefix code at Item.Prefix (valueMult)");
+            ZenithQoL.instance.Logger.Warn("Failed to locate end of prefix code at Item.Prefix (valueMult)");
         }
     }
 }

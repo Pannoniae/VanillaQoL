@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VanillaQoL.Tiles;
+using ZenithQoL.Tiles;
 
-namespace VanillaQoL.Items;
+namespace ZenithQoL.Items;
 
 public class CrimsonPylon : ModItem, ILocalizedModType {
     public new string LocalizationCategory => "Items.Placeables";

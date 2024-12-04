@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using ThoriumMod;
 using ThoriumMod.NPCs.BossThePrimordials;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 
 // the fucking compiler-generated classes are at it again
@@ -22,10 +22,10 @@ public class DisableCredits : ModSystem {
     public override void Load() {
         IL_NPC.OnGameEventClearedForTheFirstTime += disableMoonLordCreditsPatch;
         // If Thorium, move it to Primordials, if Calamity, move it to Supreme Calamitas
-        if (VanillaQoL.instance.hasCalamity) {
+        if (ZenithQoL.instance.hasCalamity) {
             calModify();
         }
-        else if (VanillaQoL.instance.hasThorium) {
+        else if (ZenithQoL.instance.hasThorium) {
             thoriumModify();
         }
     }
@@ -48,7 +48,7 @@ public class DisableCredits : ModSystem {
     public void playCreditsPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdsflda<ThoriumWorld>("downedThePrimordials"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't find downedThePrimordials in OnKill!");
+            ZenithQoL.instance.Logger.Warn("Couldn't find downedThePrimordials in OnKill!");
             return;
         }
 
@@ -63,7 +63,7 @@ public class DisableCredits : ModSystem {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(1),
                 i => i.MatchCall<DownedBossSystem>("set_downedCalamitas"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't find downedThePrimordials in OnKill!");
+            ZenithQoL.instance.Logger.Warn("Couldn't find downedThePrimordials in OnKill!");
             return;
         }
 

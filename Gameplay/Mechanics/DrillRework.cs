@@ -5,7 +5,7 @@ using Terraria.GameContent.Prefixes;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class DrillRework : GlobalItem {
     public override bool IsLoadingEnabled(Mod mod) {
@@ -40,7 +40,7 @@ public class DrillRework : GlobalItem {
             ilCursor.EmitBrtrue(label);
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't match jump in DoesPickTargetTransformOnKill!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match jump in DoesPickTargetTransformOnKill!");
         }
     }
 
@@ -54,7 +54,7 @@ public class DrillRework : GlobalItem {
         // we match each of them, or'ing it with our method
         //IL_000f: call         bool Terraria.ModLoader.ItemLoader::MeleePrefix(class Terraria.Item)
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "MeleePrefix"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.MeleePrefix in Item.GetPrefixCategory!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ItemLoader.MeleePrefix in Item.GetPrefixCategory!");
         }
 
         ilCursor.EmitLdarg0();
@@ -62,7 +62,7 @@ public class DrillRework : GlobalItem {
         ilCursor.EmitOr();
 
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "RangedPrefix"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.RangedPrefix in Item.GetPrefixCategory!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ItemLoader.RangedPrefix in Item.GetPrefixCategory!");
         }
 
         ilCursor.EmitLdarg0();
@@ -70,7 +70,7 @@ public class DrillRework : GlobalItem {
         ilCursor.EmitOr();
 
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "MagicPrefix"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.MagicPrefix in Item.GetPrefixCategory!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ItemLoader.MagicPrefix in Item.GetPrefixCategory!");
         }
 
         ilCursor.EmitLdarg0();
@@ -78,7 +78,7 @@ public class DrillRework : GlobalItem {
         ilCursor.EmitOr();
 
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall("Terraria.ModLoader.ItemLoader", "WeaponPrefix"))) {
-            VanillaQoL.instance.Logger.Warn("Couldn't match ItemLoader.WeaponPrefix in Item.GetPrefixCategory!");
+            ZenithQoL.instance.Logger.Warn("Couldn't match ItemLoader.WeaponPrefix in Item.GetPrefixCategory!");
         }
 
         ilCursor.EmitLdarg0();
@@ -119,7 +119,7 @@ public class DrillRework : GlobalItem {
             ilCursor.EmitPop();
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't match channel in Player.CanAutoReuseItem! (Player.channel)");
+            ZenithQoL.instance.Logger.Warn("Couldn't match channel in Player.CanAutoReuseItem! (Player.channel)");
         }
     }
 
@@ -145,7 +145,7 @@ public class DrillRework : GlobalItem {
             ilCursor.MarkLabel(label);
         }
         else {
-            VanillaQoL.instance.Logger.Warn(
+            ZenithQoL.instance.Logger.Warn(
                 "Couldn't match channeling in Player.ItemCheck_OwnerOnlyCode! (Player.channel)");
         }
     }

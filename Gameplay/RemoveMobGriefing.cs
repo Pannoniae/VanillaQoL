@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class RemoveMobGriefingSimple : GlobalProjectile {
     public override bool AppliesToEntity(Projectile projectile, bool lateInstantiation) {

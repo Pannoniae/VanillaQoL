@@ -66,7 +66,7 @@ QoLConfig: {
 
 	fixMemoryLeaks: {
 		Label: "[i:1344] Fix Memory Leaks"
-		Tooltip: Many mods are badly written and they leak memory, slowing down the game if you reload your mods. If enabled, VanillaQoL tries to fix memory leaks somewhat.
+		Tooltip: Many mods are badly written and they leak memory, slowing down the game if you reload your mods. If enabled, ZenithQoL tries to fix memory leaks somewhat.
 	}
 
 	vanillaThoriumTooltips: {
@@ -186,7 +186,7 @@ QoLConfig: {
 		Label: "[i:3119] Loadout Support for Accessories"
 		Tooltip:
 			'''
-			If enabled, Vanilla+ QoL tries to make modded accessories work with 1.4.4 loadouts.
+			If enabled, Zenith QoL tries to make modded accessories work with 1.4.4 loadouts.
 			[c/FF0000:WARNING!] If you remove this mod, only the current loadout's accessory slots will be kept!
 			'''
 	}
@@ -195,7 +195,7 @@ QoLConfig: {
 		Label: "[i:38] Fix DragonLens on Linux"
 		Tooltip:
 			'''
-			If enabled, Vanilla+ QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
+			If enabled, Zenith QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
 			This happens because file systems on Linux are case-sensitive, so "Projectile" and "projectile" are two different files.
 			(You need to restart your game after enabling this to stop the error from happening.)
 			'''
@@ -241,7 +241,7 @@ QoLConfig: {
 	}
 
 	moreExplosives: {
-		Label: "[i:VanillaQoL/BouncyDirtDynamite] More Explosives"
+		Label: "[i:ZenithQoL/BouncyDirtDynamite] More Explosives"
 		Tooltip: If enabled, adds more variants of explosives to the game.
 	}
 
@@ -297,7 +297,7 @@ QoLConfig: {
 
 	shopExpander: {
 		Label: "[i:73] Shop Expander"
-		Tooltip: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
+		Tooltip: If enabled, Zenith QoL adds pages to shops to fit all items which you can switch between using two buttons.
 	}
 
 	extraSellPages: {
@@ -358,7 +358,7 @@ QoLConfig: {
 	}
 
 	disableShimmering: {
-		Label: "[t:VanillaQoL/UI/Shimmer] No Falling Through Shimmer"
+		Label: "[t:ZenithQoL/UI/Shimmer] No Falling Through Shimmer"
 		Tooltip: If enabled, you will not fall through the world when falling into shimmer. You can take a bath in it :)
 	}
 
@@ -448,7 +448,7 @@ QoLConfig: {
 	}
 
 	calamityInWorldRarity: {
-		Label: "[t:VanillaQoL/UI/Wrench] Calamity Rarity Fix"
+		Label: "[t:ZenithQoL/UI/Wrench] Calamity Rarity Fix"
 		Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
 	}
 
@@ -515,7 +515,7 @@ QoLConfig: {
 		Label: "[i:4916] More Pylons"
 		Tooltip:
 			'''
-			If enabled, Vanilla+ QoL adds a Corruption and a Crimson Pylon for NPCs to use.
+			If enabled, Zenith QoL adds a Corruption and a Crimson Pylon for NPCs to use.
 			It is advised to enable the config option of NPCs living in evil biomes.
 			'''
 	}

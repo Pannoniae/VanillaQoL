@@ -13,7 +13,7 @@ using Terraria.ID;
 using Terraria.Map;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.Gameplay;
+namespace ZenithQoL.Gameplay;
 
 public class QoLPlayer : ModPlayer {
     public override void OnEnterWorld() {
@@ -93,11 +93,11 @@ public class QoLSharedMapSystem : ModSystem {
             // increment so no infinite loop!
             c.Index++;
             emitted = true;
-            //VanillaQoL.instance.Logger.Info("Patched WorldMap.Load!");
+            //ZenithQoL.instance.Logger.Info("Patched WorldMap.Load!");
         }
 
         if (!emitted) {
-            //VanillaQoL.instance.Logger.Warn("Couldn't match return in WorldMap.Load");
+            //ZenithQoL.instance.Logger.Warn("Couldn't match return in WorldMap.Load");
         }
     }
 
@@ -129,7 +129,7 @@ public class QoLSharedMapSystem : ModSystem {
             c.Emit<QoLSharedMapSystem>(OpCodes.Call, "onUpdate");
         }
         else {
-            VanillaQoL.instance.Logger.Warn("Couldn't match return in WorldMap.UpdateLighting");
+            ZenithQoL.instance.Logger.Warn("Couldn't match return in WorldMap.UpdateLighting");
         }
     }
 
@@ -334,7 +334,7 @@ public class QoLSharedMapSystem : ModSystem {
                 break;
             }
             default:
-                throw new ArgumentException("VanillaQoL encountered an unhandled packet, there are problems.");
+                throw new ArgumentException("ZenithQoL encountered an unhandled packet, there are problems.");
         }
     }
 
@@ -441,7 +441,7 @@ public class QoLSharedMapSystem : ModSystem {
             // one is a global map update but capped at 250000 per frame?
             // another is immediate, capped at 1000 for the exploring and stuff?
             // well the slower one is good for us
-            //VanillaQoL.instance.Logger.Warn($"{compressedLength}, {compressedData.Length}, {data.Length}");
+            //ZenithQoL.instance.Logger.Warn($"{compressedLength}, {compressedData.Length}, {data.Length}");
             using (var memoryStream = new MemoryStream(data)) {
                 using (var bytes = new BinaryReader(memoryStream)) {
                     for (int i = 0; i < map.MaxWidth; i++) {

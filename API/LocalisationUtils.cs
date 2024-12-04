@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace VanillaQoL.API;
+namespace ZenithQoL.API;
 
 public static class LocalisationUtils {
     /// <summary>

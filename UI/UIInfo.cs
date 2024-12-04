@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.Social;
 
-namespace VanillaQoL.UI;
+namespace ZenithQoL.UI;
 
 public class UIInfo : ModSystem, ILocalizedModType {
     public string LocalizationCategory => "Info";
@@ -101,7 +101,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
             if (things[index]) {
                 UIHoverImage uiHoverImage =
                     new UIHoverImage(
-                        ModContent.Request<Texture2D>("VanillaQoL/Assets/" + paths[index],
+                        ModContent.Request<Texture2D>("ZenithQoL/Assets/" + paths[index],
                             AssetRequestMode.ImmediateLoad),
                         locKeys[index].Format(things[index]));
                 uiHoverImage.Left.Pixels = offset;
@@ -141,7 +141,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
             if (things[index]) {
                 UIHoverImage uiHoverImage =
                     new UIHoverImage(
-                        ModContent.Request<Texture2D>("VanillaQoL/Assets/" + paths[index],
+                        ModContent.Request<Texture2D>("ZenithQoL/Assets/" + paths[index],
                             AssetRequestMode.ImmediateLoad),
                         locKeys[index].Format(things[index]));
                 uiHoverImage.Left.Pixels = offset;
@@ -382,7 +382,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
         }
         catch (Exception e) {
             // ignored
-            VanillaQoL.instance.Logger.Warn(e);
+            ZenithQoL.instance.Logger.Warn(e);
             return additionalData;
         }
     }
