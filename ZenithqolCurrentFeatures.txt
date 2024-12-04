@@ -1,0 +1,100 @@
+PLAYER:
+lock on/controller aim
+loadout accessory support
+wing slot
+instant platform fallthrough
+more buff slots
+dynamic dcu
+buffs stay on death
+panic hotkey
+expert/master accessory slot unlock
+no mount fall damage
+no shimmer fallthrough
+auto team join in multiplayer
+respawning reworks
+
+
+ITEMS:
+no prefix rarity change
+drill rework
+not consumable boss summons
+only consume favorited potions
+full hp blocks heart pickups
+hearts despawn time edit
+non-binary truffle
+encumbering stone coins
+
+
+NPCS:
+npcs at night
+npcs teleport at day
+slime pets invincible
+shop expander
+extra sale pages
+additional npc sales
+no lava lava slimes
+nurse heal fix
+santa doesn't explode
+npcs live in evil biomes
+jungle mimics spawn in hardmode jungle
+clowns destroy tiles
+frost legion spawns naturally
+pannoniae cat
+
+
+PROJECTILES:
+no sand litter
+no snow litter
+no tombstone litter
+no sand gun litter
+
+
+TILES:
+veinminer
+natures gift/rose glow
+no cutting queen bee larvae
+slice of cake is infinite
+explosion proof walls
+hardmode ore explosion
+axes replant acorns
+honey lamps are immune to honey
+breaks walls anywhere
+soft dungeon bricks
+life crystals and life fruits glow
+sticky thorns
+cactus hurts players
+
+
+INFO:
+metric system
+24 hr time
+hook tooltips
+wing tooltips
+ammo tooltips
+shimmerable tooltips
+mod name tooltips
+luck display
+selection screen info
+thorium tooltip cleansing
+recipe conditions removals
+shield damage reduction
+npc sale price display
+
+
+MISC:
+inverted list scroll
+team icon position fix
+shimmer pump fix
+dragon lens Linux fix
+memory leak fix
+credits fix
+calamity rarity fix
+seasonal events always (Christmas/Halloween)
+master mode stat nerf
+map sharing
+
+
+CONTENT:
+more explosives
+ancient sword variants
+more pylons
