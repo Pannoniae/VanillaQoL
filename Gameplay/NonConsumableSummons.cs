@@ -5,11 +5,12 @@ using VanillaQoL.Shared;
 namespace VanillaQoL.Gameplay;
 
 public class NonConsumableSummons : GlobalItem {
+	public override bool AppliesToEntity(Item entity, bool lateInstantiation) {
+		return lateInstantiation && Constants.isSummon(item);
+	}
     public override void SetDefaults(Item item) {
         if (GlobalFeatures.nonConsumableSummons) {
-            if (Constants.isSummon(item)) {
-                item.consumable = false;
-            }
+            item.consumable = false;
         }
     }
 }
