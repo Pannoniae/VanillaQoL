@@ -24,6 +24,9 @@
         <Reference Include="BAM">
           <HintPath>..\..\ModReader\BAM\BAM.dll</HintPath>
         </Reference>
+        <Reference Include="CalamityFables">
+          <HintPath>..\..\ModReader\CalamityFables\CalamityFables.dll</HintPath>
+        </Reference>
         <Reference Include="CalValEX">
           <HintPath>..\..\ModReader\CalValEX\CalValEX.dll</HintPath>
         </Reference>

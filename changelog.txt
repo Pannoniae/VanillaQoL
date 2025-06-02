@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Add a Master Mode Stat-nerf option.
+[*] Update to fix crash with *normal* Calamity + the new 2025.4 tModLoader version. Thank you Calamity for randomly renaming items, very nice.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

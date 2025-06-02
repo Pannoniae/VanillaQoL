@@ -1,11 +1,13 @@
-using System;
-using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.Gameplay;
 
+
+/// <summary>
+/// CalamityFables injects the same shit. Disable if they are loaded
+/// </summary>
 public class InstantPlatformFallthrough : ModSystem {
 
     public override bool IsLoadingEnabled(Mod mod) {
@@ -13,6 +15,11 @@ public class InstantPlatformFallthrough : ModSystem {
     }
 
     public override void Load() {
+        if (ModLoader.HasMod("CalamityFables")) {
+            VanillaQoL.instance.Logger.Warn("Tried to enable instant platform fallthrough but CalamityFables is loaded. This won't work so Vanilla+ QoL is disabling" +
+                                            " this feature. Please complain to them or something");
+            return;
+        }
         IL_Player.Update += instantPlatformFallthroughPatch;
     }
 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using CalamityMod;
 using CalamityMod.CalPlayer;
-using CalamityMod.Items.PermanentBoosters;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -116,12 +115,15 @@ public static class MagicStorageLogic {
 [JITWhenModsEnabled("CalamityMod")]
 public static class CalamityLogic {
     // thank you very much for not making everything internal, I love you<3
-    public static void load() {
-        var type = typeof(CelestialOnionAccessorySlot);
+    public static void load() { /*
+
+        The good part is that none of this shit matters anymore. The fake accessory slot is gonezo from Calamity.
+
+        var type = typeof(CelestialOnion);
         var isEnabledMethod =
             type.GetMethod("IsEnabled", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
-        MonoModHooks.Modify(isEnabledMethod, remove8thSlot);
+        MonoModHooks.Modify(isEnabledMethod, remove8thSlot);*/
     }
 
     private static void remove8thSlot(ILContext il) {
@@ -131,7 +133,6 @@ public static class CalamityLogic {
         ilCursor.Emit(OpCodes.Ret);
     }
 }
-
 
 // a nested auto-generated class refers to calamity stuff. we need to patch the tml JITing process so it doesn't fucking crash on startup
 // because this attribute apparently doesn't apply to nested classes lmao

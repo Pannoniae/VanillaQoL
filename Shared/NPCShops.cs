@@ -226,7 +226,7 @@ public class NPCShops : GlobalNPC {
     }
 
     private static bool alreadyHasEntry(NPCShop shop, int item) {
-        return shop.Entries.Any(entry => entry.Item.type == item && !entry.Disabled);
+        return shop.ActiveEntries.Any(entry => entry.Item.type == item);
     }
 
     private void addToShop(NPCShop shop, int itemID, Condition cond, int? price = null) {

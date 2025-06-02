@@ -24,7 +24,7 @@ public class CalamityRarities : GlobalItem {
             return;
         }
 
-        if (item.type == ModContent.ItemType<Fabstaff>()) {
+        if (item.type == ModContent.ItemType<Sylvestaff>()) {
             item.rare = ModContent.RarityType<RFabstaff>();
         }
         else if (item.type == ModContent.ItemType<StaffofBlushie>()) {
@@ -110,7 +110,7 @@ public class Rarity : ModRarity {
 
 [JITWhenModsEnabled("CalamityMod")]
 public class RFabstaff : Rarity {
-    public override Color RarityColor => new Color(Main.DiscoR, 100, 255);
+    public override Color RarityColor => new Color(249, 197, 255);
 }
 
 [JITWhenModsEnabled("CalamityMod")]
