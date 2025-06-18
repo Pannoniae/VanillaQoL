@@ -57,7 +57,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
     // todo this is a massive piece of duplicated shit, maybe write some actually proper code this time?
     public static void playerInfo(UICharacterListItem character) {
         var player = character.Data.Player;
-        bool[] things = {
+        bool[] things = [
             player.extraAccessory,
             player.unlockedBiomeTorches,
             player.ateArtisanBread,
@@ -68,9 +68,9 @@ public class UIInfo : ModSystem, ILocalizedModType {
             player.usedGummyWorm,
             player.usedGalaxyPearl,
             player.unlockedSuperCart
-        };
+        ];
 
-        LocalizedText[] locKeys = {
+        LocalizedText[] locKeys = [
             demonHeart,
             torchGod,
             artisanBread,
@@ -81,9 +81,9 @@ public class UIInfo : ModSystem, ILocalizedModType {
             gummyWorm,
             galaxyPearl,
             minecartUpgradeKit
-        };
+        ];
 
-        string[] paths = {
+        string[] paths = [
             "Demon_Heart",
             "Torch_God's_Favor",
             "Artisan_Loaf",
@@ -94,7 +94,7 @@ public class UIInfo : ModSystem, ILocalizedModType {
             "Gummy_Worm",
             "Galaxy_Pearl",
             "Minecart_Upgrade_Kit"
-        };
+        ];
 
         int offset = -40;
         for (int index = 0; index < things.Length; ++index) {
@@ -394,22 +394,25 @@ public class AdditionalWorldFileData {
     public bool combatBook;
 }
 
-public class UIHoverImage : UIImage {
-    private readonly string HoverText;
+internal class UIHoverImage : UIImage {
+    internal string HoverText;
+    internal bool UseTooltipMouseText; // Not sure if all would benefit from this, opt in.
 
-    public UIHoverImage(Asset<Texture2D> texture, string hoverText)
-        : base(texture) {
+    public UIHoverImage(Asset<Texture2D> texture, string hoverText) : base(texture) {
         HoverText = hoverText;
     }
 
     protected override void DrawSelf(SpriteBatch spriteBatch) {
         base.DrawSelf(spriteBatch);
-        if (!IsMouseHovering)
-            return;
-        Rectangle rectangle = Parent.GetDimensions().ToRectangle() with {
-            Y = 0,
-            Height = Main.screenHeight
-        };
-        UICommon.DrawHoverStringInBounds(spriteBatch, HoverText, rectangle);
+
+        if (IsMouseHovering) {
+            var bounds = Parent.GetDimensions().ToRectangle();
+            bounds.Y = 0;
+            bounds.Height = Main.screenHeight;
+            if (UseTooltipMouseText)
+                UICommon.TooltipMouseText(HoverText);
+            else
+                UICommon.DrawHoverStringInBounds(spriteBatch, HoverText, bounds);
+        }
     }
 }

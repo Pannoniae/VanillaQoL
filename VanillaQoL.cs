@@ -6,15 +6,11 @@ using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
-using Terraria;
-using Terraria.Localization;
-using Terraria.Map;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.Gameplay;
 using VanillaQoL.IL;
-using VanillaQoL.Items;
 using VanillaQoL.Shared;
 using VanillaQoL.UI;
 
@@ -101,6 +97,9 @@ public class VanillaQoL : Mod {
     }
 
     public override void PostSetupContent() {
+
+        Constants.postSetup();
+        
         if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggled");
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggledSteamBattery");
@@ -177,7 +176,7 @@ public static class ModCompat {
                 continue;
             }
 
-            var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
             var file = (TmodFile)mod.GetType().GetProperty("File", flags)!.GetValue(mod)!;
             try {
                 file.Open();
@@ -190,7 +189,7 @@ public static class ModCompat {
                 str.Append($"\n    {mod.DisplayName} ({mod.Name}):");
 
                 var content = Encoding.ASCII.GetString(compatFile);
-                var entries = content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                var entries = content.Split(["\r\n", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
                 foreach (var entry in entries) {
                     var halves = entry.Split("=");
                     var resolvedMod = ModLoader.TryGetMod(halves[0], out var incompatMod);

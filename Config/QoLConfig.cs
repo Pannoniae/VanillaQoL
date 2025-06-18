@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 using VanillaQoL.Shared;
@@ -139,7 +140,63 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool instantPlatformFallthrough { get; set; }
+    
+    // Defender Medal
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool OOAdrops { get; set; }
+    
+    // Defender Medal
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool OOAdrops2 { get; set; }
 
+    #endregion
+    
+    #region Combat
+    
+    [Header("combat")]
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(DamageSpread.PlayersEnemies)]
+    [ReloadRequired]
+    public DamageSpread damageSpread { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(15)]
+    [Range(0, 100)]
+    [Slider]
+    [ReloadRequired]
+    public int damageSpreadAmount { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool superCrits { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool superCritsColour { get; set; }
+    
+    
+    // public static readonly Color DamagedFriendly = new Color(255, 80, 90, 255);
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(typeof (Color), "255, 40, 50, 255")]
+    public Color superCritsColourValue { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool critsBypassDefense { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool exactTooltips { get; set; }
+    
     #endregion
 
     #region Information
@@ -210,6 +267,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [DefaultValue(true)]
     public bool drShield { get; set; }
+    
+    // Terrarian
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool removeOneDrop { get; set; }
 
     #endregion
 
@@ -277,6 +340,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool dynamicDCUPickaxe { get; set; }
+    
+    // Moonglow Seeds
+    //[BackgroundColor(192, 54, 128, 192)]
+    //[DefaultValue(true)]
+    //[ReloadRequired]
+    //public bool axeReplantingHerbs { get; set; }
 
     // Copper Axe
     [BackgroundColor(192, 54, 128, 192)]
@@ -349,7 +418,61 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool coincumberingStoneRename { get; set; }
-
+    
+    // Blazing Wheel
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool killableDungeonNPCs { get; set; }
+    
+    // Red's Helmet
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool removeDevSet { get; set; }
+    
+    // Guide to Plant Fiber Cordage
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool quickBestiary { get; set; }
+    
+    // Fallen Star
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool autoResearchFavourite { get; set; }
+    
+    // Piggy Bank
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool itemsWorkInBanks { get; set; }
+    
+    // Money Trough
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool itemsWorkInBanksTooltip { get; set; }
+    
+    // Golden Carp
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool stackableQuestItems { get; set; }
+    
+    // World Globe
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool removeBiomeRequirementsShops { get; set; }
+    
+    // Womannequin
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool allHairsOnStart { get; set; }
+    
     #endregion
 
     #region Fixes
@@ -361,6 +484,7 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [DefaultValue(true)]
     public bool fixPvPUI { get; set; }
+    
 
     // Pump
     [BackgroundColor(192, 54, 128, 192)]
@@ -426,6 +550,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool morePylons { get; set; }
+    
+    // Asphalt Platform
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool asphaltPlatform { get; set; }
 
     #endregion
 
@@ -511,6 +641,38 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [DefaultValue(false)]
     public bool soyMasterMode { get; set; }
+    
+    // Pure Water Fountain
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool fountainBiomes { get; set; }
+    
+    // Oasis Water Fountain
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool fountainFromInventory { get; set; }
+    
+    // Plantera Relic
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool masterModeRelicsInExpert { get; set; }
+    
+    // Void Bag
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool stackVoidBag { get; set; }
+    
+    
+    // idk how to implement this properly so todo lol
+    // Void Vault
+    //[BackgroundColor(192, 54, 128, 192)]
+    //[DefaultValue(false)]
+    //[ReloadRequired]
+    //public bool moreVoidVault { get; set; }
 
     #endregion
 
@@ -663,4 +825,13 @@ public class QoLConfig : ModConfig {
             GlobalFeatures.disableFeature(Mod, "nonConsumableSummons");
         }
     }
+}
+
+public enum DamageSpread {
+    /// Damage spread is off for everyone.
+    Off,
+    /// Damage spread is only for enemies, not for the player.
+    Enemies,
+    /// Damage spread is for everyone.
+    PlayersEnemies
 }

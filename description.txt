@@ -80,6 +80,23 @@ Features:
  - Instant Platform Fallthrough.
  - The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
  - Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
+ - Spike Balls and Blazing Wheels are now killable.
+ - Disable damage variance for players, enemies or both.
+ - Configure the amount of damage variance.
+ - Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
+ - Precise tooltips for velocity, use speed and knockback.
+ - An option to disable developer sets from dropping.
+ - Entries in the Bestiary unlock after one kill.
+ - An asphalt platform to run faster. (Thanks Jabon!)
+ - Accessories work from personal storage.
+ - Fountains change biomes.
+ - An option to enable fountains changing biomes from the inventory.
+ - Stackable quest fish.
+ - Remove biome requirements from NPC shops.
+ - The Old One's Army is now fairer.
+ - All hairstyles are available from the start.
+ - Smart stacking into the Void Bag.
+ - Extended Void Vault into other personal storage.
 
 Credits:
  - Lan for inspiration for the Shared Map feature. (mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)

@@ -14,4 +14,12 @@ public static class ListExtensions {
         var idx = list.IndexOf(element);
         list.Insert(idx + 1, item);
     }
+    
+    public static void AddRangeN1(this List<int> list, IEnumerable<int> collection) {
+        foreach (var item in collection) {
+            if (item != 0 && item != -1) {
+                list.Add(item);
+            }
+        }
+    }
 }

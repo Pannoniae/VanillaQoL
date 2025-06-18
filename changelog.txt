@@ -1,5 +1,20 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
-[*] Update to fix crash with *normal* Calamity + the new 2025.4 tModLoader version. Thank you Calamity for randomly renaming items, very nice.
+[*] Added a "Spike Balls and Blazing Wheels are now killable." feature.
+[*] Made the UI config 69% less boring.
+[*] Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
+[*] Precise tooltips for velocity, use speed and knockback.
+[*] An option to disable developer sets from dropping.
+[*] Entries in the Bestiary unlock after one kill.
+[*] An asphalt platform to run faster. (Thanks Jabon!)
+[*] Accessories work from personal storage.
+[*] Fountains change biomes.
+[*] An option to enable fountains changing biomes from the inventory.
+[*] Stackable quest fish.
+[*] Remove biome requirements from NPC shops.
+[*] The Old One's Army is now fairer.
+[*] All hairstyles are available from the start.
+[*] Smart stacking into the Void Bag.
+[*] Extended Void Vault into other personal storage.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

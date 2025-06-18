@@ -1,5 +1,7 @@
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Core;
 
 namespace VanillaQoL.Gameplay;
 
@@ -17,9 +19,14 @@ public class CoincumberingStone : ModSystem {
     }
 
     public override void Unload() {
-        for (int i = 0; i < ItemLoader.ItemCount; ++i) {
-            if (ItemID.Sets.CommonCoin[i])
-                ItemID.Sets.IgnoresEncumberingStone[i] = false;
+        try {
+            for (int i = 0; i < ItemLoader.ItemCount; ++i) {
+                if (ItemID.Sets.CommonCoin[i])
+                    ItemID.Sets.IgnoresEncumberingStone[i] = false;
+            }
+        }
+        catch (Exception e) {
+            // nothing!
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+
 // ReSharper disable All
 
 namespace VanillaQoL.Shared;
@@ -47,7 +49,7 @@ public class NPCShops : GlobalNPC {
                 break;
             case NPCID.Demolitionist:
                 addToShop(shop, ItemID.MiningPotion, Condition.DownedEyeOfCthulhu,
-                Item.buyPrice(0, 1, 0, 0));
+                    Item.buyPrice(0, 1, 0, 0));
                 addToShop(shop, ItemID.IronskinPotion, Condition.DownedEyeOfCthulhu,
                     Item.buyPrice(0, 1, 0, 0));
                 addToShop(shop, ItemID.ShinePotion, Condition.DownedEyeOfCthulhu,
@@ -207,7 +209,6 @@ public class NPCShops : GlobalNPC {
     /// <param name="description">The description to use for the condition.</param>
     private void addToShop(NPCShop shop, int itemID, int? price = null, Func<bool>? cond = null,
         LocalizedText? description = null) {
-
         if (alreadyHasEntry(shop, itemID)) {
             return;
         }
@@ -233,9 +234,61 @@ public class NPCShops : GlobalNPC {
         if (alreadyHasEntry(shop, itemID)) {
             return;
         }
+
         var shopItem = new Item(itemID) {
             shopCustomPrice = price
         };
         shop.Add(shopItem, cond);
+    }
+
+    public static void removeBiomeRequirements(string shopName, AbstractNPCShop shop, NPC? npc) {
+        // nope out if not enabled
+        if (!QoLConfig.Instance.removeBiomeRequirementsShops) {
+            return;
+        }
+
+        var toRemove = new Dictionary<AbstractNPCShop.Entry, List<Condition>>();
+        
+
+        // get biome conditions
+        foreach (var entry in shop.ActiveEntries) {
+            toRemove[entry] = new List<Condition>();
+            foreach (var condition in entry.Conditions) {
+                // we actually don't know! but we can hack a bit.
+                Item obj = entry.Item;
+                if (!(TileID.Sets.CountsAsPylon).Contains<int>(obj.createTile)) {
+                    if (Constants.biomeConditions.Contains(condition)) {
+                        toRemove[entry].Add(condition);
+                    }
+                }
+            }
+            
+            // actually remove the conditions!
+            if (shop is TravellingMerchantShop ts) {
+                // get conditions list
+                var conditionsList = (List<Condition>)typeof(TravellingMerchantShop.Entry).GetField("<Conditions>k__BackingField",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!.GetValue(entry)!;
+                // remove the conditions
+                foreach (var condition in toRemove[entry]) {
+                    conditionsList.Remove(condition);
+                }
+                
+            }
+            else if (shop is NPCShop ns) {
+                // get conditions list
+                // private readonly List<Condition> conditions;
+                var conditionsList = (List<Condition>)typeof(NPCShop.Entry).GetField("conditions",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!.GetValue(entry as NPCShop.Entry)!;
+                // remove the conditions
+                foreach (var condition in toRemove[entry]) {
+                    conditionsList.Remove(condition);
+                }
+                
+            }
+            else {
+                throw new NotSupportedException(
+                    $"Shop type {shop.GetType()} is not supported for removing biome requirements. WTF has happened?");
+            }
+        }
     }
 }

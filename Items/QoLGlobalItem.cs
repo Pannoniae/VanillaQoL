@@ -1,6 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -90,6 +94,12 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         ammoFireDarts = LocalisationUtils.GetLocalization(this, ammo, nameof(ammoFireDarts));
     }
 
+    public override void SetDefaults(Item item) {
+        if (QoLConfig.Instance.stackableQuestItems && item.questItem) {
+            item.maxStack = 99;
+        }
+    }
+
 
     /// <summary>
     /// Allows you to modify all the tooltips that display for the given item. See here for information about TooltipLine. To hide tooltips, please use <see cref="M:Terraria.ModLoader.TooltipLine.Hide" /> and defensive coding.
@@ -97,6 +107,10 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
         if (QoLConfig.Instance.showHookTooltips) {
             hookTooltips(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.exactTooltips) {
+            exactTooltips(item, tooltips);
         }
 
         if (QoLConfig.Instance.showWingTooltips) {
@@ -121,6 +135,75 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
 
         if (QoLConfig.Instance.modNameTooltip) {
             modNameTooltips(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.removeOneDrop) {
+            removeOneDropTooltip(item, tooltips);
+        }
+
+        if (QoLConfig.Instance.itemsWorkInBanksTooltip) {
+            itemsWorkInBanks(item, tooltips);
+        }
+    }
+
+    public void itemsWorkInBanks(Item item, List<TooltipLine> tooltips) {
+        if (!Constants.bankItems.Contains(item.type))
+            return;
+
+        var tooltipLine = new TooltipLine(Mod, "WorksInBanks",
+            Language.GetTextValue("Mods.VanillaQoL.Tooltips.WorksInBanks"));
+        tooltipLine.OverrideColor = Color.Gray;
+        addAfterVanilla(tooltips, tooltipLine);
+    }
+
+    public static void addAfterVanilla(List<TooltipLine> tooltips, TooltipLine tooltip) {
+        var last = tooltips.FindLast(t => t.Mod == "Terraria")!;
+        tooltips.AddAfter(last, tooltip);
+    }
+
+    private void removeOneDropTooltip(Item item, List<TooltipLine> tooltips) {
+        tooltips.RemoveAll(t => t.Name.Equals("OneDropLogo"));
+    }
+
+    private void exactTooltips(Item item, List<TooltipLine> tooltips) {
+        var idx = -1;
+        foreach (var tooltip in tooltips) {
+            if (tooltip.Mod is "Terraria" && tooltip.Name is "Knockback") {
+                idx = tooltips.IndexOf(tooltip);
+
+                for (int i = 6; i < 22; i++) {
+                    string text = Language.GetTextValue($"LegacyTooltip.{i}");
+                    var tt = i < 14 ? item.useAnimation : item.knockBack;
+
+                    if (tooltip.Text == text) {
+                        tooltip.Text = Language.GetTextValue($"Mods.VanillaQoL.LegacyTooltip.{i}", tt);
+                    }
+                }
+            }
+
+            if (tooltip.Mod is "Terraria" && tooltip.Name is "Speed") {
+                for (int i = 6; i < 22; i++) {
+                    string text = Language.GetTextValue($"LegacyTooltip.{i}");
+                    var tt = i < 14 ? item.useAnimation : item.knockBack;
+
+                    if (tooltip.Text == text) {
+                        tooltip.Text = Language.GetTextValue($"Mods.VanillaQoL.LegacyTooltip.{i}", tt);
+                    }
+                }
+            }
+        }
+
+        if (item.shoot > -1 && item.shootSpeed > 0 && idx != -1) {
+            var proj = ContentSamples.ProjectilesByType[item.shoot];
+
+            // get default ammo item
+            var ammoItem = item.useAmmo;
+            var ai = ContentSamples.ItemsByType[ammoItem];
+
+            float ss = (item.shootSpeed + ai.shootSpeed) * (proj.extraUpdates + 1);
+            ss = (float)Math.Round(ss, 2);
+            tooltips.Insert(idx + 1,
+                new TooltipLine(Mod, "Velocity", Language.GetTextValue("Mods.VanillaQoL.LegacyTooltip.Velocity", ss)));
         }
     }
 

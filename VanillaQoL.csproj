@@ -11,14 +11,15 @@
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.4.0-beta.1">
+        <PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.7.0-beta.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="ErrorProne.NET.Structs" Version="0.4.0-beta.1">
+        <PackageReference Include="ErrorProne.NET.Structs" Version="0.6.1-beta.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Update="tModLoader.CodeAssist" Version="0.1.5" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="BAM">
@@ -33,20 +34,17 @@
         <Reference Include="Consolaria">
           <HintPath>..\..\ModReader\Consolaria\Consolaria.dll</HintPath>
         </Reference>
-        <Reference Include="EncumberingStoneButItPickupCoins">
-          <HintPath>..\..\ModReader\EncumberingStoneButItPickupCoins\EncumberingStoneButItPickupCoins.dll</HintPath>
-        </Reference>
         <Reference Include="FargowiltasSouls">
           <HintPath>..\..\ModReader\FargowiltasSouls\FargowiltasSouls.dll</HintPath>
         </Reference>
         <Reference Include="HighFPSSupport">
           <HintPath>..\..\ModReader\HighFPSSupport\HighFPSSupport.dll</HintPath>
         </Reference>
+        <Reference Include="ImprovedCrits">
+          <HintPath>..\..\ModReader\ImprovedCrits\ImprovedCrits.dll</HintPath>
+        </Reference>
         <Reference Include="ImproveGame">
           <HintPath>..\..\ModReader\ImproveGame\ImproveGame.dll</HintPath>
-        </Reference>
-        <Reference Include="CalamityDemutation">
-          <HintPath>..\..\ModReader\CalamityDemutation\CalamityDemutation.dll</HintPath>
         </Reference>
         <Reference Include="CoolerItemVisualEffect">
           <HintPath>..\..\ModReader\CoolerItemVisualEffect\CoolerItemVisualEffect.dll</HintPath>
@@ -69,26 +67,8 @@
         <Reference Include="ImprovedRespawning">
             <HintPath>..\..\ModReader\ImprovedRespawning\ImprovedRespawning.dll</HintPath>
         </Reference>
-        <Reference Include="InstantPlatformFallthrough">
-          <HintPath>..\..\ModReader\InstantPlatformFallthrough\InstantPlatformFallthrough.dll</HintPath>
-        </Reference>
-        <Reference Include="InstantPlatformFallthrough">
-          <HintPath>..\..\ModReader\InstantPlatformFallthrough\InstantPlatformFallthrough.dll</HintPath>
-        </Reference>
-        <Reference Include="LavalessLavaSlime">
-          <HintPath>..\..\ModReader\LavalessLavaSlime\LavalessLavaSlime.dll</HintPath>
-        </Reference>
-        <Reference Include="LessTools">
-            <HintPath>..\..\ModReader\LessTools\LessTools.dll</HintPath>
-        </Reference>
-        <Reference Include="LogSpiralLibrary">
-          <HintPath>..\..\ModReader\LogSpiralLibrary\LogSpiralLibrary.dll</HintPath>
-        </Reference>
         <Reference Include="MagicStorage">
             <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
-        </Reference>
-        <Reference Include="NurseOverhaul">
-          <HintPath>..\..\ModReader\NurseOverhaul\NurseOverhaul.dll</HintPath>
         </Reference>
         <Reference Include="OreExcavator">
           <HintPath>..\..\ModReader\OreExcavator\OreExcavator.dll</HintPath>
@@ -113,6 +93,9 @@
         </Reference>
         <Reference Include="StormQoL">
           <HintPath>..\..\ModReader\StormQoL\StormQoL.dll</HintPath>
+        </Reference>
+        <Reference Include="Terratweaks">
+          <HintPath>..\..\ModReader\Terratweaks\Terratweaks.dll</HintPath>
         </Reference>
         <Reference Include="ThoriumMod">
             <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>

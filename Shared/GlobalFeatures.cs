@@ -10,7 +10,7 @@ namespace VanillaQoL.Shared;
 /// Earlier it won't have loaded yet.
 /// </summary>
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
-public class GlobalFeatures {
+public static class GlobalFeatures {
     // stores features by name
     private static Dictionary<string, EnableList> features = new();
 

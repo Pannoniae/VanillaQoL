@@ -28,6 +28,7 @@ QoLConfig: {
 		cheats: "[i:3999] Cheats"
 		testing: "[i:2] Testing"
 		tweaks: "[i:1344] Tweaks"
+		combat: "[i:757] Combat"
 	}
 
 	showHookTooltips: {
@@ -549,6 +550,148 @@ QoLConfig: {
 		Label: "[i:4346] Coincumbering Stone Rename"
 		Tooltip: If enabled, the Encumbering Stone is renamed the Coincumbering Stone.
 	}
+
+	killableDungeonNPCs: {
+		Label: "[npc/n:72] Killable Dungeon NPCs"
+		Tooltip: If enabled, Blazing Wheels and Spike Balls can be killed. Useful if you are annoyed by invincible flaming fucknuggets.
+	}
+
+	exactTooltips: {
+		Label: "[i:3123] Exact Weapon Tooltips"
+		Tooltip: If you like destroying your immersion, you can enable displaying exact values for knockback and use time in the tooltips.
+	}
+
+	damageSpread: {
+		Label: "[i:1301] Damage Spread"
+		Tooltip: Toggle damage spread between normal (default), only for enemies and disabled. When damage spread is disabled, Terraria does not randomise the inflicted damage.
+	}
+
+	damageSpreadAmount: {
+		Label: "[i:1301] Damage Spread Amount (%)"
+		Tooltip: Set the amount of damage spread if enabled. The default value is 15%, can be set between 0% and 100%, which results in a range of 0-2x damage.
+	}
+
+	superCrits: {
+		Label: "[i:1858] Super Crits"
+		Tooltip:
+			'''
+			If enabled, crit chances above 100% result in super crits which deal 3x the damage, crit chances above 200% result in 4x the damage and so on.
+			Your efforts aren't in vain anymore.
+			'''
+	}
+
+	superCritsColourValue: {
+		Label: "[i:1858] Super Crits Colour"
+		Tooltip: Sets the colour of super crits.
+	}
+
+	superCritsColour: {
+		Label: "[i:1858] Coloured Super Crits"
+		Tooltip: If enabled, super crits have a unique colour distinguishing it from normal crits.
+	}
+
+	removeOneDrop: {
+		Label: "[i:3389] Remove One-Drop Tooltip"
+		Tooltip: If enabled, removes the One Drop logo from the yoyos which are based on real-world yoyos produced by One Drop.
+	}
+
+	removeDevSet: {
+		Label: "[i:666] Remove Developer Set Drops"
+		Tooltip: If enabled, Treasure Bags do not drop developer items anymore. No fun, no inventory clutter.
+	}
+
+	quickBestiary: {
+		Label: "[npc/n:633] Quick Bestiary Unlock"
+		Tooltip: If enabled, entries in the Bestiary unlock after one kill instead of the normal amount (one banner).
+	}
+
+	critsBypassDefense: {
+		Label: "[i:4005] Crits Bypass Defense"
+		Tooltip: If enabled, critical hits ignore the defense of enemies. This makes crit-heavy builds more viable without spamming armour penetration.
+	}
+
+	asphaltPlatform: {
+		Label: "[i:VanillaQoL/AsphaltPlatform] Asphalt Platform"
+		Tooltip: If enabled, adds a platform made from asphalt. Commonly included in your favourite cheat mods but this time, it's also in mine.
+	}
+
+	autoResearchFavourite: {
+		Label: "[i:75] Auto-Research Favourited Items"
+		Tooltip: If enabled, items in the player's inventory are automatically researched if they are favourited. [c/FF5555:Will eat your items.]
+	}
+
+	itemsWorkInBanks: {
+		Label: "[i:87] Items Work in Personal Storage"
+		Tooltip: If enabled, items function in the player's personal storage as information accessories. We all know that your inventory is full of potions.
+	}
+
+	itemsWorkInBanksTooltip: {
+		Label: "[i:3213] Items Work in Personal Storage Tooltip"
+		Tooltip: If enabled, a tooltip is added to items in the personal storage which function as player accessories.
+	}
+
+	fountainBiomes: {
+		Label: "[i:909] Fountains Change Biome"
+		Tooltip: If enabled, placed fountains change the biome of the area around them to the biome they are made of. Only slightly a cheat, isn't it?
+	}
+
+	fountainFromInventory: {
+		Label: "[i:4417] Fountains Change Biome in Inventory"
+		Tooltip: If enabled, fountains also change the biome of the area around you when held in the inventory. At this point, please feel a little shame for cheating this hard.
+	}
+
+	removeBiomeRequirementsShops: {
+		Label: "[i:4766] Remove Biome Requirements for Shops"
+		Tooltip:
+			'''
+			If enabled, NPCs sell items regardless of the biome they are in. This would normally overflow the shop but isn't this why we have the Shop Expander?
+			Requires Shop Expander to be enabled. Don't ask me why, it's cursed.
+			'''
+	}
+
+	stackableQuestItems: {
+		Label: "[i:2452] Stackable Quest Items"
+		Tooltip: If enabled, quest items like quest fish can be stacked in the inventory.
+	}
+
+	axeReplantingHerbs: {
+		Tooltip: ""
+		Label: axe Replanting Herbs
+	}
+
+	OOAdrops: {
+		Label: "[i:3817] OOA something"
+		Tooltip: If enabled, the Old One's Army event minibosses also drop Defender Medals in case you can't get through the full event.
+	}
+
+	OOAdrops2: {
+		Label: "[i:3817] OOA something 2"
+		Tooltip: If enabled, the first two tiers of the Old One's Army event also drop Defender Medals in case you can't even survive the first two waves.
+	}
+
+	masterModeRelicsInExpert: {
+		Label: "[i:4934] Master Mode Relics Can Drop in Expert"
+		Tooltip: If enabled, Master Mode Relics can drop in Expert Mode worlds. The valour is only incrementally stolen.
+	}
+
+	allHairsOnStart: {
+		Label: "[i:1989] All Hairstyles Available from Start"
+		Tooltip: If enabled, all hairstyles are available from the start of the game. No need to find the Stylist to unlock them.
+	}
+
+	stackVoidBag: {
+		Label: "[i:4131] Smart Void Bag"
+		Tooltip: If enabled, picked up items are automatically stacked into the Void Bag if it already contains the item.
+	}
+
+	moreVoidVault: {
+		Label: "[i:4076] Extended Void Vault"
+		Tooltip:
+			'''
+			If enabled, the other personal storage items (Piggy Bank, Safe, Defender's Forge) can also be used to store items using the Void Bag.
+			Getting them out is a bit more tricky though.
+			'''
+	}
 }
 
 Team: {
@@ -571,63 +714,70 @@ Credits: {
 UIConfig: {
 	DisplayName: UI Config
 
+	enableNPCSellPrices: {
+		Label: "[i:73] Enable NPC Sell Prices"
+		Tooltip:
+			'''
+			If enabled, holding the favourite key over an item shows what each greedy NPC will pay you.
+			Spoiler alert: it's never enough.
+			'''
+	}
+
 	npcSellPriceYOffset: {
-		Tooltip: How far down from the NPC to show the price display (default: 0)
-		Label: Y-Offset
+		Label: "[i:888] Vertical Positioning"
+		Tooltip: How far down to shove the price display from the NPC's stupid face. Negative values go up, positive go down. (default: 0)
 	}
 
 	npcSellPriceXOffset: {
-		Tooltip: How far right from the NPC to show the price display (default: 50)
-		Label: X-Offset
+		Label: "[i:888] Horizontal Positioning"
+		Tooltip: How far right to move the price display so it doesn't cover the NPC's pixelated disappointment. (default: 50)
 	}
 
 	showPriceMultiplier: {
-		Tooltip: When enabled, the percentage of the NPC's specific price adjustment will be displayed.
-		Label: Show Price Multiplier
+		Label: "[i:855] Show Price Multiplier"
+		Tooltip: If enabled, shows the percentage of how much each NPC is screwing you over. Red means they hate you, green means they merely dislike you.
 	}
 
 	showCoinIcon: {
-		Tooltip: When enabled, the icon of each coin will be displayed next to the amount.
-		Label: Show Coin Icon
-	}
-
-	backgroundColor: {
-		Label: Background Colour
-		Tooltip: ""
-	}
-
-	dynamicBackgroundColor: {
-		Label: Dynamic Background Colour
-		Tooltip:
-			'''
-			When enabled, the background colour will be adjusted based on each NPC's price adjustment.
-			[c/FF0000:Red] for unhappy ones, [c/22EE00:Green] for happy ones.
-			'''
-	}
-
-	enableNPCSellPrices: {
-		Label: Enable NPC Sell Prices
-		Tooltip:
-			'''
-			If enabled, when holding the `favourite` keybind over an item, a display of each
-			town NPC's sell prices for that item will appear next to each NPC.
-			'''
+		Label: "[i:71] Show Coin Icons"
+		Tooltip: If enabled, shows shiny coin icons next to numbers because apparently we can't read numbers without pretty pictures.
 	}
 
 	npcSellPriceShowBackground: {
-		Tooltip: When enabled, the NPC price display will appear with a background panel.
-		Label: Show Background
+		Label: "[i:1344] Show Background Panel"
+		Tooltip: If enabled, adds a background so you can actually read the text instead of squinting like a geriatric.
 	}
 
 	npcSellPriceBackgroundPadding: {
-		Tooltip: Controls the size of the NPC price display background (default: 5)
-		Label: Background Size
+		Label: "[i:1344] Background Padding"
+		Tooltip: Controls how thicc the background gets around the text. Bigger numbers = more padding = easier to read. (default: 5)
+	}
+
+	backgroundColor: {
+		Label: "[i:1344] Static Background Colour"
+		Tooltip: Pick a colour for backgrounds when you're too boring for the dynamic option.
+	}
+
+	dynamicBackgroundColor: {
+		Label: "[i:1345] Dynamic Background Colour"
+		Tooltip:
+			'''
+			If enabled, background colour changes based on how much each NPC despises you.
+			[c/FF0000:Red] for "I hate your guts", [c/22EE00:Green] for "I tolerate your existence".
+			'''
 	}
 
 	npcSellPriceBackgroundColor: {
-		Tooltip: Controls the background colour of the NPC price display
-		Label: Background Colour
+		Label: "[i:1344] Manual Background Colour"
+		Tooltip: For when you want to micromanage the exact shade of your UI disappointment.
 	}
 
-	Headers.DisplayNPCSellPrices: NPC Sell Prices Display
+	Headers.DisplayNPCSellPrices: "[i:73] NPC Sell Price Display"
+}
+
+DamageSpread: {
+	Off.Label: Off
+	PlayersEnemies.Label: Players & Enemies (default)
+	Enemies.Label: Enemies Only
+	Tooltip: ""
 }

@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.ID;
+using VanillaQoL.Shared;
 
 namespace VanillaQoL.Gameplay;
 
@@ -70,6 +71,7 @@ public class ShopExpander : ModSystem {
         Array.Fill(self.item, null);
         var items = new List<Item?>();
         if (NPCShopDatabase.TryGetNPCShop(shopName, out var shop)) {
+            NPCShops.removeBiomeRequirements(shopName, shop, npc);
             shop.FillShop(items, npc);
         }
 
