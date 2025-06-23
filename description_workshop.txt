@@ -1,191 +1,159 @@
 [h1] Vanilla+ QoL [/h1]
 
-Vanilla Quality of Life mod intended to make the game more fun :)
+Vanilla Quality of Life mod intended to make the game more fun :) Not all features are in the description because of the character limit, check the in-game config for the full list!
 
 [quote=me]Why install 50 janky mods when you can install one?[/quote]
 
 If you have any suggestions, feel free to write them down, I'll consider them!
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP
-GitHub repository: https://github.com/Pannoniae/VanillaQoL
+GitHub: https://github.com/Pannoniae/VanillaQoL
 
 [b]NEW![/b]
 [list]
- [*] VeinMining™! No need to press a keybind for this one.
- [*] WingSlot™! This one respects loadout colours.
- [*] A better Shop Expander, with proper buttons instead of fake items! It expands automatically when you sell items.
- [*] New Corruption/Crimson Pylons!
- [*] Flying Piggy Bank and Void Lens now follow you around like loyal pets!
- [*] Call off invasions after too many NPC or player deaths (configurable).
- [*] Dangersense Potion highlights Silt and Slush blocks.
- [*] Dangersense no longer highlights Thin Ice.
- [*] Spelunker Potion now highlights Hellstone.
- [*] Queen Bee, Plantera, and Golem now drop 2 weapons instead of 1.
- [*] Buffs that don't usually persist through death now do (like Well Fed).
+[*] VeinMining™! No need to press a keybind for this one.
+[*] WingSlot™! This one respects loadout colours.
+[*] A better Shop Expander, with proper buttons instead of fake items! It expands automatically when you sell items.
+[*] Flying Piggy Bank and Void Lens now follow you around like loyal pets!
+[*] Call off invasions after too many NPC or player deaths (configurable).
+[*] Dangersense Potion highlights Silt and Slush blocks.
+[*] Spelunker Potion now highlights Hellstone.
+[*] Queen Bee, Plantera, and Golem now drop 2 weapons instead of 1.
+[*] Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
+[*] For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
 [/list]
 
-[b]Features:[/b]
+[h1]Features:[/h1]
 
-[b]UI & Information:[/b]
+[b]NPCs:[/b]
 [list]
- [*] Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
- [*] Display luck information when you have a Metal Detector or its upgrades. Icon courtesy of https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263.
- [*] Shimmerable tooltip for item and NPC transformations.
- [*] Tooltip to show what ammo a weapon uses.
- [*] "What mod is this from?" tooltip to show mod names on items.
- [*] Shows permanent upgrades on the player/world selection screen.
- [*] The defense shield shows the damage reduction stat.
- [*] Precise tooltips for velocity, use speed and knockback.
- [*] An option to use the metric system. Not enabled by default to not scare the yanks.
- [*] The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
+[*] A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
+ You can use the /n or /f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
+[*] Town NPCs spawn at night and can move to their house at day.
+[*] Make the nurse heal players over time to stop exploits.
+[*] An option to remove Town Slimes, for those who hate them with a passion.
+[*] Protection for town pets and slimes from enemies and bosses.
+[*] Santa won't suddenly explode after holidays end.
+[*] Made the Truffle non-binary. Before you ask why, I don't know either.
+[*] Removed biome requirements from NPC shops.
 [/list]
 
-[b]Chat & Communication:[/b]
+[b]Suffering:[/b]
 [list]
- [*] A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
- You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
+[*] Enemies break down doors.
+[*] Cactus hurts when you step on it.
+[*] Thorns slow the player down like cobweb.
 [/list]
 
-[b]Multiplayer:[/b]
+[b]Items:[/b]
 [list]
- [*] An option to automatically join a team in Multiplayer.
- [*] An option to share the map with your teammates in Multiplayer. (thank you Lan! https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
+[*] Ancient versions of 1.4.4 reworked melee items.
+[*] More buff slots! (configurable)
+[*] An option to disable reforges changing rarity.
+[*] Loadout support for modded accessories.
+[*] An option to use the 6th and 7th accessory slot on Classic/Expert.
+[*] An option to disable developer sets from dropping.
+[*] Accessories work from personal storage.
+[*] Non-consumable boss summons. (with mod compatibility!)
+[*] Disable damage variance for players, enemies or both.
+[*] Configure the amount of damage variance.
+[*] No fall damage while riding a mount.
 [/list]
 
-[b]NPCs & Town:[/b]
+[b]UI:[/b]
 [list]
- [*] Town NPCs spawn at night and can move to their house at day.
- [*] Make the nurse heal players over time to stop exploits.
- [*] An option to remove Town Slimes, for those who hate them with a passion.
- [*] Protection for town pets and slimes from enemies and bosses.
- [*] Santa won't suddenly explode after holidays end.
- [*] Made the Truffle non-binary. Before you ask why, I don't know either.
+[*] Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
+[*] Display luck information when you have a Metal Detector or its upgrades.
+[*] Shimmerable tooltip for item and NPC transformations.
+[*] Tooltip to show what ammo a weapon uses.
+[*] "What mod is this from?" tooltip to show mod names on items.
+[*] Shows permanent upgrades on the player/world selection screen.
+[*] The defense shield shows the damage reduction stat.
+[*] Precise tooltips for velocity, use speed and knockback.
+[*] An option to use the metric system. Not enabled by default to not scare the yanks.
+[*] The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
 [/list]
 
-[b]Combat & Balance:[/b]
+[b]Inventory:[/b]
 [list]
- [*] For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
- [*] Disable damage variance for players, enemies or both.
- [*] Configure the amount of damage variance.
- [*] Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
- [*] Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
- [*] Spike Balls and Blazing Wheels are now killable.
- [*] Enemies break down doors.
- [*] Cactus hurts when you step on it.
- [*] Thorns slow the player down like cobweb.
- [*] No fall damage while riding a mount.
+[*] At full HP/mana, the player won't pick up hearts or mana crystals.
+[*] The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
+[*] Smart stacking into the Void Bag.
+[*] Extended Void Vault into other personal storage.
+[*] Stackable quest fish.
 [/list]
 
-[b]Items & Equipment:[/b]
+[b]Building:[/b]
 [list]
- [*] Ancient versions of 1.4.4 reworked melee items.
- [*] More buff slots! (configurable)
- [*] An option to disable reforges changing rarity.
- [*] Loadout support for modded accessories.
- [*] An option to use the 6th and 7th accessory slot on Classic/Expert.
- [*] An option to disable developer sets from dropping.
- [*] Accessories work from personal storage.
- [*] Non-consumable boss summons. (with mod compatibility!)
+[*] Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
+[*] VeinMining™ for spikes.
+[*] Dungeon bricks crumbling instantly when you break them.
+[*] The DCU takes the pickaxe power of your top-left pickaxe into account.
+[*] Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
+[*] Unsafe walls can be broken anywhere, not just from the edges.
+[*] Explosion-proof Lihzahrd and Dungeon Walls.
+[*] An asphalt platform to run faster. (<3 Jabon)
+[*] Instant Platform Fallthrough.
 [/list]
 
-[b]Inventory & Storage:[/b]
+[b]Environment:[/b]
 [list]
- [*] At full HP/mana, the player won't pick up hearts or mana crystals.
- [*] The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
- [*] Smart stacking into the Void Bag.
- [*] Extended Void Vault into other personal storage.
- [*] Stackable quest fish.
+[*] The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
+[*] Seasonal events all year. <3
+[*] Jungle Mimics can spawn in Hardmode Jungle.
+[*] The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+[*] Fountains change biomes.
+[*] An option to enable fountains changing biomes from the inventory.
+[*] Honey-immune Honey Lamps.
+[*] Reduce littering by Antlions and Snowmen.
+[*] Lava Slimes do not drop lava on death in Expert Mode.
+[*] Spike Balls and Blazing Wheels are now killable.
 [/list]
 
-[b]Mining & Building:[/b]
+[b]Bosses:[/b]
 [list]
- [*] Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
- [*] VeinMining™ for spikes.
- [*] Dungeon bricks crumbling instantly when you break them.
- [*] The DCU takes the pickaxe power of your top-left pickaxe into account.
- [*] Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
- [*] Axes replant acorns.
- [*] Unsafe walls can be broken anywhere, not just from the edges.
- [*] Explosion-proof Lihzahrd and Dungeon Walls.
- [*] An asphalt platform to run faster. (Thanks Jabon!)
- [*] Instant Platform Fallthrough.
-[/list]
-
-[b]World & Environment:[/b]
-[list]
- [*] The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
- [*] Seasonal events all year. <3
- [*] Jungle Mimics can spawn in Hardmode Jungle.
- [*] The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
- [*] Fountains change biomes.
- [*] An option to enable fountains changing biomes from the inventory.
- [*] Honey-immune Honey Lamps.
- [*] Reduce littering by Antlions and Snowmen.
- [*] Lava Slimes do not drop lava on death in Expert Mode.
-[/list]
-
-[b]Events & Bosses:[/b]
-[list]
- [*] Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
- [*] Clowns' Happy Bombs can destroy tiles in a small explosion.
- [*] The Old One's Army is now fairer.
- [*] Entries in the Bestiary unlock after one kill.
+[*] Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
+[*] Clowns' Happy Bombs can destroy tiles in a small explosion.
+[*] The Old One's Army is now fairer.
+[*] Entries in the Bestiary unlock after one kill.
 [/list]
 
 [b]Quality of Life:[/b]
 [list]
- [*] The Slice of Cake lasts until death.
- [*] Made buffs that persist when saving persist when dying.
- [*] Quick recall hotkey.
- [*] If there are favourited potions in the inventory, Quick Buff will only consume those.
- [*] Respawning rework (fully configurable)
- [*] Tombstones drop in item form instead of being placed down.
- [*] An option to stop the Sandgun from stopping sand.
- [*] An option to disable shimmer making the player fall through the world.
- [*] The recipe list scrolls in the right direction now.
- [*] An option to skip the credits after Moon Lord, or to move it properly in the progression.
- [*] All hairstyles are available from the start.
+[*] The Slice of Cake lasts until death.
+[*] Made buffs that persist when saving persist when dying.
+[*] Quick recall hotkey.
+[*] If there are favourited potions in the inventory, Quick Buff will only consume those.
+[*] Respawning rework (fully configurable)
+[*] Tombstones drop in item form instead of being placed down.
+[*] An option to stop the Sandgun from stopping sand.
+[*] An option to disable shimmer making the player fall through the world.
+[*] The recipe list scrolls in the right direction now.
+[*] An option to skip the credits after Moon Lord, or to move it properly in the progression.
+[*] All hairstyles are available from the start.
+[*] An option to automatically join a team in Multiplayer.
+[*] Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
 [/list]
 
-[b]Shops & NPCs:[/b]
+[b]Technical:[/b]
 [list]
- [*] Remove biome requirements from NPC shops.
-[/list]
-
-[b]Technical & Mod Compatibility:[/b]
-[list]
- [*] Remove the coloured Thorium tooltips, making the mod look more vanilla.
- [*] Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
- [*] Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
- [*] Fix DragonLens and other mods on Linux.
- [*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
- [*] Fixing memory leaks with other mods, most notably Magic Storage. tModLoader should no longer slow down when reloading the game multiple times.
- [*] Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
- [code]
-  InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
-  AnotherMod=Another incompatible mod.
- [/code]
+[*] Remove the coloured Thorium tooltips, making the mod look more vanilla.
+[*] Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
+[*] Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
+[*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
+[*] Fixing memory leaks with other mods, most notably Magic Storage. tModLoader should no longer slow down as much when reloading the game multiple times.
+[*] Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
+[code]
+ InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
+ AnotherMod=Another incompatible mod.
+[/code]
 [/list]
 
 [b]Credits:[/b]
 [list]
- [*] Jabon of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2928398913]Quality of Life Compendium fame[/url] for his mod compat and for being a very amazing person in general <3
- [*] Lan for inspiration for the Shared Map feature. (mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2855922590)
- [*] sexual_lobster for the Luck icon. (from https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263)
- [*] SirSwerving for the amazing player/world icons and like half the ideas in the mod. Seriously, thank you so much <3.
- [*] The Calamity development team for showing how to do many things with their code. Thank you, Calamity!
- [*] Magic Storage's absoluteAquarian for more advanced netcode and some IL tricks.
- [*] Destructor_Ben for implementing various features.
-[/list]
-
-[b]Mod integrations:[/b]
-[list]
- [*] Calamity
- [*] Calamity Music Mod
- [*] Thorium
- [*] Magic Storage
- [*] Recipe Browser
- [*] Census
- [*] Wing Slot
+[*] Jabon of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2928398913]Quality of Life Compendium fame[/url] for his mod compat and for being a very amazing person in general <3
+[*] sexual_lobster for the Luck icon. (from https://steamcommunity.com/sharedfiles/filedetails/?id=3013399263)
+[*] SirSwerving for the amazing player/world icons and like half the ideas in the mod. Seriously, thank you so much <3.
+[*] Magic Storage's absoluteAquarian for more advanced netcode and some IL tricks.
 [/list]
 
 [hr][/hr]
