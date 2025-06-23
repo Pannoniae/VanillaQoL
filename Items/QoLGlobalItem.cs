@@ -144,15 +144,37 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
         if (QoLConfig.Instance.itemsWorkInBanksTooltip) {
             itemsWorkInBanks(item, tooltips);
         }
+
+        if (QoLConfig.Instance.grammarFix) {
+            grammarFixTooltips(item, tooltips);
+        }
+    }
+
+    private void grammarFixTooltips(Item item, List<TooltipLine> tooltips) {
+        if (Language.ActiveCulture.LegacyId == (int)GameCulture.CultureName.English && item.Name.Contains("The") &&
+            item.prefix > 0) {
+            var itemName = tooltips.First(t => t.Name == "ItemName");
+
+            // Split apart the item name into individual words
+            var words = itemName.Text.Split(' ').ToList();
+
+            var hasThe = words.Remove("The");
+            if (hasThe) {
+                words.Insert(0, "The");
+            }
+            
+            itemName.Text = string.Join(" ", words);
+        }
     }
 
     public void itemsWorkInBanks(Item item, List<TooltipLine> tooltips) {
-        if (!Constants.bankItems.Contains(item.type))
+        if (!Constants.bankItems.Contains(item.type)) {
             return;
+        }
 
         var tooltipLine = new TooltipLine(Mod, "WorksInBanks",
             Language.GetTextValue("Mods.VanillaQoL.Tooltips.WorksInBanks"));
-        tooltipLine.OverrideColor = Color.Gray;
+        //tooltipLine.OverrideColor = Color.Gray;
         addAfterVanilla(tooltips, tooltipLine);
     }
 

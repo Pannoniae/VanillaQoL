@@ -32,7 +32,6 @@ public class GlobalHooks {
         var numberOfNPCColumns = (int)Math.Ceiling((float)UILinkPointNavigator.Shortcuts.NPCS_IconsTotal /
                                                    UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
 
-        int iconsPerColumn = 1;
         if (VanillaQoL.instance.hasCensus) {
             numberOfNPCColumns = (int)Math.Ceiling(CensusLogic.numberOfNPCs() / (float)UILinkPointNavigator.Shortcuts.NPCS_IconsPerColumn);
             // fix for census + 1 column, it produces really large numbers because the first column isn't full
@@ -44,7 +43,7 @@ public class GlobalHooks {
                 int num3 = 0;
                 int num5 = 0;
                 var inventoryScale = 0.85f;
-                iconsPerColumn = 1;
+                var iconsPerColumn = 1;
                 for (int idx = 0; idx < CensusLogic.numberOfNPCs() + 1; ++idx) {
                     int num7 = Main.screenWidth - 64 - 28 + num3;
                     int num8 = (int)(174 + mH + idx * 56 * (double)inventoryScale) + num2;

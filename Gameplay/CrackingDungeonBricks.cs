@@ -55,8 +55,7 @@ public class CrackingDungeonBricks : GlobalTile {
     }
 
     private static void breakBrick(Tile tile, Tile neighbourTile, int x, int y) {
-        if (neighbourTile is { HasTile: true, TileType: >= TileID.CrackedBlueDungeonBrick } &&
-            neighbourTile.TileType <= TileID.CrackedPinkDungeonBrick) {
+        if (neighbourTile is { HasTile: true, TileType: >= TileID.CrackedBlueDungeonBrick and <= TileID.CrackedPinkDungeonBrick }) {
             tile.HasTile = false;
             WorldGen.KillTile(x, y, fail: false, effectOnly: false, noItem: true);
             if (Main.netMode == NetmodeID.Server) {

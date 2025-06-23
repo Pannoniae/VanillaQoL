@@ -373,7 +373,7 @@ public class Explosives : ModSystem {
     }
 
     public static void dynamiteExplosionCode(Projectile proj) {
-        SoundEngine.PlaySound(SoundID.Item14, proj.position);
+        SoundEngine.PlaySound(in SoundID.Item14, proj.position);
         if (Constants.dynamites.Contains(proj.type)) {
             proj.position.X += proj.width / 2;
             proj.position.Y += proj.height / 2;

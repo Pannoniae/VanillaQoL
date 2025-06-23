@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using CalamityMod;
-using CalamityMod.Tiles.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -127,7 +126,7 @@ public class Constants {
     /// <summary>
     /// Accessories which should be usable from a bank.
     /// </summary>
-    public static List<int> bankItems = [
+    public static readonly List<int> bankItems = [
         ItemID.DiscountCard,
         ItemID.LuckyCoin,
         ItemID.GoldRing,
@@ -438,7 +437,7 @@ public class Constants {
     public static readonly bool[] NormalBirds =
         NPCID.Sets.Factory.CreateBoolSet(NPCID.Bird, NPCID.BirdBlue, NPCID.BirdRed);
 
-    public static List<int> Prefixes = [
+    public static readonly List<int> Prefixes = [
         PrefixID.Legendary,
         PrefixID.Legendary2,
         PrefixID.Godly,
@@ -1519,7 +1518,7 @@ public class Constants {
 }
 
 [JITWhenModsEnabled("CalamityMod")]
-public class CalamityConstants {
+public static class CalamityConstants {
     /// <summary>
     /// Add the Calamity biomes to the list of biome conditions.
     /// </summary>

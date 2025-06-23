@@ -27,6 +27,9 @@ public class VanillaQoL : Mod {
     public bool hasCheatSheet;
     public bool hasHEROsMod;
     public bool hasCalamityQoL;
+    public bool hasQoLCompendium;
+    
+    public Mod? QoLCompendium;
 
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
@@ -59,6 +62,11 @@ public class VanillaQoL : Mod {
         hasCheatSheet = ModLoader.HasMod("CheatSheet");
         hasHEROsMod = ModLoader.HasMod("HEROsMod");
         hasCalamityQoL = ModLoader.HasMod("CalamityQOL");
+        hasQoLCompendium = ModLoader.HasMod("QoLCompendium");
+        if (hasQoLCompendium) {
+            QoLCompendium = ModLoader.GetMod("QoLCompendium");
+        }
+
         if (QoLConfig.Instance.fixMemoryLeaks) {
             ModLeakFix.addHandler();
         }

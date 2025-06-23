@@ -274,6 +274,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     public bool removeOneDrop { get; set; }
 
+    // The Undertaker
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool grammarFix { get; set; }
+
     #endregion
 
     #region Tweaks
@@ -298,7 +304,7 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool naturesGiftGlow { get; set; }
 
-    // Sand Block
+    // Sand Block#
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     public bool noDroppedSand { get; set; }
@@ -324,6 +330,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool sliceOfCakeUntilDeath { get; set; }
+    
+    // Crystal Ball
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool deathLessBuffs { get; set; }
 
     // Lihzahrd Brick
     [BackgroundColor(192, 54, 128, 192)]
@@ -472,6 +484,46 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool allHairsOnStart { get; set; }
+    
+    // Goblin Battle Standard
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(0)]
+    [Range(0, 10)]
+    [Slider]
+    [ReloadRequired]
+    public int npcDeathsToCallOffInvasion { get; set; }
+    
+    // Gravestone
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(0)]
+    [Range(0, 10)]
+    [Slider]
+    [ReloadRequired]
+    public int playerDeathsToCallOffInvasion { get; set; }
+    
+    // Dangersense Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool siltIsDangerous { get; set; }
+    
+    // Dangersense Potion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool thinIceNotDangerous { get; set; }
+    
+    // Hellstone
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool spelunkerHellstone { get; set; }
+    
+    // Treasure Bag (Plantera)
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool moreBossLoot { get; set; }
     
     #endregion
 
@@ -665,6 +717,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool stackVoidBag { get; set; }
+    
+    // Money Trough
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool storageFollowsPlayer { get; set; }
     
     
     // idk how to implement this properly so todo lol

@@ -21,6 +21,7 @@ QoLConfig: {
 		gameplay: "[i:3515] Gameplay"
 		fixes: "[i:3625] Fixes"
 		content: "[i:757] Content"
+		craftableUncraftables: "[i:36] Craftable Uncraftables"
 		respawn: "[i:708] Respawning"
 		suffering: "[npc/n:369] Suffering"
 		multiplayer: "[i:181] Multiplayer"
@@ -29,6 +30,7 @@ QoLConfig: {
 		testing: "[i:2] Testing"
 		tweaks: "[i:1344] Tweaks"
 		combat: "[i:757] Combat"
+		recipes: recipes Header
 	}
 
 	showHookTooltips: {
@@ -224,6 +226,11 @@ QoLConfig: {
 	sliceOfCakeUntilDeath: {
 		Label: "[i:3750] Slice of Cake Lasts Until Death"
 		Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+	}
+
+	deathLessBuffs: {
+		Label: "[i:487] Persistent Buffs Survive Death"
+		Tooltip: If enabled, persistent buffs (given by stations like the Bewitching Table or the Slice of Cake) do not get removed when the player dies.
 	}
 
 	wallsDontExplode: {
@@ -528,7 +535,7 @@ QoLConfig: {
 
 	mineWallsFromInside: {
 		Label: "[i:30] Break Unsafe Walls Anywhere"
-		Tooltip: If enabled, unsafe walls do not need to be exposed to be air to be broken.
+		Tooltip: If enabled, unsafe walls do not need to be exposed to air to be broken.
 	}
 
 	noLavaSlime: {
@@ -684,12 +691,61 @@ QoLConfig: {
 		Tooltip: If enabled, picked up items are automatically stacked into the Void Bag if it already contains the item.
 	}
 
+	storageFollowsPlayer: {
+		Label: "[i:3213] Mobile Storages Follow The Player"
+		Tooltip: If enabled, mobile storages (Money Trough, Void Bag) follow the player when they move. 'Have at thee...'
+	}
+
+	npcDeathsToCallOffInvasion: {
+		Label: "[i:361] NPC Deaths to Call Off Invasion"
+		Tooltip: If set to a value above 0, invasions will end early when this many town NPCs die during the invasion. Set to 0 to disable.
+	}
+
+	playerDeathsToCallOffInvasion: {
+		Label: "[i:1175] Player Deaths to Call Off Invasion"
+		Tooltip: If set to a value above 0, invasions will end early when the player dies this many times during the invasion. Set to 0 to disable.
+	}
+
 	moreVoidVault: {
 		Label: "[i:4076] Extended Void Vault"
 		Tooltip:
 			'''
 			If enabled, the other personal storage items (Piggy Bank, Safe, Defender's Forge) can also be used to store items using the Void Bag.
 			Getting them out is a bit more tricky though.
+			'''
+	}
+
+	grammarFix: {
+		Label: "[i:389] Corrected Grammar"
+		Tooltip: If enabled, item prefixes will be displayed in grammatically correct positions for items starting with "The" (e.g., "The Unreal Undertaker" instead of "Unreal The Undertaker").\nOnly affects English because why would it affect anything else?
+	}
+
+	siltIsDangerous: {
+		Label: "[i:2329] Dangersense Highlights Silt and Slush"
+		Tooltip: If enabled, the Dangersense Potion highlights Silt and Slush Blocks. They still fall on your head, though.
+	}
+
+	thinIceNotDangerous: {
+		Label: "[i:2329] Dangersense Doesn't Highlight Thin Ice"
+		Tooltip: If enabled, the Dangersense Potion stops highlighting Thin Ice. You'll fall into water anyway, y'know?
+	}
+
+	spelunkerHellstone: {
+		Label: "[i:174] Spelunker Highlights Hellstone"
+		Tooltip:
+			'''
+			If enabled, the Spelunker Potion highlights Hellstone.
+			Not like you wouldn't be able to see it amongst all that lava but we strive for an inclusive environment here.
+			'''
+	}
+
+	moreBossLoot: {
+		Label: "[i:3328] More Weapons from Treasure Bags"
+		Tooltip:
+			'''
+			If enabled, Queen Bee, Plantera and Golem drop two weapons each from their Treasure Bags, similar to the Moon Lord.
+			Less grinding, more fun!
+			   
 			'''
 	}
 }
@@ -730,7 +786,7 @@ UIConfig: {
 
 	npcSellPriceXOffset: {
 		Label: "[i:888] Horizontal Positioning"
-		Tooltip: How far right to move the price display so it doesn't cover the NPC's pixelated disappointment. (default: 50)
+		Tooltip: How far right to move the price display so it doesn't cover the NPC's pixelated disappointment. (default: 40)
 	}
 
 	showPriceMultiplier: {
@@ -780,4 +836,69 @@ DamageSpread: {
 	PlayersEnemies.Label: Players & Enemies (default)
 	Enemies.Label: Enemies Only
 	Tooltip: ""
+}
+
+QoLRecipeConfig: {
+	DisplayName: Recipe Config
+
+	Headers: {
+		recipes: "[i:2633] Recipes"
+		shimmer: "[i:5350] Shimmering"
+	}
+
+	templeTraps: {
+		Label: "[i:1142] Temple Traps"
+		Tooltip:
+			'''
+			 If enabled, recipes are added for the Jungle Temple traps.
+			'Lihzahrd...Lizhard...Lihzahrhd...'
+			'''
+	}
+
+	obsidianFurniture: {
+		Label: "[i:2657] Obsidian Furniture"
+		Tooltip:
+			'''
+			If enabled, adds recipes for the obsidian furniture generated in the Underworld houses.
+			'For when regular furniture isn't edgy enough'
+			'''
+	}
+
+	bannerRecipes: {
+		Label: "[i:846] World Banner Recipes"
+		Tooltip: If enabled, adds recipes for the banners generated randomly in the world across various structures.
+	}
+
+	teamBlocks: {
+		Label: "[i:3636] Colored Team Blocks"
+		Tooltip: If enabled, adds recipes for the various coloured team blocks and their platforms. 'Suck it, Travel Merchant!'
+	}
+
+	clothierVoodooDoll: {
+		Label: "[i:1307] Clothier Voodoo Doll Recipe"
+		Tooltip: If enabled, adds a recipe for the Clothier Voodoo Doll by crafting a Guide Voodoo Dool and a Red Hat together at a Demon/Crimson Altar.
+	}
+
+	shimmerGuns: {
+		Label: "[i:4348] Shimmerable Hardmode Weapons"
+		Tooltip:
+			'''
+			If enabled, the Hel-Fire and the Orange Zapinator can be shimmered into the Cascade and the Gray Zapinator, respectively.
+			Otherwise, they are unobtainable in Hardmode.
+			'''
+	}
+
+	shimmerBlackLens: {
+		Label: "[i:236] Shimmerable Black Lens"
+		Tooltip: If enabled, adds a shimmer transmutation for Black Lens into a normal Lens. I'm not entirely sure why, but you might run low on lenses!
+	}
+
+	dungeonFurniture: {
+		Label: "[i:139] Dungeon Furniture Recipes"
+		Tooltip:
+			'''
+			If enabled, adds recipes for all the dungeon furniture which you would have to normally loot.
+			'For those with skill issues'
+			'''
+	}
 }

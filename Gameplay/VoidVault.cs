@@ -104,7 +104,7 @@ public class VoidVault : GlobalItem {
         
         // important to update offsets here, this stuff is messy...
         ILEdits.updateOffsets(ilCursor);
-        MonoModHooks.DumpIL(VanillaQoL.instance, il);
+        //MonoModHooks.DumpIL(VanillaQoL.instance, il);
 
     }
 }

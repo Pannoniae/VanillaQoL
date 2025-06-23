@@ -20,6 +20,8 @@ LegacyTooltip: {
 }
 
 Tooltips: {
+	InvasionCalledOff: The invasion has overran your town!
+
 	Hooks: {
 		reachText: Reaches {0} tiles far
 		numHooksText1: Fires one hook
