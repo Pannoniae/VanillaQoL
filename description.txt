@@ -9,94 +9,127 @@ GitHub repository: https://github.com/Pannoniae/VanillaQoL
  - WingSlot™! This one respects loadout colours.
  - A better Shop Expander, with proper buttons instead of fake items! It expands automatically when you sell items.
  - New Corruption/Crimson Pylons!
+ - Flying Piggy Bank and Void Lens now follow you around like loyal pets!
+ - Call off invasions after too many NPC or player deaths (configurable).
+ - Dangersense Potion highlights Silt and Slush blocks.
+ - Dangersense  no longer highlights Thin Ice.
+ - Spelunker Potion now highlights Hellstone.
+ - Queen Bee, Plantera, and Golem now drop 2 weapons instead of 1.
+ - Buffs that don't usually persist through death now do (like Well Fed).
 
 Features:
+
+UI & Information:
  - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
- - Town NPCs spawn at night and can move to their house at day.
- - The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
- - Remove the coloured Thorium tooltips, making the mod look more vanilla.
- - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
- - An option to use the metric system. Not enabled by default to not scare the yanks.
  - Display luck information when you have a Metal Detector or its upgrades.
  - Shimmerable tooltip for item and NPC transformations.
- - Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
  - Tooltip to show what ammo a weapon uses.
- - An option to automatically join a team in Multiplayer.
- - An option to share the map with your teammates in Multiplayer.
- - Make the nurse heal players over time to stop exploits.
- - An option to remove Town Slimes, for those who hate them with a passion.
+ - "What mod is this from?" tooltip to show mod names on items.
  - Shows permanent upgrades on the player/world selection screen.
+ - The defense shield shows the damage reduction stat.
+ - Precise tooltips for velocity, use speed and knockback.
+ - An option to use the metric system. Not enabled by default to not scare the yanks.
+ - The Team/PvP UI is fixed when Census or way too many Town NPC mods is installed so it doesn't overlap.
+
+Chat & Communication:
  - A new chat tag to display NPCs in the chat! Usage: [npc:23] or [npc:ModName/NPCName].
     You can use the n or f options to hide the tooltip, or show the full body, like [npc/nf:18], which draws the full sprite of the Nurse with the tooltip disabled.
- - Ancient versions of 1.4.4 reworked melee items.
- - For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
- - More buff slots! (configurable)
- - Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
- - An option to disable reforges changing rarity.
- - Dungeon bricks crumbling instantly when you break them.
- - Loadout support for modded accessories.
- - Fix DragonLens and other mods on Linux.
- - An option to use the 6th and 7th accessory slot on Classic/Expert
- - Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
- - The Slice of Cake lasts until death.
- - Respawning rework (fully configurable)
- - The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
- - Seasonal events all year. <3
- - Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
- InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
- - Reduce littering by Antlions and Snowmen.
- - Tombstones drop in item form instead of being placed down.
- - An option to stop the Sandgun from stopping sand.
- - "What mod is this from?" tooltip to show mod names on items.
- - Fixing memory leaks with other mods, most notably Magic Storage. tModLoader should no longer slow down when reloading the game multiple times.
+
+Multiplayer:
+ - An option to automatically join a team in Multiplayer.
+ - An option to share the map with your teammates in Multiplayer.
+
+NPCs & Town:
+ - Town NPCs spawn at night and can move to their house at day.
+ - Make the nurse heal players over time to stop exploits.
+ - An option to remove Town Slimes, for those who hate them with a passion.
  - Protection for town pets and slimes from enemies and bosses.
- - Jungle Mimics can spawn in Hardmode Jungle.
- - Clowns' Happy Bombs can destroy tiles in a small explosion.
- - No fall damage while riding a mount.
- - The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
- - Non-consumable boss summons. (with mod compatibility!)
- - Enemies break down doors.
- - An option to disable shimmer making the player fall through the world.
- - The recipe list scrolls in the right direction now.
- - An option to skip the credits after Moon Lord, or to move it properly in the progression.
- - Explosion-proof Lihzahrd and Dungeon Walls.
- - The DCU takes the pickaxe power of your top-left pickaxe into account.
- - Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
- - Axes replant acorns.
- - If there are favourited potions in the inventory, Quick Buff will only consume those.
- - At full HP/mana, the player won't pick up hearts or mana crystals.
- - Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
- - Cactus hurts when you step on it.
- - Thorns slow the player down like cobweb.
- - The defense shield shows the damage reduction stat.
  - Santa won't suddenly explode after holidays end.
  - Made the Truffle non-binary. Before you ask why, I don't know either.
- - Made buffs that persist when saving persist when dying.
- - VeinMining™ for spikes.
- - Quick recall hotkey.
- - Honey-immune Honey Lamps.
- - Unsafe walls can be broken anywhere, not just from the edges.
- - Lava Slimes do not drop lava on death in Expert Mode.
- - Instant Platform Fallthrough.
- - The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
- - Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
- - Spike Balls and Blazing Wheels are now killable.
+
+Combat & Balance:
+ - For those with skill-issues, lock on / auto-aim / aimbot for mouse and keyboard.
  - Disable damage variance for players, enemies or both.
  - Configure the amount of damage variance.
  - Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
- - Precise tooltips for velocity, use speed and knockback.
+ - Master Mode can have Expert Mode stats now. Useful to not get impaled by bunnies straight after spawning.
+ - Spike Balls and Blazing Wheels are now killable.
+ - Enemies break down doors.
+ - Cactus hurts when you step on it.
+ - Thorns slow the player down like cobweb.
+ - No fall damage while riding a mount.
+
+Items & Equipment:
+ - Ancient versions of 1.4.4 reworked melee items.
+ - More buff slots! (configurable)
+ - An option to disable reforges changing rarity.
+ - Loadout support for modded accessories.
+ - An option to use the 6th and 7th accessory slot on Classic/Expert
  - An option to disable developer sets from dropping.
- - Entries in the Bestiary unlock after one kill.
- - An asphalt platform to run faster. (Thanks Jabon!)
  - Accessories work from personal storage.
- - Fountains change biomes.
- - An option to enable fountains changing biomes from the inventory.
- - Stackable quest fish.
- - Remove biome requirements from NPC shops.
- - The Old One's Army is now fairer.
- - All hairstyles are available from the start.
+ - Non-consumable boss summons. (with mod compatibility!)
+
+Inventory & Storage:
+ - At full HP/mana, the player won't pick up hearts or mana crystals.
+ - The Encumbering Stone (or more like, the Coincumbering Stone) can pick up coins since they don't take up an inventory slot.
  - Smart stacking into the Void Bag.
  - Extended Void Vault into other personal storage.
+ - Stackable quest fish.
+
+Mining & Building:
+ - Drill rework! Now drills are affected by mining speed/can have speed prefixes and can instantly break grass.
+ - VeinMining™ for spikes.
+ - Dungeon bricks crumbling instantly when you break them.
+ - The DCU takes the pickaxe power of your top-left pickaxe into account.
+ - Hardmode ores can be exploded after the three Mechanical Bosses are defeated.
+ - Axes replant acorns.
+ - Unsafe walls can be broken anywhere, not just from the edges.
+ - Explosion-proof Lihzahrd and Dungeon Walls.
+ - An asphalt platform to run faster. (Thanks Jabon!)
+ - Instant Platform Fallthrough.
+
+World & Environment:
+ - The Nature's Gift and the Jungle Rose now glow in the dark so they are easier to find.
+ - Seasonal events all year. <3
+ - Jungle Mimics can spawn in Hardmode Jungle.
+ - The Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+ - Fountains change biomes.
+ - An option to enable fountains changing biomes from the inventory.
+ - Honey-immune Honey Lamps.
+ - Reduce littering by Antlions and Snowmen.
+ - Lava Slimes do not drop lava on death in Expert Mode.
+
+Events & Bosses:
+ - Prevent Queen Bee's larvae from being broken by swords and projectiles accidentally.
+ - Clowns' Happy Bombs can destroy tiles in a small explosion.
+ - The Old One's Army is now fairer.
+ - Entries in the Bestiary unlock after one kill.
+
+Quality of Life:
+ - The Slice of Cake lasts until death.
+ - Made buffs that persist when saving persist when dying.
+ - Quick recall hotkey.
+ - If there are favourited potions in the inventory, Quick Buff will only consume those.
+ - Respawning rework (fully configurable)
+ - Tombstones drop in item form instead of being placed down.
+ - An option to stop the Sandgun from stopping sand.
+ - An option to disable shimmer making the player fall through the world.
+ - The recipe list scrolls in the right direction now.
+ - An option to skip the credits after Moon Lord, or to move it properly in the progression.
+ - All hairstyles are available from the start.
+
+Shops & NPCs:
+ - Remove biome requirements from NPC shops.
+
+Technical & Mod Compatibility:
+ - Remove the coloured Thorium tooltips, making the mod look more vanilla.
+ - Remove the annoying "Enabled in Thorium mod configuration" crafting object message on sponsored items.
+ - Disable the exploit of moving Shimmer using pumps before Moon Lord is defeated.
+ - Fix DragonLens and other mods on Linux.
+ - Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
+ - Fixing memory leaks with other mods, most notably Magic Storage. tModLoader should no longer slow down when reloading the game multiple times.
+ - Mod incompatibility screen. Usage for modders: create a compat.txt in your mod which looks like this:
+ InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
 
 Credits:
  - Jabon of Quality of Life Compendium fame for his mod compat and for being a very amazing person in general <3
