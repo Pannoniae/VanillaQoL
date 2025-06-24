@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.CompilerServices;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
@@ -15,6 +16,8 @@ public class VoidVault : GlobalItem {
     }
 
     public override void Load() {
+        
+        // only stack if it's already present in the void vault!
         IL_Player.GetItem += voidBagReorderPatch;
     }
 
@@ -95,7 +98,7 @@ public class VoidVault : GlobalItem {
         ilCursor.EmitLdarg2();
         ilCursor.EmitLdarg3();
         ilCursor.EmitLdloc1();
-        ilCursor.EmitCall<Player>("GetItem_VoidVault");
+        ilCursor.EmitCall<VoidVault>("GetItem_VoidVault");
         ilCursor.Emit(OpCodes.Brfalse_S, afterLabel);
         ilCursor.Emit(OpCodes.Newobj, typeof(Item).GetConstructor([])!);
         ilCursor.Emit(OpCodes.Ret);
@@ -105,6 +108,26 @@ public class VoidVault : GlobalItem {
         // important to update offsets here, this stuff is messy...
         ILEdits.updateOffsets(ilCursor);
         //MonoModHooks.DumpIL(VanillaQoL.instance, il);
-
     }
+    
+    public static bool GetItem_VoidVault(Player player, int plr, Item[] inventory, Item newItem, GetItemSettings settings, Item returnItem)
+    {
+        if (!playerCanVoidVaultAccept(player, newItem)) {
+            return false;
+        }
+
+        for (int i = 0; i < inventory.Length; i++) {
+            if (playerGetItem_FillIntoOccupiedSlot_VoidBag(player, plr, inventory, newItem, settings, returnItem, i)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "CanVoidVaultAccept")]
+    public static extern bool playerCanVoidVaultAccept(Player player, Item item);
+    
+    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "GetItem_FillIntoOccupiedSlot_VoidBag")]
+    public static extern bool playerGetItem_FillIntoOccupiedSlot_VoidBag(Player player, int plr, Item[] inventory, Item newItem, GetItemSettings settings, Item returnItem, int i);
 }

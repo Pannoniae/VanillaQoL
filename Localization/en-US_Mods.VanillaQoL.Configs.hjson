@@ -31,6 +31,7 @@ QoLConfig: {
 		tweaks: "[i:1344] Tweaks"
 		combat: "[i:757] Combat"
 		recipes: recipes Header
+		npcs: npcs Header
 	}
 
 	showHookTooltips: {
@@ -68,8 +69,8 @@ QoLConfig: {
 	}
 
 	fixMemoryLeaks: {
-		Label: "[i:1344] Fix Memory Leaks"
-		Tooltip: Many mods are badly written and they leak memory, slowing down the game if you reload your mods. If enabled, VanillaQoL tries to fix memory leaks somewhat.
+		Label: "[i:1344] Fix Magic Storage"
+		Tooltip: If enabled, fix the game not starting or hanging on "Loading Content" with Magic Storage enabled.
 	}
 
 	vanillaThoriumTooltips: {
@@ -667,12 +668,12 @@ QoLConfig: {
 	}
 
 	OOAdrops: {
-		Label: "[i:3817] OOA something"
+		Label: "[i:3817] Old One's Army Minibosses Drop Defender Medals"
 		Tooltip: If enabled, the Old One's Army event minibosses also drop Defender Medals in case you can't get through the full event.
 	}
 
 	OOAdrops2: {
-		Label: "[i:3817] OOA something 2"
+		Label: "[i:3817] Old One's Army Gradual Defender Medal Drops"
 		Tooltip: If enabled, the first two tiers of the Old One's Army event also drop Defender Medals in case you can't even survive the first two waves.
 	}
 
@@ -717,7 +718,11 @@ QoLConfig: {
 
 	grammarFix: {
 		Label: "[i:389] Corrected Grammar"
-		Tooltip: If enabled, item prefixes will be displayed in grammatically correct positions for items starting with "The" (e.g., "The Unreal Undertaker" instead of "Unreal The Undertaker").\nOnly affects English because why would it affect anything else?
+		Tooltip:
+			'''
+			If enabled, item prefixes will be displayed in grammatically correct positions for items starting with "The" (e.g., "The Unreal Undertaker" instead of "Unreal The Undertaker").
+			Only affects English because why would it affect anything else?
+			'''
 	}
 
 	siltIsDangerous: {
@@ -747,6 +752,21 @@ QoLConfig: {
 			Less grinding, more fun!
 			   
 			'''
+	}
+
+	disableNPCHappiness: {
+		Label: "[i:4986] Disable NPC Happiness"
+		Tooltip: If enabled, disables the NPC Happiness system. The sell price factor will always be fixed.
+	}
+
+	disableNPCHappinessConstant: {
+		Label: "[i:4986] Disable NPC Happiness Factor"
+		Tooltip: This controls the sell price factor when the NPC Happiness system is disabled. Set to 1.0 to leave unchanged from full price, set to 0.5 to halve the sell prices, etc.
+	}
+
+	boundNPCProtection: {
+		Label: "[npc/n:105] Bound NPC Protection"
+		Tooltip: If enabled, bound NPCs are protected from being killed by enemies.
 	}
 }
 

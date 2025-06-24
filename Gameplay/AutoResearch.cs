@@ -16,7 +16,7 @@ public class AutoResearch : GlobalItem {
             CreativeItemSacrificesCatalog.Instance.TryGetSacrificeCountCapToUnlockInfiniteItems(item.type,
                 out int numResearch) && !researched && player.difficulty == PlayerDifficultyID.Creative &&
             item.stack >= numResearch) {
-            if (item.type is ItemID.ShellphoneDummy or ItemID.ShellphoneHell or ItemID.ShellphoneOcean or ItemID.ShellphoneSpawn or ItemID.Shellphone) {
+            if (item.type is ItemID.ShellphoneDummy or ItemID.ShellphoneHell or ItemID.ShellphoneOcean or ItemID.ShellphoneSpawn or ItemID.Shellphone or ItemID.MoneyTrough or ItemID.ClosedVoidBag or ItemID.VoidLens) {
                 return;
             }
 

@@ -4,9 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
+using log4net;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
+using SerousCommonLib.API;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.Gameplay;
@@ -28,7 +32,7 @@ public class VanillaQoL : Mod {
     public bool hasHEROsMod;
     public bool hasCalamityQoL;
     public bool hasQoLCompendium;
-    
+
     public Mod? QoLCompendium;
 
     public override uint ExtraPlayerBuffSlots =>
@@ -46,6 +50,11 @@ public class VanillaQoL : Mod {
         var method = modcontent.GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
         MonoModHooks.Modify(method, modCompat);
         Console.WriteLine("Registered mod compat handler.");
+    }
+
+    public static void noop(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        ilCursor.EmitRet();
     }
 
     private void modCompat(ILContext il) {
@@ -96,6 +105,11 @@ public class VanillaQoL : Mod {
         ILEdits.unload();
         GlobalFeatures.clear();
 
+        // unload Magic Storage ModSystems - they crash the game
+        if (hasMagicStorage) {
+            ModCompat.unloadMagicStorageModSystems();
+        }
+
         // unload *all* the IL edits
         // IL patch static lambdas are leaking memory, wipe them
         // this is now handled in TypeCaching.OnClear
@@ -105,22 +119,22 @@ public class VanillaQoL : Mod {
     }
 
     public override void PostSetupContent() {
-
         Constants.postSetup();
-        
+
         if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggled");
             LanguagePatch.hideKey("Mods.ThoriumMod.Conditions.DonatorItemToggledSteamBattery");
         }
+
         // conditional localisation is not a thing....
         if (QoLConfig.Instance.pannoniaeCat) {
             instance.Logger.Info("meow!");
             LanguagePatch.addToCategory("CatNames_Siamese", "Pannoniae", "Pannoniae");
             LanguagePatch.addToCategory("CatNames_Black", "Pannoniae", "Pannoniae");
-            LanguagePatch.addToCategory("CatNames_OrangeTabby", "Pannoniae",  "Pannoniae");
-            LanguagePatch.addToCategory("CatNames_RussianBlue","Pannoniae", "Pannoniae");
-            LanguagePatch.addToCategory("CatNames_Silver","Pannoniae", "Pannoniae");
-            LanguagePatch.addToCategory("CatNames_White","Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_OrangeTabby", "Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_RussianBlue", "Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_Silver", "Pannoniae", "Pannoniae");
+            LanguagePatch.addToCategory("CatNames_White", "Pannoniae", "Pannoniae");
         }
 
         if (QoLConfig.Instance.coincumberingStoneRename) {
@@ -136,7 +150,6 @@ public class VanillaQoL : Mod {
         //foreach (var cat in LanguageManager.Instance.GetKeysInCategory("CatNames_Siamese")) {
         //    instance.Logger.Info(cat);
         //}
-
     }
 
     /// <summary>
@@ -172,8 +185,148 @@ public class VanillaQoL : Mod {
 }
 
 public static class ModCompat {
+    public static void stopNulling(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        // go to return
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchRet())) {
+            VanillaQoL.instance.Logger.Error(
+                "Failed to find return in MagicStorage SolidTopCollisionHackILEdits.LoadEdits");
+            return;
+        }
+
+        // delete two previous instructions
+        ilCursor.Index -= 2;
+        ilCursor.RemoveRange(2);
+    }
+
+    public static void unloadMagicStorageModSystems() {
+        var magicStorage = ModLoader.GetMod("MagicStorage");
+
+        VanillaQoL.instance.Logger.Info("Unloading MagicStorage ModSystems...");
+        // foreach (var loadable in GetContent().Reverse()) {
+        //    loadable.Unload();
+        // }
+        // Content.Clear();
+        // Content = null;
+
+        // internal ContentCache Content { get; private set; }
+        var Content = magicStorage.GetType()
+            .GetProperty("Content", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+            ?.GetValue(magicStorage);
+        var contentClear = Content?.GetType()
+            .GetMethod("Clear", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+        foreach (var loadable in magicStorage.GetContent().Reverse()) {
+            loadable.Unload();
+        }
+
+        //Content.Clear();
+        //Content = null;
+        if (contentClear != null) {
+            contentClear.Invoke(Content, null);
+        }
+
+        // set content to null
+        magicStorage.GetType().GetField("Content", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+            ?.SetValue(magicStorage, null);
+
+        // clear SystemLoader.Unload
+        var systemLoaderType = typeof(SystemLoader);
+        var unloadMethod2 =
+            systemLoaderType.GetMethod("Unload", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        if (unloadMethod2 != null) {
+            unloadMethod2.Invoke(null, []);
+        }
+        else {
+            VanillaQoL.instance.Logger.Error("Failed to find SystemLoader Unload method");
+        }
+
+        // call SystemLoader.RebuildHooks to clear
+        var rebuildHooksMethod = systemLoaderType.GetMethod("RebuildHooks",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        if (rebuildHooksMethod != null) {
+            rebuildHooksMethod.Invoke(null, null);
+        }
+        else {
+            VanillaQoL.instance.Logger.Error("Failed to find SystemLoader RebuildHooks method");
+        }
+
+        // clear watchdogs on MagicUI
+        var magicUIType = magicStorage.GetType().Assembly.GetType("MagicStorage.Common.Systems.MagicUI");
+        if (magicUIType == null) {
+            VanillaQoL.instance.Logger.Error("Failed to find MagicUI type in MagicStorage assembly");
+            return;
+        }
+
+        // private static readonly ConcurrentBag<RefreshUIWatchdog> _watchdogs = new();
+        var watchdogsField = magicUIType.GetField("_watchdogs",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        if (watchdogsField == null) {
+            VanillaQoL.instance.Logger.Error("Failed to find MagicUI _watchdogs field");
+            return;
+        }
+
+        var watchdogs = watchdogsField.GetValue(null)!;
+        // clear the watchdogs
+        var clearMethod = watchdogs.GetType()
+            .GetMethod("Clear", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (clearMethod == null) {
+            VanillaQoL.instance.Logger.Error("Failed to find MagicUI _watchdogs Clear method");
+        }
+
+        clearMethod?.Invoke(watchdogs, null);
+
+        // dispose the watchdogs ThreadLocal field
+        // ConcurrentBag<RefreshUIWatchdog>._locals
+        var localsField = watchdogs.GetType()
+            .GetField("_locals", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (localsField == null) {
+            VanillaQoL.instance.Logger.Error("Failed to find MagicUI _locals field");
+            return;
+        }
+
+        var locals = localsField.GetValue(watchdogs)!;
+        // dispose the ThreadLocal
+        // find the argumentless Dispose method
+        var disposeMethod = locals.GetType()
+            .GetMethod("Dispose", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, []);
+        if (disposeMethod != null) {
+            disposeMethod.Invoke(locals, null);
+        }
+        else {
+            VanillaQoL.instance.Logger.Error("Failed to find ThreadLocal Dispose method");
+        }
+
+        // set watchdogs to null (it STILL exists because a local holds it - better to crash with a nulllpointerexception than to crash the entire process)
+        //watchdogsField.SetValue(null, null);
+    }
+
     public static void load() {
         VanillaQoL.instance.Logger.Info("Handling mod compatibility...");
+
+        // fix magic storage stuff suppressing exceptions with the stupid logger
+        // can't reference it directly because it might not be loaded
+
+        var ilHelper = ModLoader.TryGetMod("SerousCommonLib", out var serousMod)
+            ? serousMod.GetType().Assembly.GetType("SerousCommonLib.API.ILHelper")
+            : null;
+        var logMethodBody = ilHelper?.GetMethod("LogMethodBody",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+
+        if (logMethodBody != null) {
+            MonoModHooks.Modify(logMethodBody, VanillaQoL.noop);
+        }
+
+        // patch magic storage to stop nulling its delegates
+        var hasMagicStorage = ModLoader.TryGetMod("MagicStorage", out var magicStorageMod);
+        if (hasMagicStorage && magicStorageMod.Version.Minor >= 7) {
+            var solidTopCollisionHackILEdits = magicStorageMod.GetType().Assembly
+                .GetType("MagicStorage.Edits.SolidTopCollisionHackILEdits");
+            var loadEdits =
+                solidTopCollisionHackILEdits.GetMethod("LoadEdits", BindingFlags.Instance | BindingFlags.Public);
+            MonoModHooks.Modify(loadEdits, stopNulling);
+        }
+
         var str = new StringBuilder();
         bool atLeastOne = false;
         str.Append(

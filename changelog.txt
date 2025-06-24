@@ -1,27 +1,7 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
- [*] Flying Piggy Bank and Void Lens now follow you around like loyal pets!
- [*] Call off invasions after too many NPC or player deaths (configurable).
- [*] Dangersense Potion highlights Silt and Slush blocks.
- [*] Dangersense  no longer highlights Thin Ice.
- [*] Spelunker Potion now highlights Hellstone.
- [*] Queen Bee, Plantera, and Golem now drop 2 weapons instead of 1.
- [*] Buffs that don't usually persist through death now do (like Well Fed).
-[*] Added a "Spike Balls and Blazing Wheels are now killable." feature.
-[*] Made the UI config 69% less boring.
-[*] Super critical hits, which are 2x the damage of a critical hit above 100% crit chance.
-[*] Precise tooltips for velocity, use speed and knockback.
-[*] An option to disable developer sets from dropping.
-[*] Entries in the Bestiary unlock after one kill.
-[*] An asphalt platform to run faster. (Thanks Jabon!)
-[*] Accessories work from personal storage.
-[*] Fountains change biomes.
-[*] An option to enable fountains changing biomes from the inventory.
-[*] Stackable quest fish.
-[*] Remove biome requirements from NPC shops.
-[*] The Old One's Army is now fairer.
-[*] All hairstyles are available from the start.
-[*] Smart stacking into the Void Bag.
-[*] Extended Void Vault into other personal storage.
+ [*] Make Void Bags and Money Troughs push each other away when summoned.
+ [*] Add NPC happiness disable feature.
+ [*] The Void Bag shouldn't be instantly researched when you favourite it in Journey Mode.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

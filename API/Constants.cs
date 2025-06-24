@@ -262,9 +262,9 @@ public class Constants {
         ItemID.DD2ElderCrystal
     ];
 
-    public static List<int> ModdedBossAndEventSummons = [];
+    public static readonly List<int> ModdedBossAndEventSummons = [];
 
-    public static List<int> FargosBossAndEventSummons = [];
+    public static readonly List<int> FargosBossAndEventSummons = [];
 
     public static readonly ushort[] EvilWallIDs = [
         WallID.CorruptGrassEcho,

@@ -34,24 +34,6 @@ public class QoLConfig : ModConfig {
 
     [Header("gameplay")]
 
-    // Universal Pylon
-    [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
-    [DefaultValue(true)]
-    public bool townNPCsSpawningAtNight { get; set; }
-
-    // Universal Pylon
-    [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
-    [DefaultValue(true)]
-    public bool townNPCsMovingAtDay { get; set; }
-
-    // Cat License
-    [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
-    [DefaultValue(true)]
-    public bool townPetsInvincible { get; set; }
-
     // Gold Coin
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -153,6 +135,51 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool OOAdrops2 { get; set; }
 
+    #endregion
+    
+    #region NPCs
+    
+    [Header("npcs")]
+    
+    // Universal Pylon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool townNPCsSpawningAtNight { get; set; }
+    
+    // Universal Pylon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool townNPCsMovingAtDay { get; set; }
+
+    // Cat License
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool townPetsInvincible { get; set; }
+    
+    // Sparkle Slime Balloon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool disableNPCHappiness { get; set; }
+    
+    // Sparkle Slime Balloon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(0.8f)]
+    [Slider]
+    [Increment(0.01f)]
+    [Range(0, 1.2f)]
+    public float disableNPCHappinessConstant { get; set; }
+    
+    // Goblin Tinkerer
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool boundNPCProtection { get; set; }
+    
     #endregion
     
     #region Combat
@@ -564,6 +591,7 @@ public class QoLConfig : ModConfig {
     // Cog
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
+    [ReloadRequired]
     public bool fixMemoryLeaks { get; set; }
 
     // Celestial Sigil

@@ -82,6 +82,9 @@
         <Reference Include="ReloadableGuns">
             <HintPath>..\..\ModReader\ReloadableGuns\ReloadableGuns.dll</HintPath>
         </Reference>
+        <Reference Include="SerousCommonLib">
+          <HintPath>..\..\ModReader\SerousCommonLib\SerousCommonLib.dll</HintPath>
+        </Reference>
         <Reference Include="SharedMap">
             <HintPath>..\..\ModReader\SharedMap\SharedMap.dll</HintPath>
         </Reference>
