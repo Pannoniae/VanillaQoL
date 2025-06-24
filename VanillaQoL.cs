@@ -187,15 +187,14 @@ public class VanillaQoL : Mod {
 public static class ModCompat {
     public static void stopNulling(ILContext il) {
         var ilCursor = new ILCursor(il);
-        // go to return
-        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchRet())) {
+        // go to null-assignment followed by return
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdnull(), i => i.MatchStsfld(out _), i => i.MatchRet())) {
             VanillaQoL.instance.Logger.Error(
-                "Failed to find return in MagicStorage SolidTopCollisionHackILEdits.LoadEdits");
+                "Failed to find null-assignment-and-return in MagicStorage SolidTopCollisionHackILEdits.LoadEdits");
             return;
         }
 
-        // delete two previous instructions
-        ilCursor.Index -= 2;
+        // delete the ldnull/stsfld pair to patch out assignment of null to the field
         ilCursor.RemoveRange(2);
     }
 
@@ -319,7 +318,7 @@ public static class ModCompat {
 
         // patch magic storage to stop nulling its delegates
         var hasMagicStorage = ModLoader.TryGetMod("MagicStorage", out var magicStorageMod);
-        if (hasMagicStorage && magicStorageMod.Version.Minor >= 7) {
+        if (hasMagicStorage && magicStorageMod.Version.Major == 0 && magicStorageMod.Version.Minor == 7 && magicStorageMod.Version.Build == 0 && magicStorageMod.Version.Revision < 4) {
             var solidTopCollisionHackILEdits = magicStorageMod.GetType().Assembly
                 .GetType("MagicStorage.Edits.SolidTopCollisionHackILEdits");
             var loadEdits =
