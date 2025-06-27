@@ -3,3 +3,5 @@ ShopExpander=Vanilla+ QoL expands NPC shops with pages as well. Disable one of t
 ShopExtender=Vanilla+ QoL expands NPC shops with pages as well. Disable one of the mods, otherwise you might encounter errors.
 NoBreakingDoors=Vanilla+ QoL incorporates the patch in No Breaking Doors and fixes it. You don't need No Breaking Doors, it will crash.
 NoNPCHappinessReborn=Vanilla+ QoL is not compatible with Happiness Removal Reborn because it patches the same code. You can use Vanilla+ QoL's happiness disable feature instead.
+InstantPlatformFallthrough=Vanilla+ QoL has the same feature, this will crash.
+LavalessLavaSlime=Vanilla+ QoL has the same feature, this will crash.

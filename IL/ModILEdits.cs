@@ -36,7 +36,11 @@ public class ModILEdits {
         // nothing?
     }
 
-    public static List<Condition> filterConditions(List<Condition> original) {
+    public static IEnumerable<Condition> filterConditions(IEnumerable<Condition> original) {
+        return original.Where(c => !isHidden(c.Description));
+    }
+    
+    public static List<Condition> filterConditionsL(List<Condition> original) {
         return original.Where(c => !isHidden(c.Description)).ToList();
     }
 
@@ -72,7 +76,7 @@ public static class RecipeBrowserLogic {
         // match the ldfld before the loop, modify the list
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Recipe>("Conditions"))) {
             // call our filter method
-            ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditions");
+            ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditionsL");
             // afterwards the list is on the stack as we wanted
 
             VanillaQoL.instance.Logger.Info(
@@ -98,7 +102,7 @@ public static class MagicStorageLogic {
     private static void removeHiddenConditions(ILContext il) {
         var ilCursor = new ILCursor(il);
         // this time we patch the ldloc.s before the loop, to be nicer and less fragile, no need to hack that much
-        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdloc(4))) {
+        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdloc(3))) {
             // call our filter method
             ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditions");
             // afterwards the list is on the stack as we wanted

@@ -11,7 +11,7 @@ public class LanguagePatch {
     private static Dictionary<string, LocalizedText> _localizedTexts = new();
     private static Dictionary<string, List<string>> _categoryGroupedKeys = new();
 
-    private static HashSet<(string, string)> _moddedCategoryKeys = new();
+    private static readonly HashSet<(string, string)> _moddedCategoryKeys = [];
 
     internal static Dictionary<string, ExtendedLocalizedText> _overrides = new();
     public static bool loaded;
@@ -88,7 +88,7 @@ public class LanguagePatch {
 
         if (language == 0 || GameCulture.FromCultureName(language) == Language.ActiveCulture) {
             loc.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(loc,
-                new object?[] { value });
+                [value]);
 
             VanillaQoL.instance.Logger.Warn(
                 $"Overriding localization key {key} from mod {tryToGuessMod(loc)}! Don't send bug reports to the developers of that mod about broken text.");
@@ -98,24 +98,21 @@ public class LanguagePatch {
     public static void addToCategory(string category, string entry, string value) {
         var key = category + "." + entry;
         _moddedCategoryKeys.Add((category, entry));
-        if (_localizedTexts.ContainsKey(key)) {
+        if (_localizedTexts.TryGetValue(key, out var txt)) {
             //_localizedTexts[key].SetValue(value);
-            var txt = _localizedTexts[key];
             txt.GetType().GetMethod("SetValue", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(txt,
-                new object?[] { value });
+                [value]);
         }
 
         var type = typeof(LocalizedText);
         ConstructorInfo ctor = type.GetConstructor(BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance,
-            new[] { typeof(string), typeof(string) })!;
-        LocalizedText loc = (LocalizedText)ctor.Invoke(new object?[] { entry, value });
+            [typeof(string), typeof(string)])!;
+        LocalizedText loc = (LocalizedText)ctor.Invoke([entry, value]);
 
-        if (!_localizedTexts.ContainsKey(key)) {
-            _localizedTexts.Add(key, loc);
-        }
-        else {
+        if (!_localizedTexts.TryAdd(key, loc)) {
             VanillaQoL.instance.Logger.Warn($"Tried to add the same category twice! {key}");
         }
+
         if (!_categoryGroupedKeys.ContainsKey(category)) {
             _categoryGroupedKeys.Add(category, new List<string>());
         }
@@ -124,20 +121,8 @@ public class LanguagePatch {
     }
 }
 
-public class ExtendedLocalizedText {
-    public string value;
-    public GameCulture.CultureName language;
-    public bool hidden;
-
-    public ExtendedLocalizedText(string value, GameCulture.CultureName language) {
-        this.value = value;
-        this.language = language;
-        hidden = false;
-    }
-
-    public ExtendedLocalizedText(string value, GameCulture.CultureName language, bool hidden) {
-        this.value = value;
-        this.language = language;
-        this.hidden = hidden;
-    }
+public record class ExtendedLocalizedText(string value, GameCulture.CultureName language, bool hidden = false) {
+    public readonly string value = value;
+    public readonly GameCulture.CultureName language = language;
+    public readonly bool hidden = hidden;
 }

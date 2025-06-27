@@ -21,6 +21,10 @@ public class VoidVault : GlobalItem {
         IL_Player.GetItem += voidBagReorderPatch;
     }
 
+    public override void Unload() {
+        IL_Player.GetItem -= voidBagReorderPatch;
+    }
+
     private static void voidBagReorderPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         

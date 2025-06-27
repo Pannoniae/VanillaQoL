@@ -115,26 +115,26 @@ public class UIInfo : ModSystem, ILocalizedModType {
     public static void worldInfo(UIWorldListItem world) {
         var info = world.Data;
         var additionalData = getAdditionalData(info.Path, info.IsCloudSave);
-        bool[] things = {
+        bool[] things = [
             info.IsHardMode,
             additionalData.combatBook,
             additionalData.combatBookVolumeTwo,
             additionalData.peddlersSatchel
-        };
+        ];
 
-        LocalizedText[] locKeys = {
+        LocalizedText[] locKeys = [
             hardMode,
             combatBook,
             combatBookVolumeTwo,
             peddlersSatchel
-        };
+        ];
 
-        string[] paths = {
+        string[] paths = [
             "Hardmode",
             "Advanced_Combat_Techniques",
             "Advanced_Combat_Techniques_Volume_Two",
             "Peddler's_Satchel"
-        };
+        ];
         const int margin = 2;
         int offset = -40;
         for (int index = 0; index < things.Length; ++index) {
@@ -159,8 +159,14 @@ public class UIInfo : ModSystem, ILocalizedModType {
             using (Stream input = cloudSave
                        ? new MemoryStream(SocialAPI.Cloud.Read(file))
                        : new FileStream(file, FileMode.Open)) {
-                using (BinaryReader reader = new BinaryReader(input)) {
+                using (var reader = new BinaryReader(input)) {
                     int version = reader.ReadInt32();
+
+                    if (version < 260) {
+                        VanillaQoL.instance.Logger.Warn("Something is *really* fucked with this world file, must be very old? Skipping additional data parsing.");
+                        return additionalData;
+                    }
+                    
                     data.Metadata = FileMetadata.Read(reader, FileType.World);
                     _ = (int)reader.ReadInt16();
                     input.Position = reader.ReadInt32();
@@ -382,6 +388,10 @@ public class UIInfo : ModSystem, ILocalizedModType {
         }
         catch (Exception e) {
             // ignored
+            
+            VanillaQoL.instance.Logger.Warn("THE FOLLOWING EXCEPTION IS HARMLESS, IT IS NOT A BUG!");
+            VanillaQoL.instance.Logger.Warn("For some reason, the world file is different from what we expected, this is likely due to a mod that has changed the world file format.");
+            VanillaQoL.instance.Logger.Warn("Vanilla+ QoL safely ignores this and loads `false` for all additional data. THIS IS NOT A PROBLEM WITH THIS MOD.");
             VanillaQoL.instance.Logger.Warn(e);
             return additionalData;
         }

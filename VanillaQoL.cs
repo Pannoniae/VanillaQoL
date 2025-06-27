@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using log4net;
@@ -32,8 +33,10 @@ public class VanillaQoL : Mod {
     public bool hasHEROsMod;
     public bool hasCalamityQoL;
     public bool hasQoLCompendium;
+    public bool hasColoredDamageTypes;
 
     public Mod? QoLCompendium;
+    
 
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
@@ -72,6 +75,7 @@ public class VanillaQoL : Mod {
         hasHEROsMod = ModLoader.HasMod("HEROsMod");
         hasCalamityQoL = ModLoader.HasMod("CalamityQOL");
         hasQoLCompendium = ModLoader.HasMod("QoLCompendium");
+        hasColoredDamageTypes = ModLoader.HasMod("ColoredDamageTypes");
         if (hasQoLCompendium) {
             QoLCompendium = ModLoader.GetMod("QoLCompendium");
         }

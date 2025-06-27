@@ -1,7 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
- [*] Make Void Bags and Money Troughs push each other away when summoned.
- [*] Add NPC happiness disable feature.
- [*] The Void Bag shouldn't be instantly researched when you favourite it in Journey Mode.
+ [*] Add integration with Colored Damage Types.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

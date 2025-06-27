@@ -77,6 +77,7 @@ public class QoLSharedMapSystem : ModSystem {
     }
 
     public override void Unload() {
+        IL_WorldMap.UpdateLighting -= updateMapPatch2;
         instance = null!;
         shareKeybind = null!;
     }

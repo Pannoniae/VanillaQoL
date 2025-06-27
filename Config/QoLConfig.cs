@@ -159,26 +159,33 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool townPetsInvincible { get; set; }
     
-    // Sparkle Slime Balloon
+    // World Globe
     [BackgroundColor(192, 54, 128, 192)]
-    [ReloadRequired]
     [DefaultValue(false)]
-    public bool disableNPCHappiness { get; set; }
-    
-    // Sparkle Slime Balloon
-    [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
-    [DefaultValue(0.8f)]
-    [Slider]
-    [Increment(0.01f)]
-    [Range(0, 1.2f)]
-    public float disableNPCHappinessConstant { get; set; }
-    
+    public bool removeBiomeRequirementsShops { get; set; }
+
     // Goblin Tinkerer
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(false)]
     public bool boundNPCProtection { get; set; }
+    
+    // Goblin Battle Standard
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(0)]
+    [Range(0, 10)]
+    [Slider]
+    [ReloadRequired]
+    public int npcDeathsToCallOffInvasion { get; set; }
+    
+    // Gravestone
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(0)]
+    [Range(0, 10)]
+    [Slider]
+    [ReloadRequired]
+    public int playerDeathsToCallOffInvasion { get; set; }
     
     #endregion
     
@@ -213,6 +220,16 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(typeof (Color), "255, 40, 50, 255")]
     public Color superCritsColourValue { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool superCritsColouredDamageTypesIntegration { get; set; }
+    
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(90)]
+    [ReloadRequired]
+    public int superCritsColouredDamageTypesDarken { get; set; }
     
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
@@ -500,33 +517,12 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool stackableQuestItems { get; set; }
     
-    // World Globe
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    [ReloadRequired]
-    public bool removeBiomeRequirementsShops { get; set; }
     
     // Womannequin
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
     public bool allHairsOnStart { get; set; }
-    
-    // Goblin Battle Standard
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(0)]
-    [Range(0, 10)]
-    [Slider]
-    [ReloadRequired]
-    public int npcDeathsToCallOffInvasion { get; set; }
-    
-    // Gravestone
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(0)]
-    [Range(0, 10)]
-    [Slider]
-    [ReloadRequired]
-    public int playerDeathsToCallOffInvasion { get; set; }
     
     // Dangersense Potion
     [BackgroundColor(192, 54, 128, 192)]
@@ -551,6 +547,18 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool moreBossLoot { get; set; }
+    
+    // Void Bag
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool stackVoidBag { get; set; }
+    
+    // Money Trough
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool storageFollowsPlayer { get; set; }
     
     #endregion
 
@@ -663,6 +671,21 @@ public class QoLConfig : ModConfig {
     #region Cheats
 
     [Header("cheats")]
+    
+    // Sparkle Slime Balloon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(false)]
+    public bool disableNPCHappiness { get; set; }
+    
+    // Sparkle Slime Balloon
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(0.8f)]
+    [Slider]
+    [Increment(0.01f)]
+    [Range(0, 1.2f)]
+    public float disableNPCHappinessConstant { get; set; }
 
     // Demon Heart
     [BackgroundColor(192, 54, 128, 192)]
@@ -680,6 +703,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool NPCsLiveInEvilBiomes { get; set; }
+
+    // Clentaminator
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool disableBiomeSpread { get; set; }
 
     // Life Crystal
     [BackgroundColor(192, 54, 128, 192)]
@@ -739,18 +768,6 @@ public class QoLConfig : ModConfig {
     [DefaultValue(false)]
     [ReloadRequired]
     public bool masterModeRelicsInExpert { get; set; }
-    
-    // Void Bag
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool stackVoidBag { get; set; }
-    
-    // Money Trough
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool storageFollowsPlayer { get; set; }
     
     
     // idk how to implement this properly so todo lol

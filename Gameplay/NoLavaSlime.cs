@@ -15,6 +15,10 @@ public class NoLavaSlime : ModSystem {
         //NPC
     }
 
+    public override void Unload() {
+        IL_NPC.VanillaHitEffect -= lavaSlimePatch;
+    }
+
     private void lavaSlimePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchCall<Main>("get_expertMode"), i => i.Match(OpCodes.Brfalse), i => i.Match(OpCodes.Ldarg_0),

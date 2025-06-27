@@ -31,7 +31,7 @@ QoLConfig: {
 		tweaks: "[i:1344] Tweaks"
 		combat: "[i:757] Combat"
 		recipes: recipes Header
-		npcs: npcs Header
+		npcs: "[npc/n:178] NPCs"
 	}
 
 	showHookTooltips: {
@@ -333,6 +333,15 @@ QoLConfig: {
 			'''
 	}
 
+	disableBiomeSpread: {
+		Label: "[i:199] Disable Biome Spread"
+		Tooltip:
+			'''
+			If enabled, infectious biomes like the Crimson, the Corruption and the Hallow do not spread.
+			'Your doomsday is not coming yet'
+			'''
+	}
+
 	noDroppedSand: {
 		Label: "[i:169] No Dropped Sand"
 		Tooltip: If enabled, Antlions do not pollute your world with sand, dropping it in item form instead.
@@ -596,6 +605,20 @@ QoLConfig: {
 	superCritsColour: {
 		Label: "[i:1858] Coloured Super Crits"
 		Tooltip: If enabled, super crits have a unique colour distinguishing it from normal crits.
+	}
+
+	superCritsColouredDamageTypesIntegration: {
+		Label: "[i:1858] Super Crits Coloured Damage Types Integration"
+		Tooltip: If enabled, the integration with the Coloured Damage Types mod is enabled, allowing super crits to be coloured based on the damage type of the weapon.
+	}
+
+	superCritsColouredDamageTypesDarken: {
+		Label: "[i:1858] Super Crits Coloured Damage Types Darkening"
+		Tooltip:
+			'''
+			Controls how much the supercrits are darkened compared to the normal crits' colour.
+			The brightest colour is darkened by half this value, all the others by the full value.
+			'''
 	}
 
 	removeOneDrop: {
@@ -890,7 +913,7 @@ QoLRecipeConfig: {
 	}
 
 	teamBlocks: {
-		Label: "[i:3636] Colored Team Blocks"
+		Label: "[i:3636] Coloured Team Blocks"
 		Tooltip: If enabled, adds recipes for the various coloured team blocks and their platforms. 'Suck it, Travel Merchant!'
 	}
 
