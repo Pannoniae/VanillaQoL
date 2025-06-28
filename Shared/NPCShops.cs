@@ -266,8 +266,15 @@ public class NPCShops : GlobalNPC {
             // actually remove the conditions!
             if (shop is TravellingMerchantShop ts) {
                 // get conditions list
-                var conditionsList = (List<Condition>)typeof(TravellingMerchantShop.Entry).GetField("<Conditions>k__BackingField",
-                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!.GetValue(entry)!;
+                
+                // IMPORTANT: typeof(TravellingMerchantShop.Entry) is NOT the TravellingMerchantShop.Entry! It returns the AbstractNPCShop.Entry because *that one* is the public type. AND EVEN WORSE, IT WORKS IN THE DEBUGGER
+                // piss-poor API design with a hidden private type by tML, congrats
+                // never cook again
+                var entryType = ts.GetType().GetNestedType("Entry",
+                    System.Reflection.BindingFlags.NonPublic)!;
+                var conditionsField = entryType.GetField("<Conditions>k__BackingField",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!;
+                var conditionsList = (List<Condition>)conditionsField.GetValue(entry)!;
                 // remove the conditions
                 foreach (var condition in toRemove[entry]) {
                     conditionsList.Remove(condition);

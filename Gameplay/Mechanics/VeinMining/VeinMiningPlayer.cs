@@ -61,7 +61,7 @@ public class VeinMiningPlayer : ModPlayer {
             if (success) {
                 var x = tile.X;
                 var y = tile.Y;
-                int dmg = (int)GetPickaxeDamage.Invoke(Player, new object[] { x, y, pickPower, 0, Main.tile[x, y] })!;
+                int dmg = (int)GetPickaxeDamage.Invoke(Player, [x, y, pickPower, 0, Main.tile[x, y]])!;
                 if (!WorldGen.CanKillTile(x, y)) {
                     dmg = 0;
                 }

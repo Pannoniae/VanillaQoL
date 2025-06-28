@@ -1,5 +1,9 @@
 Vanilla Quality of Life mod intended to make the game more fun :)
 
+Steam workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=3086919933
+
+This description has the first 10% of the mod's features because I'm lazy lol, for the full list, check the Steam workshop page.
+
 Features:
 - Add Calamity-style info for wings and hooks, showing you all kinds of useful information.
 - Town NPCs spawn at night and can move to their house at day.

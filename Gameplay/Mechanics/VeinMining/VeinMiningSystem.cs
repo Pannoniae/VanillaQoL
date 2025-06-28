@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MonoMod.Cil;
+using MonoMod.RuntimeDetour;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -10,7 +11,7 @@ public class VeinMiningSystem : ModSystem {
     public static ModKeybind toggle;
     public static bool toggleState;
 
-    public static int threshold = 120;
+    public static readonly int threshold = 120;
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.veinMining;
@@ -33,7 +34,7 @@ public class VeinMiningSystem : ModSystem {
     // IL_02c1: ldc.i4.0
     // IL_02c2: ldc.i4.0
     // IL_02c3: call         void Terraria.WorldGen::KillTile(int32, int32, bool, bool, bool)
-    public void pickTilePatch(ILContext il) {
+    public static void pickTilePatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg1(),
                 i => i.MatchLdarg2(),

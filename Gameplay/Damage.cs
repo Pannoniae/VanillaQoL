@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
@@ -208,7 +209,66 @@ public class DamagePlayer : ModPlayer {
         }
 
         if (mostCrit > 0) {
-            Main.combatText[ct].color = QoLConfig.Instance.superCritsColourValue;
+            Color colour;
+            if (VanillaQoL.instance.hasColoredDamageTypes && QoLConfig.Instance.superCritsColouredDamageTypesIntegration) {
+                colour = ColoredDamageTypesLogic.apply(hit);
+            }
+            else {
+                colour = QoLConfig.Instance.superCritsColourValue;
+            }
+            Main.combatText[ct].color = colour;
         }
+    }
+}
+
+[JITWhenModsEnabled("ColoredDamageTypes")]
+public static class ColoredDamageTypesLogic {
+    public static Color apply(NPC.HitInfo hit) {
+        
+        var type = hit.DamageType;
+        var crit = hit.Crit;
+        
+        //ar effectiveColor = DamageTypes.CheckDamageColor(type, hit.Crit, item.sentry);
+        // we WANTED to do this but again, everything is internal again. Oh well....
+        
+        var mod = ModLoader.GetMod("ColoredDamageTypes");
+        var damageTypesType = mod.Code.GetType("ColoredDamageTypes.DamageTypes");
+        var checkDamageColorMethod = damageTypesType.GetMethod("CheckDamageColor", [typeof(DamageClass), typeof(bool), typeof(bool)]);
+        // yes we just assume it's not a sentry. This is janky but who cares, this mod is janky as fuck anyway. Maybe reimplement it?
+        var effectiveColor = (Color)checkDamageColorMethod.Invoke(null, [type, crit, false]);
+        
+        // the maximum RGB value in the colour
+        var maxColour = Math.Max(effectiveColor.R, Math.Max(effectiveColor.G, effectiveColor.B));
+
+        var darken = QoLConfig.Instance.superCritsColouredDamageTypesDarken;
+
+        if (effectiveColor.R < maxColour) {
+            var nc = effectiveColor.R - (byte)darken;
+            effectiveColor.R = (byte)Math.Max(nc, 0);
+        }
+        else {
+            var nc = effectiveColor.R - (byte)(darken / 2f);
+            effectiveColor.R = (byte)Math.Max(nc, 0);
+        }
+
+        if (effectiveColor.G < maxColour) {
+            var nc = effectiveColor.G - (byte)darken;
+            effectiveColor.G = (byte)Math.Max(nc, 0);
+        }
+        else {
+            var nc = effectiveColor.G - (byte)(darken / 2f);
+            effectiveColor.G = (byte)Math.Max(nc, 0);
+        }
+
+        if (effectiveColor.B < maxColour) {
+            var nc = effectiveColor.B - (byte)darken;
+            effectiveColor.B = (byte)Math.Max(nc, 0);
+        }
+        else {
+            var nc = effectiveColor.B - (byte)(darken / 2f);
+            effectiveColor.B = (byte)Math.Max(nc, 0);
+        }
+
+        return effectiveColor;
     }
 }
