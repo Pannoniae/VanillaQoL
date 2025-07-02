@@ -20,6 +20,8 @@ public class WingSlot : ModAccessorySlot {
     public override string FunctionalTexture => "Terraria/Images/Item_" + ItemID.AngelWings;
     public override string VanityTexture => "Terraria/Images/Item_" + ItemID.RedsWings;
 
+    public override bool HasEquipmentLoadoutSupport => true;
+
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.wingSlot;
     }
@@ -66,10 +68,11 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
     }
 
     public override void Load() {
-        IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += itemSlotDrawColourFixPatch;
+        //IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += itemSlotDrawColourFixPatch;
     }
 
     public override void Unload() {
+        //IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color -= itemSlotDrawColourFixPatch;
     }
 
     // [1553 13 - 1553 109]

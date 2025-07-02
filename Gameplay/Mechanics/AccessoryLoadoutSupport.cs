@@ -73,7 +73,8 @@ public class AccessoryLoadoutSupport : ModPlayer {
     }
 
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.accessoryLoadoutSupport;
+        //return QoLConfig.Instance.accessoryLoadoutSupport;
+        return false;
     }
 
     public override void Load() {
