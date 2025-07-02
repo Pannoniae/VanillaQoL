@@ -1,5 +1,5 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
- [*] Emergency patch to stop the mod from crashing on tML v{tMLVersion} due to the implementation of mod accessory support (which this mod already had!)
+ [*] Fix a config option.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

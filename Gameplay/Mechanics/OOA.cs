@@ -10,7 +10,11 @@ using OpCodes = Mono.Cecil.Cil.OpCodes;
 namespace VanillaQoL.Gameplay;
 
 public class OOA : GlobalNPC {
-    public override void Load() {
+	public override bool IsLoadingEnabled(Mod mod) {
+		return QoLConfig.Instance.OOAdrops2;
+	}
+
+	public override void Load() {
         IL_DD2Event.CheckProgress += moreWavesDropMedalsPatch;
         IL_DD2Event.WinInvasionInternal += moreWavesDropMedalsWinPatch;
     }
