@@ -8,8 +8,14 @@ namespace VanillaQoL.Gameplay;
 
 public class HolidayCheer : ModSystem {
     public override void Load() {
-        IL_Main.checkXMas += xMasPatch;
-        IL_Main.checkHalloween += halloweenPatch;
+        if (QoLConfig.Instance.christmasAllYear) {
+            IL_Main.checkXMas += xMasPatch;
+        }
+
+        if (QoLConfig.Instance.halloweenAllYear) {
+            IL_Main.checkHalloween += halloweenPatch;
+        }
+
         IL_Item.NewItem_Inner += allHeartsPatch;
         if (QoLConfig.Instance.stopSantaFromExploding) {
             IL_NPC.AI_007_TownEntities += stopSantaExplosionPatch;
@@ -23,7 +29,7 @@ public class HolidayCheer : ModSystem {
         IL_NPC.AI_007_TownEntities -= stopSantaExplosionPatch;
     }
 
-    public void xMasPatch(ILContext il) {
+    public static void xMasPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         var cont = ilCursor.DefineLabel();
         ilCursor.Emit<HolidayCheer>(OpCodes.Call, "isXMas");
@@ -38,7 +44,7 @@ public class HolidayCheer : ModSystem {
         return QoLConfig.Instance.christmasAllYear;
     }
 
-    public void halloweenPatch(ILContext il) {
+    public static void halloweenPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         var cont = ilCursor.DefineLabel();
         ilCursor.Emit<HolidayCheer>(OpCodes.Call, "isHalloween");
@@ -53,13 +59,14 @@ public class HolidayCheer : ModSystem {
         return QoLConfig.Instance.halloweenAllYear;
     }
 
-    public void allHeartsPatch(ILContext il) {
+    public static void allHeartsPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         // [50056 7 - 50056 26]
         // IL_0087: ldsfld       bool Terraria.Main::halloween
         if (!ilCursor.TryGotoNext(MoveType.AfterLabel, i => i.MatchLdsfld<Main>("halloween"))) {
             VanillaQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
         }
+
         // we do the check ourselves
         ilCursor.Emit(OpCodes.Ldarg_S, (byte)6);
         ilCursor.EmitCall<HolidayCheer>("switchItem");
@@ -68,7 +75,7 @@ public class HolidayCheer : ModSystem {
         var ilCursor2 = new ILCursor(ilCursor);
         ILLabel label = null!;
         if (!ilCursor2.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Main>("xMas"),
-                 i => i.MatchBrfalse(out label!))) {
+                i => i.MatchBrfalse(out label!))) {
             VanillaQoL.instance.Logger.Warn("Couldn't match Main.halloween in Item.NewItem_Inner!");
             return;
         }
@@ -79,6 +86,8 @@ public class HolidayCheer : ModSystem {
         // skip the section
         ilCursor.EmitBr(label);
     }
+    
+    //StarlightRiver.Content.Items.Utility.MeteorForcer
 
     public static int switchItem(int type) {
         var list1 = new List<int> {
@@ -110,13 +119,14 @@ public class HolidayCheer : ModSystem {
 
     // IL_02e2: ldsfld       bool Terraria.Main::xMas
     // IL_02e7: brtrue.s     IL_0325
-    public void stopSantaExplosionPatch(ILContext il) {
+    public static void stopSantaExplosionPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         ILLabel label;
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdsfld<Main>("xMas"),
                 i => i.MatchBrtrue(out label!))) {
             VanillaQoL.instance.Logger.Warn("Couldn't match Main.xMas in PC.AI_007_TownEntities!");
         }
+
         // before brtrue.s
         ilCursor.Index--;
         // pop xmas from the stack

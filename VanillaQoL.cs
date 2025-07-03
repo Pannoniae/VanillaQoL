@@ -34,9 +34,11 @@ public class VanillaQoL : Mod {
     public bool hasCalamityQoL;
     public bool hasQoLCompendium;
     public bool hasColoredDamageTypes;
-
+    public bool hasStarlightRiver;
+    
     public Mod? QoLCompendium;
     
+
 
     public override uint ExtraPlayerBuffSlots =>
         (uint)QoLConfig.Instance.moreBuffSlots;
@@ -76,6 +78,7 @@ public class VanillaQoL : Mod {
         hasCalamityQoL = ModLoader.HasMod("CalamityQOL");
         hasQoLCompendium = ModLoader.HasMod("QoLCompendium");
         hasColoredDamageTypes = ModLoader.HasMod("ColoredDamageTypes");
+        hasStarlightRiver = ModLoader.HasMod("StarlightRiver");
         if (hasQoLCompendium) {
             QoLCompendium = ModLoader.GetMod("QoLCompendium");
         }
@@ -85,7 +88,6 @@ public class VanillaQoL : Mod {
         }
 
         ILEdits.load();
-        ModILEdits.load();
     }
 
     public override void Unload() {

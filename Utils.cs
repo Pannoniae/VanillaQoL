@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using MonoMod.Cil;
+using StarlightRiver.Core;
+using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -168,6 +171,12 @@ public class Utils {
         }
 
         return GetTextFromModItem(itemID, "DisplayName");
+    }
+
+    public static void dump(ILContext il) {
+        MonoModHooks.DumpIL(VanillaQoL.instance, il);
+        MonoModHooks.DumpILHooks();
+        MonoModHooks.DumpOnHooks();
     }
 }
 

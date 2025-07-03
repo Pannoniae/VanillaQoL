@@ -76,6 +76,12 @@
         <Reference Include="MagicStorage">
             <HintPath>..\..\ModReader\MagicStorage\MagicStorage.dll</HintPath>
         </Reference>
+        <Reference Include="miningcracks_take_on_luiafk">
+          <HintPath>..\..\ModReader\miningcracks_take_on_luiafk\miningcracks_take_on_luiafk.dll</HintPath>
+        </Reference>
+        <Reference Include="NoxusBoss">
+          <HintPath>..\..\ModReader\NoxusBoss\NoxusBoss.dll</HintPath>
+        </Reference>
         <Reference Include="OreExcavator">
           <HintPath>..\..\ModReader\OreExcavator\OreExcavator.dll</HintPath>
         </Reference>
@@ -99,6 +105,9 @@
         </Reference>
         <Reference Include="SortingFolders">
             <HintPath>..\..\ModReader\SortingFolders\SortingFolders.dll</HintPath>
+        </Reference>
+        <Reference Include="StarlightRiver">
+          <HintPath>..\..\ModReader\StarlightRiver\StarlightRiver.dll</HintPath>
         </Reference>
         <Reference Include="StormQoL">
           <HintPath>..\..\ModReader\StormQoL\StormQoL.dll</HintPath>

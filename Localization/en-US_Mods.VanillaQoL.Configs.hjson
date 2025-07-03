@@ -791,6 +791,15 @@ QoLConfig: {
 		Label: "[npc/n:105] Bound NPC Protection"
 		Tooltip: If enabled, bound NPCs are protected from being killed by enemies.
 	}
+
+	fixStarlightRiver: {
+		Label: "[i:75] Fix Starlight River Meteor Spawning"
+		Tooltip:
+			'''
+			If enabled, fixes the Starlight River mod's Prayer for Meteorite item. By default, it does exactly nothing because the Starlight River devs are ChatGPT monkeys.
+			This patches WorldGen.dropMeteor to check conditions properly.
+			'''
+	}
 }
 
 Team: {

@@ -614,6 +614,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool calamityInWorldRarity { get; set; }
+    
+    // Fallen Star
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool fixStarlightRiver { get; set; }
 
     #endregion
 

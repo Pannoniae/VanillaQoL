@@ -7,14 +7,17 @@ using CalamityMod.CalPlayer;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using StarlightRiver.Content.WorldGeneration;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.IL;
 
-public class ModILEdits {
-    public static void load() {
+public class ModILEdits : ModSystem {
+
+    public override void Load() {
+        
         try {
             if (QoLConfig.Instance.removeThoriumEnabledCraftingTooltips) {
                 if (VanillaQoL.instance.hasRecipeBrowser) {
@@ -32,14 +35,24 @@ public class ModILEdits {
         }
     }
 
-    public static void unload() {
+    public override void PostSetupRecipes() {
+        if (QoLConfig.Instance.fixStarlightRiver) {
+            if (VanillaQoL.instance.hasStarlightRiver) {
+                StarlightRiverLogic.preload();
+                StarlightRiverLogic.load();
+            }
+        }
+    }
+
+    public override void Unload() {
         // nothing?
+        StarlightRiverLogic.unload();
     }
 
     public static IEnumerable<Condition> filterConditions(IEnumerable<Condition> original) {
         return original.Where(c => !isHidden(c.Description));
     }
-    
+
     public static List<Condition> filterConditionsL(List<Condition> original) {
         return original.Where(c => !isHidden(c.Description)).ToList();
     }
@@ -119,15 +132,16 @@ public static class MagicStorageLogic {
 [JITWhenModsEnabled("CalamityMod")]
 public static class CalamityLogic {
     // thank you very much for not making everything internal, I love you<3
-    public static void load() { /*
+    public static void load() {
+        /*
 
-        The good part is that none of this shit matters anymore. The fake accessory slot is gonezo from Calamity.
+            The good part is that none of this shit matters anymore. The fake accessory slot is gonezo from Calamity.
 
-        var type = typeof(CelestialOnion);
-        var isEnabledMethod =
-            type.GetMethod("IsEnabled", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var type = typeof(CelestialOnion);
+            var isEnabledMethod =
+                type.GetMethod("IsEnabled", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
-        MonoModHooks.Modify(isEnabledMethod, remove8thSlot);*/
+            MonoModHooks.Modify(isEnabledMethod, remove8thSlot);*/
     }
 
     private static void remove8thSlot(ILContext il) {
@@ -187,6 +201,7 @@ public static class CalamityLogic2 {
             VanillaQoL.instance.Logger.Warn(
                 "Couldn't match jump after player respawn logic in CalamityPlayer.UpdateDead! (Player.respawnTimer)");
         }
+
         // TryFindNext returns before, go to after
         ilCursor.EmitBr(c[0].Next!.Next);
     }
@@ -196,5 +211,149 @@ public static class CalamityLogic2 {
 public static class CalamityLogic3 {
     public static void addBuff(int buff) {
         CalamityLists.persistentBuffList.Add(buff);
+    }
+}
+
+[JITWhenModsEnabled("StarlightRiver")]
+public class StarlightRiverLogic {
+    private static Type astralMeteorType = null!;
+    private static object astralMeteorInstance = null!;
+
+    public static bool moonstone = false;
+    public static bool meteor = false;
+
+    public static void load() {
+        // we patch the MeteorForcer to not require a meteor to be present
+        // dump IL_WorldGen.dropMeteor
+        IL_WorldGen.dropMeteor += unpatcher;
+    }
+
+    public static void unload() {
+        IL_WorldGen.dropMeteor -= unpatcher;
+    }
+
+    public static void preload() {
+        // AstralMeteor private bool ShouldBeMoonstone()
+
+        // ModContent.GetInstance<AstralMeteor>().meteorForced
+        astralMeteorType = ModLoader.GetMod("StarlightRiver")?.Code
+            .GetType("StarlightRiver.Content.CustomHooks.AstralMeteor")!;
+        if (astralMeteorType == null) {
+            VanillaQoL.instance.Logger.Warn("Failed to find AstralMeteor type in StarlightRiver!");
+            return;
+        }
+        // Get the instance of AstralMeteor by reflecting the ModContent.GetInstance method
+
+        var getInstanceMethod = typeof(ModContent).GetMethod("GetInstance", []);
+        astralMeteorInstance = getInstanceMethod!.MakeGenericMethod(astralMeteorType).Invoke(null, null)!;
+
+        if (astralMeteorInstance == null) {
+            VanillaQoL.instance.Logger.Warn("Failed to get AstralMeteor instance in StarlightRiver!");
+            return;
+        }
+
+        // now we can patch private bool ShouldBeMoonstone()
+        var shouldBeMoonstoneMethod =
+            astralMeteorType.GetMethod("ShouldBeMoonstone", BindingFlags.Instance | BindingFlags.NonPublic);
+        if (shouldBeMoonstoneMethod == null) {
+            VanillaQoL.instance.Logger.Warn("Failed to find ShouldBeMoonstone method in AstralMeteor!");
+            return;
+        }
+
+        MonoModHooks.Modify(shouldBeMoonstoneMethod, unpatcher2);
+    }
+
+    private static void unpatcher2(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        
+        //GenerateMoonstone
+
+        // just overwrite the method body with the saved field value
+        ilCursor.EmitCall<StarlightRiverLogic>("loadMoonstone");
+        // we don't need to return anything, so just emit a ret
+        ilCursor.Emit(OpCodes.Ret);
+        VanillaQoL.instance.Logger.Info("Patched StarlightRiver's ShouldBeMoonstone method to use saved fields!");
+    }
+
+    private static void unpatcher(ILContext il) {
+        var ilCursor = new ILCursor(il);
+
+        // the method STARTS with this:
+        // IL_0000: ldc.i4 712
+        // IL_0005: ldc.i4 237895
+        // IL_000a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32)
+        // IL_000f: callvirt TResult System.Func`1<System.Boolean>::Invoke()
+        // IL_0014: stloc V_18
+
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(out _),
+                i => i.MatchLdcI4(out _),
+                i => i.Match(OpCodes.Call),
+                i => i.MatchCallvirt<Func<bool>>("Invoke"))) {
+            ilCursor.RemoveRange(4);
+
+            // with that out the way, inject properly
+            ilCursor.EmitCall<StarlightRiverLogic>("ShouldBeMoonstone");
+
+            VanillaQoL.instance.Logger.Info("Patched StarlightRiver's shoddy IL edit to not always spawn moonstones!");
+
+            //MonoModHooks.DumpIL(VanillaQoL.instance, il);
+        }
+        else {
+            VanillaQoL.instance.Logger.Warn("Failed to unpatch StarlightRiver's vandalism!");
+        }
+    }
+
+    public static bool loadMoonstone() {
+        // this is called from the patched ShouldBeMoonstone method
+        if (moonstone) {
+            return true;
+        }
+
+        if (meteor) {
+            return false;
+        }
+
+        return Main.rand.NextBool();
+    }
+    
+    // IMPORTANT: the logic is inverted, true => meteor, false => moonstone
+    // stupid IL edit in StarlightRiver inverted it....
+    private static bool ShouldBeMoonstone() {
+        // Now we can access the fields directly
+        var moonstoneForcedField = astralMeteorType.GetField("moonstoneForced");
+        var meteorForcedField = astralMeteorType.GetField("meteorForced");
+
+        if (moonstoneForcedField == null || meteorForcedField == null) {
+            VanillaQoL.instance.Logger.Warn("Failed to find moonstoneForced or meteorForced fields in AstralMeteor!");
+            return false;
+        }
+
+        // Get the values of the fields
+        var moonstoneForced = (bool)moonstoneForcedField.GetValue(astralMeteorInstance)!;
+        var meteorForced = (bool)meteorForcedField.GetValue(astralMeteorInstance)!;
+        if (moonstoneForced) {
+            moonstoneForcedField.SetValue(astralMeteorInstance, false);
+            moonstone = true;
+            meteor = false;
+            return false;
+        }
+
+        if (meteorForced) {
+            meteorForcedField.SetValue(astralMeteorInstance, false);
+            moonstone = false;
+            meteor = true;
+            return true;
+        }
+
+        var val = Main.rand.NextBool();
+        if (val) {
+            meteor = true;
+            moonstone = false;
+        }
+        else {
+            moonstone = true;
+            meteor = false;
+        }
+        return val;
     }
 }
