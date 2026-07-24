@@ -803,20 +803,56 @@ QoLConfig: {
 }
 
 Team: {
-	White.Label: "[i:182] White"
-	Red.Label: "[i:178] Red"
-	Green.Label: "[i:179] Green"
-	Blue.Label: "[i:177] Blue"
-	Yellow.Label: "[i:180] Yellow"
-	Pink.Label: "[i:181] Pink"
+	White: {
+		Label: "[i:182] White"
+		Tooltip: ""
+	}
+
+	Red: {
+		Label: "[i:178] Red"
+		Tooltip: ""
+	}
+
+	Green: {
+		Label: "[i:179] Green"
+		Tooltip: ""
+	}
+
+	Blue: {
+		Label: "[i:177] Blue"
+		Tooltip: ""
+	}
+
+	Yellow: {
+		Label: "[i:180] Yellow"
+		Tooltip: ""
+	}
+
+	Pink: {
+		Label: "[i:181] Pink"
+		Tooltip: ""
+	}
+
 	Tooltip: ""
 }
 
 Credits: {
 	Tooltip: ""
-	Vanilla.Label: After Moon Lord
-	AfterModsFinalBoss.Label: After Final Boss (modded)
-	Disabled.Label: No Credits
+
+	Vanilla: {
+		Label: After Moon Lord
+		Tooltip: ""
+	}
+
+	AfterModsFinalBoss: {
+		Label: After Final Boss (modded)
+		Tooltip: ""
+	}
+
+	Disabled: {
+		Label: No Credits
+		Tooltip: ""
+	}
 }
 
 UIConfig: {
@@ -884,9 +920,21 @@ UIConfig: {
 }
 
 DamageSpread: {
-	Off.Label: Off
-	PlayersEnemies.Label: Players & Enemies (default)
-	Enemies.Label: Enemies Only
+	Off: {
+		Label: Off
+		Tooltip: ""
+	}
+
+	PlayersEnemies: {
+		Label: Players & Enemies (default)
+		Tooltip: ""
+	}
+
+	Enemies: {
+		Label: Enemies Only
+		Tooltip: ""
+	}
+
 	Tooltip: ""
 }
 

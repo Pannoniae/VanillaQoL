@@ -592,7 +592,7 @@ public class QoLConfig : ModConfig {
 
     // Lens
     [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
+    [DefaultValue(false)]
     [ReloadRequired]
     public bool assetFix { get; set; }
 

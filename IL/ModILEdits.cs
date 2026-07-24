@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using CalamityMod;
 using CalamityMod.CalPlayer;
+using CalamityMod.Items.Accessories;
+using CalamityMod.Systems.Collections;
 using MagicStorage.UI.States;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -210,7 +212,7 @@ public static class CalamityLogic2 {
 [JITWhenModsEnabled("CalamityMod")]
 public static class CalamityLogic3 {
     public static void addBuff(int buff) {
-        CalamityLists.persistentBuffList.Add(buff);
+        CalamityBuffSets.IsPersistentBuff[buff] = true;
     }
 }
 

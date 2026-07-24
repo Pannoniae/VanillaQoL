@@ -58,7 +58,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
     public static LocalizedText socialWings = null!;
 
     public override bool IsLoadingEnabled(Mod mod) {
-        return QoLConfig.Instance.wingSlot;
+        return false;
     }
 
     public override void SetStaticDefaults() {
@@ -78,7 +78,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
     // [1553 13 - 1553 109]
     // IL_038e: callvirt     instance class [FNA]Microsoft.Xna.Framework.Graphics.Texture2D Terraria.ModLoader.AccessorySlotLoader::GetBackgroundTexture(int32, int32)
     // IL_0393: stloc.s      backgroundTexture
-    public void itemSlotDrawColourFixPatch(ILContext il) {
+    public void itemSlot1DrawColourFixPatch(ILContext il) {
         var ilCursor = new ILCursor(il);
         var backgroundTexture = 0;
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCallvirt<AccessorySlotLoader>("GetBackgroundTexture"),
@@ -153,7 +153,7 @@ public class WingSlotSystem : ModSystem, ILocalizedModType {
             .GetField("LoadoutSlotColors", BindingFlags.Static | BindingFlags.NonPublic)!
             .GetValue(null)!;
         color = new Color();
-        if (loadoutIndex < 0 || loadoutIndex >= 3)
+        if (loadoutIndex is < 0 or >= 3)
             return false;
         int index = -1;
         switch (context) {

@@ -10,6 +10,7 @@ using log4net;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
 using SerousCommonLib.API;
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 using Terraria.ModLoader.Core;

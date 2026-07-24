@@ -2,6 +2,7 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace VanillaQoL.Gameplay;
 

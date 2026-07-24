@@ -69,7 +69,7 @@ public class CalamityRarities : GlobalItem {
         else if (item.type == ModContent.ItemType<Contagion>()) {
             item.rare = ModContent.RarityType<RContagion>();
         }
-        else if (item.type == ModContent.ItemType<TriactisTruePaladinianMageHammerofMightMelee>()) {
+        else if (item.type == ModContent.ItemType<TriactisTruePaladinianMageHammerofMight>()) {
             item.rare = ModContent.RarityType<RTriactisTruePaladinianMageHammerofMightMelee>();
         }
         else if (item.type == ModContent.ItemType<IllustriousKnives>()) {
