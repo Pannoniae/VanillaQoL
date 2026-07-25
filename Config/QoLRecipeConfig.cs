@@ -53,6 +53,42 @@ public class QoLRecipeConfig : ModConfig {
     public bool teamBlocks { get; set; }
     #endregion
 
+    #region Craftable uncraftables
+
+    [Header("craftableUncraftables")]
+
+    // Nazar
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool debuffImmunityRecipes { get; set; }
+
+    // Feral Claws
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool lootAccessories { get; set; }
+
+    // Ice Boomerang
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool lootGear { get; set; }
+
+    // Magic Mirror
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool lootTools { get; set; }
+
+    // Temple Key
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool lootKeys { get; set; }
+
+    #endregion
+
     #region Shimmer
 
     [Header("shimmer")]

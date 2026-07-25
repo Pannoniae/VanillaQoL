@@ -2,6 +2,13 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
 [list]
  [*] Config options that need a mod you haven't got are now crossed out, and the tooltip tells you why. Instead of entries silently not doing anything.
  [*] Two new config pages for the Calamity stuff.
+ [*] Folded my Calamity QOL for Vanilla mod in so if you don't have Calamity, you can now have Calamity QoL changes anyway.
+ [*] New characters can get a Starter Bag.
+ [*] Expert mode can stop halving your health regeneration when you aren't Well Fed..
+ [*] Options for Calamity faster base movement, higher jump, faster jump, faster building, and holding Down to fall faster.
+ [*] You can now exchange Corruption items for Crimson ones.
+ [*] Added all the Calamity recipes + some old Calamity recipes too.
+ [*] Calamity Unnerfs but updated to all the calamity changes + fixed up the tooltips too.
  [*] The wing slot's dye slot now accepts dyes. Waow.
  [*] Wings now get the "Equipable in wing slot" tooltip. Previously only balloons and bottles got it (half-finished features yey)
  [*] Hovering over the wing slot tells you what it is again.

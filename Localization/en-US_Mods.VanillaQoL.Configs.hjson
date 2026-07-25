@@ -932,9 +932,54 @@ DamageSpread: {
 QoLRecipeConfig: {
 	DisplayName: Recipe Config
 
+	Tooltip: For the square chicks
+
 	Headers: {
 		recipes: "[i:2633] Recipes"
+		craftableUncraftables: "[i:36] Craftable Uncraftables"
 		shimmer: "[i:5350] Shimmering"
+	}
+
+	debuffImmunityRecipes: {
+		Label: "[i:891] Debuff Immunity Accessories"
+		Tooltip:
+			'''
+			If enabled, you can craft Nazar, Bezoar, Vitamins, Blindfold, Trifold Map, Fast Clock, Megaphone, Pocket Mirror,
+			Armor Polish and Adhesive Bandage instead of praying to the loot god.
+			'''
+	}
+
+	lootAccessories: {
+		Label: "[i:934] Accessories"
+		Tooltip:
+			'''
+			If enabled, adds recipes for accessories you can otherwise only find: Feral Claws, Band of Regeneration,
+			Shoe Spikes, Frozen Turtle Shell, Magic Quiver, Metal Detector and friends.
+			Also lets the Mechanical Glove and Celestial Emblem use any emblems.
+			'''
+	}
+
+	lootGear: {
+		Label: "[i:724] Weapons and Vanity"
+		Tooltip: If enabled, adds recipes for the Ice Boomerang, Shuriken, Throwing Knives and the Pharaoh's set.
+	}
+
+	lootTools: {
+		Label: "[i:50] Tools and Stations"
+		Tooltip:
+			'''
+			If enabled, adds recipes for the Magic Mirror, Ice Mirror, Bug Net, Staff of Regrowth, Ice Machine,
+			Sky Mill and Desert Minecart.
+			'''
+	}
+
+	lootKeys: {
+		Label: "[i:1533] Keys and Summons"
+		Tooltip:
+			'''
+			If enabled, adds recipes for the Temple Key, Shadow Key, Lihzahrd Power Cell, Guide Voodoo Doll
+			and Gelatin Crystal.
+			'''
 	}
 
 	templeTraps: {
@@ -994,5 +1039,129 @@ QoLRecipeConfig: {
 	}
 }
 
-CalamityQoLConfig.DisplayName: Calamity QoL
 CalamityUnnerfConfig.DisplayName: Calamity Unnerfs
+
+CalamityQoLConfig: {
+	DisplayName: Calamity QoL
+
+	Headers: {
+		gameplay: "[i:3515] Gameplay"
+		playerBoosts: "[i:54] Player Boosts"
+		recipes: "[i:36] Recipes"
+	}
+
+	fullExpertRegen: {
+		Label: "[i:1787] Regen no Snack"
+		Tooltip:
+			'''
+			If enabled, Expert mode stops halving your health regeneration when you aren't Well Fed.
+			The game never told you it was doing that btw, peak wikigame
+			'''
+	}
+
+	starterBag: {
+		Label: "[i:1774] Starter Bag"
+		Tooltip:
+			'''
+			If enabled, new characters get a bag containing the exact kit you were about to spend ten minutes crafting.
+			Right click to open. Contains rope, so please no FSH or PSH.
+			'''
+	}
+
+	fasterMovement: {
+		Label: "[i:212] Faster Base Movement"
+		Tooltip:
+			'''
+			If enabled, you move 50% faster without Hermes Boots for those of you who hate the earlygame.
+			Turns itself off if Terraria Overhaul is loaded, since it overhauls movement anyway.
+			'''
+	}
+
+	higherJumpHeight: {
+		Label: "[i:2423] Higher Jumps"
+		Tooltip: If enabled, your base jump height goes from 5.01 to 5.51, which gets you about one more tile in practice.
+	}
+
+	fasterJumpSpeed: {
+		Label: "[i:159] Faster Jumps"
+		Tooltip: If enabled, you jump 4% faster, (or 24% faster while wearing wings).
+	}
+
+	fasterTilePlacement: {
+		Label: "[i:2214] Faster Building"
+		Tooltip: If enabled, you place tiles and walls much faster.
+	}
+
+	fasterFall: {
+		Label: "[i:716] Hold Down to Fall Faster"
+		Tooltip: If enabled, holding Down in midair doubles your gravity (your maximum fall speed is unchanged)
+	}
+
+	vanillaRecipeTweaks: {
+		Label: "[i:1006] Cheaper Vanilla Recipes"
+		Tooltip:
+			'''
+			If enabled, a pile of vanilla recipes stop taking the piss.
+			- Jester's Arrows and Teleportation Potions craft in bulk.
+			- Chlorophyte and Shroomite Bars require less ore.
+			- True Night's Edge wants 3 of each mech soul instead of 20.
+			- Early Hardmode stuff doesn't require the Mythril Anvil.
+			- Also puts the weapon before the bars in the Hellstone and Beetle recipes, because the other way around is objectively incorrect.
+			'''
+	}
+
+	evilBiomeSwaps: {
+		Label: "[i:3224] Trade Corruption and Crimson Drops"
+		Tooltip:
+			'''
+			If enabled, you can trade any Corruption drop for its Crimson counterpart and back again in a Graveyard.
+			e.g. Worm Scarf for Brain of Confusion, Musket for Undertaker etc..
+			'I can't decide whether I want Corruption or Crimson'
+			'''
+	}
+
+	earlyWeaponRecipes: {
+		Label: "[i:65] Early Weapon Recipes"
+		Tooltip:
+			'''
+			If enabled, adds recipes for early weapons that are otherwise pure gambling like the Enchanted Sword, Starfury,
+			Water Bolt, Slime Staff, Finch Staff etc.
+			'''
+	}
+
+	accessoryRecipes: {
+		Label: "[i:54] Accessory Recipes"
+		Tooltip:
+			'''
+			If enabled, adds recipes for the accessories you're supposed to find underground.
+			(Hermes Boots, Cloud in a Bottle, Lucky Horseshoe, Lava Charm, Obsidian Rose etc.)
+			'It was funny the first 50 times.'
+			'''
+	}
+
+	armourRecipes: {
+		Label: "[i:804] Armour Recipes"
+		Tooltip: If enabled, adds recipes for the Eskimo set.
+	}
+
+	summonRecipes: {
+		Label: "[i:43] Summon Recipes"
+		Tooltip: If enabled, adds recipes for the Bloody Tear and the Snow Globe.
+	}
+
+	miscRecipes: {
+		Label: "[i:4346] Miscellaneous Recipes"
+		Tooltip:
+			'''
+			If enabled, adds recipes for the Encumbering Stone, Bast Statue, Life Crystal, Magic Conch, Umbrella,
+			and every tombstone in the game. Look ma, someone wanted the tombstones.
+
+			'The burden of writing witty descriptions'
+			'''
+	}
+
+	shimmerRecipes: {
+		Label: "[i:5364] Extra Shimmer Transmutations"
+		Tooltip: If enabled, the three info accessories can be crafted into each other, likewise with the Enchanted Sword and Terragrim.
+	}
+}

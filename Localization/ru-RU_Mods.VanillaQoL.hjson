@@ -80,7 +80,11 @@ InfoDisplays: {
 	}
 }
 
-// NPCDropConditions.ExpertNotMaster: Drops in Expert Mode
+NPCDropConditions: {
+	// ExpertNotMaster: Drops in Expert Mode
+	// TinWorld: In a tin world
+	// Multiplayer: In multiplayer
+}
 
 Info: {
 	UIInfo: {
@@ -117,6 +121,15 @@ Buffs: {
 }
 
 Items: {
+	StarterBag: {
+		// DisplayName: Starter Bag
+		/* Tooltip:
+			'''
+			Right click to open
+			Everything you were about to craft anyway
+			''' */
+	}
+
 	NightsEdge: {
 		// DisplayName: Ancient Night's Edge
 		// Tooltip: ""
@@ -727,9 +740,9 @@ ModCompat: {
 }
 
 ConfigDisabled: {
-	// needsThorium: This one needs Thorium. You don't have Thorium.
-	// needsCalamity: Requires Calamity, which is not installed. Bold of you to configure it anyway.
-	// needsStarlightRiver: Requires Starlight River. It is not here. Neither is the bug this fixes, so, silver linings.
+	// needsThorium: Requires Thorium. You don't have Thorium.
+	// needsCalamity: Requires Calamity which is not installed.
+	// needsStarlightRiver: Requires Starlight River which is not installed.
 	// needsColouredDamageTypes: Requires Coloured Damage Types. Without it there are no colours to damage, or types to colour, or anything really.
-	// onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You have Calamity. It already has its own good ideas.
+	// onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You already have Calamity, shoo
 }

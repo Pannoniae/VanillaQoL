@@ -80,7 +80,11 @@ InfoDisplays: {
 	}
 }
 
-NPCDropConditions.ExpertNotMaster: Drops in Expert Mode
+NPCDropConditions: {
+	ExpertNotMaster: Drops in Expert Mode
+	TinWorld: In a tin world
+	Multiplayer: In multiplayer
+}
 
 Info: {
 	UIInfo: {
@@ -117,6 +121,15 @@ Buffs: {
 }
 
 Items: {
+	StarterBag: {
+		DisplayName: Starter Bag
+		Tooltip:
+			'''
+			Right click to open
+			Everything you were about to craft anyway
+			'''
+	}
+
 	NightsEdge: {
 		DisplayName: Ancient Night's Edge
 		Tooltip: ""

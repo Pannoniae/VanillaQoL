@@ -16,7 +16,28 @@ public class RecipeGroups : ModSystem {
     public static RecipeGroup anyBladeOfGrass = null!;
 
 
+    // we can't use the Calamity ones, because this might run w/o Calamity
+    public static int anyCopperBar;
+    public static int anySilverBar;
+    public static int anyGoldBar;
+    public static int anyCobaltBar;
+    public static int anyStoneBlock;
+    public static int anySnowBlock;
+    public static int anyIceBlock;
+    public static int anyEvilPowder;
+
     public override void AddRecipeGroups() {
+        anyCopperBar = group("AnyCopperBar", ItemID.CopperBar, ItemID.CopperBar, ItemID.TinBar);
+        anySilverBar = group("AnySilverBar", ItemID.SilverBar, ItemID.SilverBar, ItemID.TungstenBar);
+        anyGoldBar = group("AnyGoldBar", ItemID.GoldBar, ItemID.GoldBar, ItemID.PlatinumBar);
+        anyCobaltBar = group("AnyCobaltBar", ItemID.CobaltBar, ItemID.CobaltBar, ItemID.PalladiumBar);
+        anyStoneBlock = group("AnyStoneBlock", ItemID.StoneBlock, ItemID.StoneBlock, ItemID.EbonstoneBlock,
+            ItemID.CrimstoneBlock, ItemID.PearlstoneBlock);
+        anySnowBlock = group("AnySnowBlock", ItemID.SnowBlock, ItemID.SnowBlock);
+        anyIceBlock = group("AnyIceBlock", ItemID.IceBlock, ItemID.IceBlock, ItemID.PurpleIceBlock,
+            ItemID.RedIceBlock, ItemID.PinkIceBlock);
+        anyEvilPowder = group("AnyEvilPowder", ItemID.VilePowder, ItemID.VilePowder, ItemID.ViciousPowder);
+
         anyNightsEdge = new(() => getName(ItemID.NightsEdge), ItemID.NightsEdge, ModContent.ItemType<NightsEdge>());
         RecipeGroup.RegisterGroup(nameof(ItemID.NightsEdge), anyNightsEdge);
         anyTrueNightsEdge = new(() => getName(ItemID.TrueNightsEdge), ItemID.TrueNightsEdge,
@@ -87,5 +108,10 @@ public class RecipeGroups : ModSystem {
 
     public static string getName(int type) {
         return $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(type)}";
+    }
+
+    private static int group(string name, int named, params int[] items) {
+        var label = getName(named);
+        return RecipeGroup.RegisterGroup($"VanillaQoL:{name}", new RecipeGroup(() => label, items));
     }
 }
