@@ -907,7 +907,19 @@ UIConfig: {
 		// Tooltip: For when you want to micromanage the exact shade of your UI disappointment.
 	}
 
-	// Headers.DisplayNPCSellPrices: "[i:73] NPC Sell Price Display"
+	fixConfigSyncCrash: {
+		// Label: "[i:3625] Fix the Mod Sync Crash"
+		/* Tooltip:
+			'''
+			If enabled, fixes a bug where joining a server whose mods have new config pages errors out and freezes the game
+			 on Syncing Mods forever. Kinda L
+			''' */
+	}
+
+	Headers: {
+		// DisplayNPCSellPrices: "[i:73] NPC Sell Price Display"
+		// multiplayer: "[i:181] Multiplayer"
+	}
 }
 
 DamageSpread: {
@@ -931,6 +943,7 @@ DamageSpread: {
 
 QoLRecipeConfig: {
 	// DisplayName: Recipe Config
+	// Tooltip: For the square chicks
 
 	Headers: {
 		// recipes: "[i:2633] Recipes"
@@ -953,7 +966,7 @@ QoLRecipeConfig: {
 			'''
 			If enabled, adds recipes for accessories you can otherwise only find: Feral Claws, Band of Regeneration,
 			Shoe Spikes, Frozen Turtle Shell, Magic Quiver, Metal Detector and friends.
-			Also lets the Mechanical Glove and Celestial Emblem use the emblem you actually have.
+			Also lets the Mechanical Glove and Celestial Emblem use any emblems.
 			''' */
 	}
 
@@ -1115,7 +1128,6 @@ CalamityQoLConfig: {
 			If enabled, you can trade any Corruption drop for its Crimson counterpart and back again in a Graveyard.
 			e.g. Worm Scarf for Brain of Confusion, Musket for Undertaker etc..
 			'I can't decide whether I want Corruption or Crimson'
-			[i]
 			''' */
 	}
 

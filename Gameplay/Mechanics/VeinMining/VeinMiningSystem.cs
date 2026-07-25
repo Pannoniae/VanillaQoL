@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using MonoMod.Cil;
-using MonoMod.RuntimeDetour;
 using Terraria;
 using Terraria.ModLoader;
 

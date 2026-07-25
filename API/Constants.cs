@@ -17,6 +17,12 @@ public class Constants {
     public const float FLT_PROJ_TOLERANCE = 0.0001f;
 
     /// <summary>
+    /// tML asks globals whether they apply to an item
+    /// while mods are still setting up their content, and ContentSamples isn't a thing until everyone's done.
+    /// </summary>
+    public static bool postSetupDone;
+
+    /// <summary>
     /// List of town slimes.
     /// </summary>
     public static readonly List<int> slimes = [..Enumerable.Range(678, 688 - 678), 670];
@@ -1331,6 +1337,8 @@ public class Constants {
         if (ModContentCompat.calamityLoaded) {
             CalamityConstants.calamityBiomes(biomeConditions);
         }
+
+        postSetupDone = true;
     }
 
     public static bool isSpike(int type) {

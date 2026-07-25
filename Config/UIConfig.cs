@@ -47,5 +47,11 @@ public class UIConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(typeof(Color), "63,65,151,165")]
     public Color npcSellPriceBackgroundColor { get; set; }
-    
+
+    [Header("multiplayer")]
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool fixConfigSyncCrash { get; set; }
 }

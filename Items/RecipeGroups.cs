@@ -38,29 +38,29 @@ public class RecipeGroups : ModSystem {
             ItemID.RedIceBlock, ItemID.PinkIceBlock);
         anyEvilPowder = group("AnyEvilPowder", ItemID.VilePowder, ItemID.VilePowder, ItemID.ViciousPowder);
 
-        anyNightsEdge = new(() => getName(ItemID.NightsEdge), ItemID.NightsEdge, ModContent.ItemType<NightsEdge>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.NightsEdge), anyNightsEdge);
-        anyTrueNightsEdge = new(() => getName(ItemID.TrueNightsEdge), ItemID.TrueNightsEdge,
+        if (!QoLConfig.Instance.ancientSwords) {
+            return;
+        }
+
+        anyNightsEdge = swordGroup(nameof(ItemID.NightsEdge), ItemID.NightsEdge, ModContent.ItemType<NightsEdge>());
+        anyTrueNightsEdge = swordGroup(nameof(ItemID.TrueNightsEdge), ItemID.TrueNightsEdge,
             ModContent.ItemType<TrueNightsEdge>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.TrueNightsEdge), anyTrueNightsEdge);
-        anyMuramasa = new(() => getName(ItemID.Muramasa), ItemID.Muramasa, ModContent.ItemType<Muramasa>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.Muramasa), anyMuramasa);
-        anyTerraBlade = new(() => getName(ItemID.TerraBlade), ItemID.TerraBlade, ModContent.ItemType<TerraBlade>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.TerraBlade), anyTerraBlade);
-        anyExcalibur = new(() => getName(ItemID.Excalibur), ItemID.Excalibur, ModContent.ItemType<Excalibur>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.Excalibur), anyExcalibur);
-        anyTrueExcalibur = new(() => getName(ItemID.TrueExcalibur), ItemID.TrueExcalibur,
+        anyMuramasa = swordGroup(nameof(ItemID.Muramasa), ItemID.Muramasa, ModContent.ItemType<Muramasa>());
+        anyTerraBlade = swordGroup(nameof(ItemID.TerraBlade), ItemID.TerraBlade, ModContent.ItemType<TerraBlade>());
+        anyExcalibur = swordGroup(nameof(ItemID.Excalibur), ItemID.Excalibur, ModContent.ItemType<Excalibur>());
+        anyTrueExcalibur = swordGroup(nameof(ItemID.TrueExcalibur), ItemID.TrueExcalibur,
             ModContent.ItemType<TrueExcalibur>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.TrueExcalibur), anyTrueExcalibur);
-        anyFieryGreatsword = new(() => getName(ItemID.FieryGreatsword), ItemID.FieryGreatsword,
+        anyFieryGreatsword = swordGroup(nameof(ItemID.FieryGreatsword), ItemID.FieryGreatsword,
             ModContent.ItemType<FieryGreatsword>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.FieryGreatsword), anyFieryGreatsword);
-        anyBladeOfGrass = new(() => getName(ItemID.BladeofGrass), ItemID.BladeofGrass,
+        anyBladeOfGrass = swordGroup(nameof(ItemID.BladeofGrass), ItemID.BladeofGrass,
             ModContent.ItemType<BladeOfGrass>());
-        RecipeGroup.RegisterGroup(nameof(ItemID.BladeofGrass), anyBladeOfGrass);
     }
 
     public override void PostAddRecipes() {
+        if (!QoLConfig.Instance.ancientSwords) {
+            return;
+        }
+
         for (int i = 0; i < Recipe.numRecipes; i++) {
             Recipe recipe = Main.recipe[i];
             // replace items with groups
@@ -113,5 +113,12 @@ public class RecipeGroups : ModSystem {
     private static int group(string name, int named, params int[] items) {
         var label = getName(named);
         return RecipeGroup.RegisterGroup($"VanillaQoL:{name}", new RecipeGroup(() => label, items));
+    }
+
+
+    private static RecipeGroup swordGroup(string name, int vanilla, int modded) {
+        var recipeGroup = new RecipeGroup(() => getName(vanilla), vanilla, modded);
+        RecipeGroup.RegisterGroup($"VanillaQoL:{name}", recipeGroup);
+        return recipeGroup;
     }
 }

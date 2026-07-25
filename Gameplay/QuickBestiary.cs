@@ -11,6 +11,10 @@ public class QuickBestiary : GlobalNPC {
     }
 
     public override void SetBestiary(NPC npc, BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
+        if (bestiaryEntry.UIInfoProvider is not CommonEnemyUICollectionInfoProvider) {
+            return;
+        }
+
         bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[npc.type], quickUnlock: true);
     }
 }

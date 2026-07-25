@@ -6,7 +6,7 @@ namespace VanillaQoL.Gameplay;
 
 public class NonConsumableSummons : GlobalItem {
 	public override bool AppliesToEntity(Item item, bool lateInstantiation) {
-		return lateInstantiation && Constants.isSummon(item);
+		return lateInstantiation && Constants.postSetupDone && Constants.isSummon(item);
 	}
     public override void SetDefaults(Item item) {
         if (GlobalFeatures.nonConsumableSummons) {
