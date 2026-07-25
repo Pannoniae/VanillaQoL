@@ -135,6 +135,13 @@
         <Compile Remove="tools\**\*"/>
         <EmbeddedResource Remove="tools\**\*"/>
     </ItemGroup>
+<!--    ... or the dump dirs-->
+    <ItemGroup>
+        <None Remove="csdump\**\*"/>
+        <Content Remove="csdump\**\*"/>
+        <Compile Remove="csdump\**\*"/>
+        <EmbeddedResource Remove="csdump\**\*"/>
+    </ItemGroup>
     <Target Name="CopyDLLToOtherMod" AfterTargets="Build" BeforeTargets="BuildMod">
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="../VanillaQoL.dll"/>
     </Target>

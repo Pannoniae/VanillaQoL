@@ -1,5 +1,9 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] The wing slot's dye slot now accepts dyes. Waow.
+ [*] Wings now get the "Equipable in wing slot" tooltip. Previously only balloons and bottles got it (half-finished features yey)
+ [*] Hovering over the wing slot tells you what it is again.
+ [*] Remove the accessory loadout support option - tModLoader does this natively now and ours was broken by the recent tML changes anyway.
  [*] Disable an outdated config option.
  [*] Update the mod to the latest version + Calamity.
 [/list]

@@ -284,7 +284,7 @@ public class QoLGlobalItem : GlobalItem, ILocalizedModType {
     }
 
     public void wingSlotTooltips(Item item, List<TooltipLine> tooltips) {
-        if (!Constants.isWing(item) && Constants.isBalloon(item) || Constants.isBottle(item)) {
+        if (Constants.isWing(item) || Constants.isBalloon(item) || Constants.isBottle(item)) {
             string tooltip = wingSlotText.Value;
             var tooltipLine = new TooltipLine(VanillaQoL.instance, "WingSlotInfo", tooltip);
             addWingSlotTooltip(tooltips, tooltipLine);

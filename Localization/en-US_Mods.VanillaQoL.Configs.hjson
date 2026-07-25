@@ -186,15 +186,6 @@ QoLConfig: {
 		Tooltip: If enabled, dungeon bricks are too soft for your pickaxe, just like the little softboy you are.
 	}
 
-	accessoryLoadoutSupport: {
-		Label: "[i:3119] Loadout Support for Accessories"
-		Tooltip:
-			'''
-			If enabled, Vanilla+ QoL tries to make modded accessories work with 1.4.4 loadouts.
-			[c/FF0000:WARNING!] If you remove this mod, only the current loadout's accessory slots will be kept!
-			'''
-	}
-
 	assetFix: {
 		Label: "[i:38] Fix DragonLens on Linux"
 		Tooltip:
@@ -432,7 +423,7 @@ QoLConfig: {
 
 	wingSlot: {
 		Label: "[i:1162] WingSlot™"
-		Tooltip: If enabled, a wings accessory slot is added to the player. Only wings can be put into this slot.
+		Tooltip: If enabled, a wings accessory slot is added to the player. You can put wings, balloons and the bottles in it.
 	}
 
 	moveCredits: {

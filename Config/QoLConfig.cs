@@ -74,12 +74,6 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     public bool disablePrefixChangingRarity { get; set; }
 
-    // DPS Meter
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(true)]
-    [ReloadRequired]
-    public bool accessoryLoadoutSupport { get; set; }
-
     // Vortex Drill
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]

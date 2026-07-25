@@ -215,9 +215,10 @@ Projectiles: {
 }
 
 Wings: {
-	WingSlotSystem: {
+	WingSlot: {
 		socialWings: Social Wings
 		wings: Wings
+		dye: Wing Dye
 	}
 }
 

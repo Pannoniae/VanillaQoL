@@ -12,6 +12,7 @@
 *.sln.docstates
 
 CLAUDE.md
+.claude/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -506,3 +507,6 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+
+/csdump/
+tools/
