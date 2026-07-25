@@ -218,11 +218,13 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(false)]
     [ReloadRequired]
+    [EnabledIf(typeof(ColouredDamageTypesLoaded))]
     public bool superCritsColouredDamageTypesIntegration { get; set; }
-    
+
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(90)]
     [ReloadRequired]
+    [EnabledIf(typeof(ColouredDamageTypesLoaded))]
     public int superCritsColouredDamageTypesDarken { get; set; }
     
     [BackgroundColor(192, 54, 128, 192)]
@@ -292,12 +294,14 @@ public class QoLConfig : ModConfig {
     // Lunar Hook
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
+    [EnabledIf(typeof(ThoriumLoaded))]
     public bool vanillaThoriumTooltips { get; set; }
 
     // Red's Helmet (referencing the paid donor shit)
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(true)]
+    [EnabledIf(typeof(ThoriumLoaded))]
     public bool removeThoriumEnabledCraftingTooltips { get; set; }
 
     // Cobalt Shield
@@ -607,12 +611,14 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
+    [EnabledIf(typeof(CalamityLoaded))]
     public bool calamityInWorldRarity { get; set; }
-    
+
     // Fallen Star
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
+    [EnabledIf(typeof(StarlightRiverLoaded))]
     public bool fixStarlightRiver { get; set; }
 
     #endregion

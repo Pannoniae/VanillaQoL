@@ -88,6 +88,9 @@ public class VanillaQoL : Mod {
             ModLeakFix.addHandler();
         }
 
+        DisabledOptions.addRule(EnabledIf.rule);
+        DisabledOptions.load();
+
         ILEdits.load();
     }
 
@@ -110,6 +113,7 @@ public class VanillaQoL : Mod {
         }
 
         ILEdits.unload();
+        DisabledOptions.clear();
         GlobalFeatures.clear();
 
         // unload Magic Storage ModSystems - they crash the game

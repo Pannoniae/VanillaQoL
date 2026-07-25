@@ -4,6 +4,9 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)"
     ],
-    "deny": []
+    "deny": [],
+    "additionalDirectories": [
+      "C:\\Users\\Pannoniae\\Documents\\my games\\Terraria\\tModLoader\\ModSources"
+    ]
   }
 }

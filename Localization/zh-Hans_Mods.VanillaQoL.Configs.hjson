@@ -1,0 +1,998 @@
+QoLConfig: {
+	// DisplayName: QoL Config
+
+	townNPCsSpawningAtNight: {
+		// Label: "[i:4951] Allow Town NPCs to spawn at night"
+		// Tooltip: If enabled, Town NPCs can also spawn at night.
+	}
+
+	townNPCsMovingAtDay: {
+		// Label: "[i:4951] Allow Town NPCs to teleport at day"
+		// Tooltip: If enabled, Town NPCs can teleport to their houses at daytime.
+	}
+
+	townPetsInvincible: {
+		// Label: "[i:4829] Town Pets and Slimes Are Invincible"
+		// Tooltip: If enabled, cute town animals and slimes will not be hurt by enemies or bosses.
+	}
+
+	Headers: {
+		// information: "[i:3095] Information"
+		// gameplay: "[i:3515] Gameplay"
+		// fixes: "[i:3625] Fixes"
+		// content: "[i:757] Content"
+		// craftableUncraftables: "[i:36] Craftable Uncraftables"
+		// respawn: "[i:708] Respawning"
+		// suffering: "[npc/n:369] Suffering"
+		// multiplayer: "[i:181] Multiplayer"
+		// holidayCheer: "[i:602] Holiday Cheer"
+		// cheats: "[i:3999] Cheats"
+		// testing: "[i:2] Testing"
+		// tweaks: "[i:1344] Tweaks"
+		// combat: "[i:757] Combat"
+		// recipes: recipes Header
+		// npcs: "[npc/n:178] NPCs"
+	}
+
+	showHookTooltips: {
+		// Label: "[i:185] Show Hook Tooltips"
+		// Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously in their tooltip.
+	}
+
+	showWingTooltips: {
+		// Label: "[i:1162] Show Wing Tooltips"
+		// Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
+	}
+
+	ammunitionTooltips: {
+		// Label: "[i:4915] Show Ammo Tooltips"
+		// Tooltip: If enabled, ranged weapons show what ammo they fire.
+	}
+
+	shimmerableTooltip: {
+		// Label: "[i:5348] Shimmerable Tooltip"
+		// Tooltip: If enabled, items show what they transform into when tossed into Shimmer.
+	}
+
+	worldAndPlayerInfo: {
+		// Label: "[i:393] Show Info on Selection Screen"
+		// Tooltip: If enabled, worlds and players show useful info on their selection screen like whether a world is hardmode, which upgrades have been used, etc.
+	}
+
+	fixPvPUI: {
+		// Label: "[i:181] Fix Team Icon Positioning"
+		/* Tooltip:
+			'''
+			When mods with many Town NPCs are installed, the team and PvP icons overlap the NPC housing.
+			If enabled, the icons are moved so they do not overlap.
+			''' */
+	}
+
+	fixMemoryLeaks: {
+		// Label: "[i:1344] Fix Magic Storage"
+		// Tooltip: If enabled, fix the game not starting or hanging on "Loading Content" with Magic Storage enabled.
+	}
+
+	vanillaThoriumTooltips: {
+		// Label: "[i:3572] Vanilla Thorium Tooltips"
+		/* Tooltip:
+			'''
+			Many tooltips in the Thorium mod look off compared to Terraria's tooltips.
+			If enabled, this option makes them more in the style of the base game.
+			''' */
+	}
+
+	removeThoriumEnabledCraftingTooltips: {
+		// Label: "[i:666] Remove Unnecessary Recipe Conditions"
+		/* Tooltip:
+			'''
+			Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
+			In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
+			If enabled, this option removes those texts from the crafting objects' description.
+			''' */
+	}
+
+	invertRecipeListScrolling: {
+		// Label: "[i:36] Invert Recipe List Scrolling"
+		// Tooltip: If enabled, the recipe list scrolls the right way.
+	}
+
+	metricSystem: {
+		// Label: "[i:393] Use Metric System"
+		// Tooltip: Are you using the metric system like 96% of the world population? If enabled, units are displayed in metric units.
+	}
+
+	twentyFourHourTime: {
+		// Label: "[i:709] 24-hour time"
+		// Tooltip: Are you using the metric system like 96% of the world population? If enabled, the clocks show 24-hour time.
+	}
+
+	showLuck: {
+		// Label: "[i:4361] Display Luck Statistic"
+		// Tooltip: If enabled, the Metal Detector (or its upgrades) shows the luck you have.
+	}
+
+	disableShimmerPumping: {
+		// Label: "[i:581] Fix Shimmer Pumping Exploit"
+		// Tooltip: If enabled, disables moving Shimmer with pumps before Moon Lord is defeated to prevent Shimmer from being moved too early.
+	}
+
+	autoJoinTeam: {
+		// Label: "[i:181] Automatically Join Multiplayer Team"
+		// Tooltip: If enabled, the game automatically joins the selected team when joining a Multiplayer server.
+	}
+
+	teamToAutoJoin: {
+		// Label: "[i:182] Team to Auto-Join"
+		// Tooltip: Selects which team to automatically join.
+	}
+
+	mapSharingTESTING: {
+		// Label: "[i:893] Enable Map Sharing"
+		// Tooltip: "[c/FF0000:WILL PROBABLY CORRUPT YOUR MAP!] If enabled, players in the same team will share the map with each other."
+	}
+
+	overTimeNurseHealing: {
+		// Label: "[npc/n:18] Nurse Healing Fix"
+		// Tooltip: If enabled, the Nurse heals players over time to avoid exploiting her healing function.
+	}
+
+	nurseHealingTime: {
+		// Label: "[i:73] Nurse Healing Time"
+		// Tooltip: Controls how long the Nurse should heal the player for. The bigger the value, the slower the healing.
+	}
+
+	disableTownSlimes: {
+		// Label: "[npc/n:670] Disable Town Slimes"
+		// Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
+	}
+
+	ancientSwords: {
+		// Label: "[i:757] Enable Ancient Swords"
+		/* Tooltip:
+			'''
+			If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.
+			Return the classic Night's Edge and the Terra Blade!
+			''' */
+	}
+
+	enableLockOn: {
+		// Label: "[g:1] Enable Lock-On"
+		// Tooltip: If enabled, loads the system required to enable Lock-On on mouse and keyboard. Requires restart.
+	}
+
+	lockOn: {
+		// Label: "[g:1] Lock-On"
+		// Tooltip: If enabled, allows the usage of Lock-On if you use mouse and keyboard.
+	}
+
+	moreBuffSlots: {
+		// Label: "[i:292] More Buff Slots"
+		// Tooltip: Increases the number of buff slots by the value of this config entry. Set to 0 to disable.
+	}
+
+	queenBeeLarvaeBreak: {
+		// Label: "[i:1133] Less Fragile Queen Bee Larvae"
+		// Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swinging or stray projectiles, only with a pickaxe.
+	}
+
+	disablePrefixChangingRarity: {
+		// Label: "[i:398] Disable Prefix Changing Rarity"
+		// Tooltip: If enabled, reforged items will not change rarity. Does not apply to existing items.
+	}
+
+	softDungeonBricks: {
+		// Label: "[i:139] Soft Dungeon Bricks"
+		// Tooltip: If enabled, dungeon bricks are too soft for your pickaxe, just like the little softboy you are.
+	}
+
+	assetFix: {
+		// Label: "[i:38] Fix DragonLens on Linux"
+		/* Tooltip:
+			'''
+			If enabled, Vanilla+ QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
+			This happens because file systems on Linux are case-sensitive, so "Projectile" and "projectile" are two different files.
+			(You need to restart your game after enabling this to stop the error from happening.)
+			''' */
+	}
+
+	accessorySlotUnlock: {
+		// Label: "[i:3335] Unlock Expert/Master Mode Accessory Slots"
+		/* Tooltip:
+			'''
+			If enabled, all 8 accessory slots are unlockable in every difficulty.
+			You still can't get a Demon Heart from the Wall of Flesh in Classic Mode, you'll have to use an Expert Mode world.
+			''' */
+	}
+
+	drillRework: {
+		// Label: "[i:2774] Drill Rework"
+		/* Tooltip:
+			'''
+			If enabled, drills are reworked to be able to receive melee speed prefixes and be able to benefit from mining speed.
+			Additionally, they can also break grass in one hit.
+			In exchange, their base speed is lowered, they only get 25% instead of a 60% mining speed boost.
+			''' */
+	}
+
+	sliceOfCakeUntilDeath: {
+		// Label: "[i:3750] Slice of Cake Lasts Until Death"
+		// Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+	}
+
+	deathLessBuffs: {
+		// Label: "[i:487] Persistent Buffs Survive Death"
+		// Tooltip: If enabled, persistent buffs (given by stations like the Bewitching Table or the Slice of Cake) do not get removed when the player dies.
+	}
+
+	wallsDontExplode: {
+		// Label: "[i:1101] Explosion-Proof Walls"
+		// Tooltip: If enabled, Lihzahrd Walls and Dungeon Walls (both safe and unsafe) are explosion-proof, just like their block counterparts.
+	}
+
+	hardModeOresCanExplode: {
+		// Label: "[i:1106] Hardmode Ores Can Explode"
+		// Tooltip: If enabled, Hardmode ores can be blown up using explosives after the mechanical bosses are defeated.
+	}
+
+	dynamicDCUPickaxe: {
+		// Label: "[i:2768] Dynamic DCU"
+		// Tooltip: If enabled, the Drill Containment Unit takes the pickaxe power of the top-left pickaxe in your inventory into account.
+	}
+
+	moreExplosives: {
+		// Label: "[i:VanillaQoL/BouncyDirtDynamite] More Explosives"
+		// Tooltip: If enabled, adds more variants of explosives to the game.
+	}
+
+	respawningRework: {
+		// Label: "[i:889] Respawning Rework"
+		// Tooltip: If enabled, enables the system required to load tweaks in this section.
+	}
+
+	naturesGiftGlow: {
+		// Label: "[i:223] Nature's Gift and Jungle Rose Glows"
+		// Tooltip: If enabled, the Nature's Gift and the Jungle Rose glows in the jungle similarly to the Jungle Spores to make them easier to find.
+	}
+
+	respawnTime: {
+		// Label: "[i:3230] Respawn Time"
+		// Tooltip: Controls the base respawn time.
+	}
+
+	respawnFactorExpertMode: {
+		// Label: "[i:3223] Expert Mode Factor"
+		// Tooltip: Controls the respawn time multiplier in Expert Mode.
+	}
+
+	respawnFactorMasterMode: {
+		// Label: "[i:4924] Master Mode Factor"
+		// Tooltip: Controls the respawn time multiplier in Master Mode.
+	}
+
+	bossRespawnTime: {
+		// Label: "[i:43] Respawn Time (boss)"
+		// Tooltip: Controls the base respawn time when a boss is alive.
+	}
+
+	eventRespawnTime: {
+		// Label: "[i:1844] Respawn Time (event)"
+		// Tooltip: Controls the base respawn time when a boss is not alive but an event is ongoing.
+	}
+
+	bossMultiplayerMultiplier: {
+		// Label: "[i:1969] Per-Player Multiplier"
+		// Tooltip: Multiplies respawn time by this value, multiplied by the number of other players on the server.
+	}
+
+	christmasAllYear: {
+		// Label: "[i:1872] Christmas Every Day"
+		// Tooltip: If enabled, the spirit of Christmas is present throughout the year.
+	}
+
+	halloweenAllYear: {
+		// Label: "[i:1813] Halloween Every Day"
+		// Tooltip: If enabled, the ghosts of deceased souls are present throughout the year.
+	}
+
+	shopExpander: {
+		// Label: "[i:73] Shop Expander"
+		// Tooltip: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
+	}
+
+	extraSellPages: {
+		// Label: "[i:72] Extra Sell Pages"
+		// Tooltip: If enabled, when a shop becomes full by selling items into it, a new page is created to expand the shop.
+	}
+
+	lifeCrystalGlow: {
+		// Label: "[i:29] Life Crystals Glow"
+		// Tooltip: If enabled, Life Crystals emit a faint light to make them easier to find.
+	}
+
+	lifeFruitGlow: {
+		// Label: "[i:1291] Life Fruits Glow"
+		// Tooltip: If enabled, Life Fruits glow similarly to Jungle Spores to make them easier to find.
+	}
+
+	NPCsLiveInEvilBiomes: {
+		// Label: "[i:8] NPCs Can Live in Evil Biomes"
+		/* Tooltip:
+			'''
+			If enabled, NPCs grudgingly tolerate the Corruption and Crimson.
+			They will still hate your guts though and they will be very unhappy. Don't be cruel.
+			''' */
+	}
+
+	disableBiomeSpread: {
+		// Label: "[i:199] Disable Biome Spread"
+		/* Tooltip:
+			'''
+			If enabled, infectious biomes like the Crimson, the Corruption and the Hallow do not spread.
+			'Your doomsday is not coming yet'
+			''' */
+	}
+
+	noDroppedSand: {
+		// Label: "[i:169] No Dropped Sand"
+		// Tooltip: If enabled, Antlions do not pollute your world with sand, dropping it in item form instead.
+	}
+
+	noDroppedSnow: {
+		// Label: "[i:593] No Dropped Snow"
+		// Tooltip: If enabled, Snowbit-.... I mean Snowmen do not pollute your world with snow, dropping it in item form instead.
+	}
+
+	noDroppedTombstones: {
+		// Label: "[i:1175] No Dropped Tombstones"
+		/* Tooltip:
+			'''
+			If enabled, tombstones are dropped as an item instead of placing themselves and creating a graveyard.
+			'For those with skill issues'
+			''' */
+	}
+
+	noDroppedSandgun: {
+		// Label: "[i:266] No Dropped Sand (Sandgun)"
+		/* Tooltip:
+			'''
+			If enabled, the Sandgun no longer places sand upon usage.
+			If you enable this, you should feel bad as this will make the gun hilariously overpowered.
+			''' */
+	}
+
+	mountFallDamage: {
+		// Label: "[i:2430] No Mount Fall Damage"
+		// Tooltip: If enabled, you will not get fall damage while riding any mount.
+	}
+
+	disableShimmering: {
+		// Label: "[t:VanillaQoL/UI/Shimmer] No Falling Through Shimmer"
+		// Tooltip: If enabled, you will not fall through the world when falling into shimmer. You can take a bath in it :)
+	}
+
+	modNameTooltip: {
+		// Label: "[i:2208] Mod Name Tooltip"
+		// Tooltip: If enabled, items show which mod they come from in their tooltip.
+	}
+
+	testing: {
+		// Label: "[i:2] Testing"
+		// Tooltip: If you enable this, prepare for the worst:)
+	}
+
+	jungleMimic: {
+		// Label: "[npc/n:476] Jungle Mimics Spawn in Hardmode Jungle"
+		// Tooltip: If enabled, your Underground Jungle experience will be enhanced by Jungle Mimics.
+	}
+
+	clownExplosions: {
+		// Label: "[npc/n:109] Clown Happy Bombs Destroy Tiles"
+		// Tooltip: If enabled, Happy Bombs thrown by Clowns destroy tiles in a small explosion.
+	}
+
+	naturalFrostLegion: {
+		// Label: "[i:602] Frost Legion Spawns Naturally"
+		// Tooltip: If enabled, the Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+	}
+
+	enemiesBreakDoors: {
+		// Label: "[i:25] Enemies Break Doors"
+		// Tooltip: If enabled, enemies do not just knock politely but break the door like Goblins do.
+	}
+
+	nonConsumableSummons: {
+		// Label: "[i:43] Non-Consumable Boss Summons"
+		// Tooltip: If enabled, boss summons are non-consumable.
+	}
+
+	veinMining: {
+		// Label: "[i:385] VeinMining™"
+		// Tooltip: If enabled, breaking a tile of ore causes adjacent ores to be mined too.
+	}
+
+	veinMiningSpeed: {
+		// Label: "[i:3509] VeinMining™ Speed"
+		// Tooltip: Controls the delay between tiles breaking. A lower value means faster veinmining.
+	}
+
+	extendedOres: {
+		// Label: "[i:424] ExtendedOres™ Technology"
+		// Tooltip: If enabled, our trademarked and patented technology adds new, exciting and impactful ores to VeinMine™!
+	}
+
+	wingSlot: {
+		// Label: "[i:1162] WingSlot™"
+		// Tooltip: If enabled, a wings accessory slot is added to the player. You can put wings, balloons and the bottles in it.
+	}
+
+	moveCredits: {
+		// Label: "[i:5044] Credits"
+		// Tooltip: Controls how end-game credits are displayed.
+	}
+
+	axeReplanting: {
+		// Label: "[i:3506] Axes Replant Acorns"
+		// Tooltip: If enabled, chopping down a tree with an axe always replants an acorn in its place.
+	}
+
+	ninja: {
+		// Label: "[i:256] Ninja"
+		// Tooltip: If enabled, a Ninja Town NPC is added. He can be rescued from King Slime upon defeating him.
+	}
+
+	quickBuffFavourite: {
+		// Label: "[i:289] Only Consume Favourited Potions with Quick Buff"
+		// Tooltip: If there are favourited potions in the inventory, Quick Buff will only consume the ones which are favourited.
+	}
+
+	noFullHeartPickup: {
+		// Label: "[i:58] Don't Consume Hearts when at Full HP"
+		// Tooltip: If enabled and the player has full HP, they won't pick up hearts. Similarly, if the player has full mana, they won't pick up mana crystals.
+	}
+
+	heartTime: {
+		// Label: "[i:58] Heart Despawn Time"
+		// Tooltip: Controls how long hearts and mana crystals remain in the world before despawning, in seconds. The default value is 300, which is 5 minutes.
+	}
+
+	calamityInWorldRarity: {
+		// Label: "[t:VanillaQoL/UI/Wrench] Calamity Rarity Fix"
+		// Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
+	}
+
+	cactusHurts: {
+		// Label: "[i:276] Cactus Hurts Players"
+		// Tooltip: If enabled, touching Cactus deals 10 damage, just like in good old 1.1.
+	}
+
+	jungleThornsAreSticky: {
+		// Label: "[i:210] Thorns are Sticky"
+		// Tooltip: If enabled, thorns slow the player down like cobwebs do.
+	}
+
+	drShield: {
+		// Label: "[i:156] Damage Reduction on Shield"
+		// Tooltip: If enabled, the defense shield shows the damage reduction stat as well.
+	}
+
+	stopSantaFromExploding: {
+		// Label: "[i:588] Stop Santa from Exploding"
+		// Tooltip: If enabled, Santa won't suddenly explode after the end of the holiday season.
+	}
+
+	truffleKingAndQueenStatue: {
+		// Label: "[i:ShrimpyTruffle] Truffle is Non-Binary"
+		// Tooltip: If enabled, the Truffle will teleport to both the King and Queen statue.
+	}
+
+	sellAdditionalItems: {
+		// Label: "[i:73] Town NPCs Sell Additional Items"
+		// Tooltip: If enabled, Town NPCs sell potions, various materials and other things intended to reduce grinding.
+	}
+
+	persistentBuffs: {
+		// Label: "[i:GravitationPotion] Potions Persist upon Death"
+		// Tooltip: If enabled, all buffs that persist when saving (potions in vanilla) will persist when the player dies.
+	}
+
+	pannoniaeCat: {
+		// Label: "[npc/n:637] Pannoniae Cat"
+		// Tooltip: If enabled, Pannoniae is a cat.
+	}
+
+	panicKey: {
+		// Label: "[i:1290] Panic Hotkey"
+		// Tooltip: If enabled, a hotkey is added which allows you to quickly use a recall item. Recall Potions are preferred over Magic Mirrors.
+	}
+
+	veinMineSpikes: {
+		// Label: "[i:1150] VeinMining™ Spike Expansion"
+		/* Tooltip:
+			'''
+			If enabled, the renowned VeinMining™ technology also works flawlessly with those pesky spikes in your world.
+			Try it today and if you don't like it, get your money back!
+			''' */
+	}
+
+	soyMasterMode: {
+		// Label: "[i:4938] Master Mode Stat-nerf"
+		// Tooltip: If enabled, enemies in Master Mode have Expert Mode stats. Good if you don't like being impaled by bunnies upon spawning.
+	}
+
+	morePylons: {
+		// Label: "[i:4916] More Pylons"
+		/* Tooltip:
+			'''
+			If enabled, Vanilla+ QoL adds a Corruption and a Crimson Pylon for NPCs to use.
+			It is advised to enable the config option of NPCs living in evil biomes.
+			''' */
+	}
+
+	honeyImmuneHoneyLamps: {
+		// Label: "[i:2129] Honey-Immune Honey Lamps"
+		// Tooltip: If enabled, Honey Lamps do not break when placed in honey.
+	}
+
+	mineWallsFromInside: {
+		// Label: "[i:30] Break Unsafe Walls Anywhere"
+		// Tooltip: If enabled, unsafe walls do not need to be exposed to air to be broken.
+	}
+
+	noLavaSlime: {
+		// Label: "[npc/n:59] No Lava from Lava Slime"
+		// Tooltip: If enabled, Lava Slimes do not drop lava on death in Expert Mode.
+	}
+
+	instantPlatformFallthrough: {
+		// Label: "[i:94] Instant Platform Fallthrough"
+		// Tooltip: If enabled, you can fall through platforms instantly by holding the down key.
+	}
+
+	coincumberingStone: {
+		// Label: "[i:4346] Coincumbering Stone"
+		// Tooltip: If enabled, the player with the Encumbering Stone can still pick up coins.
+	}
+
+	coincumberingStoneRename: {
+		// Label: "[i:4346] Coincumbering Stone Rename"
+		// Tooltip: If enabled, the Encumbering Stone is renamed the Coincumbering Stone.
+	}
+
+	killableDungeonNPCs: {
+		// Label: "[npc/n:72] Killable Dungeon NPCs"
+		// Tooltip: If enabled, Blazing Wheels and Spike Balls can be killed. Useful if you are annoyed by invincible flaming fucknuggets.
+	}
+
+	exactTooltips: {
+		// Label: "[i:3123] Exact Weapon Tooltips"
+		// Tooltip: If you like destroying your immersion, you can enable displaying exact values for knockback and use time in the tooltips.
+	}
+
+	damageSpread: {
+		// Label: "[i:1301] Damage Spread"
+		// Tooltip: Toggle damage spread between normal (default), only for enemies and disabled. When damage spread is disabled, Terraria does not randomise the inflicted damage.
+	}
+
+	damageSpreadAmount: {
+		// Label: "[i:1301] Damage Spread Amount (%)"
+		// Tooltip: Set the amount of damage spread if enabled. The default value is 15%, can be set between 0% and 100%, which results in a range of 0-2x damage.
+	}
+
+	superCrits: {
+		// Label: "[i:1858] Super Crits"
+		/* Tooltip:
+			'''
+			If enabled, crit chances above 100% result in super crits which deal 3x the damage, crit chances above 200% result in 4x the damage and so on.
+			Your efforts aren't in vain anymore.
+			''' */
+	}
+
+	superCritsColourValue: {
+		// Label: "[i:1858] Super Crits Colour"
+		// Tooltip: Sets the colour of super crits.
+	}
+
+	superCritsColour: {
+		// Label: "[i:1858] Coloured Super Crits"
+		// Tooltip: If enabled, super crits have a unique colour distinguishing it from normal crits.
+	}
+
+	superCritsColouredDamageTypesIntegration: {
+		// Label: "[i:1858] Super Crits Coloured Damage Types Integration"
+		// Tooltip: If enabled, the integration with the Coloured Damage Types mod is enabled, allowing super crits to be coloured based on the damage type of the weapon.
+	}
+
+	superCritsColouredDamageTypesDarken: {
+		// Label: "[i:1858] Super Crits Coloured Damage Types Darkening"
+		/* Tooltip:
+			'''
+			Controls how much the supercrits are darkened compared to the normal crits' colour.
+			The brightest colour is darkened by half this value, all the others by the full value.
+			''' */
+	}
+
+	removeOneDrop: {
+		// Label: "[i:3389] Remove One-Drop Tooltip"
+		// Tooltip: If enabled, removes the One Drop logo from the yoyos which are based on real-world yoyos produced by One Drop.
+	}
+
+	removeDevSet: {
+		// Label: "[i:666] Remove Developer Set Drops"
+		// Tooltip: If enabled, Treasure Bags do not drop developer items anymore. No fun, no inventory clutter.
+	}
+
+	quickBestiary: {
+		// Label: "[npc/n:633] Quick Bestiary Unlock"
+		// Tooltip: If enabled, entries in the Bestiary unlock after one kill instead of the normal amount (one banner).
+	}
+
+	critsBypassDefense: {
+		// Label: "[i:4005] Crits Bypass Defense"
+		// Tooltip: If enabled, critical hits ignore the defense of enemies. This makes crit-heavy builds more viable without spamming armour penetration.
+	}
+
+	asphaltPlatform: {
+		// Label: "[i:VanillaQoL/AsphaltPlatform] Asphalt Platform"
+		// Tooltip: If enabled, adds a platform made from asphalt. Commonly included in your favourite cheat mods but this time, it's also in mine.
+	}
+
+	autoResearchFavourite: {
+		// Label: "[i:75] Auto-Research Favourited Items"
+		// Tooltip: If enabled, items in the player's inventory are automatically researched if they are favourited. [c/FF5555:Will eat your items.]
+	}
+
+	itemsWorkInBanks: {
+		// Label: "[i:87] Items Work in Personal Storage"
+		// Tooltip: If enabled, items function in the player's personal storage as information accessories. We all know that your inventory is full of potions.
+	}
+
+	itemsWorkInBanksTooltip: {
+		// Label: "[i:3213] Items Work in Personal Storage Tooltip"
+		// Tooltip: If enabled, a tooltip is added to items in the personal storage which function as player accessories.
+	}
+
+	fountainBiomes: {
+		// Label: "[i:909] Fountains Change Biome"
+		// Tooltip: If enabled, placed fountains change the biome of the area around them to the biome they are made of. Only slightly a cheat, isn't it?
+	}
+
+	fountainFromInventory: {
+		// Label: "[i:4417] Fountains Change Biome in Inventory"
+		// Tooltip: If enabled, fountains also change the biome of the area around you when held in the inventory. At this point, please feel a little shame for cheating this hard.
+	}
+
+	removeBiomeRequirementsShops: {
+		// Label: "[i:4766] Remove Biome Requirements for Shops"
+		/* Tooltip:
+			'''
+			If enabled, NPCs sell items regardless of the biome they are in. This would normally overflow the shop but isn't this why we have the Shop Expander?
+			Requires Shop Expander to be enabled. Don't ask me why, it's cursed.
+			''' */
+	}
+
+	stackableQuestItems: {
+		// Label: "[i:2452] Stackable Quest Items"
+		// Tooltip: If enabled, quest items like quest fish can be stacked in the inventory.
+	}
+
+	axeReplantingHerbs: {
+		// Tooltip: ""
+		// Label: axe Replanting Herbs
+	}
+
+	OOAdrops: {
+		// Label: "[i:3817] Old One's Army Minibosses Drop Defender Medals"
+		// Tooltip: If enabled, the Old One's Army event minibosses also drop Defender Medals in case you can't get through the full event.
+	}
+
+	OOAdrops2: {
+		// Label: "[i:3817] Old One's Army Gradual Defender Medal Drops"
+		// Tooltip: If enabled, the first two tiers of the Old One's Army event also drop Defender Medals in case you can't even survive the first two waves.
+	}
+
+	masterModeRelicsInExpert: {
+		// Label: "[i:4934] Master Mode Relics Can Drop in Expert"
+		// Tooltip: If enabled, Master Mode Relics can drop in Expert Mode worlds. The valour is only incrementally stolen.
+	}
+
+	allHairsOnStart: {
+		// Label: "[i:1989] All Hairstyles Available from Start"
+		// Tooltip: If enabled, all hairstyles are available from the start of the game. No need to find the Stylist to unlock them.
+	}
+
+	stackVoidBag: {
+		// Label: "[i:4131] Smart Void Bag"
+		// Tooltip: If enabled, picked up items are automatically stacked into the Void Bag if it already contains the item.
+	}
+
+	storageFollowsPlayer: {
+		// Label: "[i:3213] Mobile Storages Follow The Player"
+		// Tooltip: If enabled, mobile storages (Money Trough, Void Bag) follow the player when they move. 'Have at thee...'
+	}
+
+	npcDeathsToCallOffInvasion: {
+		// Label: "[i:361] NPC Deaths to Call Off Invasion"
+		// Tooltip: If set to a value above 0, invasions will end early when this many town NPCs die during the invasion. Set to 0 to disable.
+	}
+
+	playerDeathsToCallOffInvasion: {
+		// Label: "[i:1175] Player Deaths to Call Off Invasion"
+		// Tooltip: If set to a value above 0, invasions will end early when the player dies this many times during the invasion. Set to 0 to disable.
+	}
+
+	moreVoidVault: {
+		// Label: "[i:4076] Extended Void Vault"
+		/* Tooltip:
+			'''
+			If enabled, the other personal storage items (Piggy Bank, Safe, Defender's Forge) can also be used to store items using the Void Bag.
+			Getting them out is a bit more tricky though.
+			''' */
+	}
+
+	grammarFix: {
+		// Label: "[i:389] Corrected Grammar"
+		/* Tooltip:
+			'''
+			If enabled, item prefixes will be displayed in grammatically correct positions for items starting with "The" (e.g., "The Unreal Undertaker" instead of "Unreal The Undertaker").
+			Only affects English because why would it affect anything else?
+			''' */
+	}
+
+	siltIsDangerous: {
+		// Label: "[i:2329] Dangersense Highlights Silt and Slush"
+		// Tooltip: If enabled, the Dangersense Potion highlights Silt and Slush Blocks. They still fall on your head, though.
+	}
+
+	thinIceNotDangerous: {
+		// Label: "[i:2329] Dangersense Doesn't Highlight Thin Ice"
+		// Tooltip: If enabled, the Dangersense Potion stops highlighting Thin Ice. You'll fall into water anyway, y'know?
+	}
+
+	spelunkerHellstone: {
+		// Label: "[i:174] Spelunker Highlights Hellstone"
+		/* Tooltip:
+			'''
+			If enabled, the Spelunker Potion highlights Hellstone.
+			Not like you wouldn't be able to see it amongst all that lava but we strive for an inclusive environment here.
+			''' */
+	}
+
+	moreBossLoot: {
+		// Label: "[i:3328] More Weapons from Treasure Bags"
+		/* Tooltip:
+			'''
+			If enabled, Queen Bee, Plantera and Golem drop two weapons each from their Treasure Bags, similar to the Moon Lord.
+			Less grinding, more fun!
+			   
+			''' */
+	}
+
+	disableNPCHappiness: {
+		// Label: "[i:4986] Disable NPC Happiness"
+		// Tooltip: If enabled, disables the NPC Happiness system. The sell price factor will always be fixed.
+	}
+
+	disableNPCHappinessConstant: {
+		// Label: "[i:4986] Disable NPC Happiness Factor"
+		// Tooltip: This controls the sell price factor when the NPC Happiness system is disabled. Set to 1.0 to leave unchanged from full price, set to 0.5 to halve the sell prices, etc.
+	}
+
+	boundNPCProtection: {
+		// Label: "[npc/n:105] Bound NPC Protection"
+		// Tooltip: If enabled, bound NPCs are protected from being killed by enemies.
+	}
+
+	fixStarlightRiver: {
+		// Label: "[i:75] Fix Starlight River Meteor Spawning"
+		/* Tooltip:
+			'''
+			If enabled, fixes the Starlight River mod's Prayer for Meteorite item. By default, it does exactly nothing because the Starlight River devs are ChatGPT monkeys.
+			This patches WorldGen.dropMeteor to check conditions properly.
+			''' */
+	}
+}
+
+Team: {
+	White: {
+		// Label: "[i:182] White"
+		// Tooltip: ""
+	}
+
+	Red: {
+		// Label: "[i:178] Red"
+		// Tooltip: ""
+	}
+
+	Green: {
+		// Label: "[i:179] Green"
+		// Tooltip: ""
+	}
+
+	Blue: {
+		// Label: "[i:177] Blue"
+		// Tooltip: ""
+	}
+
+	Yellow: {
+		// Label: "[i:180] Yellow"
+		// Tooltip: ""
+	}
+
+	Pink: {
+		// Label: "[i:181] Pink"
+		// Tooltip: ""
+	}
+
+	// Tooltip: ""
+}
+
+Credits: {
+	// Tooltip: ""
+
+	Vanilla: {
+		// Label: After Moon Lord
+		// Tooltip: ""
+	}
+
+	AfterModsFinalBoss: {
+		// Label: After Final Boss (modded)
+		// Tooltip: ""
+	}
+
+	Disabled: {
+		// Label: No Credits
+		// Tooltip: ""
+	}
+}
+
+UIConfig: {
+	// DisplayName: UI Config
+
+	enableNPCSellPrices: {
+		// Label: "[i:73] Enable NPC Sell Prices"
+		/* Tooltip:
+			'''
+			If enabled, holding the favourite key over an item shows what each greedy NPC will pay you.
+			Spoiler alert: it's never enough.
+			''' */
+	}
+
+	npcSellPriceYOffset: {
+		// Label: "[i:888] Vertical Positioning"
+		// Tooltip: How far down to shove the price display from the NPC's stupid face. Negative values go up, positive go down. (default: 0)
+	}
+
+	npcSellPriceXOffset: {
+		// Label: "[i:888] Horizontal Positioning"
+		// Tooltip: How far right to move the price display so it doesn't cover the NPC's pixelated disappointment. (default: 40)
+	}
+
+	showPriceMultiplier: {
+		// Label: "[i:855] Show Price Multiplier"
+		// Tooltip: If enabled, shows the percentage of how much each NPC is screwing you over. Red means they hate you, green means they merely dislike you.
+	}
+
+	showCoinIcon: {
+		// Label: "[i:71] Show Coin Icons"
+		// Tooltip: If enabled, shows shiny coin icons next to numbers because apparently we can't read numbers without pretty pictures.
+	}
+
+	npcSellPriceShowBackground: {
+		// Label: "[i:1344] Show Background Panel"
+		// Tooltip: If enabled, adds a background so you can actually read the text instead of squinting like a geriatric.
+	}
+
+	npcSellPriceBackgroundPadding: {
+		// Label: "[i:1344] Background Padding"
+		// Tooltip: Controls how thicc the background gets around the text. Bigger numbers = more padding = easier to read. (default: 5)
+	}
+
+	backgroundColor: {
+		// Label: "[i:1344] Static Background Colour"
+		// Tooltip: Pick a colour for backgrounds when you're too boring for the dynamic option.
+	}
+
+	dynamicBackgroundColor: {
+		// Label: "[i:1345] Dynamic Background Colour"
+		/* Tooltip:
+			'''
+			If enabled, background colour changes based on how much each NPC despises you.
+			[c/FF0000:Red] for "I hate your guts", [c/22EE00:Green] for "I tolerate your existence".
+			''' */
+	}
+
+	npcSellPriceBackgroundColor: {
+		// Label: "[i:1344] Manual Background Colour"
+		// Tooltip: For when you want to micromanage the exact shade of your UI disappointment.
+	}
+
+	// Headers.DisplayNPCSellPrices: "[i:73] NPC Sell Price Display"
+}
+
+DamageSpread: {
+	Off: {
+		// Label: Off
+		// Tooltip: ""
+	}
+
+	PlayersEnemies: {
+		// Label: Players & Enemies (default)
+		// Tooltip: ""
+	}
+
+	Enemies: {
+		// Label: Enemies Only
+		// Tooltip: ""
+	}
+
+	// Tooltip: ""
+}
+
+QoLRecipeConfig: {
+	// DisplayName: Recipe Config
+
+	Headers: {
+		// recipes: "[i:2633] Recipes"
+		// shimmer: "[i:5350] Shimmering"
+	}
+
+	templeTraps: {
+		// Label: "[i:1142] Temple Traps"
+		/* Tooltip:
+			'''
+			 If enabled, recipes are added for the Jungle Temple traps.
+			'Lihzahrd...Lizhard...Lihzahrhd...'
+			''' */
+	}
+
+	obsidianFurniture: {
+		// Label: "[i:2657] Obsidian Furniture"
+		/* Tooltip:
+			'''
+			If enabled, adds recipes for the obsidian furniture generated in the Underworld houses.
+			'For when regular furniture isn't edgy enough'
+			''' */
+	}
+
+	bannerRecipes: {
+		// Label: "[i:846] World Banner Recipes"
+		// Tooltip: If enabled, adds recipes for the banners generated randomly in the world across various structures.
+	}
+
+	teamBlocks: {
+		// Label: "[i:3636] Coloured Team Blocks"
+		// Tooltip: If enabled, adds recipes for the various coloured team blocks and their platforms. 'Suck it, Travel Merchant!'
+	}
+
+	clothierVoodooDoll: {
+		// Label: "[i:1307] Clothier Voodoo Doll Recipe"
+		// Tooltip: If enabled, adds a recipe for the Clothier Voodoo Doll by crafting a Guide Voodoo Dool and a Red Hat together at a Demon/Crimson Altar.
+	}
+
+	shimmerGuns: {
+		// Label: "[i:4348] Shimmerable Hardmode Weapons"
+		/* Tooltip:
+			'''
+			If enabled, the Hel-Fire and the Orange Zapinator can be shimmered into the Cascade and the Gray Zapinator, respectively.
+			Otherwise, they are unobtainable in Hardmode.
+			''' */
+	}
+
+	shimmerBlackLens: {
+		// Label: "[i:236] Shimmerable Black Lens"
+		// Tooltip: If enabled, adds a shimmer transmutation for Black Lens into a normal Lens. I'm not entirely sure why, but you might run low on lenses!
+	}
+
+	dungeonFurniture: {
+		// Label: "[i:139] Dungeon Furniture Recipes"
+		/* Tooltip:
+			'''
+			If enabled, adds recipes for all the dungeon furniture which you would have to normally loot.
+			'For those with skill issues'
+			''' */
+	}
+}
+
+// CalamityQoLConfig.DisplayName: Calamity QoL
+// CalamityUnnerfConfig.DisplayName: Calamity Unnerfs

@@ -6,6 +6,7 @@ using Terraria.GameContent;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using VanillaQoL.Items;
+using Condition = Terraria.Condition;
 
 namespace VanillaQoL.Tiles;
 

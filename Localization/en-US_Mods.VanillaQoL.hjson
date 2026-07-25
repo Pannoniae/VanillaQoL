@@ -725,3 +725,11 @@ ModCompat: {
 	downedCursedCoffin: Downed Cursed Coffin
 	downedOrdealAny: Downed any Ordeal
 }
+
+ConfigDisabled: {
+	needsThorium: Requires Thorium. You don't have Thorium.
+	needsCalamity: Requires Calamity which is not installed.
+	needsStarlightRiver: Requires Starlight River which is not installed.
+	needsColouredDamageTypes: Requires Coloured Damage Types. Without it there are no colours to damage, or types to colour, or anything really.
+	onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You already have Calamity, shoo
+}

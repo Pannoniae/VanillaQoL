@@ -13,6 +13,7 @@ using StarlightRiver.Content.WorldGeneration;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Condition = Terraria.Condition;
 
 namespace VanillaQoL.IL;
 

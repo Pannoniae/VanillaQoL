@@ -455,43 +455,43 @@ public class Constants {
         PrefixID.Violent
     ];
     
-    public static readonly List<Condition> biomeConditions = [
-        Condition.InDungeon,
-        Condition.InCorrupt,
-        Condition.InMeteor,
-        Condition.InJungle,
-        Condition.InSnow,
-        Condition.InCrimson,
-        Condition.InTowerSolar,
-        Condition.InTowerNebula,
-        Condition.InTowerStardust,
-        Condition.InDesert,
-        Condition.InGlowshroom,
-        Condition.InUndergroundDesert,
-        Condition.InSkyHeight,
-        Condition.InSpace,
-        Condition.InOverworldHeight,
-        Condition.InDirtLayerHeight,
-        Condition.InRockLayerHeight,
-        Condition.InUnderworldHeight,
-        Condition.InUnderworld,
-        Condition.InBeach,
-        Condition.InRain,
-        Condition.InSandstorm,
-        Condition.InOldOneArmy,
-        Condition.InGranite,
-        Condition.InMarble,
-        Condition.InHive,
-        Condition.InGemCave,
-        Condition.InLihzhardTemple,
-        Condition.InGraveyard,
-        Condition.InAether,
-        Condition.InShoppingZoneForest,
-        Condition.InEvilBiome,
-        Condition.NotInEvilBiome,
-        Condition.NotInHallow,
-        Condition.NotInGraveyard,
-        Condition.NotInUnderworld
+    public static readonly List<Terraria.Condition> biomeConditions = [
+        Terraria.Condition.InDungeon,
+        Terraria.Condition.InCorrupt,
+        Terraria.Condition.InMeteor,
+        Terraria.Condition.InJungle,
+        Terraria.Condition.InSnow,
+        Terraria.Condition.InCrimson,
+        Terraria.Condition.InTowerSolar,
+        Terraria.Condition.InTowerNebula,
+        Terraria.Condition.InTowerStardust,
+        Terraria.Condition.InDesert,
+        Terraria.Condition.InGlowshroom,
+        Terraria.Condition.InUndergroundDesert,
+        Terraria.Condition.InSkyHeight,
+        Terraria.Condition.InSpace,
+        Terraria.Condition.InOverworldHeight,
+        Terraria.Condition.InDirtLayerHeight,
+        Terraria.Condition.InRockLayerHeight,
+        Terraria.Condition.InUnderworldHeight,
+        Terraria.Condition.InUnderworld,
+        Terraria.Condition.InBeach,
+        Terraria.Condition.InRain,
+        Terraria.Condition.InSandstorm,
+        Terraria.Condition.InOldOneArmy,
+        Terraria.Condition.InGranite,
+        Terraria.Condition.InMarble,
+        Terraria.Condition.InHive,
+        Terraria.Condition.InGemCave,
+        Terraria.Condition.InLihzhardTemple,
+        Terraria.Condition.InGraveyard,
+        Terraria.Condition.InAether,
+        Terraria.Condition.InShoppingZoneForest,
+        Terraria.Condition.InEvilBiome,
+        Terraria.Condition.NotInEvilBiome,
+        Terraria.Condition.NotInHallow,
+        Terraria.Condition.NotInGraveyard,
+        Terraria.Condition.NotInUnderworld
     ];
 
 
@@ -1522,8 +1522,8 @@ public static class CalamityConstants {
     /// <summary>
     /// Add the Calamity biomes to the list of biome conditions.
     /// </summary>
-    public static void calamityBiomes(List<Condition> biomeConditions) {
-        List<Condition> calamityBiomes = [
+    public static void calamityBiomes(List<Terraria.Condition> biomeConditions) {
+        List<Terraria.Condition> calamityBiomes = [
             CalamityConditions.InAstral,
             CalamityConditions.InCrag,
             CalamityConditions.InSulph,

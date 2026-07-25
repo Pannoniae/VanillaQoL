@@ -1,5 +1,7 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] Config options that need a mod you haven't got are now crossed out, and the tooltip tells you why. Instead of entries silently not doing anything.
+ [*] Two new config pages for the Calamity stuff.
  [*] The wing slot's dye slot now accepts dyes. Waow.
  [*] Wings now get the "Equipable in wing slot" tooltip. Previously only balloons and bottles got it (half-finished features yey)
  [*] Hovering over the wing slot tells you what it is again.
