@@ -1084,6 +1084,24 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
+	blackBelt: {
+		Label: "[i:934] Black Belt Unnerf"
+		Tooltip:
+			'''
+			If enabled, disables the Calamity 90 second shared cooldown for the Black Belt.
+			'Dodge for the Dodge God'
+			'''
+	}
+
+	brainOfConfusion: {
+		Label: "[i:3223] Brain of Confusion Unnerf"
+		Tooltip:
+			'''
+			If enabled, disables the Calamity 90 second shared cooldown for the Brain of Confusion.
+			'Dodge for the Dodge God'
+			'''
+	}
+
 	shadowArmour: {
 		Label: "[i:86] Shadow Armour Unnerf"
 		Tooltip:
@@ -1099,6 +1117,25 @@ CalamityUnnerfConfig: {
 			'''
 			Calamity quietly runs all your damage reduction through a formula, so 25% is the new 20%, 50% is the new 33%,
 			and 100% is the new 50%. If enabled, we fix this.
+			'''
+	}
+
+	lifesteal: {
+		Label: "[i:1290] Lifesteal Recovery Unnerf"
+		Tooltip:
+			'''
+			Terraria has a hidden lifesteal meter that refills at 36 HP/s in Classic and 30 in Expert.
+			Calamity makes it a lot less effective, reducing it to 9 and 6 HP/s respectively, and also makes it so that you can't heal from lifesteal if you have more than 50% of your max health.
+			If enabled, this undoes that nerf.
+			PSA the wiki is also lying to you, it says it no longer nerfs lifesteal to the ground. This is FACT-CHECKED now :P
+			'''
+	}
+
+	meleeArmourDR: {
+		Label: "[i:2431] Beetle and Solar Flare DR Unnerf"
+		Tooltip:
+			'''
+			If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
 			'''
 	}
 

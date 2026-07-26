@@ -36,6 +36,18 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool buffs { get; set; }
 
+    // Beetle Husk
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool meleeArmourDR { get; set; }
+
+    // Vampire Knives
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool lifesteal { get; set; }
+
     #endregion
 
     #region Items
@@ -53,6 +65,18 @@ public class CalamityUnnerfConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool shadowArmour { get; set; }
+
+    // Black Belt
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool blackBelt { get; set; }
+
+    // Brain of Confusion
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool brainOfConfusion { get; set; }
 
     #endregion
 }

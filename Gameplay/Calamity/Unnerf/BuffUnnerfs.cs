@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using CalamityMod.Buffs;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
@@ -16,13 +16,29 @@ public class BuffUnnerfs : ModSystem {
     private static bool[] reverted = null!;
 
     public override bool IsLoadingEnabled(Mod mod) {
-        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.buffs;
+        return VanillaQoL.isCalamityLoaded() &&
+               (CalamityUnnerfConfig.Instance.buffs || CalamityUnnerfConfig.Instance.meleeArmourDR);
     }
 
     public override void OnModLoad() {
-        reverted = BuffID.Sets.Factory.CreateBoolSet(BuffID.Archery, BuffID.MagicPower, BuffID.Clairvoyance,
-            BuffID.SugarRush, BuffID.Mining, BuffID.Swiftness, BuffID.Tipsy, BuffID.WellFed, BuffID.WellFed2,
-            BuffID.WellFed3);
+        // we'll just yeet all the related unnerfs here, less messy
+        List<int> skip = [];
+
+        if (CalamityUnnerfConfig.Instance.buffs) {
+            skip.AddRange([
+                BuffID.Archery, BuffID.MagicPower, BuffID.Clairvoyance, BuffID.SugarRush, BuffID.Mining,
+                BuffID.Swiftness, BuffID.Tipsy, BuffID.WellFed, BuffID.WellFed2, BuffID.WellFed3
+            ]);
+        }
+
+        if (CalamityUnnerfConfig.Instance.meleeArmourDR) {
+            skip.AddRange([
+                BuffID.BeetleEndurance1, BuffID.BeetleEndurance2, BuffID.BeetleEndurance3,
+                BuffID.SolarShield1, BuffID.SolarShield2, BuffID.SolarShield3
+            ]);
+        }
+
+        reverted = BuffID.Sets.Factory.CreateBoolSet(skip.ToArray());
 
         var type = typeof(CalamityGlobalBuff);
 
