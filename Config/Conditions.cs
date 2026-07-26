@@ -39,3 +39,7 @@ public class StarlightRiverLoaded() : ModLoaded("StarlightRiver") {
 public class ColouredDamageTypesLoaded() : ModLoaded("ColoredDamageTypes") {
     protected override string key => "needsColouredDamageTypes";
 }
+
+public class InfernumLoaded() : ModLoaded("InfernumMode") {
+    protected override string key => "needsInfernum";
+}

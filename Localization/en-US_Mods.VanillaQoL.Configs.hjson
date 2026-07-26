@@ -791,6 +791,15 @@ QoLConfig: {
 			This patches WorldGen.dropMeteor to check conditions properly.
 			'''
 	}
+
+	fixInfernumCrystals: {
+		Label: "[i:1332] Fix Infernum Icicles Covering The Screen"
+		Tooltip:
+			'''
+			If enabled, patches a bug in Infernum which causes Deerclops icicles to cover the entire screen.
+			This was never a Vanilla+ QoL bug but many people thought it was, so might as well make it ours ;)
+			'''
+	}
 }
 
 Team: {

@@ -36,6 +36,10 @@ public class ModILEdits : ModSystem {
             VanillaQoL.instance.Logger.Error(
                 $"Couldn't load Magic Storage and Recipe Browser integration! Error message: {e}");
         }
+
+        if (QoLConfig.Instance.fixInfernumCrystals && VanillaQoL.instance.hasInfernum) {
+            InfernumLogic.load();
+        }
     }
 
     public override void PostSetupRecipes() {
@@ -101,6 +105,43 @@ public static class RecipeBrowserLogic {
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate recipe condition check in RecipeBrowser");
         }
+    }
+}
+
+public static class InfernumLogic {
+    public static void load() {
+        var infernum = ModLoader.GetMod("InfernumMode").Code;
+        try {
+            var crystalType = infernum.GetType("InfernumMode.Content.Tiles.Abyss.LargeLumenylCrystal");
+            var drawerMethod = crystalType!.GetMethod("DefineCrystalDrawers", BindingFlags.Static | BindingFlags.Public);
+            MonoModHooks.Modify(drawerMethod, fixCrystalDrawers);
+        }
+        catch (Exception e) {
+            VanillaQoL.instance.Logger.Warn($"Couldn't inject into Infernum to patch the icicle bug! {e}");
+        }
+    }
+
+    // The infernum crystal renderer runs on Filters.Scene.OnPostDraw every frame EVERYWHERE, and does
+    // `t.TileType != crystalID`. air is tile type 0, so you can see where this is going... icicles everywhere
+    // IL_0001: call int32 ModContent::TileType<LargeLumenylCrystal>()
+    // IL_0006: stloc.0
+    private static void fixCrystalDrawers(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        var crystalID = -1;
+        if (!ilCursor.TryGotoNext(MoveType.After,
+                i => i.MatchCall(out var method) && method.Name == "TileType",
+                i => i.MatchStloc(out crystalID))) {
+            VanillaQoL.instance.Logger.Warn("Failed to locate the crystal tile lookup in Infernum!");
+            return;
+        }
+
+        var carryOn = ilCursor.DefineLabel();
+        ilCursor.EmitLdloc(crystalID);
+        ilCursor.Emit(OpCodes.Brtrue, carryOn);
+        ilCursor.Emit(OpCodes.Ret);
+        ilCursor.MarkLabel(carryOn);
+
+        VanillaQoL.instance.Logger.Warn("Patched Infernum to fix the icicle bug. If you see this, report it to the Infernum devs so they can fix it properly!");
     }
 }
 

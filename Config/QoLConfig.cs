@@ -621,6 +621,13 @@ public class QoLConfig : ModConfig {
     [EnabledIf(typeof(StarlightRiverLoaded))]
     public bool fixStarlightRiver { get; set; }
 
+    // Lumenyl Crystal
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    [EnabledIf(typeof(InfernumLoaded))]
+    public bool fixInfernumCrystals { get; set; }
+
     #endregion
 
     #region Content

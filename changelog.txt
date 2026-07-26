@@ -16,6 +16,7 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] Turning off Ancient Swords doesn't add "Material" into every single tooltip in the game anymore.
  [*] Quick Bestiary Unlock no longer demands that you murder town NPCs and critters to unlock them.
  [*] Fixed a crash on load with Martin's Order.
+ [*] Patched a bug in Infernum so the screen isn't covered with icicles all the time.
  [*] Remove the accessory loadout support option - tModLoader does this natively now and ours was broken by the recent tML changes anyway.
  [*] Disable an outdated config option.
  [*] Update the mod to the latest version + Calamity.

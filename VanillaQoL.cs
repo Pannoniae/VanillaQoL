@@ -36,7 +36,8 @@ public class VanillaQoL : Mod {
     public bool hasQoLCompendium;
     public bool hasColoredDamageTypes;
     public bool hasStarlightRiver;
-    
+    public bool hasInfernum;
+
     public Mod? QoLCompendium;
     
 
@@ -80,6 +81,7 @@ public class VanillaQoL : Mod {
         hasQoLCompendium = ModLoader.HasMod("QoLCompendium");
         hasColoredDamageTypes = ModLoader.HasMod("ColoredDamageTypes");
         hasStarlightRiver = ModLoader.HasMod("StarlightRiver");
+        hasInfernum = ModLoader.HasMod("InfernumMode");
         if (hasQoLCompendium) {
             QoLCompendium = ModLoader.GetMod("QoLCompendium");
         }
