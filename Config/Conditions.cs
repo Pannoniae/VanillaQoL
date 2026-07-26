@@ -32,6 +32,13 @@ public class CalamityAbsent() : ModMissing("CalamityMod") {
     protected override string key => "onlyWithoutCalamity";
 }
 
+/**
+ * Same as CalamityAbsent but different flavour text (prevent overlapping)
+ */
+public class NoCalamityOverlap() : ModMissing("CalamityMod") {
+    protected override string key => "noCalamityOverlap";
+}
+
 public class StarlightRiverLoaded() : ModLoaded("StarlightRiver") {
     protected override string key => "needsStarlightRiver";
 }

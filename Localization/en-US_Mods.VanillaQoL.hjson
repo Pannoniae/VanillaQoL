@@ -746,4 +746,5 @@ ConfigDisabled: {
 	needsColouredDamageTypes: Requires Coloured Damage Types. Without it there are no colours to damage, or types to colour, or anything really.
 	needsInfernum: Requires Calamity Mod: Infernum Mode which is not installed.
 	onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You already have Calamity, shoo
+	noCalamityOverlap: This feature is also added by Calamity, this is disabled to prevent duplication and clashes.
 }

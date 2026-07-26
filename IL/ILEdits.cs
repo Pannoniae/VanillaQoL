@@ -259,7 +259,15 @@ public class ILEdits : ModSystem {
 
     public static void load() {
         if (QoLConfig.Instance.townNPCsSpawningAtNight) {
-            IL_Main.UpdateTime += townNPCPatch;
+            // Calamity patch doubleprevent
+            if (VanillaQoL.isCalamityLoaded()) {
+                VanillaQoL.instance.Logger.Info(
+                    "Skipping the town NPC spawning at night patch, Calamity also patches this and it will cause a double spawn bug if we patch it too"
+                );
+            }
+            else {
+                IL_Main.UpdateTime += townNPCPatch;
+            }
         }
 
         if (QoLConfig.Instance.townNPCsMovingAtDay) {

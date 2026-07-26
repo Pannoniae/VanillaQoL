@@ -1,12 +1,14 @@
 using MonoMod.Cil;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.Gameplay;
 
 public class ExplosionTweaks : GlobalWall {
     public override void Load() {
-        if (QoLConfig.Instance.hardModeOresCanExplode) {
+        // If you add another toggle here, put it in vanillaLogic, not in the method.
+        if (QoLConfig.Instance.hardModeOresCanExplode || QoLConfig.Instance.meteoriteCanExplode) {
             IL_Projectile.CanExplodeTile += canExplodeTilePatch;
         }
     }
@@ -60,36 +62,50 @@ public class ExplosionTweaks : GlobalWall {
 
     public static bool vanillaLogic(int x, int y) {
         switch (Main.tile[x, y].TileType) {
-            case 26:
-            case 88:
-            case 226:
-            case 237:
-            case 470:
-            case 475:
+            case TileID.DemonAltar:
+            case TileID.Dressers:
+            case TileID.LihzahrdBrick:
+            case TileID.LihzahrdAltar:
+            case TileID.DisplayDoll:
+            case TileID.HatRack:
                 return false;
-            case 107:
-            case 108:
-            case 111:
-            case 211:
-            case 221:
-            case 222:
-            case 223:
+            case TileID.Cobalt:
+            case TileID.Mythril:
+            case TileID.Adamantite:
+            case TileID.Chlorophyte:
+            case TileID.Palladium:
+            case TileID.Orichalcum:
+            case TileID.Titanium:
+                // the actual hardModeOresCanExplode feature.
+                if (!QoLConfig.Instance.hardModeOresCanExplode) {
+                    return false;
+                }
+
                 return NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
-            case 37:
-            case 58:
+            case TileID.Meteorite:
+                if (QoLConfig.Instance.meteoriteCanExplode) {
+                    break;
+                }
+
+                if (!Main.hardMode) {
+                    return false;
+                }
+
+                break;
+            case TileID.Hellstone:
                 if (!Main.hardMode)
                     return false;
                 break;
-            case 48:
-            case 232:
+            case TileID.Spikes:
+            case TileID.WoodenSpikes:
                 if (Main.getGoodWorld)
                     return false;
                 break;
-            case 77:
+            case TileID.Hellforge:
                 if (!Main.hardMode && y >= Main.UnderworldLayer)
                     return false;
                 break;
-            case 137:
+            case TileID.Traps:
                 if (!NPC.downedGolemBoss) {
                     switch (Main.tile[x, y].TileFrameY / 18) {
                         case 1:

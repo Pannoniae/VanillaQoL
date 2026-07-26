@@ -139,6 +139,7 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(true)]
+    [EnabledIf(typeof(NoCalamityOverlap))]
     public bool townNPCsSpawningAtNight { get; set; }
     
     // Universal Pylon
@@ -387,7 +388,14 @@ public class QoLConfig : ModConfig {
     // Titanium Ore
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
+    [ReloadRequired]
     public bool hardModeOresCanExplode { get; set; }
+
+    // Meteorite
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool meteoriteCanExplode { get; set; }
 
     // DCU
     [BackgroundColor(192, 54, 128, 192)]
@@ -544,6 +552,7 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
+    [EnabledIf(typeof(NoCalamityOverlap))]
     public bool moreBossLoot { get; set; }
     
     // Void Bag
