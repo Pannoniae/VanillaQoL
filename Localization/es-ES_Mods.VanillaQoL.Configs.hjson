@@ -1068,7 +1068,124 @@ QoLRecipeConfig: {
 	}
 }
 
-// CalamityUnnerfConfig.DisplayName: Calamity Unnerfs
+CalamityUnnerfConfig: {
+	// DisplayName: Calamity Unnerfs
+
+	Headers: {
+		// systems: "[i:1290] Systems"
+		// items: "[i:3389] Items"
+	}
+
+	soaringInsignia: {
+		// Label: "[i:3389] Soaring Insignia Unnerf"
+		// Tooltip: If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
+	}
+
+	meteorArmour: {
+		// Label: "[i:117] Meteor Armour Unnerf"
+		/* Tooltip:
+			'''
+			Calamity swaps Meteor armour's set bonus: you lose the free Space Gun mana and get 33% mana cost on
+			every magic gun instead. Not really a nerf per se but it ain't the funny effect either so here's a revert ;)
+			''' */
+	}
+
+	blackBelt: {
+		// Label: "[i:934] Black Belt Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, disables the Calamity 90 second shared cooldown for the Black Belt.
+			'Dodge for the Dodge God'
+			''' */
+	}
+
+	brainOfConfusion: {
+		// Label: "[i:3223] Brain of Confusion Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, disables the Calamity 90 second shared cooldown for the Brain of Confusion.
+			'Dodge for the Dodge God'
+			''' */
+	}
+
+	shadowArmour: {
+		// Label: "[i:86] Shadow Armour Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, undoes Calamity's nerfs to Shadow Armour. It reduces its movement boost then also decides it shouldn't stack
+			with Magiluminescence.
+			''' */
+	}
+
+	damageReduction: {
+		// Label: "[i:1290] Damage Reduction Unnerf"
+		/* Tooltip:
+			'''
+			Calamity quietly runs all your damage reduction through a formula, so 25% is the new 20%, 50% is the new 33%,
+			and 100% is the new 50%. If enabled, we fix this.
+			''' */
+	}
+
+	bossDR: {
+		// Label: "[i:1299] Vanilla Boss DR Unnerf"
+		/* Tooltip:
+			'''
+			Calamity gives 22 vanilla bosses flat damage reduction, presumably to prevent killing bosses too fast.
+			This is kinda lame, so if this option is enabled, Y E E T
+			I miss that kid who wrote the funny config messages :(
+			''' */
+	}
+
+	pierceResist: {
+		// Label: "[i:1258] Piercing Projectiles Unnerf"
+		/* Tooltip:
+			'''
+			The Eater of Worlds, BoC Creepers and the Destroyer lose 12% damage from every hit of a piercing
+			projectile, capped at -80%. If enabled, this mechanic is removed.
+			''' */
+	}
+
+	lifesteal: {
+		// Label: "[i:1290] Lifesteal Recovery Unnerf"
+		/* Tooltip:
+			'''
+			Terraria has a hidden lifesteal meter that refills at 36 HP/s in Classic and 30 in Expert.
+			Calamity makes it a lot less effective, reducing it to 9 and 6 HP/s respectively, and also makes it so that you can't heal from lifesteal if you have more than 50% of your max health.
+			If enabled, this undoes that nerf.
+			PSA the wiki is also lying to you, it says it no longer nerfs lifesteal to the ground. This is FACT-CHECKED now :P
+			''' */
+	}
+
+	meleeArmourDR: {
+		// Label: "[i:2431] Beetle and Solar Flare DR Unnerf"
+		// Tooltip: If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
+	}
+
+	buffs: {
+		// Label: "[i:353] Permanent Buffs Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, removes Calamity's changes to a bunch of status effects:
+			Well Fed gives 20% speed instead of 5%, Magic Power gives 20% instead of 10%,
+			Archery gives 10% damage instead of 5%, Clairvoyance gives 5% magic damage instead of 3%,
+			Swiftness gives 25% speed instead of 15%, Mining gives 25% mining speed instead of 15%,
+			and Sugar Rush gives 20% speed and 20% mining instead of 10% each.
+			Tipsy is the funny one because Calamity leaves it with no melee damage, no crit and 10% *worse* melee speed,
+			where vanilla trades you 4 defense for +10% melee damage, +2 crit and +10% melee speed.
+			The tooltips are fixed as well btw
+			''' */
+	}
+
+	defenseDamage: {
+		// Label: "[i:156] Remove Defense Damage"
+		/* Tooltip:
+			'''
+			If enabled, disables the Calamity Defense Damage mechanic which discourages facetanking.
+			The only problem is, facetanking bosses is funny and this isn't Touhou.
+			Note: this makes Bloodflare Core useless, I'm warning you ;)
+			''' */
+	}
+}
 
 CalamityQoLConfig: {
 	// DisplayName: Calamity QoL

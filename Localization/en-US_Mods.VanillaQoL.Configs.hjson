@@ -1078,9 +1078,15 @@ CalamityUnnerfConfig: {
 
 	soaringInsignia: {
 		Label: "[i:3389] Soaring Insignia Unnerf"
+		Tooltip: If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
+	}
+
+	meteorArmour: {
+		Label: "[i:117] Meteor Armour Unnerf"
 		Tooltip:
 			'''
-			If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
+			Calamity swaps Meteor armour's set bonus: you lose the free Space Gun mana and get 33% mana cost on
+			every magic gun instead. Not really a nerf per se but it ain't the funny effect either so here's a revert ;)
 			'''
 	}
 
@@ -1120,6 +1126,25 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
+	bossDR: {
+		Label: "[i:1299] Vanilla Boss DR Unnerf"
+		Tooltip:
+			'''
+			Calamity gives 22 vanilla bosses flat damage reduction, presumably to prevent killing bosses too fast.
+			This is kinda lame, so if this option is enabled, Y E E T
+			I miss that kid who wrote the funny config messages :(
+			'''
+	}
+
+	pierceResist: {
+		Label: "[i:1258] Piercing Projectiles Unnerf"
+		Tooltip:
+			'''
+			The Eater of Worlds, BoC Creepers and the Destroyer lose 12% damage from every hit of a piercing
+			projectile, capped at -80%. If enabled, this mechanic is removed.
+			'''
+	}
+
 	lifesteal: {
 		Label: "[i:1290] Lifesteal Recovery Unnerf"
 		Tooltip:
@@ -1133,10 +1158,7 @@ CalamityUnnerfConfig: {
 
 	meleeArmourDR: {
 		Label: "[i:2431] Beetle and Solar Flare DR Unnerf"
-		Tooltip:
-			'''
-			If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
-			'''
+		Tooltip: If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
 	}
 
 	buffs: {

@@ -48,6 +48,18 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool lifesteal { get; set; }
 
+    // Shield of Cthulhu
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool bossDR { get; set; }
+
+    // Daedalus Stormbow
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool pierceResist { get; set; }
+
     #endregion
 
     #region Items
@@ -77,6 +89,12 @@ public class CalamityUnnerfConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool brainOfConfusion { get; set; }
+
+    // Meteor Helmet
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool meteorArmour { get; set; }
 
     #endregion
 }

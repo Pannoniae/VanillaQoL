@@ -40,7 +40,12 @@ public class MovementUnnerfs : ModSystem {
         }
 
         if (insignia) {
-            ilCursor.Next!.Operand = vanillaSoaringInsigniaRunAccel;
+            if (ilCursor.Next!.Operand is float f && f == vanillaSoaringInsigniaRunAccel) {
+                // still vanilla's number, so Calamity hasn't run yet and we're patching nothing???
+                warn("Calamity's run acceleration nerf");
+            }
+
+            ilCursor.Next.Operand = vanillaSoaringInsigniaRunAccel;
         }
 
         // Shadow Armor. They leave vanilla's code in the stream and branch over it so we can just undo this skippery
@@ -49,15 +54,8 @@ public class MovementUnnerfs : ModSystem {
             return;
         }
 
-        // sorry, this is a mess, should have been a proper TryGotoNext...
-        if (ilCursor.Next != null && ilCursor.Next.MatchLdarg(0) && ilCursor.Next.Next != null &&
-            ilCursor.Next.Next.MatchCall(out _)) {
-            if (shadow) {
-                ilCursor.RemoveRange(2);
-            }
-        }
-        else {
-            warn("Shadow Armor's replacement delegate");
+        if (shadow) {
+            clearInsertions(ilCursor, il, "Shadow Armor");
         }
 
         // Soaring Insignia again, the infinite rocket boots flight. Same field, second use, ANDed with false so it
@@ -67,15 +65,27 @@ public class MovementUnnerfs : ModSystem {
             return;
         }
 
-        // sorry, this is a mess, should have been a proper TryGotoNext...
-        if (ilCursor.Next != null && ilCursor.Next.MatchLdcI4(0) && ilCursor.Next.Next != null &&
-            ilCursor.Next.Next.OpCode == OpCodes.And) {
-            if (insignia) {
-                ilCursor.RemoveRange(2);
-            }
+        if (insignia) {
+            clearInsertions(ilCursor, il, "Soaring Insignia's infinite flight");
         }
-        else {
-            warn("the infinite flight AND opcode");
+    }
+
+    private static void clearInsertions(ILCursor ilCursor, ILContext il, string name) {
+        var removed = 0;
+        while (ilCursor.Next != null && !ilCursor.Next.MatchBrfalse(out _) && !ilCursor.Next.MatchBrtrue(out _)) {
+            if (removed >= 8) {
+                warn($"the branch after {name} (we won't eat the entire method....)");
+                return;
+            }
+
+            ilCursor.Remove();
+            removed++;
+        }
+
+        if (removed == 0) {
+            warn($"Calamity's patch on {name}");
+            // dump the stream for debugging, something is fucked?
+            MonoModHooks.DumpIL(VanillaQoL.instance, il);
         }
     }
 

@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using CalamityMod.NPCs;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.Gameplay.Calamity.Unnerf;
@@ -14,5 +19,51 @@ public class DefenseDamageUnnerf : ModSystem {
 
     public override void Unload() {
         CalamityMod.CalamityMod.ExternalFlag_DisableDefenseDamage = false;
+    }
+}
+
+/**
+ * We remove DR from the vanilla bosses. TODO maybe from the Cal ones too? not sure
+ */
+[JITWhenModsEnabled("CalamityMod")]
+public class BossDRUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.bossDR;
+    }
+
+    public override void PostSetupContent() {
+        var drValues = CalamityGlobalNPC.DRValues;
+        if (drValues == null) {
+            VanillaQoL.instance.Logger.Warn("CalamityGlobalNPC.DRValues was null!");
+            return;
+        }
+
+        var vanilla = drValues.Keys.Where(type => type < NPCID.Count).ToList();
+        foreach (var type in vanilla) {
+            drValues.Remove(type);
+        }
+
+        VanillaQoL.instance.Logger.Info($"Took Calamity's bonus DR off {vanilla.Count} vanilla NPCs.");
+    }
+}
+
+
+[JITWhenModsEnabled("CalamityMod")]
+public class PierceResistUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.pierceResist;
+    }
+
+    public override void PostSetupContent() {
+        var field = typeof(PierceResistNPC).GetField("pierceResistNPC",
+            BindingFlags.NonPublic | BindingFlags.Static);
+        if (field?.GetValue(null) is not HashSet<int> resistant) {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't find PierceResistNPC.pierceResistNPC!");
+            return;
+        }
+
+        var removed = resistant.RemoveWhere(type => type < NPCID.Count);
+        VanillaQoL.instance.Logger.Info($"Removed pierce resistance from {removed} vanilla NPCs.");
     }
 }
