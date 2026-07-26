@@ -1,5 +1,6 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] Integrated the unnerfs from Calamity Unnerfs.
  [*] Town NPCs no longer spawn at double rate at night if you have Calamity.
  [*] Added an option to have Meteorite be now be blown up pre-HM instead of only in Hardmode.
  [*] Fixed "More Weapons from Treasure Bags" when Calamity is installed.

@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using ReLogic.Graphics;
 using Terraria;
-using Terraria.GameContent;
-using Terraria.GameContent.UI.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;

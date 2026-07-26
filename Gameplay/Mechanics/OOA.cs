@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using MonoMod.Cil;
+﻿using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;

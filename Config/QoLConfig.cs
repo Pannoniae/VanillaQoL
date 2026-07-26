@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 using VanillaQoL.Shared;
 

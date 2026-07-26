@@ -3,16 +3,10 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
-using log4net;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
-using SerousCommonLib.API;
-using Terraria;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
 using VanillaQoL.Gameplay;
@@ -487,8 +481,7 @@ public static class ModLeakFix {
                 .GetValue(loaderallocator)!;
         // m_slots is an object[]
         // we loop over it, find the object[] arrays then clear each one of them
-        for (int i = 0; i < m_slots.Length; i++) {
-            var slot = m_slots[i];
+        foreach (var slot in m_slots) {
             if (slot is object[] obj) {
                 clearObj(obj, typeToClear);
             }

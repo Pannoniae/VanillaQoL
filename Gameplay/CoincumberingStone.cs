@@ -1,7 +1,6 @@
 using System;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Core;
 
 namespace VanillaQoL.Gameplay;
 

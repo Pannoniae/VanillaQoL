@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Condition = Terraria.Condition;

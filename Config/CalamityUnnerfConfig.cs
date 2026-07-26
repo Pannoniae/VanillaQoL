@@ -1,9 +1,9 @@
+using System.ComponentModel;
 using Terraria.ModLoader.Config;
-using VanillaQoL.API;
 
 namespace VanillaQoL.Config;
 
-/// Undoing what Calamity's "vanilla changes" (https://calamitymod.wiki.gg/wiki/Vanilla_changes)
+/// Undoing Calamity's "vanilla changes" (https://calamitymod.wiki.gg/wiki/Vanilla_changes)
 [BackgroundColor(16, 0, 2, 1)]
 [EnabledIf(typeof(CalamityLoaded))]
 public class CalamityUnnerfConfig : ModConfig {
@@ -13,4 +13,16 @@ public class CalamityUnnerfConfig : ModConfig {
 #pragma warning restore CS8618
 
     public override ConfigScope Mode => ConfigScope.ServerSide;
+
+    #region Systems
+
+    [Header("systems")]
+
+    // Cobalt Shield
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool defenseDamage { get; set; }
+
+    #endregion
 }

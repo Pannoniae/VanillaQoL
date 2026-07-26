@@ -235,6 +235,15 @@ QoLConfig: {
 		// Tooltip: If enabled, Hardmode ores can be blown up using explosives after the mechanical bosses are defeated.
 	}
 
+	meteoriteCanExplode: {
+		// Label: "[i:117] Meteorites Can Explode"
+		/* Tooltip:
+			'''
+			If enabled, meteorite can be blown up using explosives pre-hardcode, instead of only in Hardmode.
+
+			''' */
+	}
+
 	dynamicDCUPickaxe: {
 		// Label: "[i:2768] Dynamic DCU"
 		// Tooltip: If enabled, the Drill Containment Unit takes the pickaxe power of the top-left pickaxe in your inventory into account.
@@ -789,6 +798,15 @@ QoLConfig: {
 			'''
 			If enabled, fixes the Starlight River mod's Prayer for Meteorite item. By default, it does exactly nothing because the Starlight River devs are ChatGPT monkeys.
 			This patches WorldGen.dropMeteor to check conditions properly.
+			''' */
+	}
+
+	fixInfernumCrystals: {
+		// Label: "[i:1332] Fix Infernum Icicles Covering The Screen"
+		/* Tooltip:
+			'''
+			If enabled, patches a bug in Infernum which causes Deerclops icicles to cover the entire screen.
+			This was never a Vanilla+ QoL bug but many people thought it was, so might as well make it ours ;)
 			''' */
 	}
 }

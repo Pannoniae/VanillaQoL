@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;

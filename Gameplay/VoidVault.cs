@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 using VanillaQoL.IL;
 

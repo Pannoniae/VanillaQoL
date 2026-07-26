@@ -4,8 +4,6 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using MonoMod.Cil;
-using StarlightRiver.Core;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;

@@ -1068,7 +1068,21 @@ QoLRecipeConfig: {
 	}
 }
 
-CalamityUnnerfConfig.DisplayName: Calamity Unnerfs
+CalamityUnnerfConfig: {
+	DisplayName: Calamity Unnerfs
+
+	Headers.systems: "[i:1290] Systems"
+
+	defenseDamage: {
+		Label: "[i:156] Remove Defense Damage"
+		Tooltip:
+			'''
+			If enabled, disables the Calamity Defense Damage mechanic which discourages facetanking.
+			The only problem is, facetanking bosses is funny and this isn't Touhou.
+			Note: this makes Bloodflare Core useless, I'm warning you ;)
+			'''
+	}
+}
 
 CalamityQoLConfig: {
 	DisplayName: Calamity QoL

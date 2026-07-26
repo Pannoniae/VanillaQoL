@@ -4,8 +4,6 @@ using MonoMod.Cil;
 using Terraria.GameContent.UI.States;
 using Terraria.GameInput;
 using Terraria.ModLoader;
-using VanillaQoL.API;
-using VanillaQoL.Config;
 
 namespace VanillaQoL.Gameplay;
 

@@ -5,7 +5,6 @@ using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-using Terraria.UI.Gamepad;
 using VanillaQoL.UI;
 
 namespace VanillaQoL.IL;

@@ -4,7 +4,6 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 

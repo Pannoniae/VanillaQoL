@@ -1,5 +1,3 @@
-using CalamityMod.Items.Placeables.Pylons;
-using CalamityMod.Tiles.Pylons;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent;

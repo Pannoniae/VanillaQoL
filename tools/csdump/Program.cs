@@ -14,12 +14,13 @@ if (args.Length == 0) {
     Console.Error.WriteLine("       csdump <target> <TypeName> [MethodName]                  dump one type/method as C# to stdout");
     Console.Error.WriteLine("       csdump <target> --files                                  list .tmod contents");
     Console.Error.WriteLine("       csdump --all                                             dump everything, go make a coffee");
+    Console.Error.WriteLine("       csdump --scan <int>                                      find constants in mod (IL)");
     return 1;
 }
 
 var outRoot = Path.Combine(Environment.CurrentDirectory, "csdump");
 var positional = new List<string>();
-bool list = false, all = false, files = false;
+bool list = false, all = false, files = false, scan = false;
 foreach (var arg in args) {
     switch (arg) {
         case "--list":
@@ -30,6 +31,9 @@ foreach (var arg in args) {
             break;
         case "--files":
             files = true;
+            break;
+        case "--scan":
+            scan = true;
             break;
         default:
             positional.Add(arg);
@@ -61,6 +65,16 @@ if (all) {
     }
 
     return failed == 0 ? 0 : 1;
+}
+
+if (scan) {
+    if (positional.Count == 0 || !int.TryParse(positional[0], out var needle)) {
+        Console.Error.WriteLine("--scan requires a number (tileid, itemid, anything)");
+        return 1;
+    }
+
+    scanAll(needle, candidates);
+    return 0;
 }
 
 if (positional.Count == 0) {
@@ -239,6 +253,74 @@ static int dumpType(string target, string typeName, string? methodName) {
 
     Console.WriteLine(decompiler.DecompileAsString(handles));
     return 0;
+}
+
+// "which mod is doing this to me", the tool
+// this is a VERY bad and hacky way of doing things, todo proper disassembly?
+static void scanAll(int needle, List<ModCandidate> candidates) {
+    byte[] pattern = [0x20, .. BitConverter.GetBytes(needle)];
+    int hits = 0;
+    foreach (var c in candidates.OrderBy(c => c.name, StringComparer.OrdinalIgnoreCase)) {
+        try {
+            using var tmod = TmodArchive.open(c.path);
+            var entry = tmod.entries.FirstOrDefault(e => e.name == tmod.name + ".dll");
+            if (entry == null) {
+                continue;
+            }
+
+            using var module = new PEFile(tmod.name, new MemoryStream(tmod.readEntry(entry)));
+            foreach (var m in methodContains(module, pattern)) {
+                Console.WriteLine($"{c.name,-32} {m}");
+                hits++;
+            }
+        }
+        catch (Exception ex) {
+            Console.Error.WriteLine($"skipped {c.name}: {ex.Message}");
+        }
+    }
+
+    Console.WriteLine($"{hits} method(s) mentioning {needle}");
+}
+
+static IEnumerable<string> methodContains(PEFile module, byte[] pattern) {
+    var md = module.Metadata;
+    foreach (var handle in md.MethodDefinitions) {
+        var method = md.GetMethodDefinition(handle);
+        if (method.RelativeVirtualAddress == 0) {
+            continue;
+        }
+
+        byte[] il;
+        try {
+            il = module.GetMethodBody(method.RelativeVirtualAddress).GetILBytes()!;
+        }
+        catch {
+            continue;
+        }
+
+        if (!contains(il, pattern)) {
+            continue;
+        }
+
+        var type = md.GetTypeDefinition(method.GetDeclaringType());
+        var ns = md.GetString(type.Namespace);
+        yield return $"{(ns.Length > 0 ? ns + "." : "")}{md.GetString(type.Name)}::{md.GetString(method.Name)}";
+    }
+}
+
+static bool contains(byte[] haystack, byte[] needle) {
+    for (int i = 0; i <= haystack.Length - needle.Length; i++) {
+        int j = 0;
+        while (j < needle.Length && haystack[i + j] == needle[j]) {
+            j++;
+        }
+
+        if (j == needle.Length) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 // the actual tML install, dll at the root and everything else squirrelled away under Libraries/.

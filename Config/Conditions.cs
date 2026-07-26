@@ -1,6 +1,5 @@
 using Terraria.Localization;
 using Terraria.ModLoader;
-using VanillaQoL.API;
 
 namespace VanillaQoL.Config;
 
