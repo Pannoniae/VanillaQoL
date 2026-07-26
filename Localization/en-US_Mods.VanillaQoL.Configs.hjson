@@ -1072,17 +1072,17 @@ CalamityUnnerfConfig: {
 	DisplayName: Calamity Unnerfs
 
 	Headers: {
-		systems: "[i:1290] Systems"
-		items: "[i:3389] Items"
+		systems: "[i:3097] Systems"
+		items: "[i:2218] Items"
 	}
 
 	soaringInsignia: {
-		Label: "[i:3389] Soaring Insignia Unnerf"
+		Label: "[i:4989] Soaring Insignia Unnerf"
 		Tooltip: If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
 	}
 
 	meteorArmour: {
-		Label: "[i:117] Meteor Armour Unnerf"
+		Label: "[i:123] Meteor Armour Unnerf"
 		Tooltip:
 			'''
 			Calamity swaps Meteor armour's set bonus: you lose the free Space Gun mana and get 33% mana cost on
@@ -1091,7 +1091,7 @@ CalamityUnnerfConfig: {
 	}
 
 	blackBelt: {
-		Label: "[i:934] Black Belt Unnerf"
+		Label: "[i:963] Black Belt Unnerf"
 		Tooltip:
 			'''
 			If enabled, disables the Calamity 90 second shared cooldown for the Black Belt.
@@ -1118,7 +1118,7 @@ CalamityUnnerfConfig: {
 	}
 
 	damageReduction: {
-		Label: "[i:1290] Damage Reduction Unnerf"
+		Label: "[i:3224] Damage Reduction Unnerf"
 		Tooltip:
 			'''
 			Calamity quietly runs all your damage reduction through a formula, so 25% is the new 20%, 50% is the new 33%,
@@ -1127,7 +1127,7 @@ CalamityUnnerfConfig: {
 	}
 
 	bossDR: {
-		Label: "[i:1299] Vanilla Boss DR Unnerf"
+		Label: "[i:3097] Vanilla Boss DR Unnerf"
 		Tooltip:
 			'''
 			Calamity gives 22 vanilla bosses flat damage reduction, presumably to prevent killing bosses too fast.
@@ -1136,8 +1136,17 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
+	calamityBossDR: {
+		Label: "[i:3097] Calamity Boss DR Unnerf"
+		Tooltip:
+			'''
+			If enabled, the same flat damage reduction is disabled for Calamity bosses too.
+			To be fair, some bosses will be trivially cheesable if you do this.
+			'''
+	}
+
 	pierceResist: {
-		Label: "[i:1258] Piercing Projectiles Unnerf"
+		Label: "[i:3029] Piercing Projectiles Unnerf"
 		Tooltip:
 			'''
 			The Eater of Worlds, BoC Creepers and the Destroyer lose 12% damage from every hit of a piercing
@@ -1146,7 +1155,7 @@ CalamityUnnerfConfig: {
 	}
 
 	lifesteal: {
-		Label: "[i:1290] Lifesteal Recovery Unnerf"
+		Label: "[i:1569] Lifesteal Recovery Unnerf"
 		Tooltip:
 			'''
 			Terraria has a hidden lifesteal meter that refills at 36 HP/s in Classic and 30 in Expert.
@@ -1157,7 +1166,7 @@ CalamityUnnerfConfig: {
 	}
 
 	meleeArmourDR: {
-		Label: "[i:2431] Beetle and Solar Flare DR Unnerf"
+		Label: "[i:2218] Beetle and Solar Flare DR Unnerf"
 		Tooltip: If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
 	}
 

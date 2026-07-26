@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -28,7 +29,8 @@ public class DefenseDamageUnnerf : ModSystem {
 [JITWhenModsEnabled("CalamityMod")]
 public class BossDRUnnerf : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
-        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.bossDR;
+        return VanillaQoL.isCalamityLoaded() &&
+               (CalamityUnnerfConfig.Instance.bossDR || CalamityUnnerfConfig.Instance.calamityBossDR);
     }
 
     public override void PostSetupContent() {
@@ -38,12 +40,26 @@ public class BossDRUnnerf : ModSystem {
             return;
         }
 
-        var vanilla = drValues.Keys.Where(type => type < NPCID.Count).ToList();
-        foreach (var type in vanilla) {
+        if (CalamityUnnerfConfig.Instance.bossDR) {
+            strip(drValues, type => type < NPCID.Count, "vanilla");
+        }
+
+        if (CalamityUnnerfConfig.Instance.calamityBossDR) {
+            strip(drValues, isCalamitys, "Calamity");
+        }
+    }
+
+    private static bool isCalamitys(int type) {
+        return type >= NPCID.Count && NPCLoader.GetNPC(type)?.Mod.Name == "CalamityMod";
+    }
+
+    private static void strip(SortedDictionary<int, float> drValues, Func<int, bool> matches, string whose) {
+        var doomed = drValues.Keys.Where(matches).ToList();
+        foreach (var type in doomed) {
             drValues.Remove(type);
         }
 
-        VanillaQoL.instance.Logger.Info($"Took Calamity's bonus DR off {vanilla.Count} vanilla NPCs.");
+        VanillaQoL.instance.Logger.Info($"Took Calamity's bonus DR off {doomed.Count} {whose} NPCs.");
     }
 }
 

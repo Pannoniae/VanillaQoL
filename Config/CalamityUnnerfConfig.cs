@@ -54,6 +54,12 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool bossDR { get; set; }
 
+    // Bloodflare Core
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool calamityBossDR { get; set; }
+
     // Daedalus Stormbow
     [BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
