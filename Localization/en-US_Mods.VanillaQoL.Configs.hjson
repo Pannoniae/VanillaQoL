@@ -1071,7 +1071,51 @@ QoLRecipeConfig: {
 CalamityUnnerfConfig: {
 	DisplayName: Calamity Unnerfs
 
-	Headers.systems: "[i:1290] Systems"
+	Headers: {
+		systems: "[i:1290] Systems"
+		items: "[i:3389] Items"
+	}
+
+	soaringInsignia: {
+		Label: "[i:3389] Soaring Insignia Unnerf"
+		Tooltip:
+			'''
+			If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
+			'''
+	}
+
+	shadowArmour: {
+		Label: "[i:86] Shadow Armour Unnerf"
+		Tooltip:
+			'''
+			If enabled, undoes Calamity's nerfs to Shadow Armour. It reduces its movement boost then also decides it shouldn't stack
+			with Magiluminescence.
+			'''
+	}
+
+	damageReduction: {
+		Label: "[i:1290] Damage Reduction Unnerf"
+		Tooltip:
+			'''
+			Calamity quietly runs all your damage reduction through a formula, so 25% is the new 20%, 50% is the new 33%,
+			and 100% is the new 50%. If enabled, we fix this.
+			'''
+	}
+
+	buffs: {
+		Label: "[i:353] Permanent Buffs Unnerf"
+		Tooltip:
+			'''
+			If enabled, removes Calamity's changes to a bunch of status effects:
+			Well Fed gives 20% speed instead of 5%, Magic Power gives 20% instead of 10%,
+			Archery gives 10% damage instead of 5%, Clairvoyance gives 5% magic damage instead of 3%,
+			Swiftness gives 25% speed instead of 15%, Mining gives 25% mining speed instead of 15%,
+			and Sugar Rush gives 20% speed and 20% mining instead of 10% each.
+			Tipsy is the funny one because Calamity leaves it with no melee damage, no crit and 10% *worse* melee speed,
+			where vanilla trades you 4 defense for +10% melee damage, +2 crit and +10% melee speed.
+			The tooltips are fixed as well btw
+			'''
+	}
 
 	defenseDamage: {
 		Label: "[i:156] Remove Defense Damage"

@@ -19,6 +19,7 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] Hovering over the wing slot tells you what it is again.
  [*] Turning off Ancient Swords doesn't add "Material" into every single tooltip in the game anymore.
  [*] Quick Bestiary Unlock no longer demands that you murder town NPCs and critters to unlock them.
+ [*] The incompatible mods warning actually stays on screen now instead of disappearing if you can't read fast lol
  [*] Fixed a crash on load with Martin's Order.
  [*] Patched a bug in Infernum so the screen isn't covered with icicles all the time.
  [*] Remove the accessory loadout support option - tModLoader does this natively now and ours was broken by the recent tML changes anyway.

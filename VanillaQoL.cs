@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -192,6 +194,12 @@ public class VanillaQoL : Mod {
 }
 
 public static class ModCompat {
+    // yes this is hardcoded, modloc isn't loaded yet....
+    private const string compatHeader =
+        "One or more of your mods are incompatible with each other. The incompatible mods are listed below:";
+
+    private static string? compatReport;
+
     public static void stopNulling(ILContext il) {
         var ilCursor = new ILCursor(il);
         // go to null-assignment followed by return
@@ -333,46 +341,139 @@ public static class ModCompat {
             MonoModHooks.Modify(loadEdits, stopNulling);
         }
 
+        checkCompat();
+    }
+
+    private static void checkCompat() {
         var str = new StringBuilder();
-        bool atLeastOne = false;
-        str.Append(
-            "One or more of your mods are incompatible with each other. The incompatible mods are listed below: ");
         foreach (var mod in ModLoader.Mods) {
             // tML doesn't have a file, lol
             if (mod.Name == "ModLoader") {
                 continue;
             }
 
-            const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
-            var file = (TmodFile)mod.GetType().GetProperty("File", flags)!.GetValue(mod)!;
             try {
-                file.Open();
-                var compatFile = file.GetBytes("compat.txt");
-
-                if (compatFile == null) {
-                    continue;
-                }
-
-                str.Append($"\n    {mod.DisplayName} ({mod.Name}):");
-
-                var content = Encoding.ASCII.GetString(compatFile);
-                var entries = content.Split(["\r\n", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
-                foreach (var entry in entries) {
-                    var halves = entry.Split("=");
-                    var resolvedMod = ModLoader.TryGetMod(halves[0], out var incompatMod);
-                    if (resolvedMod) {
-                        str.Append($"\n        {incompatMod.DisplayName} ({incompatMod.Name}): {halves[1]}");
-                        atLeastOne = true;
-                    }
-                }
+                collectConflicts(mod, str);
             }
-            finally {
-                file.GetType().GetMethod("Close", flags)!.Invoke(file, null);
+            catch (Exception e) {
+                // whatever is wrong with that mod's file, it ain't worth taking the entire load down over
+                VanillaQoL.instance.Logger.Warn($"Couldn't read compat.txt out of {mod.Name}", e);
             }
         }
 
-        if (atLeastOne) {
-            Terraria.Utils.ShowFancyErrorMessage(str.ToString(), 10006);
+        compatReport = str.Length > 0 ? compatHeader + str : null;
+        if (compatReport == null) {
+            return;
+        }
+
+        VanillaQoL.instance.Logger.Warn(compatReport);
+
+        patchLoadError();
+        queueReport();
+    }
+
+    private static void collectConflicts(Mod mod, StringBuilder str) {
+        const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+        var file = (TmodFile)typeof(Mod).GetProperty("File", flags)!.GetValue(mod)!;
+
+        using (file.Open()) {
+            var compatFile = file.GetBytes("compat.txt");
+            if (compatFile == null) {
+                return;
+            }
+
+            var named = false;
+            var content = Encoding.UTF8.GetString(compatFile);
+            foreach (var entry in content.Split(['\r', '\n'],
+                         StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)) {
+                var halves = entry.Split('=', 2);
+                if (halves.Length != 2 || !ModLoader.TryGetMod(halves[0], out var incompatMod)) {
+                    continue;
+                }
+
+                // don't name the complainer until it's got something to complain about lol
+                if (!named) {
+                    str.Append($"\n    {mod.DisplayName} ({mod.Name}):");
+                    named = true;
+                }
+
+                str.Append($"\n        {incompatMod.DisplayName} ({incompatMod.Name}): {halves[1]}");
+            }
+        }
+    }
+
+    /// <summary>
+    /// If the load blows up, tML replaces the error screen with the exception. Time to get in front of it lol, if there's a conflict, THAT's important, the stacktrace less so
+    /// </summary>
+    private static void patchLoadError() {
+        var displayLoadError =
+            typeof(ModLoader).GetMethod("DisplayLoadError", BindingFlags.Static | BindingFlags.NonPublic);
+        if (displayLoadError == null) {
+            VanillaQoL.instance.Logger.Warn(
+                "Failed to find ModLoader.DisplayLoadError, the compat report won't survive a failed load");
+            return;
+        }
+
+        MonoModHooks.Modify(displayLoadError, prependReport);
+    }
+
+    private static void prependReport(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        ilCursor.EmitLdarg0();
+        ilCursor.EmitCall(typeof(ModCompat).GetMethod("decorate")!);
+        ilCursor.EmitStarg(il.Method.Parameters[0]);
+    }
+
+    public static string decorate(string msg) {
+        if (compatReport == null) {
+            return msg;
+        }
+
+        var report = compatReport;
+        compatReport = null;
+        var pending = pendingMessages();
+        if (pending != null) {
+            dropMsg(pending);
+        }
+
+        return report + "\n\n" + msg;
+    }
+
+    /**
+    * ...and if the load survives, tML's own "show this once we reach the main menu" stack gets it.
+    */
+    private static void queueReport() {
+        if (Main.dedServ) {
+            return;
+        }
+
+        var pending = pendingMessages();
+        if (pending == null) {
+            VanillaQoL.instance.Logger.Warn(
+                "Failed to find Interface.pendingErrorMessages, the compat report won't show up on the menu");
+            return;
+        }
+
+        dropMsg(pending);
+        pending.Push(compatReport!);
+    }
+
+    private static Stack<string>? pendingMessages() {
+        var iface = typeof(ModLoader).Assembly.GetType("Terraria.ModLoader.UI.Interface");
+        return iface?.GetField("pendingErrorMessages", BindingFlags.Static | BindingFlags.NonPublic)
+            ?.GetValue(null) as Stack<string>;
+    }
+
+    // a reload leaves the previous one sitting in there unread, YEET
+    private static void dropMsg(Stack<string> pending) {
+        if (!pending.Any(m => m.StartsWith(compatHeader))) {
+            return;
+        }
+
+        var kept = pending.Where(m => !m.StartsWith(compatHeader)).Reverse().ToArray();
+        pending.Clear();
+        foreach (var msg in kept) {
+            pending.Push(msg);
         }
     }
 }

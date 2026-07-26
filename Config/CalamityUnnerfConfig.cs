@@ -24,5 +24,35 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool defenseDamage { get; set; }
 
+    // Beetle Shell
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool damageReduction { get; set; }
+
+    // Ale
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool buffs { get; set; }
+
+    #endregion
+
+    #region Items
+
+    [Header("items")]
+
+    // Soaring Insignia
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool soaringInsignia { get; set; }
+
+    // Shadow Scale
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool shadowArmour { get; set; }
+
     #endregion
 }
