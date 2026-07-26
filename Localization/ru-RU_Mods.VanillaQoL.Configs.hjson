@@ -911,7 +911,7 @@ UIConfig: {
 		// Label: "[i:3625] Fix the Mod Sync Crash"
 		/* Tooltip:
 			'''
-			If enabled, fixes a bug where joining a server whose mods have new config pages errors out and freezes the game
+			If enabled, fixes a tML bug where joining a server whose mods have new config pages errors out and freezes the game
 			 on Syncing Mods forever. Kinda L
 			''' */
 	}

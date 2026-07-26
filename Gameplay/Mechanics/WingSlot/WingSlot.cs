@@ -21,6 +21,12 @@ public class WingSlot : ModAccessorySlot, ILocalizedModType {
         return QoLConfig.Instance.wingSlot;
     }
 
+    // ModAccessorySlot never got the memo about calling SetStaticDefaults, so we call it ourselves.
+    // stupid ass tML "API design"
+    public override void SetupContent() {
+        SetStaticDefaults();
+    }
+
     public override void SetStaticDefaults() {
         wings = this.GetLocalization(nameof(wings));
         socialWings = this.GetLocalization(nameof(socialWings));
