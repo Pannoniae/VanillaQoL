@@ -1185,6 +1185,32 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
+	damageVariance: {
+		Label: "[i:3119] Damage Variance Unnerf"
+		Tooltip:
+			'''
+			If enabled, restores the vanilla damage variance mechanics. Calamity narrowed it a lot and removed luck from it entirely.
+			'E-Sports doesn't mean a symmetrical matchup with no RNG'
+			'''
+	}
+
+	multiplayerBossHealth: {
+		Label: "[i:29] Multiplayer Boss Health Unnerf"
+		Tooltip:
+			'''
+			If enabled, reverts the Calamity buff to MP boss health. Maybe tanking ain't fun?
+			'''
+	}
+
+	yoyoGlove: {
+		Label: "[i:3334] Yo-yo Glove Unnerf"
+		Tooltip:
+			'''
+			If enabled, reverts Calamity's 50% nerf to the damage of secondary yoyos given by the Yoyo Glove.
+			'A counterweight to the fun police'
+			'''
+	}
+
 	defenseDamage: {
 		Label: "[i:156] Remove Defense Damage"
 		Tooltip:

@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using CalamityMod.Balancing;
 using CalamityMod.NPCs;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -60,6 +62,33 @@ public class BossDRUnnerf : ModSystem {
         }
 
         VanillaQoL.instance.Logger.Info($"Took Calamity's bonus DR off {doomed.Count} {whose} NPCs.");
+    }
+}
+
+
+/**
+ * Calamity rescales boss health in multiplayer, 1.75x for two players and 2.25x for three (vanilla 1.35x and 1.9166x).
+ * So we just cancel it out!
+ */
+[JITWhenModsEnabled("CalamityMod")]
+public class MultiplayerHealthUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.multiplayerBossHealth;
+    }
+
+    public override void OnModLoad() {
+        BalancingConstants.ExpertHealthScalingOverride_2Players = vanillaBalance(2);
+        BalancingConstants.ExpertHealthScalingOverride_3Players = vanillaBalance(3);
+    }
+
+    public override void Unload() {
+        BalancingConstants.ExpertHealthScalingOverride_2Players = 1.75f;
+        BalancingConstants.ExpertHealthScalingOverride_3Players = 2.25f;
+    }
+
+    private static float vanillaBalance(int players) {
+        NPC.GetStatScalingFactors(players, out var balance, out _);
+        return balance;
     }
 }
 

@@ -66,6 +66,18 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool pierceResist { get; set; }
 
+    // DPS Meter
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool damageVariance { get; set; }
+
+    // Life Crystal
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool multiplayerBossHealth { get; set; }
+
     #endregion
 
     #region Items
@@ -101,6 +113,12 @@ public class CalamityUnnerfConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool meteorArmour { get; set; }
+
+    // Yo-yo Glove
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool yoyoGlove { get; set; }
 
     #endregion
 }
