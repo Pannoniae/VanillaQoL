@@ -78,6 +78,12 @@ public class CalamityUnnerfConfig : ModConfig {
     [ReloadRequired]
     public bool multiplayerBossHealth { get; set; }
 
+    // Cross Necklace
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool immunityFrames { get; set; }
+
     #endregion
 
     #region Items
@@ -119,6 +125,18 @@ public class CalamityUnnerfConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool yoyoGlove { get; set; }
+
+    // Jungle Hat
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool jungleArmour { get; set; }
+
+    // Frost Helmet
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    [ReloadRequired]
+    public bool frostArmour { get; set; }
 
     #endregion
 }

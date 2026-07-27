@@ -2,6 +2,8 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
 [list]
  [*] Integrated the unnerfs from Calamity Unnerfs.
  [*] Reverted a Calamity nerf to damage variance + luck applies to it again.
+ [*] Vanilla projectiles get their vanilla immunity frames back instead of Calamity's shared cooldowns.
+ [*] Jungle and Frost armour are back to their vanilla stats and set bonuses.
  [*] Bosses no longer get Calamity's extra health in multiplayer.
  [*] The Yo-yo Glove's second yo-yo deals full damage again instead of half.
  [*] Town NPCs no longer spawn at double rate at night if you have Calamity.

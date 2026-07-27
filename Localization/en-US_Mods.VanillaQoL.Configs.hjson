@@ -1202,6 +1202,31 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
+	immunityFrames: {
+		Label: "[i:554] Immunity Frames Unnerf"
+		Tooltip:
+			'''
+			If enabled, removes the Calamity changes to the immunity frames on a few hundred vanilla projectiles.
+			It prevents projectile stacking by moving them onto a shared cooldown.
+			'''
+	}
+
+	jungleArmour: {
+		Label: "[i:228] Jungle Armour Unnerf"
+		Tooltip:
+			'''
+			If enabled, reverts the Calamity Jungle Armour nerf to the vanilla stats.
+			'''
+	}
+
+	frostArmour: {
+		Label: "[i:684] Frost Armour Unnerf"
+		Tooltip:
+			'''
+			If enabled, restores the vanilla Frost Armour stats. It's more of a rework than a nerf, to be fair.
+			'''
+	}
+
 	yoyoGlove: {
 		Label: "[i:3334] Yo-yo Glove Unnerf"
 		Tooltip:

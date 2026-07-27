@@ -9,7 +9,9 @@ namespace VanillaQoL.Gameplay.Calamity.Unnerf;
 [JITWhenModsEnabled("CalamityMod")]
 public class ArmourUnnerfs : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
-        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.meteorArmour;
+        return VanillaQoL.isCalamityLoaded() && (CalamityUnnerfConfig.Instance.meteorArmour ||
+                                                 CalamityUnnerfConfig.Instance.jungleArmour ||
+                                                 CalamityUnnerfConfig.Instance.frostArmour);
     }
 
     public override void PostSetupContent() {
@@ -23,6 +25,14 @@ public class ArmourUnnerfs : ModSystem {
 
         if (CalamityUnnerfConfig.Instance.meteorArmour) {
             remove<MeteorArmorSetChange>(changes, "Meteor");
+        }
+
+        if (CalamityUnnerfConfig.Instance.jungleArmour) {
+            remove<JungleArmorSetChange>(changes, "Jungle");
+        }
+
+        if (CalamityUnnerfConfig.Instance.frostArmour) {
+            remove<FrostArmorSetChange>(changes, "Frost");
         }
     }
 

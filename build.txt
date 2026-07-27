@@ -4,4 +4,4 @@ version = 1.6.1
 homepage = https://discord.gg/w4JvYdkdDP
 includeSource = true
 weakReferences = CalamityMod, ThoriumMod, RecipeBrowser, MagicStorage, CheatSheet, HEROsMod, StarlightRiver
-buildIgnore = ILLib/*, tools/*
+buildIgnore = ILLib/*, tools/*, csdump/*, obj/*
