@@ -121,6 +121,13 @@ public class SmartCursor : ModSystem {
             typeof(SmartCursorHelper).GetField("_targets", BindingFlags.NonPublic | BindingFlags.Static)!;
         var infoType = typeof(SmartCursorHelper).GetNestedType("SmartCursorUsageInfo", BindingFlags.NonPublic)!;
 
+        var shim = typeof(PlatformTargeting).GetMethod(nameof(PlatformTargeting.selectVanilla))!;
+        if (shim.GetParameters()[0].ParameterType != targetsField.FieldType) {
+            VanillaQoL.instance.Logger.Warn(
+                "selectVanilla's first parameter doesn't match the type?");
+            return;
+        }
+
         if (!ilCursor.TryGotoNext(MoveType.Before,
                 i => i.MatchLdsfld(out var field) && field.Name == "_targets",
                 i => i.MatchCallvirt(out var method) && method.Name == "get_Count")) {
@@ -156,7 +163,7 @@ public class SmartCursor : ModSystem {
         ilCursor.Emit(OpCodes.Ldfld, infoType.GetField("reachableEndY")!);
         ilCursor.EmitLdarg1();
         ilCursor.EmitLdarg2();
-        ilCursor.EmitCall<PlatformTargeting>(nameof(PlatformTargeting.selectTarget));
+        ilCursor.EmitCall<PlatformTargeting>(nameof(PlatformTargeting.selectVanilla));
         ilCursor.Emit(OpCodes.Br, end);
     }
 

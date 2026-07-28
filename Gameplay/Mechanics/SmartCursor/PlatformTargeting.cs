@@ -8,17 +8,26 @@ using Terraria.ID;
 namespace VanillaQoL.Gameplay.Mechanics.SmartCursor;
 
 public class PlatformTargeting {
-    // how far the mouse can drift off a line before we stop giving a fuck
-    private const int erows = 1;
-    private const int ecols = 2;
-
     // how thick a gap we're willing to cross
     private const int max = 3;
 
-    // the six ways a platform line can point
-    private static readonly Point16[] directions = [
-        new(1, 0), new(-1, 0), new(1, 1), new(-1, -1), new(1, -1), new(-1, 1)
+    // the eight directions
+    private static readonly Point16[] compass = [
+        new(1, 0), new(1, 1), new(0, 1), new(-1, 1), new(-1, 0), new(-1, -1), new(0, -1), new(1, -1)
     ];
+
+    private static readonly List<Point16> scratch = [];
+
+    // convert Tuple<int, int> -> Point16
+    public static void selectVanilla(List<Tuple<int, int>> targets, Vector2 mouse, int sx, int sy,
+        int ex, int ey, ref int fx, ref int fy) {
+        scratch.Clear();
+        foreach (var t in targets) {
+            scratch.Add(new Point16(t.Item1, t.Item2));
+        }
+
+        selectTarget(scratch, mouse, sx, sy, ex, ey, ref fx, ref fy);
+    }
 
     public static void selectTarget(List<Point16> targets, Vector2 mouse, int sx, int sy,
         int ex, int ey, ref int fx, ref int fy) {
@@ -26,110 +35,143 @@ public class PlatformTargeting {
             return;
         }
 
-        var mx = (int)(mouse.X / 16f);
-        var my = (int)(mouse.Y / 16f);
-
-        if (findLineEnd(mx, my, mouse, out var lx, out var ly, out var dx, out var dy)) {
-            var cx = lx + dx;
-            var cy = ly + dy;
-            // vanilla already generated the continue if the position is free and valid
-            // so if it's there, we're good
-            if (targets.Contains(new Point16(cx, cy))) {
-                if (Collision.InTileBounds(cx, cy, sx, sy, ex, ey)) {
-                    fx = cx;
-                    fy = cy;
-                }
-
-                return;
-            }
-
-            // the line is blocked. if something actually occupies the next tile we can try
-            // one past it if the real placement rules would accept the click.
-            var blockTile = Main.tile[cx, cy];
-            if (blockTile.HasTile && !Main.tileCut[blockTile.TileType]) {
-                for (var i = 2; i <= max + 1; i++) {
-                    var x = lx + dx * i;
-                    var y = ly + dy * i;
-                    if (!WorldGen.InWorld(x, y, 5)) {
-                        return;
-                    }
-
-                    var tile = Main.tile[x, y];
-                    if (tile.HasTile && !Main.tileCut[tile.TileType]) {
-                        continue;
-                    }
-
-                    // first free tile decides: either it anchors or we suggest nothing.
-                    if (canAnchorPlatform(x, y) && Collision.InTileBounds(x, y, sx, sy, ex, ey)) {
-                        fx = x;
-                        fy = y;
-                    }
-
-                    return;
-                }
-            }
-
-            // nothing to continue on, no suggestion > a shit one
+        if (adjacentTile(targets, mouse, sx, sy, ex, ey, ref fx, ref fy)) {
             return;
         }
 
-        nearest(targets, mouse, sx, sy, ex, ey, ref fx, ref fy);
+        // pointing at the tile itself is not a placement
+        var hover = Main.tile[(int)(mouse.X / 16f), (int)(mouse.Y / 16f)];
+        if (hover.HasTile && TileID.Sets.Platforms[hover.TileType]) {
+            return;
+        }
+
+        // no platforms in reach (fresh placement off blocks/walls) - vanilla knows best
+        if (!findAnchor(mouse, sx, sy, ex, ey, out var hx, out var hy)) {
+            nearest(targets, mouse, sx, sy, ex, ey, ref fx, ref fy);
+            return;
+        }
+
+        var to = mouse - (new Vector2(hx, hy) * 16f + Vector2.One * 8f);
+        var bestDot = float.MinValue;
+        var dir = compass[0];
+        var sq2 = float.Sqrt(2f);
+        foreach (var d in compass) {
+            var len = d.X != 0 && d.Y != 0 ? sq2 : 1f;
+            var dot = (to.X * d.X + to.Y * d.Y) / len;
+            if (dot > bestDot) {
+                bestDot = dot;
+                dir = d;
+            }
+        }
+
+        var cx = hx + dir.X;
+        var cy = hy + dir.Y;
+        // vanilla already generated the cell if the position is free and valid, so if it's
+        // in the list, we're good
+        if (targets.Contains(new Point16(cx, cy))) {
+            if (Collision.InTileBounds(cx, cy, sx, sy, ex, ey)) {
+                fx = cx;
+                fy = cy;
+            }
+
+            return;
+        }
+
+        var blockTile = Main.tile[cx, cy];
+        if (blockTile.HasTile && !Main.tileCut[blockTile.TileType]) {
+            if (TileID.Sets.Platforms[blockTile.TileType]) {
+                return;
+            }
+
+            for (var i = 2; i <= max + 1; i++) {
+                var x = hx + dir.X * i;
+                var y = hy + dir.Y * i;
+                if (!WorldGen.InWorld(x, y, 5)) {
+                    return;
+                }
+
+                var tile = Main.tile[x, y];
+                if (tile.HasTile && TileID.Sets.Platforms[tile.TileType]) {
+                    // ran into existing platforms
+                    break;
+                }
+
+                if (tile.HasTile && !Main.tileCut[tile.TileType]) {
+                    continue;
+                }
+
+                if (canAnchorPlatform(x, y) && Collision.InTileBounds(x, y, sx, sy, ex, ey)) {
+                    fx = x;
+                    fy = y;
+                    return;
+                }
+
+                break;
+            }
+
+            return;
+        }
+
+        // cos 67.5
+        var ringBest = 0.3826834f * to.Length();
+        var found = false;
+        var rx = 0;
+        var ry = 0;
+        foreach (var d in compass) {
+            var len = d.X != 0 && d.Y != 0 ? sq2 : 1f;
+            var dot = (to.X * d.X + to.Y * d.Y) / len;
+            if (dot > ringBest && targets.Contains(new Point16(hx + d.X, hy + d.Y))) {
+                ringBest = dot;
+                rx = hx + d.X;
+                ry = hy + d.Y;
+                found = true;
+            }
+        }
+
+        if (found && Collision.InTileBounds(rx, ry, sx, sy, ex, ey)) {
+            fx = rx;
+            fy = ry;
+        }
+
+        // otherwise: nothing > a shit suggestion.
     }
 
-    private static bool findLineEnd(int mouseX, int mouseY, Vector2 mouse, out int lx, out int ly,
-        out int dx, out int dy) {
-        lx = ly = dx = dy = 0;
+    // direct case, we point at an adjacent tile, we're good
+    private static bool adjacentTile(List<Point16> targets, Vector2 mouse, int sx, int sy, int ex, int ey,
+        ref int fx, ref int fy) {
+        var x = (int)(mouse.X / 16f);
+        var y = (int)(mouse.Y / 16f);
+        if (targets.Contains(new Point16(x, y)) && Collision.InTileBounds(x, y, sx, sy, ex, ey)) {
+            fx = x;
+            fy = y;
+            return true;
+        }
+
+        return false;
+    }
+
+    private static bool findAnchor(Vector2 mouse, int sx, int sy, int ex, int ey, out int hx, out int hy) {
+        hx = hy = 0;
         var best = -1f;
 
-        var l = Math.Clamp(mouseX - ecols - 1, 5, Main.maxTilesX - 5);
-        var r = Math.Clamp(mouseX + ecols + 1, 5, Main.maxTilesX - 5);
-        var t = Math.Clamp(mouseY - erows - 1, 5, Main.maxTilesY - 5);
-        var b = Math.Clamp(mouseY + erows + 1, 5, Main.maxTilesY - 5);
+        // one tile of margin: a platform just outside the box can still own placements inside it
+        for (var x = sx - 1; x <= ex + 1; x++) {
+            for (var y = sy - 1; y <= ey + 1; y++) {
+                var tile = Main.tile[x, y];
+                if (!tile.HasTile || !TileID.Sets.Platforms[tile.TileType]) {
+                    continue;
+                }
 
-        for (var x = l; x <= r; x++) {
-            for (var y = t; y <= b; y++) {
-                foreach (var point in directions) {
-                    if (!isOnLine(x, y, point.X, point.Y) || !isOnLine(x - point.X, y - point.Y, point.X, point.Y)) {
-                        continue;
-                    }
-
-                    var next = Main.tile[x + point.X, y + point.Y];
-                    if (next.HasTile && TileID.Sets.Platforms[next.TileType]) {
-                        continue;
-                    }
-
-                    var cx = x + point.X;
-                    var cy = y + point.Y;
-                    if (Math.Abs(cy - mouseY) > erows || Math.Abs(cx - mouseX) > ecols + 1) {
-                        continue;
-                    }
-
-                    var dist = Vector2.Distance(new Vector2(cx, cy) * 16f + Vector2.One * 8f, mouse);
-                    if (best == -1f || dist < best) {
-                        best = dist;
-                        lx = x;
-                        ly = y;
-                        dx = point.X;
-                        dy = point.Y;
-                    }
+                var dist = Vector2.Distance(new Vector2(x, y) * 16f + Vector2.One * 8f, mouse);
+                if (best == -1f || dist < best) {
+                    best = dist;
+                    hx = x;
+                    hy = y;
                 }
             }
         }
 
         return best != -1f;
-    }
-
-    private static bool isOnLine(int x, int y, int dx, int dy) {
-        var tile = Main.tile[x, y];
-        if (!tile.HasTile || !TileID.Sets.Platforms[tile.TileType]) {
-            return false;
-        }
-
-        if (dy == 0) {
-            return tile.Slope == SlopeType.Solid;
-        }
-
-        return tile.Slope == (dx == dy ? SlopeType.SlopeDownLeft : SlopeType.SlopeDownRight);
     }
 
     // this is the real placement rule for platforms instead of a heuristic so we're not going to suggest a placement that would be rejected by the game...
