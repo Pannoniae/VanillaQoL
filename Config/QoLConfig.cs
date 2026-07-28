@@ -565,7 +565,19 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool storageFollowsPlayer { get; set; }
-    
+
+    // Wood Platform
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool smartPlatformPlacement { get; set; }
+
+    // Wood Wall
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool wallsRespectPlatforms { get; set; }
+
     #endregion
 
     #region Fixes
@@ -635,6 +647,24 @@ public class QoLConfig : ModConfig {
     [ReloadRequired]
     [EnabledIf(typeof(InfernumLoaded))]
     public bool fixInfernumCrystals { get; set; }
+
+    // Torch
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool torchesOnPlatforms { get; set; }
+
+    // Dirt Block
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool blocksReplaceGrass { get; set; }
+
+    // Toolbelt
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool smartCursorRange { get; set; }
 
     #endregion
 

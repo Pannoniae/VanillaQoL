@@ -1,5 +1,11 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] Smart cursor has been completely reworked.
+ [*] Smart cursor now places torches on floating platforms. (fixed a vanilla bug)
+ [*] Smart cursor platform placement continues the line you're building instead of placing stairs when a tree is vaguely nearby.
+ [*] Smart cursor wall placement stops at platform floors instead of leaking into the room below.
+ [*] Smart cursor block placement can replace grass and vines, like manual placement can.
+ [*] Smart cursor now searches as far as you can actually reach with modded range accessories instead of the base placement radius.
  [*] Integrated the unnerfs from Calamity Unnerfs.
  [*] Reverted a Calamity nerf to damage variance + luck applies to it again.
  [*] Vanilla projectiles get their vanilla immunity frames back instead of Calamity's shared cooldowns.

@@ -558,6 +558,51 @@ QoLConfig: {
 		// Tooltip: If enabled, you can fall through platforms instantly by holding the down key.
 	}
 
+	torchesOnPlatforms: {
+		// Label: "[i:8] Smart Torches on Platforms"
+		/* Tooltip:
+			'''
+			1.4.4 added torches to plaforms but forgot the part where Smart Cursor should also have it. Begone thee bugs!
+			If enabled, torches will also show up as a placement suggestion.
+			''' */
+	}
+
+	smartPlatformPlacement: {
+		// Label: "[i:94] Smarter Platform Placement"
+		/* Tooltip:
+			'''
+			If enabled, makes the Smart Cursor smarter by adding "leeway" to the placement direction so
+			your platforms don't keep going off the sides, or randomly get interrupted by a tree or tall grass.
+			''' */
+	}
+
+	wallsRespectPlatforms: {
+		// Label: "[i:93] Walls Respect Platforms"
+		/* Tooltip:
+			'''
+			If enabled, the wall placement treats your platform floors as floors instead of air,
+			stopping Smart Cursor placement from leaking through your "room" you made for your boss arena.
+			''' */
+	}
+
+	blocksReplaceGrass: {
+		// Label: "[i:2] Smart Cursor No Grass"
+		/* Tooltip:
+			'''
+			If enabled, grass and vines no longer block smart cursor placement. Long gone the days of building Old One's Army
+			leaving a gap in the floor...
+			''' */
+	}
+
+	smartCursorRange: {
+		// Label: "[i:407] Smart Cursor Reach Fix"
+		/* Tooltip:
+			'''
+			Modded range accessories extend how far you can place blocks but the smart cursor
+			never got the memo. If enabled, this is no longer the jive!
+			''' */
+	}
+
 	coincumberingStone: {
 		// Label: "[i:4346] Coincumbering Stone"
 		// Tooltip: If enabled, the player with the Encumbering Stone can still pick up coins.
@@ -1182,6 +1227,48 @@ CalamityUnnerfConfig: {
 			Tipsy is the funny one because Calamity leaves it with no melee damage, no crit and 10% *worse* melee speed,
 			where vanilla trades you 4 defense for +10% melee damage, +2 crit and +10% melee speed.
 			The tooltips are fixed as well btw
+			''' */
+	}
+
+	damageVariance: {
+		// Label: "[i:3119] Damage Variance Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, restores the vanilla damage variance mechanics. Calamity narrowed it a lot and removed luck from it entirely.
+			'E-Sports doesn't mean a symmetrical matchup with no RNG'
+			''' */
+	}
+
+	multiplayerBossHealth: {
+		// Label: "[i:29] Multiplayer Boss Health Unnerf"
+		// Tooltip: If enabled, reverts the Calamity buff to MP boss health. Maybe tanking ain't fun?
+	}
+
+	immunityFrames: {
+		// Label: "[i:554] Immunity Frames Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, removes the Calamity changes to the immunity frames on a few hundred vanilla projectiles.
+			It prevents projectile stacking by moving them onto a shared cooldown.
+			''' */
+	}
+
+	jungleArmour: {
+		// Label: "[i:228] Jungle Armour Unnerf"
+		// Tooltip: If enabled, reverts the Calamity Jungle Armour nerf to the vanilla stats.
+	}
+
+	frostArmour: {
+		// Label: "[i:684] Frost Armour Unnerf"
+		// Tooltip: If enabled, restores the vanilla Frost Armour stats. It's more of a rework than a nerf, to be fair.
+	}
+
+	yoyoGlove: {
+		// Label: "[i:3334] Yo-yo Glove Unnerf"
+		/* Tooltip:
+			'''
+			If enabled, reverts Calamity's 50% nerf to the damage of secondary yoyos given by the Yoyo Glove.
+			'A counterweight to the fun police'
 			''' */
 	}
 

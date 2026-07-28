@@ -6,3 +6,4 @@ NoNPCHappinessReborn=Vanilla+ QoL is not compatible with Happiness Removal Rebor
 InstantPlatformFallthrough=Vanilla+ QoL has the same feature, this will crash.
 LavalessLavaSlime=Vanilla+ QoL has the same feature, this will crash.
 CalamityFly=Vanilla+ QoL has absorbed the UnNerfs Calamity features + more, the patches would apply on the same thing and crash, not good.
+SmarterCursor=Vanilla+ QoL's smart cursor features implement similar functionality but less janky + more features, and the patches clash with each other.
