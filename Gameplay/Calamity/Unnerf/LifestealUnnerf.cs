@@ -1,5 +1,7 @@
+using System;
 using System.Reflection;
 using CalamityMod.CalPlayer;
+using CalamityMod.ILEditing;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ModLoader;
@@ -48,5 +50,44 @@ public class LifestealUnnerf : ModSystem {
         ilCursor.EmitPop();
         ilCursor.EmitPop();
         ilCursor.Remove();
+    }
+}
+
+
+[JITWhenModsEnabled("CalamityMod")]
+public class SpectreVampireUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.spectreAndVampire;
+    }
+
+    public override void OnModLoad() {
+        passthru("AdjustSpectreHealing", typeof(On_Projectile.orig_ghostHeal));
+        passthru("AdjustVampireHealing", typeof(On_Projectile.orig_vampireHeal));
+    }
+
+    private static void passthru(string name, Type origType) {
+        var detour = typeof(ILChanges).GetMethod(name, BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+        if (detour == null) {
+            VanillaQoL.instance.Logger.Warn($"Couldn't find ILChanges.{name}!");
+            return;
+        }
+
+        var invoke = origType.GetMethod("Invoke");
+        if (invoke == null) {
+            VanillaQoL.instance.Logger.Warn($"Couldn't find {origType.Name}.Invoke!");
+            return;
+        }
+
+        MonoModHooks.Modify(detour, il => {
+            var ilCursor = new ILCursor(il);
+
+            // orig, self, dmg, Position, victim
+            for (var i = 0; i < 5; i++) {
+                ilCursor.EmitLdarg(i);
+            }
+
+            ilCursor.EmitCallvirt(invoke);
+            ilCursor.EmitRet();
+        });
     }
 }

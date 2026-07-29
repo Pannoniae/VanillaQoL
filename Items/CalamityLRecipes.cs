@@ -269,6 +269,42 @@ public class CalamityLRecipes : ModSystem {
             .AddRecipeGroup(RecipeGroupID.IronBar, 3)
             .AddTile(TileID.Anvils)
             .Register();
+
+        Recipe.Create(ItemID.LavaFishingHook)
+            .AddIngredient(ItemID.Seashell)
+            .AddIngredient(ItemID.HellstoneBar, 10)
+            .AddTile(TileID.Hellforge)
+            .Register();
+
+        Recipe.Create(ItemID.LivingLoom)
+            .AddIngredient(ItemID.Loom)
+            .AddIngredient(ItemID.Vine, 2)
+            .AddTile(TileID.Sawmill)
+            .Register();
+
+        Recipe.Create(ItemID.LivingWoodWand)
+            .AddIngredient(ItemID.Wood, 10)
+            .AddTile(TileID.LivingLoom)
+            .Register()
+            .DisableDecraft();
+
+        Recipe.Create(ItemID.LeafWand)
+            .AddIngredient(ItemID.Wood, 10)
+            .AddTile(TileID.LivingLoom)
+            .Register()
+            .DisableDecraft();
+
+        Recipe.Create(ItemID.LivingMahoganyWand)
+            .AddIngredient(ItemID.RichMahogany, 10)
+            .AddTile(TileID.LivingLoom)
+            .Register()
+            .DisableDecraft();
+
+        Recipe.Create(ItemID.LivingMahoganyLeafWand)
+            .AddIngredient(ItemID.RichMahogany, 10)
+            .AddTile(TileID.LivingLoom)
+            .Register()
+            .DisableDecraft();
     }
 
     #endregion

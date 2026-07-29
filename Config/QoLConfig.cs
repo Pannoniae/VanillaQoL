@@ -147,6 +147,40 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     public bool townNPCsMovingAtDay { get; set; }
 
+    // Census Form
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool betterCensus { get; set; }
+
+    // Census Form
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool npcHappinessOnHover { get; set; }
+
+    // Census Form
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool censusSpoofing { get; set; }
+
+    // Compass
+    [BackgroundColor(192, 54, 128, 192)]
+    [ReloadRequired]
+    [DefaultValue(true)]
+    public bool npcLocatingArrow { get; set; }
+
+    // Paintbrush
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(typeof(Color), "173, 255, 47, 255")]
+    public Color npcArrowColour { get; set; }
+
+    // Blindfold
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool censusSpoilerMode { get; set; }
+
     // Cat License
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
@@ -619,6 +653,12 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool fixMemoryLeaks { get; set; }
+
+    // Stopwatch
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool fasterModLoading { get; set; }
 
     // Celestial Sigil
     [BackgroundColor(192, 54, 128, 192)]

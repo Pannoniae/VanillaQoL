@@ -8,6 +8,7 @@ using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using Terraria.UI.Chat;
@@ -53,6 +54,16 @@ public class VanillaQoL : Mod {
         var method = modcontent.GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
         MonoModHooks.Modify(method, modCompat);
         Console.WriteLine("Registered mod compat handler.");
+
+        // spoofing has to be loaded VERY early
+        if (Spoof.configBool("betterCensus", true) && Spoof.configBool("censusSpoofing", true)) {
+            Spoof.install();
+            Spoof.register("Census", "Census - Town NPC Checklist", new TemuCensus());
+        }
+
+        if (Spoof.configBool("fasterModLoading", true)) {
+            AssetLoop.install();
+        }
     }
 
     public static void noop(ILContext il) {
@@ -68,7 +79,7 @@ public class VanillaQoL : Mod {
     public override void Load() {
         hasThorium = ModLoader.HasMod("ThoriumMod");
         hasCalamity = ModLoader.HasMod("CalamityMod");
-        hasCensus = ModLoader.HasMod("Census");
+        hasCensus = Spoof.realHasMod("Census");
         hasRecipeBrowser = ModLoader.HasMod("RecipeBrowser");
         hasMagicStorage = ModLoader.HasMod("MagicStorage");
         hasCheatSheet = ModLoader.HasMod("CheatSheet");
@@ -113,6 +124,7 @@ public class VanillaQoL : Mod {
         ILEdits.unload();
         DisabledOptions.clear();
         GlobalFeatures.clear();
+        Spoof.clear();
 
         // unload Magic Storage ModSystems - they crash the game
         if (hasMagicStorage) {
@@ -170,8 +182,14 @@ public class VanillaQoL : Mod {
     }
 
     public override void HandlePacket(BinaryReader reader, int whoAmI) {
+        var msgType = reader.ReadByte();
+        if (msgType == NPCCensus.spawnPacketID) {
+            NPCCensus.handleCanSpawnPacket(reader);
+            return;
+        }
+
         if (QoLConfig.Instance.mapSharingTESTING) {
-            QoLSharedMapSystem.instance.HandlePacket(reader, whoAmI);
+            QoLSharedMapSystem.instance.HandlePacket((QoLSharedMapSystem.SharedMapMessages)msgType, reader, whoAmI);
         }
         else {
             // we know the base stream is a MemoryStream
@@ -180,6 +198,32 @@ public class VanillaQoL : Mod {
                 // read
             }
         }
+    }
+
+    // yey copypaste
+    public override object Call(params object[] args) {
+        try {
+            if (args[0] is not string message) {
+                return "Failure";
+            }
+
+            if (message == "TownNPCCondition") {
+                var type = Convert.ToInt32(args[1]);
+                if (args.Length >= 3 && args[2] is LocalizedText conditions) {
+                    NPCCensus.registerCondition(type, conditions);
+                    return "Success";
+                }
+
+                return "Failure";
+            }
+
+            Logger.Error($"Call Error: Unknown Message: {message}");
+        }
+        catch (Exception e) {
+            Logger.Error($"Call Error: {e.StackTrace} {e.Message}");
+        }
+
+        return "Failure";
     }
 
     public class Filter : PreJITFilter {
@@ -532,8 +576,7 @@ public static class ModLeakFix {
                 .GetValue(loaderallocator)!;
         // m_slots is an object[]
         // we loop over it, find the object[] arrays then clear each one of them
-        for (int i = 0; i < m_slots.Length; i++) {
-            var slot = m_slots[i];
+        foreach (var slot in m_slots) {
             if (slot is object[] obj) {
                 clear(obj, onlyCompilerGeneratedClasses);
             }

@@ -5,5 +5,5 @@ NoBreakingDoors=Vanilla+ QoL incorporates the patch in No Breaking Doors and fix
 NoNPCHappinessReborn=Vanilla+ QoL is not compatible with Happiness Removal Reborn because it patches the same code. You can use Vanilla+ QoL's happiness disable feature instead.
 InstantPlatformFallthrough=Vanilla+ QoL has the same feature, this will crash.
 LavalessLavaSlime=Vanilla+ QoL has the same feature, this will crash.
-CalamityFly=Vanilla+ QoL has absorbed the UnNerfs Calamity features + more, the patches would apply on the same thing and crash, not good.
+CalamityFly=Vanilla+ QoL has absorbed everything UnNerfs Calamity does and more, so running both is redundant. The patches would apply on the same thing and crash, not good.
 SmarterCursor=Vanilla+ QoL's smart cursor features implement similar functionality but less janky + more features, and the patches clash with each other.

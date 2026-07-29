@@ -1,5 +1,12 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] Mods load faster now: fixed a tModLoader bug where the loading screen only picked up finished textures for 1ms per frame, stalling every mod's texture loading. (a one-character typo upstream, whole seconds of your life back)
+ [*] Added a town NPC checklist to the housing menu, it shows everyone who hasn't moved in yet, their arrival conditions when you hover over them, and whether they can move in or not.
+ [*] Hovering a housed NPC in the housing menu now shows their prices and full happiness breakdown.
+ [*] When Census isn't installed, VanillaQoL now supports its mod integrations (both the formatAPI and the Mod.Call), so other mods' town NPCs get proper condition text in the checklist.
+ [*] Mod authors can also use the VanillaQoL modname as well (for new mods): have a Mods.<YourMod>.NPCs.<YourNPC>.VanillaQoL.SpawnCondition lockey, or Mod.Call VanillaQoL like ("TownNPCCondition", npcType, LocalizedText). This isn't auto-injected into the config files so you won't have a bunch of useless keys though. If you have both keys (Census and Vanilla+ QoL), the Vanilla+ QoL key wins.
+ [*] You get an arrow pointing to where the NPCs actually are when you hover over them in the NPC housing menu.
+ [*] Added a spoiler-free NPC checklist mode so you can see who hasn't arrived without being told how to get them.
  [*] Smart cursor has been completely reworked.
  [*] Smart cursor now places torches on floating platforms. (fixed a vanilla bug)
  [*] Smart cursor platform placement continues the line you're building instead of placing stairs when a tree is vaguely nearby.
@@ -7,20 +14,79 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] Smart cursor block placement can replace grass and vines, like manual placement can.
  [*] Smart cursor now searches as far as you can actually reach with modded range accessories instead of the base placement radius.
  [*] Integrated the unnerfs from Calamity Unnerfs.
+ [*] The Mini Nuke I, Mini Nuke II and the Recon Scope can be crafted from their vanilla recipes again instead of only the tiershifted Calamity ones.
+ [*] Living Loom, both Living Wood wands, both Living Mahogany wands and the Lava Fishing Hook are craftable now again.
+ [*] Reverted the Calamity shield nerfs, the Ornate Shield line gets its debuff immunity and fire block walking restored and the Asgard's Valor is crafted from an Ankh Shield again + gets the immunities too.
+ [*] The Expert-exclusive accessories drop in Normal mode again, one per player except for the Demon Heart.
+ [*] Unnerfed the Calamity Starter Bag to the original one.
+ [*] The Cosmolight can be crafted in early Hardmode again instead of being gated behind Astrum Deus.
+ [*] The Sandy and Bleached Angling Kits are added back to the Desert and Aquatic Scourge with their original loot.
+ [*] Town NPCs now stock the 23 items Calamity stopped selling since 2.0.4, the Wizard sells the Rod of Discord and magic weapons, the Arms Dealer sells the Golem guns, and NPCs sell food again (why was this removed?)
+ [*] Calamity fishing crates now get their biome ores, bars and materials unnerfed again instead of generic vanilla ore.
+ [*] Same for the vanilla crates which get their Calamity materials back too (e.g. Wulfrum Scrap, Aerialite, Cryonic, Perennial, Uelibloom, Auric, Exodium, Ectoplasm etc.) when you defeat the corresponding bosses.
+ [*] Astral Infection enemies drop their weapons at 1/7 again instead of 1/10.
+ [*] Autoswing is back on the 153 vanilla items Calamity gave it to and then took it off again - including the Life Crystal, the Life Fruit and the Mana Crystal, which the vanilla "autoswing all weapons" setting has never covered.
+ [*] The 27 shield and armour defence bonuses Calamity deleted are back - Ankh Shield +4, Cobalt Shield +3, Hero Shield +5, the Hallowed and Palladium/Orichalcum sets, the Frozen Turtle Shell etc.
+ [*] Fourteen vanilla magic weapons cost less mana again. The Rainbow Gun is left alone because Calamity's number there was a nerf, not a discount.
+ [*] Vanilla wings are stat sticks again - Angel Wings' 20 life/10 defence, Fairy Wings' 60 life, the armour set synergies, blanket fall immunity, and the Elysian Wings' lava immunity.
+ [*] The Obsidian Skull line, the Ankh Shield and the Terraspark Boots make you immune to On Fire! again.
+ [*] Vanilla summon staves and sentry rods are fast again, boss summons snap off in 10 frames, and the seven event summons stopped being consumed.
+ [*] Calamity's tool design is back: drill/chainsaw damage, endgame pickaxe speed and reach, the Reaver Shark at 100% pick power instead of 59%, and the tile reach trade-off that went with it.
+ [*] The hardmode ore armour trims from Hog Wild are reverted - Crimson's damage and regen, Palladium's and Orichalcum's per-piece bonuses, Adamantite's mana/defence/crit conversion, the Cobalt Hat and Mythril Hood mana, Gladiator's 3 defence and the Spectre Hood set's magic.
+ [*] Hard, Guarding, Armored and Warding scale with progression again (Warding maxes out at 7 defence and 1% DR).
+ [*] Poisoned, Venom, Astral Infection and Plague make enemies deal less contact damage again.
+ [*] The Nurse charges the old flat price instead of 600x vanilla's per-HP price, and won't heal mid-boss in Death or Boss Rush. The Tax Collector pays 1s50c per NPC again.
+ [*] Battle Potions, Water Candles, Peace Candles, Calming Potions and Zen have their Calamity spawn modifiers back.
+ [*] Calamity stuff gets the increased sell prices again.
+ [*] The Expert-exclusive accessories no longer claim to be Expert-only while dropping in a Classic world.
  [*] Reverted a Calamity nerf to damage variance + luck applies to it again.
+ [*] Ichor decreases enemy defence by 15 again instead of 10 (tooltip didn't match?)
+ [*] Unnerfed the Calamity buff changes - Well Fed, Magic Power, Archery, Clairvoyance, Swiftness, Mining and Sugar Rush were all ~halved, and Tipsy actually buffs your melee now instead of only making you worse at melee?
+ [*] The Black Belt and the Brain of Confusion dodge like vanilla again instead of sharing one 90-second cooldown because facetanking bad:tm:
+ [*] The melee speed accessories stack again - Fire Gauntlet plus Celestial Shell is +24% like vanilla, not only +15%.
+ [*] Your minions stop dealing 25% less damage just because you're holding a pickaxe.
+ [*] Added an option for vanilla armour to keep its own stats unchanged from Calamity rebalancing - Magic Hat, the gem robes, the Gi, Shroomite Breastplate, Squire's alt set, Solar Flare Helmet, Vortex Helmet and the Wizard/Magic Hat set bonuses (off by default).
+ [*] Added an option for Monk Tier 2/3 and Crystal Assassin stop being rogue armour (off by default).
+ [*] Balloons give jump height and speed properly again instead of adding a *measly* +0.75.
+ [*] The Soaring Insignia's jump boost is now back to 1.8 from 0.5.
+ [*] Beetle Scale Mail gives 10% melee speed per beetle again.
+ [*] Nebula armour boosters are unnerfed: they ignore damage over time, be 2x as fast, and give 6 life regen and 15% damage each.
+ [*] Asphalt and Ice Skates are as fast as vanilla again.
+ [*] The Sniper Scope grants its 10% ranged damage again.
+ [*] Melee weapons no longer have the 75%/50% damage nerf on the Eater of Worlds, the Creepers and the Destroyer.
+ [*] Optional: Butterfly and Ghost Wings get their full vertical speed back (off by default).
+ [*] The Rod of Discord can be *SHIMMERED* whenever you like instead of waiting on Calamitas and then the Exo Mechs.
+ [*] Hallowed armour's dodge loses the extra 30 second cooldown because not only facetanking but dodging is also bad :(
+ [*] The whole Shield of Cthulhu dash can be bonked with again instead of not in the last 4 frames (wtf??)
+ [*] Blood Moons need one Life Crystal like vanilla, not 4.
+ [*] Desert Fossil shatters into Sturdy Fossils again.
+ [*] Lifesteal recovers at vanilla speed again (36 HP/s in Classic instead of 9) and heals you above half health.
+ [*] Added a feature to have Spectre and Vampire Knives healing back to vanilla (off by default).
+ [*] The whip tags let your summons crit again with the Morning Star and the Kaleidoscope.
+ [*] The Terrarian yoyo count is now unnerfed.
  [*] Vanilla projectiles get their vanilla immunity frames back instead of Calamity's shared cooldowns.
  [*] Jungle and Frost armour are back to their vanilla stats and set bonuses.
+ [*] Shadow armour gets its full movement boost back and stacks with Magiluminescence too.
+ [*] Meteor armour's set bonus is a free Space Gun again instead of 33% mana cost.
+ [*] Added options for vanilla projectile stats - piercing, armour penetration, speed, lifetime, size, yo-yo stats, tile stuff and damage classes. Off by default.
+ [*] Addded options to blanket unnerf Calamity item stats to vanilla - damage, crit, defence, mana cost, attack speed, projectile speed, knockback, hitbox size, sell prices, tool power and behaviour. All off by default because it's wholesale nuking the remaining vanilla changes...
+ [*] The defense damage mechanic is gonezo - getting hit no longer shreds through your defence too because facetanking is a poggers strategy and this isn't Touhou. (Bloodflare Core becomes a paperweight, I'm warning you lol)
+ [*] Damage reduction is unnerfed and doesn't have the diminishing-returns formula anymore so 50% DR means 50% again, not 33%.
+ [*] The Beetle Shell and Solar Flare get their vanilla multiplicative damage reduction back instead of a flat one.
+ [*] The 22 vanilla bosses lose Calamity's flat damage reduction (it's like a silent HP increase lol)
+ [*] Added an optional option to do the same for Calamity's own bosses. (might heavily unbalance some of them to be fair)
+ [*] The Eater of Worlds, the Creepers and the Destroyer no longer get penalised by piercing projectiles (up to -80% damage per hit, "it was too easy" lul)
  [*] Bosses no longer get Calamity's extra health in multiplayer.
  [*] The Yo-yo Glove's second yo-yo deals full damage again instead of half.
  [*] Town NPCs no longer spawn at double rate at night if you have Calamity.
- [*] Added an option to have Meteorite be now be blown up pre-HM instead of only in Hardmode.
+ [*] Added an option to have Meteorite be blown up pre-HM instead of only in Hardmode.
  [*] Fixed "More Weapons from Treasure Bags" when Calamity is installed.
  [*] Joining a server no longer hangs on "Syncing Mods" forever when the server has a new mod config page.
  [*] Config options that need a mod you haven't got are now crossed out, and the tooltip tells you why. Instead of entries silently not doing anything.
  [*] Two new config pages for the Calamity stuff.
  [*] Folded my Calamity QOL for Vanilla mod in so if you don't have Calamity, you can now have Calamity QoL changes anyway.
  [*] New characters can get a Starter Bag.
- [*] Expert mode can stop halving your health regeneration when you aren't Well Fed..
+ [*] Expert mode can stop halving your health regeneration when you aren't Well Fed.
  [*] Options for Calamity faster base movement, higher jump, faster jump, faster building, and holding Down to fall faster.
  [*] You can now exchange Corruption items for Crimson ones.
  [*] Added all the Calamity recipes + some old Calamity recipes too.

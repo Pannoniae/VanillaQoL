@@ -12,7 +12,7 @@ using VanillaQoL.UI;
 namespace VanillaQoL.API;
 
 public class GlobalHooks {
-    private static readonly FieldInfo mHField = typeof(Main).GetField("mH", BindingFlags.NonPublic | BindingFlags.Static)!;
+    internal static readonly FieldInfo mHField = typeof(Main).GetField("mH", BindingFlags.NonPublic | BindingFlags.Static)!;
     
     /// <summary>
     /// Convert speed to km/h.

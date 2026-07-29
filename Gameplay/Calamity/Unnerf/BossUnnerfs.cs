@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using CalamityMod.Balancing;
 using CalamityMod.NPCs;
+using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -94,6 +95,39 @@ public class MultiplayerHealthUnnerf : ModSystem {
 
 
 [JITWhenModsEnabled("CalamityMod")]
+public class IchorUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.ichorDefence;
+    }
+
+    public override void OnModLoad() {
+        var modifyIncomingHit = typeof(CalamityGlobalNPC).GetMethod("ModifyIncomingHit");
+        if (modifyIncomingHit == null) {
+            VanillaQoL.instance.Logger.Warn("Couldn't find CalamityGlobalNPC.ModifyIncomingHit!");
+            return;
+        }
+
+        MonoModHooks.Modify(modifyIncomingHit, restoreIchor);
+    }
+
+    // ldfld NPC::ichor
+    // brfalse -> past the +5 defence
+    private void restoreIchor(ILContext il) {
+        var ilCursor = new ILCursor(il);
+
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<NPC>("ichor"))) {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't find the Ichor check in CalamityGlobalNPC.ModifyIncomingHit!");
+            return;
+        }
+
+        ilCursor.EmitPop();
+        ilCursor.EmitLdcI4(0);
+    }
+}
+
+
+[JITWhenModsEnabled("CalamityMod")]
 public class PierceResistUnnerf : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
         return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.pierceResist;
@@ -110,5 +144,38 @@ public class PierceResistUnnerf : ModSystem {
 
         var removed = resistant.RemoveWhere(type => type < NPCID.Count);
         VanillaQoL.instance.Logger.Info($"Removed pierce resistance from {removed} vanilla NPCs.");
+    }
+}
+
+[JITWhenModsEnabled("CalamityMod")]
+public class TrueMeleeResistUnnerf : ModSystem {
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.meleeResist;
+    }
+
+    public override void OnModLoad() {
+        var modifyHitByItem = typeof(CalamityGlobalNPC).GetMethod("ModifyHitByItem");
+        if (modifyHitByItem == null) {
+            VanillaQoL.instance.Logger.Warn("Couldn't find CalamityGlobalNPC.ModifyHitByItem!");
+            return;
+        }
+
+        MonoModHooks.Modify(modifyHitByItem, noMeleeResist);
+    }
+
+    // callvirt CountsAsClass<MeleeDamageClass>
+    // ... && item.type != InfernaCutter
+    private void noMeleeResist(ILContext il) {
+        var ilCursor = new ILCursor(il);
+
+        if (!ilCursor.TryGotoNext(MoveType.After,
+                i => i.MatchCallOrCallvirt(out var m) && m.Name == "CountsAsClass")) {
+            VanillaQoL.instance.Logger.Warn(
+                "Couldn't find the melee resist ladder in CalamityGlobalNPC.ModifyHitByItem!");
+            return;
+        }
+
+        ilCursor.EmitPop();
+        ilCursor.EmitLdcI4(0);
     }
 }

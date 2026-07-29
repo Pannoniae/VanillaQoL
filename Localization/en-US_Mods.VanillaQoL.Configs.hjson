@@ -11,6 +11,48 @@ QoLConfig: {
 		Tooltip: If enabled, Town NPCs can teleport to their houses at daytime.
 	}
 
+	betterCensus: {
+		Label: "[i:25] Town NPC Checklist"
+		Tooltip:
+			'''
+			If enabled, shows every town NPC that hasn't moved in yet on the housing menu, along with what they're waiting for.
+			A Green tick means it's ready to move in. Red X: not yet. Purple ?: unknown.
+			'''
+	}
+
+	npcHappinessOnHover: {
+		Label: "[i:58] NPC Happiness on Hover"
+		Tooltip:
+			'''
+			If enabled, you can hover a housed NPC in the housing menu to see their prices and what and who they love, like and loathe.
+			No more interrogating every villager through three menus like some kind of tax auditor.
+			'''
+	}
+
+	censusSpoofing: {
+		Label: "[i:267] Temu Census"
+		Tooltip: If enabled, provides support for other mods and their Mod.Calls by pretending to be Census.
+	}
+
+	npcLocatingArrow: {
+		Label: "[i:393] NPC Geocaching"
+		Tooltip: If enabled, you can hover a housed NPC in the housing menu and an arrow will point to wherever they're at.
+	}
+
+	npcArrowColour: {
+		Label: "[i:1071] NPC Geocaching Arrow Colour"
+		Tooltip: Paint It Black!
+	}
+
+	censusSpoilerMode: {
+		Label: "[i:1307] Spoiler-Free NPC Census"
+		Tooltip:
+			'''
+			If enable, it hides the arrival conditions from the checklist tooltips so you only see who's missing, not how to summon them.
+			'Terraria: Anti-Wiki Edition'
+			'''
+	}
+
 	townPetsInvincible: {
 		Label: "[i:4829] Town Pets and Slimes Are Invincible"
 		Tooltip: If enabled, cute town animals and slimes will not be hurt by enemies or bosses.
@@ -71,6 +113,15 @@ QoLConfig: {
 	fixMemoryLeaks: {
 		Label: "[i:1344] Fix Magic Storage"
 		Tooltip: If enabled, fix the game not starting or hanging on "Loading Content" with Magic Storage enabled.
+	}
+
+	fasterModLoading: {
+		Label: "[i:3099] Faster Mod Loading"
+		Tooltip:
+			'''
+			tModLoader has a lovely loop that speeds up texture loading during the loading screen. A typo means it has never run at all.
+			If enabled, we patch the loading screen to make it actually run and drastically speed up the loading screen because fuck waiting.
+			'''
 	}
 
 	vanillaThoriumTooltips: {
@@ -1119,6 +1170,349 @@ CalamityUnnerfConfig: {
 	Headers: {
 		systems: "[i:3097] Systems"
 		items: "[i:2218] Items"
+		progression: "[i:1326] Progression"
+		itemStats: "[i:368] Item Stats"
+		projectileStats: "[i:515] Projectile Stats"
+		restored: "[i:3456] Restored Features"
+	}
+
+	vanillaEquipStats: {
+		Label: "[i:1549] Vanilla Armour Equip Stats"
+		Tooltip:
+			'''
+			I'm supposed to write a whole bunch of yapping here, but this restores vanilla armour stats.
+			Note: these configs are kind of mid because there's a whole bunch of fairly inconsequential Calamity changes and
+			exposing a config option for every item would quickly get us to 300 entries.
+			Shout at me if you need more customisation or specific configs for items...
+			... or if you know a better way to organise this crap.
+			'''
+	}
+
+	projPiercing: {
+		Label: "[i:515] Vanilla Piercing"
+		Tooltip: If enabled, projectiles pierce through as many enemies as vanilla lets them, instead of Calamity's balancing.
+	}
+
+	projArmourPen: {
+		Label: "[i:1302] Vanilla Armour Penetration"
+		Tooltip: If enabled, projectiles use vanilla armour penetration instead of Calamity's numbers.
+	}
+
+	projSpeed: {
+		Label: "[i:290] Vanilla Projectile Speed"
+		Tooltip: If enabled, uses vanilla projectile speeds instead of Calamity's.
+	}
+
+	projLifetime: {
+		Label: "[i:1321] Vanilla Projectile Lifetime"
+		Tooltip: If enabled, projectiles use vanilla's lifetimes.
+	}
+
+	projScale: {
+		Label: "[i:1444] Vanilla Projectile Size"
+		Tooltip: If enabled, projectiles use vanilla projectile sizes.
+	}
+
+	projYoyoStats: {
+		Label: "[i:3286] Vanilla Yo-yo Stats"
+		Tooltip:
+			'''
+			Calamity rebalances the reach, top speed and lifetime of every vanilla yo-yo.
+			If enabled, they all get reverted to vanilla.
+			'''
+	}
+
+	projCollision: {
+		Label: "[i:497] Vanilla Water and Tile Behaviour"
+		Tooltip: If enabled, projectiles ignore water and collide with tiles exactly as vanilla had it instead of the Calamity values.
+	}
+
+	projTrueMelee: {
+		Label: "[i:273] Vanilla Damage Classes"
+		Tooltip: If enabled, removes the Calamity damage classes like true melee. Not sure why you'd need this, to be fair. Maybe you don't.
+	}
+
+	itemDamage: {
+		Label: "[i:368] Vanilla Item Damage"
+		Tooltip:
+			'''
+			Calamity rebalances the damage of a couple hundred vanilla weapons. If enabled, every one of them goes back
+			to the vanilla number. This is a mix of buffs and nerfs.
+			'''
+	}
+
+	itemCrit: {
+		Label: "[i:1248] Vanilla Item Crit Chance"
+		Tooltip: If enabled, every item's crit chance goes back to vanilla instead of the Calamity values.
+	}
+
+	itemDefence: {
+		Label: "[i:1316] Vanilla Armour Defence"
+		Tooltip: If enabled, armour pieces get their vanilla defence back.
+	}
+
+	itemMana: {
+		Label: "[i:1595] Vanilla Mana Costs"
+		Tooltip: If enabled, magic weapons cost what vanilla says they cost instead of what Calamity thinks they should cost.
+	}
+
+	itemSpeed: {
+		Label: "[i:211] Vanilla Attack Speed"
+		Tooltip:
+			'''
+			If enabled, everything swings at vanilla speed again.
+			'My steak is too juicy and my lobster too buttery'
+			'''
+	}
+
+	itemShootSpeed: {
+		Label: "[i:97] Vanilla Projectile Speed"
+		Tooltip: If enabled, weapons fire their projectiles at the speed vanilla intended rather than Calamity's.
+	}
+
+	itemKnockback: {
+		Label: "[i:897] Vanilla Knockback"
+		Tooltip: If enabled, vanilla weapons get their original knockback instead of Calamity's.
+	}
+
+	itemScale: {
+		Label: "[i:536] Vanilla Hitbox Size"
+		Tooltip: If enabled, melee weapons go back to their vanilla size. (mostly smaller)
+	}
+
+	itemValue: {
+		Label: "[i:855] Vanilla Sell Prices"
+		Tooltip:
+			'''
+			Calamity declares a pile of vanilla items worthless and changes the prices for plenty of others.
+			If enabled, restores the vanilla balancing.
+			'''
+	}
+
+	itemToolPower: {
+		Label: "[i:122] Vanilla Tool Stats"
+		Tooltip: If enabled, pickaxe, axe and hammer stats get reverted to vanilla stats instead of Calamity stats.
+	}
+
+	itemBehaviour: {
+		Label: "[i:407] Vanilla Item Behaviour"
+		Tooltip:
+			'''
+			If enabled, stack sizes and a bunch of misc crap also gets reverted to vanilla values.
+			If you read this, scold me for this bottom of the barrel config.
+			'''
+	}
+
+	vanillaRecipes: {
+		Label: "[i:4457] Disabled Vanilla Recipes"
+		Tooltip: Calamity deletes the vanilla recipes for Mini Nuke I, Mini Nuke II and the Recon Scope. Not anymore.
+	}
+
+	astralDrops: {
+		Label: "[i:3460] Astral Enemy Drop Rates"
+		Tooltip:
+			'''
+			Astral Infection enemies had their weapon drops cut from 1-in-7 to 1-in-10.
+			If enabled, they go back to 1-in-7.
+			'''
+	}
+
+	crateLoot: {
+		Label: "[i:2334] Calamity Crate Loot"
+		Tooltip:
+			'''
+			If enabled, restores the good old Calamity fishing loot. Calamity wants to encourage fishing by deleting the Angling Kit
+			but then nerfs fishing because fishing got too fun.
+			'Anti-Anti-Fun'
+			'''
+	}
+
+	shopStock: {
+		Label: "[i:1326] Town NPC Shop Stock"
+		Tooltip:
+			'''
+			If enabled, adds 23 items back to the shop NPCs e.g. the Rod of Discord, magic weapons, the Arms Dealer guns,
+			the Rocket Launcher, and a bunch of food.
+			'Calamity removes QoL faster than I can add it back'
+			'''
+	}
+
+	anglingKits: {
+		Label: "[i:3120] Angling Kits"
+		Tooltip:
+			'''
+			The Desert Scourge and the Aquatic Scourge used to drop a bag of fishing gear each, which peak irony from a desert worm. Calamity deleted both because you should go fishing instead. Then promptly deleted all the nice crates too. lol, lmao even.
+			If enabled, they're added back.
+			'''
+	}
+
+	earlyCosmolight: {
+		Label: "[i:3456] Early Cosmolight"
+		Tooltip:
+			'''
+			The Cosmolight used to be an early Hardmode craft from souls. It now wants a Bakidon and
+			Astral Bars which locks it behind Astrum Deus like two thirds of the way through the whole mod.
+			If enabled, this restores the old recipe.
+			'''
+	}
+
+	starterBag: {
+		Label: "[i:166] Starter Bag Extras"
+		Tooltip:
+			'''
+			The Starter Bag used to come with 10 bombs, 3 chests and a bunch of potions on top of the random class weapons.
+			If enabled, the extras are back.
+			'''
+	}
+
+	expertDrops: {
+		Label: "[i:3224] Expert Accessories in Normal"
+		Tooltip:
+			'''
+			If enabled have bosses drop the Expert-exclusive accessories in Normal mode too.
+			Calamity removed this, predictably.
+			'''
+	}
+
+	autoswing: {
+		Label: "[i:29] Autoswing"
+		Tooltip:
+			'''
+			Calamity gave autoswing to 150 vanilla items, then removed this feature on the grounds
+			that 1.4.4 has a setting for it. Exceot that it does not cover the Life Crystal, the Life Fruit, the Mana Crystal or the paper aeroplanes.
+			If enabled, the autoswing feature is restored.
+			'''
+	}
+
+	defenceBonuses: {
+		Label: "[i:156] Shield and Armour Defence"
+		Tooltip:
+			'''
+			Calamity used give a bit of defence to various accessories so they had a point, like the Ankh Shield line got +4, Hallowed and the hardmode ore sets got a few points of defence too, the Frozen Turtle Shell got 6, etc.
+			If enabled, the buffs are restored.
+			'''
+	}
+
+	manaDiscounts: {
+		Label: "[i:3269] Magic Weapon Mana Costs"
+		Tooltip:
+			'''
+			Fifteen vanilla magic weapons used to cost less mana than vanilla charges. Calamity "reverted nearly all
+			mana cost edits", which is a nice way of saying every discount is gone because fuck you that's why.
+			If enabled, restores the discounts.
+			'Heads I win, tails you lose'
+			'''
+	}
+
+	wingBonuses: {
+		Label: "[i:492] Wing Stat Bonuses"
+		Tooltip:
+			'''
+			I should write a bunch of stuff here about how the wings got molested but you probably knew that already.
+			If enabled, they get their innoncence back.
+			'''
+	}
+
+	fireImmunity: {
+		Label: "[i:193] On Fire! Immunity"
+		Tooltip:
+			'''
+			The Obsidian Skull line, the Ankh Shield and the Terraspark Boots used to make you immune to On Fire!,
+			which is the entire reason anyone wears an Obsidian Skull.
+			Looks like the "the fire immunity patient zero" got killed.
+			If enabled, this change is reverted.
+			'''
+	}
+
+	summonSpeed: {
+		Label: "[i:1157] Non-Consumable Event Summons & Summoning Speed"
+		Tooltip:
+			'''
+			Every vanilla summon staff and sentry rod was faster in old Calamity, and event summons were non-consumable.
+			I'm sure you can see a pattern here.
+			If enabled, these two changes are reverted.
+			'''
+	}
+
+	toolPower: {
+		Label: "[i:2176] Tool Power and Speed"
+		Tooltip:
+			'''
+			Calamity's whole tool rebalance mysteriously "disappeared". Now drills are strictly worse than pickaxes and...
+			I won't even write all of that stuff out.
+			If enabled, the 2.0.4 values come back. Pretty poggers.
+			'''
+	}
+
+	armourBonuses: {
+		Label: "[i:1006] Hardmode Ore Armour Bonuses"
+		Tooltip:
+			'''
+			The Calamity Hog Wild update ass removed all the funny and only *slightly* overpowered ore armour set bonuses.
+			If enabled, reverts them to the old values.
+			'Hog Wild more like Hog Tame'
+			'''
+	}
+
+	prefixScaling: {
+		Label: "[i:1615] Defence Prefix Progression"
+		Tooltip:
+			'''
+			Old Calamity's answer to "why would I reforge for defence at the end of the game" was to make Hard, Guarding,
+			Armored and Warding grow with progression. This was predictably removed because why bother with defence at all?
+			If enabled, this feature is restored.
+			'''
+	}
+
+	sicknessContactDamage: {
+		Label: "[i:1329] Sick Enemies Less Contact Damage"
+		Tooltip:
+			'''
+			An enemy with Poisoned, Venom, Astral Infection and Plague debuffs used to deal 5% less contact damage.
+			Now only Whispering Death does.
+			If enabled, the other four gets the 5% penalty again.
+			'''
+	}
+
+	nurseAndTaxes: {
+		Label: "[npc/n:18] Nurse & Taxes"
+		Tooltip:
+			'''
+			The Nurse went from a flat fee per visit to the vanilla per-HP price multiplied by like 600x at most.
+			The Tax Collector's rates got cut in the other direction, it pays from a half to a quarter now.
+			If enabled, these changes are reverted and she won't heal you at all in Death or Boss Rush and the Tax Collector pays 1 silver 50 per NPC again.
+			'The only permanent things in life are Nurse & Taxes'
+			'''
+	}
+
+	spawnRates: {
+		Label: "[i:288] Spawn Rate Modifiers"
+		Tooltip:
+			'''
+			Calamity used to rebalance the spawning potions' rates. This was deleted and I couldn't find any conceivable reason why.
+			If enabled, the old values are the deal again.
+			'''
+	}
+
+	sellPrices: {
+		Label: "[i:74] Calamity Sell Prices"
+		Tooltip:
+			'''
+			Calamity used to have better sell prices for its gear due to the gear being hilariously OP. This has been nerfed to the ground.
+			If enabled, not anymore.
+			'''
+	}
+
+	shieldImmunities: {
+		Label: "[i:1613] Shield Debuff Immunities"
+		Tooltip:
+			'''
+			Asgard's Valor used to be crafted from an Ankh Shield and integrated its debuff immunities.
+			The whole Ornate Shield line has also lost every immunity it had, and the recipe no longer requires an Ankh Shield, so enjoy using two accessory slots I guess.
+			If enabled, the immunities and the fire block walking are readded and the Asgard's Valor requires an Ankh
+			Shield again.
+			'If you remove everything, what's left?'
+			'''
 	}
 
 	soaringInsignia: {
@@ -1242,6 +1636,167 @@ CalamityUnnerfConfig: {
 	multiplayerBossHealth: {
 		Label: "[i:29] Multiplayer Boss Health Unnerf"
 		Tooltip: If enabled, reverts the Calamity buff to MP boss health. Maybe tanking ain't fun?
+	}
+
+	meleeResist: {
+		Label: "[i:273] Melee Resistance Unnerf"
+		Tooltip:
+			'''
+			Melee weapons deal 25% less to the Eater of Worlds and the Brain's Creepers, and half to the Destroyer.
+			If enabled, this is reverted because this is literally a boss HP buff for pussies.
+			'''
+	}
+
+	ichorDefence: {
+		Label: "[i:1332] Ichor Unnerf"
+		Tooltip:
+			'''
+			Vanilla Ichor decreases enemy defence by 15 defence. Calamity quietly nerfs it to 10 but the tooltip still says 15.
+			If enabled, Ichor does what it says on the tin again.
+			'''
+	}
+
+	hallowedDodge: {
+		Label: "[i:553] Hallowed Dodge Unnerf"
+		Tooltip:
+			'''
+			Hallowed armour's dodge gets a 30 seconds cooldown bolted onto it through Calamity's cooldown system.
+			If enabled, this change is reverted.
+			'''
+	}
+
+	wingAscent: {
+		Label: "[i:749] Wing Ascent Speed Unnerf"
+		Tooltip:
+			'''
+			Butterfly and Ghost Wings ascent speeds were nerfed in exchange for better acceleration.
+			If enabled, this change is reverted. (this isn't a strict nerf, more like a rework so not enabled by default)
+			'''
+	}
+
+	shieldBonkSafety: {
+		Label: "[i:3097] Shield of Cthulhu Bonk Unnerf"
+		Tooltip:
+			'''
+			While the Shield of Cthulhu dash is on, you're supposed to be safe from getting damaged by bonking.
+			Until Calamity comes along and kills the immunity in the last four frames so enjoy the damage I guess.
+			If enabled, the whole dash grants immunity again.
+			'''
+	}
+
+	shimmerGating: {
+		Label: "[i:1326] Shimmer Processing Unnerf"
+		Tooltip: If enabled, Shimmer stops checking your boss log. The title.
+	}
+
+	bloodMoonRequirement: {
+		Label: "[i:4271] Blood Moon Requirement Unnerf"
+		Tooltip: Calamity increases the requirements of the Blood Moon a lot. If enabled, this change is reverted.
+	}
+
+	fossilShattering: {
+		Label: "[i:3380] Fossil Shattering Unnerf"
+		Tooltip:
+			'''
+			Desert Fossil shatters into Sturdy Fossils when it falls far enough. Calamity deletes this.
+			If enabled, fossils shatter again.
+			'''
+	}
+
+	classConversions: {
+		Label: "[i:3806] Class Conversion Unnerf"
+		Tooltip:
+			'''
+			Monk Tier 2 and Tier 3 and Crystal Assassin get turned into rogue armour. If enabled, this is reverted.
+			Off by default, because it's a rework rather than a nerf and someone out there is halfway through a rogue
+			playthrough.;)
+			'''
+	}
+
+	summonerCrossClass: {
+		Label: "[i:1157] Summoner Cross-Class Unnerf"
+		Tooltip:
+			'''
+			If you hold anything that isn't a summon weapon, you get a 25% damage nerf to your minions.
+			Calamity's own minions are exempt from this, so in practice it's a tax on using vanilla summons.
+			If enabled, this boneheaded mechanic is reverted.
+			'''
+	}
+
+	balloonJump: {
+		Label: "[i:159] Balloon Jump Unnerf"
+		Tooltip:
+			'''
+			Balloons are supposed to increase your jump height and your jump speed. Calamity deletes the
+			height part entirely and turns the speed into a measly +0.75.
+			If enabled, the vanilla values are restored.
+			'''
+	}
+
+	beetleMight: {
+		Label: "[i:2200] Beetle Might Unnerf"
+		Tooltip:
+			'''
+			Beetle Scale Mail gives 10% melee damage and 10% melee speed per beetle in vanilla.
+			Calamity quietly halves the speed to 5%, which is grand from a set whose entire purpose is melee.
+			If enabled, the vanilla 10% is restored again.
+			'''
+	}
+
+	scopes: {
+		Label: "[i:1858] Scope Unnerf"
+		Tooltip: If enabled, restores the values for the Sniper Scope and the Recon Scope.
+	}
+
+	spectreAndVampire: {
+		Label: "[i:1446] Spectre and Vampire Healing Unnerf"
+		Tooltip:
+			'''
+			If enabled, turns off Calamity's reworks to the Spectre and Vampire healing buffs.
+			Not on by default for obvious reasons.
+			'''
+	}
+
+	asphaltAndSkates: {
+		Label: "[i:775] Asphalt and Ice Skates Unnerf"
+		Tooltip: If enabled, restores the vanilla values for the Asphalt and the Ice Skates speed/acceleration.
+	}
+
+	nebulaArmour: {
+		Label: "[i:2760] Nebula Armour Unnerf"
+		Tooltip:
+			'''
+			If enabled, removes Calamity's Nebula Armour Unnerf.
+			At this point I don't even have a witty description for this.
+			'''
+	}
+
+	meleeSpeedStacking: {
+		Label: "[i:1343] Melee Speed Stacking Unnerf"
+		Tooltip:
+			'''
+			Feral Claws, all three gloves, Fire Gauntlet, Sun and Moon Stone and the Celestial Stone/Shell no longer stack anymore.
+			If enabled, they stack again like they're supposed to in vanilla.
+			'''
+	}
+
+	whipTagCrits: {
+		Label: "[i:4679] Whip Tag Crit Unnerf"
+		Tooltip:
+			'''
+			If removed, restores the whip summon tagging for the Morning Star and the Kaleidoscope.
+			I guess some of the Calamity devs hate these whips despite not adding any?
+			'''
+	}
+
+	terrarianProjectiles: {
+		Label: "[i:3389] Terrarian Unnerf"
+		Tooltip:
+			'''
+			The Terrarian's gimmick is throwing an obscene number of yo-yos. Calamity caps how many can exist, which
+			is a bit like nerfing the Zenith for having too many swords. (oh wait they've tierlocked it anyway....)
+			If enabled, this change is removed.
+			'''
 	}
 
 	immunityFrames: {

@@ -22,6 +22,14 @@ LegacyTooltip: {
 Tooltips: {
 	InvasionCalledOff: The invasion has overran your town!
 
+	Shields: {
+		coldImmunity: Grants immunity to Chilled, Frostburn, Frostbite, and Frozen
+		fireBlocks: Grants immunity to fire blocks
+		fireDebuffs: Grants immunity to most fire debuffs, including Daybreak and Holy Flames
+		mostDebuffs: Grants immunity to most debuffs, including most forms of frost and flame
+		vastDebuffs: Grants immunity to the vast majority of debuffs, including God Slayer Inferno
+	}
+
 	Hooks: {
 		reachText: Reaches {0} tiles far
 		numHooksText1: Fires one hook
@@ -84,7 +92,10 @@ NPCDropConditions: {
 	ExpertNotMaster: Drops in Expert Mode
 	TinWorld: In a tin world
 	Multiplayer: In multiplayer
+	PostAstrumAureus: After Astrum Aureus has been defeated
 }
+
+NurseChat.HealNotAllowed: I'm not patching you up mid-fight, that's how you learn nothing. Come back when it's dead.
 
 Info: {
 	UIInfo: {
@@ -121,6 +132,24 @@ Buffs: {
 }
 
 Items: {
+	SandyAnglingKit: {
+		DisplayName: Sandy Angling Kit
+		Tooltip:
+			'''
+			Fishing gear, recovered from a worm the size of a town
+			{$CommonItemTooltip.RightClickToOpen}
+			'''
+	}
+
+	BleachedAnglingKit: {
+		DisplayName: Bleached Angling Kit
+		Tooltip:
+			'''
+			Fishing gear, recovered from a bigger and considerably angrier worm
+			{$CommonItemTooltip.RightClickToOpen}
+			'''
+	}
+
 	StarterBag: {
 		DisplayName: Starter Bag
 		Tooltip:
@@ -747,4 +776,51 @@ ConfigDisabled: {
 	needsInfernum: Requires Calamity Mod: Infernum Mode which is not installed.
 	onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You already have Calamity, shoo
 	noCalamityOverlap: This feature is also added by Calamity, this is disabled to prevent duplication and clashes.
+}
+
+SpawnConditions: {
+	Guide: He's there from the start. If he's gone, that's on you.
+	Merchant: Any player holding 50 silver.
+	Nurse: Over 100 max life, with the Merchant already around.
+	Demolitionist: Have an explosive in your inventory.
+	DyeTrader: Own a dye or a Strange Plant.
+	Angler: Asleep at the ocean. Go wake him up.
+	BestiaryGirl: Fill in 10% of the Bestiary.
+	Dryad: Defeat a boss. She ain't got very high standards.
+	Painter: 8 town NPCs living in the world.
+	Golfer: Rescue him in the Underground Desert.
+	ArmsDealer: Have bullets or a gun.
+	DD2Bartender: Lurches in after you defeat the Eater of Worlds or the Brain of Cthulhu.
+	Stylist: Rescue her from a Spider Cave.
+	GoblinTinkerer: Rescue him underground after beating a Goblin Army.
+	WitchDoctor: Defeat Queen Bee.
+	Clothier: Defeat Skeletron.
+	Mechanic: Rescue her from the Dungeon.
+	PartyGirl: Get 14 town NPCs, she spawns with a 2.5% chance every morning.
+	Wizard: Rescue him in the hardmode Caverns.
+	TaxCollector: Throw Purification Powder on a Tortured Soul in the Underworld.
+	Truffle: Make a surface Glowing Mushroom house, in hardmode.
+	Pirate: Beat a Pirate Invasion.
+	Steampunker: Defeat any mechanical boss.
+	Cyborg: Defeat Plantera.
+	SantaClaus: Beat the Frost Legion during Christmas.
+	Princess: House every other regular town NPC first.
+	TownCat: Buy a Cat License, sold by the Zoologist.
+	TownDog: Buy a Dog License, sold by the Zoologist once the Cat License has been bought.
+	TownBunny: Buy a  Bunny License, sold by the Zoologist once the Dog License has been bought.
+	TownSlimeBlue: Defeat King Slime.
+	TownSlimeOld: Free him from the Dungeon with a Golden Key.
+	TownSlimeGreen: Slime-related shenanigans, party hard!
+	TownSlimePurple: Slime-related shenanigans, be a party popper.
+	TownSlimeRainbow: Slime-related shenanigans, gamer girl bathwater into shimmer.
+	TownSlimeRed: Slime-related shenanigans, nautical edition.
+	TownSlimeYellow: Slime-related shenanigans, purify a Mystic Frog in the Jungle.
+	TownSlimeCopper: Slime-related shenanigans, chivalrous edition. (Copper Helmet / Shortsword)
+	Unknown: Spawn conditions unknown. A mystery tenant.
+}
+
+Census: {
+	next: Next in line to arrive.
+	ready: Ready to move in, just needs some housing.
+	prices: Prices: {0}%
 }

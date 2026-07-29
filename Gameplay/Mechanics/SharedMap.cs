@@ -317,8 +317,10 @@ public class QoLSharedMapSystem : ModSystem {
         }
     }
 
-    public void HandlePacket(BinaryReader reader, int whoAmI) {
-        SharedMapMessages msgType = (SharedMapMessages)reader.ReadByte();
+    // the type byte is read upstream in VanillaQoL.HandlePacket these days, so census packets
+    // can also share the channel
+    // todo implement some kind of structured packet handling? or we can just keep copypasting terraria style lol
+    public void HandlePacket(SharedMapMessages msgType, BinaryReader reader, int whoAmI) {
         byte whichPlayer = reader.ReadByte();
         switch (msgType) {
             case SharedMapMessages.MapUpdate: {

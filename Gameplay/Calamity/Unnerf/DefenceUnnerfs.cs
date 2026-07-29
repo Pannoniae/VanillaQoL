@@ -117,3 +117,58 @@ public class MeleeArmourDRUnnerf : ModSystem {
         ilCursor.Remove();
     }
 }
+
+
+[JITWhenModsEnabled("CalamityMod")]
+public class BeetleMightUnnerf : ModSystem {
+    private const float vanillaPerBeetle = 0.1f;
+    private const float calamitySpeedPerBeetle = 0.05f;
+
+    public override bool IsLoadingEnabled(Mod mod) {
+        return VanillaQoL.isCalamityLoaded() && CalamityUnnerfConfig.Instance.beetleMight;
+    }
+
+    public override void Load() {
+        IL_Player.UpdateBuffs += restoreMeleeSpeed;
+    }
+
+    public override void Unload() {
+        IL_Player.UpdateBuffs -= restoreMeleeSpeed;
+    }
+
+    // stfld beetleOrbs
+    // ... meleeDamage += 0.1f * beetleOrbs
+    // ... meleeSpeed  += 0.05f * beetleOrbs
+    private void restoreMeleeSpeed(ILContext il) {
+        var ilCursor = new ILCursor(il);
+
+        if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchStfld<Player>("beetleOrbs"))) {
+            warn("the beetle count");
+            return;
+        }
+
+        // damage first, then speed
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(vanillaPerBeetle))) {
+            warn("the beetle melee damage bonus");
+            return;
+        }
+
+        ilCursor.Index++;
+
+        if (!ilCursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(out _))) {
+            warn("the beetle melee speed bonus");
+            return;
+        }
+
+        if (ilCursor.Next!.Operand is not float speed || speed != calamitySpeedPerBeetle) {
+            warn("Calamity's halved beetle melee speed");
+            return;
+        }
+
+        ilCursor.Next.Operand = vanillaPerBeetle;
+    }
+
+    private static void warn(string wat) {
+        VanillaQoL.instance.Logger.Warn($"Couldn't find {wat} in Player.UpdateBuffs!.");
+    }
+}
