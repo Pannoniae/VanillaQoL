@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 namespace VanillaQoL.Gameplay.Calamity.Unnerf;
 
 
+[ExtendsFromMod("CalamityMod")]
 [JITWhenModsEnabled("CalamityMod")]
 public class ArmourUnnerfs : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
