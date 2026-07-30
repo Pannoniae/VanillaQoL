@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using VanillaQoL.IL;
 
@@ -56,6 +57,34 @@ public class BuffsPersistOnDeath : ModSystem {
 
             _persistentBuffs.Clear();
             _persistentBuffs = null!;
+        }
+    }
+}
+
+public class StationBuffsPersistOnDeath : ModSystem {
+    private static readonly int[] stationBuffs =
+        [BuffID.AmmoBox, BuffID.Bewitched, BuffID.Clairvoyance, BuffID.Sharpened, BuffID.WarTable, BuffID.SugarRush];
+
+    private static readonly bool[] prevStationBuffs = new bool[stationBuffs.Length];
+
+    public override bool IsLoadingEnabled(Mod mod) => QoLConfig.Instance.deathLessBuffs;
+
+    public override void PostSetupContent() {
+        for (var i = 0; i < stationBuffs.Length; i++) {
+            var buff = stationBuffs[i];
+            prevStationBuffs[i] = Main.persistentBuff[buff];
+            Main.persistentBuff[buff] = true;
+
+            // patch calamity because they hardcode persistent buffs.....
+            if (VanillaQoL.isCalamityLoaded()) {
+                CalamityLogic3.addBuff(buff);
+            }
+        }
+    }
+
+    public override void Unload() {
+        for (var i = 0; i < stationBuffs.Length; i++) {
+            Main.persistentBuff[stationBuffs[i]] = prevStationBuffs[i];
         }
     }
 }

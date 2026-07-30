@@ -139,7 +139,8 @@ public class ShieldRecipeUnnerf : ModSystem {
         var patched = 0;
 
         foreach (var recipe in Main.recipe) {
-            if (recipe != null && recipe.HasResult(valor)) {
+            // check first - another mod restoring the same thing would otherwise leave it asking for two
+            if (recipe != null && recipe.HasResult(valor) && !recipe.HasIngredient(ItemID.AnkhShield)) {
                 recipe.AddIngredient(ItemID.AnkhShield);
                 patched++;
             }

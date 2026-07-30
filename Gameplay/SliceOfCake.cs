@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;
@@ -10,12 +9,6 @@ public class SliceOfCake : ModSystem {
     private static bool prev;
     private static bool prev2;
     private static bool prev3;
-
-    private readonly List<int> stationBuffs =
-        [BuffID.AmmoBox, BuffID.Bewitched, BuffID.Clairvoyance, BuffID.Sharpened, BuffID.WarTable, BuffID.SugarRush];
-    
-    private readonly List<bool> prevStationBuffs =
-        [false, false, false, false, false, false];
 
     public override bool IsLoadingEnabled(Mod mod) {
         return QoLConfig.Instance.sliceOfCakeUntilDeath;
@@ -32,11 +25,6 @@ public class SliceOfCake : ModSystem {
         BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = true;
         Main.buffNoTimeDisplay[BuffID.SugarRush] = true;
         Main.buffNoSave[BuffID.SugarRush] = true;
-        for (var i = 0; i < stationBuffs.Count; i++) {
-            var buff = stationBuffs[i];
-            prevStationBuffs[i] = Main.persistentBuff[buff];
-            Main.persistentBuff[buff] = true;
-        }
     }
 
     public override void Unload() {
@@ -44,11 +32,6 @@ public class SliceOfCake : ModSystem {
         BuffID.Sets.TimeLeftDoesNotDecrease[BuffID.SugarRush] = prev;
         Main.buffNoTimeDisplay[BuffID.SugarRush] = prev2;
         Main.buffNoSave[BuffID.SugarRush] = prev3;
-        
-        for (var i = 0; i < stationBuffs.Count; i++) {
-            var buff = stationBuffs[i];
-            Main.persistentBuff[buff] = prevStationBuffs[i];
-        }
     }
 
     // IL_11f0: ldc.i4       192 // 0x000000c0

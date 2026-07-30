@@ -90,14 +90,16 @@ public static class RecipeBrowserLogic {
     //IL_027b: ldfld        class [System.Collections]System.Collections.Generic.List`1<class [tModLoader]Terraria.Condition> [tModLoader]Terraria.Recipe::Conditions
     private static void removeHiddenConditions(ILContext il) {
         var ilCursor = new ILCursor(il);
-        // match the ldfld before the loop, modify the list
-        if (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Recipe>("Conditions"))) {
-            // call our filter method
+        var sites = 0;
+        while (ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Recipe>("Conditions"))) {
+            // call our filter method, afterwards the list is on the stack as we wanted
             ilCursor.Emit<ModILEdits>(OpCodes.Call, "filterConditionsL");
-            // afterwards the list is on the stack as we wanted
+            sites++;
+        }
 
+        if (sites > 0) {
             VanillaQoL.instance.Logger.Info(
-                "Patched RecipeBrowser UIRecipeInfo for hiding invisible recipe conditions!");
+                $"Patched RecipeBrowser UIRecipeInfo for hiding invisible recipe conditions! ({sites} sites)");
         }
         else {
             VanillaQoL.instance.Logger.Warn("Failed to locate recipe condition check in RecipeBrowser");

@@ -30,6 +30,106 @@ Tooltips: {
 		vastDebuffs: Grants immunity to the vast majority of debuffs, including God Slayer Inferno
 	}
 
+	Restored: {
+		onFire: Grants immunity to the On Fire! debuff
+		notConsumable: Not consumable
+		manaBoost: +20 max mana
+		gladiatorDefence: +3 defence
+		palladiumChest: 2% increased damage
+		palladiumLegs: 3% increased damage
+		orichalcumChest: 4% increased critical strike chance
+		crimsonPiece: 3% increased damage and +0.5 HP/s life regen
+		crimsonChest: 3% increased damage and +1 HP/s life regen
+		elysianLava: Grants immunity to lava
+		spectreHealing:
+			'''
+			Converts magic damage to healing force
+			Magic damage done to enemies heals the player with lowest health
+			'''
+		prefixDefence: +{0} defence
+		prefixDR: +{0}% damage reduction
+		prefixLuck: +0.05 luck
+
+		Wings: {
+			AngelWings: +20 max life, +10 defence and +1 HP/s life regen
+			DemonWings: 5% increased damage and critical strike chance
+			ButterflyWings:
+				'''
+				+20 max mana, 5% decreased mana usage,
+				5% increased magic damage and magic critical strike chance
+				'''
+			FairyWings: +60 max life
+			BeeWings: Permanently gives the Honey buff
+			HarpyWings: 20% increased movement speed
+			FlameWings: 5% increased melee damage and critical strike chance
+			FrozenWings:
+				'''
+				2% increased melee and ranged damage
+				and 1% increased melee and ranged critical strike chance
+				while wearing the Frost Armor
+				'''
+			GhostWings:
+				'''
+				+10 defence and 5% increased damage reduction while wearing the Spectre Hood set
+				5% increased magic damage and critical strike chance while wearing the Spectre Mask set
+				'''
+			BeetleWings:
+				'''
+				+10 defence and 5% increased damage reduction while wearing the Beetle Shell set
+				5% increased melee damage and critical strike chance while wearing the Beetle Scale Mail set
+				'''
+			FinWings:
+				'''
+				Gills effect and you can move freely through liquids
+				You fall faster while submerged in liquid
+				'''
+			SteampunkWings:
+				'''
+				+8 defence, 10% increased movement speed,
+				4% increased damage, and 2% increased critical strike chance
+				'''
+			LeafWings:
+				'''
+				+5 defence, 5% increased damage reduction,
+				and permanent Dryad's Blessing while wearing the Tiki Armor
+				'''
+			BatWings:
+				'''
+				At night or during an eclipse, you will gain the following boosts:
+				7% increased damage and 3% increased critical strike chance
+				'''
+			TatteredFairyWings: 5% increased damage and critical strike chance
+			SpookyWings: Increased minion knockback and 5% increased minion damage while wearing the Spooky Armor
+			Hoverboard:
+				'''
+				5% increased weapon-type damage while wearing the Shroomite Armor
+				The weapon type boosted matches which Shroomite helmet is worn
+				'''
+			FestiveWings:
+				'''
+				+40 max life
+				Ornaments rain down as you fly
+				'''
+			MothronWings: +5 defence and 5% increased damage
+			WingsSolar:
+				'''
+				7% increased melee damage and 3% increased melee critical strike chance
+				while wearing the Solar Flare Armor
+				'''
+			WingsStardust: 10% increased minion damage while wearing the Stardust Armor
+			WingsVortex:
+				'''
+				3% increased ranged damage and 7% increased ranged critical strike chance
+				while wearing the Vortex Armor
+				'''
+			WingsNebula:
+				'''
+				+20 max mana, 5% increased magic damage and critical strike chance,
+				and 5% decreased mana usage while wearing the Nebula Armor
+				'''
+		}
+	}
+
 	Hooks: {
 		reachText: Reaches {0} tiles far
 		numHooksText1: Fires one hook
@@ -823,4 +923,5 @@ Census: {
 	next: Next in line to arrive.
 	ready: Ready to move in, just needs some housing.
 	prices: Prices: {0}%
+	lovesEveryone: everyone. Yes, even you.
 }

@@ -1,8 +1,12 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+ [*] Multiplayer map sharing actually works now and is out of testing. All fixed, no longer eats your map.
+ [*] Explored map tiles now stream to the other players continuously, and joining a server automatically syncs everyone else's map in the background. You can use the Share Map keybind (P) to sync maps manually if needed.
+ [*] Added a team-only toggle for map sharing if you'd rather keep your cartography within the team. (PvP)
  [*] Mods load faster now: fixed a tModLoader bug where the loading screen only picked up finished textures for 1ms per frame, stalling every mod's texture loading. (a one-character typo upstream, whole seconds of your life back)
  [*] Added a town NPC checklist to the housing menu, it shows everyone who hasn't moved in yet, their arrival conditions when you hover over them, and whether they can move in or not.
- [*] Hovering a housed NPC in the housing menu now shows their prices and full happiness breakdown.
+ [*] Hovering a housed NPC in the housing menu now shows their prices and the full love/like/dislike/hate chart for biomes and neighbours.
+ [*] Unlike Census, this checklist updates immediately instead of showing question marks for minutes...
  [*] When Census isn't installed, VanillaQoL now supports its mod integrations (both the formatAPI and the Mod.Call), so other mods' town NPCs get proper condition text in the checklist.
  [*] Mod authors can also use the VanillaQoL modname as well (for new mods): have a Mods.<YourMod>.NPCs.<YourNPC>.VanillaQoL.SpawnCondition lockey, or Mod.Call VanillaQoL like ("TownNPCCondition", npcType, LocalizedText). This isn't auto-injected into the config files so you won't have a bunch of useless keys though. If you have both keys (Census and Vanilla+ QoL), the Vanilla+ QoL key wins.
  [*] You get an arrow pointing to where the NPCs actually are when you hover over them in the NPC housing menu.
@@ -28,12 +32,12 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] Autoswing is back on the 153 vanilla items Calamity gave it to and then took it off again - including the Life Crystal, the Life Fruit and the Mana Crystal, which the vanilla "autoswing all weapons" setting has never covered.
  [*] The 27 shield and armour defence bonuses Calamity deleted are back - Ankh Shield +4, Cobalt Shield +3, Hero Shield +5, the Hallowed and Palladium/Orichalcum sets, the Frozen Turtle Shell etc.
  [*] Fourteen vanilla magic weapons cost less mana again. The Rainbow Gun is left alone because Calamity's number there was a nerf, not a discount.
- [*] Vanilla wings are stat sticks again - Angel Wings' 20 life/10 defence, Fairy Wings' 60 life, the armour set synergies, blanket fall immunity, and the Elysian Wings' lava immunity.
+ [*] Vanilla wings get their stats back again, like the Angel Wings' 20 life/10 defence, Fairy Wings' 60 life, the armour set synergies, blanket fall immunity, and the Elysian Wings' lava immunity.
  [*] The Obsidian Skull line, the Ankh Shield and the Terraspark Boots make you immune to On Fire! again.
  [*] Vanilla summon staves and sentry rods are fast again, boss summons snap off in 10 frames, and the seven event summons stopped being consumed.
  [*] Calamity's tool design is back: drill/chainsaw damage, endgame pickaxe speed and reach, the Reaver Shark at 100% pick power instead of 59%, and the tile reach trade-off that went with it.
  [*] The hardmode ore armour trims from Hog Wild are reverted - Crimson's damage and regen, Palladium's and Orichalcum's per-piece bonuses, Adamantite's mana/defence/crit conversion, the Cobalt Hat and Mythril Hood mana, Gladiator's 3 defence and the Spectre Hood set's magic.
- [*] Hard, Guarding, Armored and Warding scale with progression again (Warding maxes out at 7 defence and 1% DR).
+ [*] Hard, Guarding, Armored and Warding scale with progression again (Warding maxes out at 12 defence and 1% DR, Ironskin at 20), with additional tiers at Golem, Providence, Polterghast, the Devourer and Yharon. These are the Calamity 2.0.1.005 numbers, before three separate nerfs completely yeeted this.
  [*] Poisoned, Venom, Astral Infection and Plague make enemies deal less contact damage again.
  [*] The Nurse charges the old flat price instead of 600x vanilla's per-HP price, and won't heal mid-boss in Death or Boss Rush. The Tax Collector pays 1s50c per NPC again.
  [*] Battle Potions, Water Candles, Peace Candles, Calming Potions and Zen have their Calamity spawn modifiers back.
@@ -91,6 +95,7 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] You can now exchange Corruption items for Crimson ones.
  [*] Added all the Calamity recipes + some old Calamity recipes too.
  [*] Calamity Unnerfs but updated to all the calamity changes + fixed up the tooltips too.
+ [*] Added a compat warning for Calamity Restored QoL, and the Asgard's Valor recipe no longer asks for two Ankh Shields if another mod already added one.
  [*] The wing slot's dye slot now accepts dyes. Waow.
  [*] Wings now get the "Equipable in wing slot" tooltip. Previously only balloons and bottles got it (half-finished features yey)
  [*] Hovering over the wing slot tells you what it is again.
@@ -102,5 +107,7 @@ Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVers
  [*] Remove the accessory loadout support option - tModLoader does this natively now and ours was broken by the recent tML changes anyway.
  [*] Disable an outdated config option.
  [*] Update the mod to the latest version + Calamity.
+ [*] Hiding hidden crafting conditions in Recipe Browser works again.
+ [*] The "Persistent Buffs Survive Death" option actually does something now.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

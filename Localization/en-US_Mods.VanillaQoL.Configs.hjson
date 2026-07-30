@@ -178,9 +178,18 @@ QoLConfig: {
 		Tooltip: Selects which team to automatically join.
 	}
 
-	mapSharingTESTING: {
-		Label: "[i:893] Enable Map Sharing"
-		Tooltip: "[c/FF0000:WILL PROBABLY CORRUPT YOUR MAP!] If enabled, players in the same team will share the map with each other."
+	mapSharing: {
+		Label: "[i:893] Map Sharing"
+		Tooltip:
+			'''
+			No longer corrupts your map! If enabled, explored areas of the map automatically sync to other players.
+			Very pog.
+			'''
+	}
+
+	mapSharingTeamOnly: {
+		Label: "[i:893] Team-Only Map Sharing"
+		Tooltip: If enabled, the shared map is only shared within your team. Good for PvP and/or nosy friends.
 	}
 
 	overTimeNurseHealing: {
@@ -1388,7 +1397,8 @@ CalamityUnnerfConfig: {
 		Label: "[i:156] Shield and Armour Defence"
 		Tooltip:
 			'''
-			Calamity used give a bit of defence to various accessories so they had a point, like the Ankh Shield line got +4, Hallowed and the hardmode ore sets got a few points of defence too, the Frozen Turtle Shell got 6, etc.
+			Calamity used give a bit of defence to various accessories so they had a point.
+			e.g.the Ankh Shield line got +4, the Frozen Turtle Shell got 6, etc.
 			If enabled, the buffs are restored.
 			'''
 	}

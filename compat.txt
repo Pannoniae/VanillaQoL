@@ -7,3 +7,6 @@ InstantPlatformFallthrough=Vanilla+ QoL has the same feature, this will crash.
 LavalessLavaSlime=Vanilla+ QoL has the same feature, this will crash.
 CalamityFly=Vanilla+ QoL has absorbed everything UnNerfs Calamity does and more, so running both is redundant. The patches would apply on the same thing and crash, not good.
 SmarterCursor=Vanilla+ QoL's smart cursor features implement similar functionality but less janky + more features, and the patches clash with each other.
+CalamityQoLRestored=Vanilla+ QoL restores everything Calamity Restored QoL does and a lot more. Both will not crash, they will quietly do random things twice - double boss drops, double crate ore, and an Asgard's Valor recipe asking for two Ankh Shields. Pick one...
+WingSlot=Vanilla+ QoL also has a wing slot, so you now have two wing slots. Nothing breaks, but come on.
+WingSlotExtra=Vanilla+ QoL also has a wing slot, so you now have two wing slots. Nothing breaks, but come on.

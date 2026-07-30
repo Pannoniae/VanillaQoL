@@ -20,7 +20,7 @@ public static class AssetLoop {
             BindingFlags.NonPublic | BindingFlags.Static);
         isLoading = typeof(ModLoader).GetField("isLoading", BindingFlags.NonPublic | BindingFlags.Static);
         if (target == null || isLoading == null) {
-            log.Warn("Couldn't find the asset pump, mods will load at tML speed.");
+            log.Warn("Couldn't find the asset loop, mods will load at tML speed.");
             return;
         }
 
@@ -34,7 +34,7 @@ public static class AssetLoop {
         }
 
         var sw = Stopwatch.StartNew();
-        while (sw.ElapsedMilliseconds < 15 && SpinWait.SpinUntil(transfer, 1)) {
+        while (sw.ElapsedMilliseconds < 33 && SpinWait.SpinUntil(transfer, 6)) {
 
         }
     }

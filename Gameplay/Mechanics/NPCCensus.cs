@@ -8,6 +8,7 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Personalities;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
@@ -33,8 +34,21 @@ public class NPCCensus : ModSystem {
     private static uint lastHoverTick;
     private static string happiness = "";
 
+    // client: last rescan asked server: last request we sent
+    private static uint lastRescan;
+
+    private static string tooltip = "";
+
     private static readonly FieldInfo hidePVPIconsField =
         typeof(Main).GetField("hidePVPIcons", BindingFlags.NonPublic | BindingFlags.Static)!;
+
+    private static readonly FieldInfo databaseField =
+        typeof(ShopHelper).GetField("_database", BindingFlags.NonPublic | BindingFlags.Instance)!;
+
+    private static readonly MethodInfo spawnTownNPCs =
+        typeof(Main).GetMethod("UpdateTime_SpawnTownNPCs", BindingFlags.NonPublic | BindingFlags.Static)!;
+
+    private static readonly Dictionary<int, string> matrix = new();
 
     public override bool IsLoadingEnabled(Mod mod) {
         return (QoLConfig.Instance.betterCensus || QoLConfig.Instance.npcHappinessOnHover ||
@@ -52,6 +66,7 @@ public class NPCCensus : ModSystem {
         IL_Main.UpdateTime_SpawnTownNPCs -= canSpawnPatch;
         conditions.Clear();
         entries = [];
+        matrix.Clear();
         happiness = "";
         lastHoverNPC = -1;
     }
@@ -59,6 +74,17 @@ public class NPCCensus : ModSystem {
     public override void OnWorldLoad() {
         synced = false;
         lastHoverNPC = -1;
+        // sync immediately instead of waiting a whole a lot
+        if (Main.netMode != NetmodeID.MultiplayerClient) {
+            Main.checkForSpawns = 1_000_000;
+        }
+    }
+
+    public override void PostUpdateWorld() {
+        // also update during night so the npcstatus isn't fucked during the night
+        if (!Main.dayTime) {
+            spawnTownNPCs.Invoke(null, null);
+        }
     }
 
     // mods deliver these through the facade during PostSetupContent
@@ -118,6 +144,19 @@ public class NPCCensus : ModSystem {
         var mH = (int)GlobalHooks.mHField.GetValue(null)!;
 
         if (QoLConfig.Instance.betterCensus) {
+            // keep the markers fresh while you're actually looking
+            if (Main.GameUpdateCount - lastRescan >= 60) {
+                lastRescan = Main.GameUpdateCount;
+                if (Main.netMode == NetmodeID.SinglePlayer) {
+                    Main.checkForSpawns = 1_000_000;
+                }
+                else if (Main.netMode == NetmodeID.MultiplayerClient) {
+                    var packet = VanillaQoL.instance.GetPacket();
+                    packet.Write(spawnPacketID);
+                    packet.Send();
+                }
+            }
+
             var present = new HashSet<int>();
             foreach (var npc in Main.ActiveNPCs) {
                 if (npc.townNPC) {
@@ -170,14 +209,14 @@ public class NPCCensus : ModSystem {
                     Main.mouseText = true;
                     var name = Lang.GetNPCNameValue(type);
                     if (synced && WorldGen.prioritizedTownNPCType == type) {
-                        text = name + "\n" + Language.GetTextValue("Mods.VanillaQoL.Census.next");
+                        tooltip = name + "\n[c/ffd700:" + Language.GetTextValue("Mods.VanillaQoL.Census.next") + "]";
                     }
                     else if (synced && Main.townNPCCanSpawn[type]) {
-                        text = name + "\n" + Language.GetTextValue("Mods.VanillaQoL.Census.ready");
+                        tooltip = name + "\n[c/98fb98:" + Language.GetTextValue("Mods.VanillaQoL.Census.ready") + "]";
                     }
                     else {
                         // spoiler mode: you get to know who, you don't get to know how
-                        text = QoLConfig.Instance.censusSpoilerMode ? name : name + " - " + conditions.Value;
+                        tooltip = QoLConfig.Instance.censusSpoilerMode ? name : name + "\n" + conditions.Value;
                     }
 
                     if (!PlayerInput.IgnoreMouseInterface) {
@@ -219,32 +258,101 @@ public class NPCCensus : ModSystem {
         }
 
         // the happiness readout for whoever's already moved in (don't spoiler it!)
-        if (QoLConfig.Instance.npcHappinessOnHover && text != "") {
+        if (QoLConfig.Instance.npcHappinessOnHover && text != "" && !Main.remixWorld) {
             var hovered = UILinkPointNavigator.Shortcuts.NPCS_LastHovered;
             if (hovered >= 0 && hovered < Main.maxNPCs) {
                 var npc = Main.npc[hovered];
                 if (npc.active && npc.townNPC) {
                     if (hovered != lastHoverNPC || Main.GameUpdateCount - lastHoverTick > 30) {
-                        var settings = Main.ShopHelper.GetShoppingSettings(Main.LocalPlayer, npc);
-                        happiness = settings.HappinessReport == ""
-                            ? ""
-                            : Language.GetTextValue("Mods.VanillaQoL.Census.prices",
-                                  (int)Math.Round(settings.PriceAdjustment * 100)) + "\n" +
-                              settings.HappinessReport;
+                        var chart = happinessMatrix(npc.type);
+                        if (chart == "") {
+                            happiness = "";
+                        }
+                        else {
+                            var settings = Main.ShopHelper.GetShoppingSettings(Main.LocalPlayer, npc);
+                            happiness = Language.GetTextValue("Mods.VanillaQoL.Census.prices",
+                                (int)Math.Round(settings.PriceAdjustment * 100)) + "\n" + chart;
+                        }
+
                         lastHoverNPC = hovered;
                         lastHoverTick = Main.GameUpdateCount;
                     }
 
                     if (happiness != "") {
-                        text += "\n" + happiness;
+                        // steal the whole tooltip from vanilla - ours has a background panel
+                        tooltip = text + "\n" + happiness;
+                        text = "";
                     }
                 }
             }
         }
     }
 
+    // build the full love/like/dislike/hate chart out of the personality database, colour-coded
+    private static string happinessMatrix(int type) {
+        if (matrix.TryGetValue(type, out var cached)) {
+            return cached;
+        }
+
+        string result;
+        if (NPCID.Sets.IsTownPet[type] || NPCID.Sets.IsTownSlime[type]) {
+            result = "";
+        }
+        else if (type == NPCID.Princess) {
+            result =
+                $"[t:VanillaQoL/Assets/Face_Love] [c/ff66cc:{Language.GetTextValue("Mods.VanillaQoL.Census.lovesEveryone")}]";
+        }
+        else {
+            var byLevel = new Dictionary<AffectionLevel, List<string>>();
+
+            void add(AffectionLevel level, string name) {
+                if (!byLevel.TryGetValue(level, out var list)) {
+                    byLevel[level] = list = [];
+                }
+
+                list.Add(name);
+            }
+
+            var db = (PersonalityDatabase)databaseField.GetValue(Main.ShopHelper)!;
+            if (db.TryGetProfileByNPCID(type, out var profile)) {
+                foreach (var trait in profile.ShopModifiers) {
+                    if (trait is BiomePreferenceListTrait biomes) {
+                        foreach (var p in biomes.Preferences) {
+                            add(p.Affection, ShopHelper.BiomeNameByKey(p.Biome.NameKey));
+                        }
+                    }
+                    else if (trait is NPCPreferenceTrait pref) {
+                        add(pref.Level, Lang.GetNPCNameValue(pref.NpcId));
+                    }
+                }
+            }
+
+            // everyone's a little bit in love with the Princess (hardcoded in ProcessMood, not the db so specialcase...)
+            add(AffectionLevel.Like, Lang.GetNPCNameValue(NPCID.Princess));
+
+            (AffectionLevel level, string icon, string colour)[] rows = [
+                (AffectionLevel.Love, "[t:VanillaQoL/Assets/Face_Love]", "ff66cc"),
+                (AffectionLevel.Like, "[t:VanillaQoL/Assets/Face_Like]", "98fb98"),
+                (AffectionLevel.Dislike, "[t:VanillaQoL/Assets/Face_Dislike]", "ffa666"),
+                (AffectionLevel.Hate, "[t:VanillaQoL/Assets/Face_Hate]", "ff5555")
+            ];
+
+            List<string> lines = [];
+            foreach (var (level, icon, colour) in rows) {
+                if (byLevel.TryGetValue(level, out var names)) {
+                    lines.Add($"{icon} [c/{colour}:{string.Join(", ", names)}]");
+                }
+            }
+
+            result = string.Join("\n", lines);
+        }
+
+        matrix[type] = result;
+        return result;
+    }
+
     public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
-        if (!QoLConfig.Instance.npcLocatingArrow || !Main.playerInventory || Main.EquipPage != 1) {
+        if (!Main.playerInventory || Main.EquipPage != 1) {
             return;
         }
 
@@ -253,7 +361,39 @@ public class NPCCensus : ModSystem {
             return;
         }
 
-        layers.Insert(idx, new LegacyGameInterfaceLayer("VanillaQoL: NPC Locating Arrow", drawLocatingArrow));
+        layers.Insert(idx + 1,
+            new LegacyGameInterfaceLayer("VanillaQoL: Census Tooltip", drawTooltip, InterfaceScaleType.UI));
+        if (QoLConfig.Instance.npcLocatingArrow) {
+            layers.Insert(idx, new LegacyGameInterfaceLayer("VanillaQoL: NPC Locating Arrow", drawLocatingArrow));
+        }
+    }
+
+    private static bool drawTooltip() {
+        if (tooltip == "") {
+            return true;
+        }
+
+        var font = FontAssets.MouseText.Value;
+        var pulse = Main.mouseTextColor;
+        var snippets = ChatManager.ParseMessage(tooltip, new Color(pulse, pulse, pulse, pulse)).ToArray();
+        var size = ChatManager.GetStringSize(font, snippets, Vector2.One);
+
+        var pos = new Vector2(Main.mouseX + 14, Main.mouseY + 14);
+        if (Main.ThickMouse) {
+            pos += new Vector2(6f, 6f);
+        }
+
+        pos.X = Math.Min(pos.X, Main.screenWidth - size.X - 16);
+        pos.Y = Math.Min(pos.Y, Main.screenHeight - size.Y - 16);
+
+        Terraria.Utils.DrawInvBG(Main.spriteBatch,
+            new Rectangle((int)pos.X - 12, (int)pos.Y - 8, (int)size.X + 24, (int)size.Y + 14),
+            new Color(23, 25, 81, 255) * 0.925f);
+        ChatManager.DrawColorCodedStringWithShadow(Main.spriteBatch, font, snippets, pos, 0f,
+            Vector2.Zero, Vector2.One, out _);
+
+        tooltip = "";
+        return true;
     }
 
     private static bool drawLocatingArrow() {
@@ -351,6 +491,15 @@ public class NPCCensus : ModSystem {
             writeCanSpawn(packet);
             packet.Send();
         }
+    }
+
+    public static void handleRescanRequest() {
+        if (Main.GameUpdateCount - lastRescan < 60) {
+            return;
+        }
+
+        lastRescan = Main.GameUpdateCount;
+        Main.checkForSpawns = 1_000_000;
     }
 
     public static void handleCanSpawnPacket(BinaryReader reader) {

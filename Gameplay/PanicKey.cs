@@ -33,6 +33,10 @@ public class PanicKeyPlayer : ModPlayer {
     }
 
     public void useTeleportItem() {
+        if (Player.itemAnimation > 0 || Player.itemTime > 0) {
+            return;
+        }
+
         // priority: recall potion -> magic mirror
 
         var itemCheck_CheckCanUse =
@@ -63,7 +67,6 @@ public class PanicKeyPlayer : ModPlayer {
     }
 
     public void useItem(int idx) {
-        // TODO: As of 1.4, this doesn't seem to honor not activating while an item is already in use.
         if (Player.inventory[idx].type != ItemID.None) {
             Player.selectedItem = idx;
             Player.controlUseItem = true;

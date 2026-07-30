@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using JetBrains.Annotations;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader.Config;
 using VanillaQoL.Shared;
@@ -163,6 +164,7 @@ public class QoLConfig : ModConfig {
     [BackgroundColor(192, 54, 128, 192)]
     [ReloadRequired]
     [DefaultValue(true)]
+    [UsedImplicitly]
     public bool censusSpoofing { get; set; }
 
     // Compass
@@ -985,17 +987,21 @@ public class QoLConfig : ModConfig {
     [DrawTicks]
     public Team teamToAutoJoin { get; set; }
 
+    // Trifold Map
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(true)]
+    [ReloadRequired]
+    public bool mapSharing { get; set; }
+
+    [BackgroundColor(192, 54, 128, 192)]
+    [DefaultValue(false)]
+    public bool mapSharingTeamOnly { get; set; }
+
     #endregion
 
     #region testing
 
     [Header("testing")]
-
-    // Trifold Map
-    [BackgroundColor(192, 54, 128, 192)]
-    [DefaultValue(false)]
-    [ReloadRequired]
-    public bool mapSharingTESTING { get; set; }
 
     // Dirt
     [BackgroundColor(192, 54, 128, 192)]

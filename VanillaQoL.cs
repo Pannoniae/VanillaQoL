@@ -8,6 +8,7 @@ using System.Text;
 using MagicStorage.Common.Systems;
 using MonoMod.Cil;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
@@ -56,12 +57,12 @@ public class VanillaQoL : Mod {
         Console.WriteLine("Registered mod compat handler.");
 
         // spoofing has to be loaded VERY early
-        if (Spoof.configBool("betterCensus", true) && Spoof.configBool("censusSpoofing", true)) {
+        if (Spoof.configBool(nameof(QoLConfig.betterCensus), true) && Spoof.configBool(nameof(QoLConfig.censusSpoofing), true)) {
             Spoof.install();
             Spoof.register("Census", "Census - Town NPC Checklist", new TemuCensus());
         }
 
-        if (Spoof.configBool("fasterModLoading", true)) {
+        if (Spoof.configBool(nameof(QoLConfig.fasterModLoading), true)) {
             AssetLoop.install();
         }
     }
@@ -184,11 +185,17 @@ public class VanillaQoL : Mod {
     public override void HandlePacket(BinaryReader reader, int whoAmI) {
         var msgType = reader.ReadByte();
         if (msgType == NPCCensus.spawnPacketID) {
-            NPCCensus.handleCanSpawnPacket(reader);
+            if (Main.netMode == NetmodeID.Server) {
+                NPCCensus.handleRescanRequest();
+            }
+            else {
+                NPCCensus.handleCanSpawnPacket(reader);
+            }
+
             return;
         }
 
-        if (QoLConfig.Instance.mapSharingTESTING) {
+        if (QoLConfig.Instance.mapSharing) {
             QoLSharedMapSystem.instance.HandlePacket((QoLSharedMapSystem.SharedMapMessages)msgType, reader, whoAmI);
         }
         else {

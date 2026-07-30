@@ -13,7 +13,9 @@ public class TooltipUnnerfs : ModSystem {
     private static CalamityUnnerfConfig cfg => CalamityUnnerfConfig.Instance;
 
     public override bool IsLoadingEnabled(Mod mod) {
-        return VanillaQoL.isCalamityLoaded() && (cfg.vanillaEquipStats || cfg.scopes || cfg.meleeSpeedStacking);
+        return VanillaQoL.isCalamityLoaded() && (cfg.vanillaEquipStats || cfg.scopes || cfg.meleeSpeedStacking ||
+                                                 cfg.buffs || cfg.blackBelt || cfg.brainOfConfusion ||
+                                                 cfg.yoyoGlove || cfg.jungleArmour || cfg.classConversions);
     }
 
     public override void OnModLoad() {
@@ -46,6 +48,50 @@ public class TooltipUnnerfs : ModSystem {
             skipItem(il, 1343, 1);          // Fire Gauntlet
             // the first 3110 block is the Abyss breath line, which is Calamity's text
             skipItem(il, 3110, 2);
+        }
+
+        // Not unreplace - "25%" -> "15%" is also the Ancient Chisel's rewrite
+        if (cfg.buffs) {
+            skipItem(il, 290, 1);           // Swiftness Potion
+            skipItem(il, 294, 1);           // Magic Power Potion
+            skipItem(il, 2322, 1);          // Mining Potion
+            skipItem(il, 303, 1);           // Archery Potion
+            skipItem(il, 353, 1);           // Ale
+            skipItem(il, 2266, 1);          // Sake
+        }
+
+        // the dodge blurb spells out Calamity's unified 90 second cooldown. Vanilla's own text is right again
+        // once the dodges are vanilla
+        if (cfg.blackBelt) {
+            skipItem(il, 963, 1);           // Black Belt
+            skipItem(il, 984, 1);           // Master Ninja Gear
+        }
+
+        if (cfg.brainOfConfusion) {
+            skipItem(il, 3223, 1);          // Brain of Confusion
+        }
+
+        if (cfg.yoyoGlove) {
+            skipItem(il, 3366, 1);          // Yoyo Bag, and the glove shares its if
+            skipItem(il, 3334, 1);          // Yo-yo Glove
+        }
+
+        // the mana and crit these knock off come from JungleArmorSetChange, which the toggle deletes whole
+        if (cfg.jungleArmour) {
+            skipItem(il, 228, 1);           // Jungle Hat
+            skipItem(il, 960, 1);           // Ancient Cobalt Helmet, shares the Jungle Hat if
+            skipItem(il, 230, 1);           // Jungle Pants
+            skipItem(il, 962, 1);           // Ancient Cobalt Leggings
+        }
+
+        // these describe rogue velocity and rogue damage on armour we've put back in its own class
+        if (cfg.classConversions) {
+            skipItem(il, 3806, 1);          // Monk's Bushy Brow Bald Cap
+            skipItem(il, 3807, 1);          // Monk's Shirt
+            skipItem(il, 3808, 1);          // Monk's Pants
+            skipItem(il, 3880, 1);          // Shinobi Infiltrator's Helmet
+            skipItem(il, 3881, 1);          // Shinobi Infiltrator's Torso
+            skipItem(il, 3882, 1);          // Shinobi Infiltrator's Pants
         }
     }
 
