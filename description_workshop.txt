@@ -10,20 +10,19 @@ GitHub: https://github.com/Pannoniae/VanillaQoL
 
 [b]NEW in 2.0![/b]
 [list]
-[*] Multiplayer map sharing! Explored tiles stream to the other players continuously, joining a server syncs maps in the background, and the P keybind force-shares if you're impatient. Team-only toggle for the paranoid.
-[*] A town NPC checklist in the housing menu: who hasn't moved in, their arrival conditions, prices, the full love/like/dislike/hate chart, and an arrow to where they actually are. Updates instantly instead of question marks for minutes (looking at you, Census). Spoiler-free mode included, and other mods' town NPCs work too via the Census integrations.
-[*] Smart cursor rework: torches on floating platforms (fixed a vanilla bug), platform lines continue instead of building stairs into a tree, walls stop at platform floors, blocks replace grass and vines, and modded range accessories extend the search.
-[*] The whole Calamity Unnerfs suite, integrated and updated - see below.
-[*] Mods load faster: fixed a tModLoader bug that stalled every mod's texture loading. (a one-character typo upstream, whole seconds of your life back)
+[*] Multiplayer map sharing! The map streams to the other players continuously in MP, and joining a server syncs it in the background. Press P to share instantly. Team-only toggle for the paranoid.
+[*] A town NPC checklist in the housing menu which displays who hasn't moved in, their arrival conditions, prices, the full love/like/dislike/hate matrix, and a NPC / boss arrow. It updates instantly instead of question marks for minutes (looking at you, Census), supports other mods' Census integrations too. Spoiler-free mode included.
+[*] Smart cursor rework: torches on floating platforms (fixed a vanilla bug), easy platform building, walls stop at platform floors, blocks replace grass/vines, and modded range accessories are fixed.
+[*] The whole Calamity Unnerfs suite, integrated and updated (see below)
 [/list]
 
 [h1]Features:[/h1]
 
 [b]Calamity:[/b]
 [list]
-[*] The Calamity Unnerfs suite: 80 individual switches to un-nerf what Calamity did to vanilla. Defense damage, dodge cooldowns, lifesteal, wings, armour stats and set bonuses, autoswing on 153 items, shops, crates, recipes, spawn rates, the Nurse's 600x prices... if Calamity nerfed it, there's probably a toggle for it here.
-[*] Don't have Calamity? Calamity QoL for Vanilla is folded in, so you get its QoL changes anyway.
-[*] Revert many of Calamity's post-2.0.4 changes and the removed QoL: NPC shops, accessory prefix progression, fishing crate loot, angling kits, starter bag, reverted nerfs, non-consumable event summons, etc.
+[*] Calamity Unnerfs: 80 individual switches to unnerf Calamity's vanilla changes. Defense damage, dodge cooldowns, lifesteal, wings, armour stats and set bonuses, autoswing on 153 items, shops, crates, recipes, spawn rates, the Nurse's 600x prices... if Calamity nerfed it, there's probably a toggle for it here.
+[*] Don't have Calamity? Calamity QoL for Vanilla is included, so you get its QoL changes anyway.
+[*] Revert many of Calamity's post-2.0.4 changes and the removed QoL like NPC shops, accessory prefix progression, fishing crate loot, angling kits, starter bag, revert nerfs, non-consumable event summons, etc.
 [*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
 [/list]
 
@@ -124,7 +123,9 @@ GitHub: https://github.com/Pannoniae/VanillaQoL
 [*] Joining a server no longer hangs on "Syncing Mods" forever when the server has a new mod config page.
 [*] Remove the coloured Thorium tooltips, making the mod look more vanilla.
 [*] Fixes memory leaks in other mods (most notably Magic Storage), so tML slows down less when reloading repeatedly.
-[*] Mod incompatibility screen. Modders: ship a compat.txt with [code]InternalModName=A descriptive reason why[/code] lines.
+[*] Mod incompatibility screen. Modders: create a compat.txt with lines like this:
+ InternalModName=A reason for why your mod is incompatible. Be descriptive and suggest something to the user.
+ AnotherMod=Another incompatible mod.
 [/list]
 
 [b]Credits:[/b]

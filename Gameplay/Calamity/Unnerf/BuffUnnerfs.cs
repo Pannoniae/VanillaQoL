@@ -17,7 +17,8 @@ public class BuffUnnerfs : ModSystem {
 
     public override bool IsLoadingEnabled(Mod mod) {
         return VanillaQoL.isCalamityLoaded() &&
-               (CalamityUnnerfConfig.Instance.buffs || CalamityUnnerfConfig.Instance.meleeArmourDR);
+               (CalamityUnnerfConfig.Instance.buffs || CalamityUnnerfConfig.Instance.meleeArmourDR ||
+                CalamityUnnerfConfig.Instance.beetleMight || CalamityUnnerfConfig.Instance.nebulaArmour);
     }
 
     public override void OnModLoad() {
@@ -36,6 +37,14 @@ public class BuffUnnerfs : ModSystem {
                 BuffID.BeetleEndurance1, BuffID.BeetleEndurance2, BuffID.BeetleEndurance3,
                 BuffID.SolarShield1, BuffID.SolarShield2, BuffID.SolarShield3
             ]);
+        }
+
+        if (CalamityUnnerfConfig.Instance.beetleMight) {
+            skip.AddRange([BuffID.BeetleMight1, BuffID.BeetleMight2, BuffID.BeetleMight3]);
+        }
+
+        if (CalamityUnnerfConfig.Instance.nebulaArmour) {
+            skip.AddRange([BuffID.NebulaUpDmg1, BuffID.NebulaUpDmg2, BuffID.NebulaUpDmg3]);
         }
 
         reverted = BuffID.Sets.Factory.CreateBoolSet(skip.ToArray());

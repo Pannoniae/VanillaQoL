@@ -1,4 +1,6 @@
 Vanilla+ QoL v{ModVersion} has been published to {tMLBuildPurpose} tML v{tMLVersion}.
 [list]
+[*] Fixed many tooltips to stop lying.
+[*] Updated the workshop description a bit more accurately.
 [/list]
 Come talk to [url={ModHomepage}]me[/url] :)

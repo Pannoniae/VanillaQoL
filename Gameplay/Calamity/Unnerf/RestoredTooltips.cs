@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
+using CalamityMod.Items.Potions.Alcohol;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,14 +18,22 @@ public class RestoredTooltips : GlobalItem {
     private static HashSet<int> fireproof = null!;
     private static HashSet<int> eventSummons = null!;
     private static int elysian;
+    private static int bloodflareCore;
+    private static int moonshine;
+
+    private static readonly string ichorLine = "CalamityMod:AltExpandTooltip" + BuffID.Ichor;
 
     public override bool IsLoadingEnabled(Mod mod) {
         return VanillaQoL.isCalamityLoaded() && (cfg.wingBonuses || cfg.fireImmunity || cfg.armourBonuses ||
-                                                 cfg.prefixScaling || cfg.summonSpeed);
+                                                 cfg.prefixScaling || cfg.summonSpeed || cfg.scopes ||
+                                                 cfg.meleeSpeedStacking || cfg.buffs || cfg.defenseDamage ||
+                                                 cfg.summonerCrossClass || cfg.ichorDefence);
     }
 
     public override void SetStaticDefaults() {
         elysian = ModContent.ItemType<ElysianWings>();
+        bloodflareCore = ModContent.ItemType<BloodflareCore>();
+        moonshine = ModContent.ItemType<Moonshine>();
 
         wingBonuses = new Dictionary<int, string> {
             { ItemID.AngelWings, "AngelWings" },
@@ -88,6 +98,64 @@ public class RestoredTooltips : GlobalItem {
         if (cfg.prefixScaling) {
             prefix(item, tooltips);
         }
+
+        if (cfg.scopes && item.type == ItemID.SniperScope) {
+            append(tooltips, text("critDamage"));
+        }
+
+        if (cfg.meleeSpeedStacking && item.type is ItemID.PowerGlove or ItemID.BerserkerGlove
+                or ItemID.MechanicalGlove or ItemID.FireGauntlet) {
+            append(tooltips, text("trueMelee"));
+        }
+
+        if (cfg.buffs && item.type is ItemID.Ale or ItemID.Sake) {
+            append(tooltips, text("alcohol"));
+        }
+
+        if (cfg.defenseDamage) {
+            noDefenceDamage(item, tooltips);
+        }
+
+        if (cfg.summonerCrossClass && item.type is ItemID.AncientBattleArmorHat
+                or ItemID.AncientBattleArmorShirt or ItemID.AncientBattleArmorPants) {
+            removeLastLine(tooltips.Find(l => l.Name == "SetBonus"));
+        }
+
+        if (cfg.ichorDefence) {
+            fixIchor(tooltips);
+        }
+    }
+
+    private static void noDefenceDamage(Item item, List<TooltipLine> tooltips) {
+        if (item.type is >= ItemID.AdamantiteHeadgear and <= ItemID.AdamantiteLeggings) {
+            removeLastLine(tooltips.Find(l => l.Name == "SetBonus"));
+            return;
+        }
+
+        if (item.type == bloodflareCore || item.type == moonshine) {
+            append(tooltips, text("noDefenceDamage"));
+        }
+    }
+
+    private static void removeLastLine(TooltipLine? line) {
+        if (line == null) {
+            return;
+        }
+
+        var cut = line.Text.LastIndexOf('\n');
+        if (cut > 0) {
+            line.Text = line.Text[..cut];
+        }
+    }
+
+    private static void fixIchor(List<TooltipLine> tooltips) {
+        var line = tooltips.Find(l => l.Name == ichorLine);
+        if (line == null) {
+            return;
+        }
+
+        var calamity = Language.GetTextValue("Mods.Terraria.Buffs.Ichor.ItemTooltipEnemy");
+        line.Text = line.Text.Replace(calamity, calamity.Replace("10", "15"));
     }
 
     private static void armour(Item item, List<TooltipLine> tooltips) {

@@ -1,6 +1,7 @@
 using System.Reflection;
 using CalamityMod.Items;
 using MonoMod.Cil;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VanillaQoL.Gameplay.Calamity.Unnerf;
@@ -15,8 +16,16 @@ public class TooltipUnnerfs : ModSystem {
     public override bool IsLoadingEnabled(Mod mod) {
         return VanillaQoL.isCalamityLoaded() && (cfg.vanillaEquipStats || cfg.scopes || cfg.meleeSpeedStacking ||
                                                  cfg.buffs || cfg.blackBelt || cfg.brainOfConfusion ||
-                                                 cfg.yoyoGlove || cfg.jungleArmour || cfg.classConversions);
+                                                 cfg.yoyoGlove || cfg.jungleArmour || cfg.classConversions ||
+                                                 cfg.soaringInsignia || cfg.projYoyoStats);
     }
+
+    private static readonly int[] yoyos = [
+        ItemID.WoodYoyo, ItemID.Rally, ItemID.CorruptYoyo, ItemID.CrimsonYoyo, ItemID.JungleYoyo,
+        ItemID.Code1, ItemID.Valor, ItemID.Cascade, ItemID.HiveFive, ItemID.FormatC, ItemID.Gradient,
+        ItemID.Chik, ItemID.HelFire, ItemID.Amarok, ItemID.Code2, ItemID.Yelets, ItemID.RedsYoyo,
+        ItemID.ValkyrieYoyo, ItemID.Kraken, ItemID.TheEyeOfCthulhu, ItemID.Terrarian
+    ];
 
     public override void OnModLoad() {
         var modifyVanillaTooltips = typeof(CalamityGlobalItem).GetMethod("ModifyVanillaTooltips",
@@ -37,17 +46,48 @@ public class TooltipUnnerfs : ModSystem {
             unreplace(il, "7%", "5%");      // Vortex Helmet ranged crit
             unreplace(il, "26%", "20%");    // Solar Flare Helmet melee crit
             skipItem(il, 2275, 1);          // Magic Hat
+            skipItem(il, 1282, 1);          // Amethyst Robe
+            skipItem(il, 1283, 1);          // Topaz Robe
+            skipItem(il, 1284, 1);          // Sapphire Robe
+            skipItem(il, 1285, 1);          // Emerald Robe
+            skipItem(il, 1286, 1);          // Ruby Robe
+            skipItem(il, 4256, 1);          // Amber Robe, shares the Ruby if
+            skipItem(il, 1287, 1);          // Diamond Robe
+            skipItem(il, 1215, 1);          // Titanium Mask
+            skipItem(il, 2277, 1);          // Gi
+            skipItem(il, 3871, 1);          // Valhalla Knight's Helm
+            skipItem(il, 3872, 2);          // Valhalla Knight's Breastplate
+            skipItem(il, 3873, 1);          // Valhalla Knight's Greaves
         }
 
         if (cfg.scopes) {
             skipItem(il, 1858, 1);          // Sniper Scope
             skipItem(il, 4005, 1);          // Recon Scope
+            skipItem(il, 1300, 1);          // Rifle Scope
         }
 
         if (cfg.meleeSpeedStacking) {
             skipItem(il, 1343, 1);          // Fire Gauntlet
             // the first 3110 block is the Abyss breath line, which is Calamity's text
             skipItem(il, 3110, 2);
+            skipItem(il, 211, 1);           // Feral Claws
+            skipItem(il, 897, 1);           // Power Glove
+            skipItem(il, 3992, 1);          // Berserker's Glove
+            skipItem(il, 936, 1);           // Mechanical Glove
+            skipItem(il, 899, 1);           // Sun Stone
+            skipItem(il, 900, 1);           // Moon Stone
+            skipItem(il, 1865, 1);          // Celestial Stone
+        }
+
+        // "Increases wing flight time by 33%", says the tooltip LOL
+        if (cfg.soaringInsignia) {
+            skipItem(il, 4989, 1);          // Soaring Insignia
+        }
+
+        if (cfg.projYoyoStats) {
+            foreach (var yoyo in yoyos) {
+                skipItem(il, yoyo, 1);
+            }
         }
 
         // Not unreplace - "25%" -> "15%" is also the Ancient Chisel's rewrite

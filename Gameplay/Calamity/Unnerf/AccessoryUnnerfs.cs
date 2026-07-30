@@ -99,6 +99,7 @@ public class MeleeSpeedStackingUnnerf : ModSystem {
         }
 
         VanillaQoL.instance.Logger.Info($"Gave {x} accessories their vanilla melee speed back.");
+        ScopeUnnerf.zero(new ILCursor(il), 1343, [0.02f]);
     }
 
     // ldfld gloveLevel
@@ -192,7 +193,7 @@ public class ScopeUnnerf : ModSystem {
         zero(ilCursor, sniperScope, [0.1f, 2f]);
     }
 
-    private static bool zero(ILCursor ilCursor, int type, float[] expected) {
+    internal static bool zero(ILCursor ilCursor, int type, float[] expected) {
         if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(type))) {
             warn($"the item {type} check");
             return false;
