@@ -40,7 +40,11 @@ Tooltips: {
 		// orichalcumChest: 4% increased critical strike chance
 		// crimsonPiece: 3% increased damage and +0.5 HP/s life regen
 		// crimsonChest: 3% increased damage and +1 HP/s life regen
-		// elysianLava: Grants immunity to lava
+		// elysianLava: Grants immunity to lava and 10% increased movement speed
+		// critDamage: 15% increased critical strike damage
+		// trueMelee: 10% increased true melee damage
+		// alcohol: Counts as an alcohol
+		// noDefenceDamage: Defense damage is disabled
 		/* spectreHealing:
 			'''
 			Converts magic damage to healing force
@@ -103,7 +107,7 @@ Tooltips: {
 			/* Hoverboard:
 				'''
 				5% increased weapon-type damage while wearing the Shroomite Armor
-				The weapon type boosted matches which Shroomite helmet is worn
+				Which weapon type is being boosted matches which Shroomite helmet is worn
 				''' */
 			/* FestiveWings:
 				'''

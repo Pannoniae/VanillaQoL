@@ -22,6 +22,7 @@ public class PrefixRestore : ModSystem {
     }
 }
 
+[JITWhenModsEnabled("CalamityMod")]
 public static class ProgressionScaling {
     // base, hardmode, Golem, Moon Lord, Providence, Polterghast, Devourer, Yharon
     private static readonly int[] hard = [1, 2, 2, 2, 2, 3, 3, 4];
