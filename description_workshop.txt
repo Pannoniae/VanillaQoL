@@ -10,17 +10,17 @@ GitHub: https://github.com/Pannoniae/VanillaQoL
 
 [b]NEW in 2.0![/b]
 [list]
-[*] Multiplayer map sharing! The map streams to the other players continuously in MP, and joining a server syncs it in the background. Press P to share instantly. Team-only toggle for the paranoid.
+[*] Multiplayer map sharing!
 [*] A town NPC checklist in the housing menu which displays who hasn't moved in, their arrival conditions, prices, the full love/like/dislike/hate matrix, and a NPC / boss arrow. It updates instantly instead of question marks for minutes (looking at you, Census), supports other mods' Census integrations too. Spoiler-free mode included.
 [*] Smart cursor rework: torches on floating platforms (fixed a vanilla bug), easy platform building, walls stop at platform floors, blocks replace grass/vines, and modded range accessories are fixed.
-[*] The whole Calamity Unnerfs suite, integrated and updated (see below)
+[*] The whole Calamity Unnerfs suite (see below)
 [/list]
 
 [h1]Features:[/h1]
 
 [b]Calamity:[/b]
 [list]
-[*] Calamity Unnerfs: 80 individual switches to unnerf Calamity's vanilla changes. Defense damage, dodge cooldowns, lifesteal, wings, armour stats and set bonuses, autoswing on 153 items, shops, crates, recipes, spawn rates, the Nurse's 600x prices... if Calamity nerfed it, there's probably a toggle for it here.
+[*] Calamity Unnerfs: 80 individual switches to unnerf Calamity's vanilla changes. Defense damage, dodge cooldowns, lifesteal, wings, armour stats and set bonuses, autoswing on 153 items, shops, crates, recipes, spawn rates, the Nurse etc.
 [*] Don't have Calamity? Calamity QoL for Vanilla is included, so you get its QoL changes anyway.
 [*] Revert many of Calamity's post-2.0.4 changes and the removed QoL like NPC shops, accessory prefix progression, fishing crate loot, angling kits, starter bag, revert nerfs, non-consumable event summons, etc.
 [*] Calamity rarity fix (like the Calamity Rarities mod) but this one has actually accurate colours:)
