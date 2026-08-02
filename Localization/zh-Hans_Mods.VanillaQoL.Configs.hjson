@@ -1,1974 +1,947 @@
 QoLConfig: {
-	// DisplayName: QoL Config
+	DisplayName: 生活质量配置
 
 	townNPCsSpawningAtNight: {
-		// Label: "[i:4951] Allow Town NPCs to spawn at night"
-		// Tooltip: If enabled, Town NPCs can also spawn at night.
+		Label: "[i:4951] 允许城镇NPC在夜间重生"
+		Tooltip: 如果启用，城镇NPC也可以在夜间生成。
 	}
 
 	townNPCsMovingAtDay: {
-		// Label: "[i:4951] Allow Town NPCs to teleport at day"
-		// Tooltip: If enabled, Town NPCs can teleport to their houses at daytime.
-	}
-
-	betterCensus: {
-		// Label: "[i:25] Town NPC Checklist"
-		/* Tooltip:
-			'''
-			If enabled, shows every town NPC that hasn't moved in yet on the housing menu, along with what they're waiting for.
-			A Green tick means it's ready to move in. Red X: not yet. Purple ?: unknown.
-			''' */
-	}
-
-	npcHappinessOnHover: {
-		// Label: "[i:58] NPC Happiness on Hover"
-		/* Tooltip:
-			'''
-			If enabled, you can hover a housed NPC in the housing menu to see their prices and what and who they love, like and loathe.
-			No more interrogating every villager through three menus like some kind of tax auditor.
-			''' */
-	}
-
-	censusSpoofing: {
-		// Label: "[i:267] Temu Census"
-		// Tooltip: If enabled, provides support for other mods and their Mod.Calls by pretending to be Census.
-	}
-
-	npcLocatingArrow: {
-		// Label: "[i:393] NPC Geocaching"
-		// Tooltip: If enabled, you can hover a housed NPC in the housing menu and an arrow will point to wherever they're at.
-	}
-
-	npcArrowColour: {
-		// Label: "[i:1071] NPC Geocaching Arrow Colour"
-		// Tooltip: Paint It Black!
-	}
-
-	censusSpoilerMode: {
-		// Label: "[i:1307] Spoiler-Free NPC Census"
-		/* Tooltip:
-			'''
-			If enable, it hides the arrival conditions from the checklist tooltips so you only see who's missing, not how to summon them.
-			'Terraria: Anti-Wiki Edition'
-			''' */
+		Label: "[i:4951] 允许城镇NPC在白天传送"
+		Tooltip: 如果启用，城镇NPC可以在白天传送到他们的房子。
 	}
 
 	townPetsInvincible: {
-		// Label: "[i:4829] Town Pets and Slimes Are Invincible"
-		// Tooltip: If enabled, cute town animals and slimes will not be hurt by enemies or bosses.
+		Label: "[i:4829] 城镇宠物和史莱姆是无敌的"
+		Tooltip: 如果启用，萌萌的城镇动物和史莱姆就不会被敌人或boss伤害。
 	}
 
 	Headers: {
-		// information: "[i:3095] Information"
-		// gameplay: "[i:3515] Gameplay"
-		// fixes: "[i:3625] Fixes"
-		// content: "[i:757] Content"
-		// craftableUncraftables: "[i:36] Craftable Uncraftables"
-		// respawn: "[i:708] Respawning"
-		// suffering: "[npc/n:369] Suffering"
-		// multiplayer: "[i:181] Multiplayer"
-		// holidayCheer: "[i:602] Holiday Cheer"
-		// cheats: "[i:3999] Cheats"
-		// testing: "[i:2] Testing"
-		// tweaks: "[i:1344] Tweaks"
-		// combat: "[i:757] Combat"
-		// recipes: recipes Header
-		// npcs: "[npc/n:178] NPCs"
+		information: "[i:3095] 信息"
+		gameplay: "[i:3515] 游玩"
+		fixes: "[i:3625] 修复"
+		content: "[i:757] 内容"
+		craftableUncraftables: "[i:36] 制作不可制作的"
+		respawn: "[i:708] 重生"
+		suffering: "[npc/n:369] 受苦"
+		multiplayer: "[i:181] 多人"
+		holidayCheer: "[i:602] 节日庆祝"
+		cheats: "[i:3999] 作弊"
+		testing: "[i:2] 测试"
+		tweaks: "[i:1344] 调整"
+		combat: "[i:757] 战斗"
+		recipes: 配方标题
+		npcs: "[npc/n:178] NPC调整"
 	}
 
 	showHookTooltips: {
-		// Label: "[i:185] Show Hook Tooltips"
-		// Tooltip: If enabled, hooks show their grappling range and how many hooks they can fire simultaneously in their tooltip.
+		Label: "[i:185] 显示钩爪工具提示"
+		Tooltip: 如果启用，钩爪会在工具提示中显示它们的射程以及爪钩数量。
 	}
 
 	showWingTooltips: {
-		// Label: "[i:1162] Show Wing Tooltips"
-		// Tooltip: If enabled, wings show their flight time and horizontal speed in their tooltip.
+		Label: "[i:1162] 显示翅膀工具提示"
+		Tooltip: 如果启用，翅膀会在工具提示中显示飞行时间和水平速度。
 	}
 
 	ammunitionTooltips: {
-		// Label: "[i:4915] Show Ammo Tooltips"
-		// Tooltip: If enabled, ranged weapons show what ammo they fire.
+		Label: "[i:4915] 显示子弹工具提示"
+		Tooltip: 如果启用，远程武器会显示它们发射的弹药类型。
 	}
 
 	shimmerableTooltip: {
-		// Label: "[i:5348] Shimmerable Tooltip"
-		// Tooltip: If enabled, items show what they transform into when tossed into Shimmer.
+		Label: "[i:5348] 可微光工具提示"
+		Tooltip: 如果启用，物品工具提示中会显示被扔进微光后转化成的物品。
 	}
 
 	worldAndPlayerInfo: {
-		// Label: "[i:393] Show Info on Selection Screen"
-		// Tooltip: If enabled, worlds and players show useful info on their selection screen like whether a world is hardmode, which upgrades have been used, etc.
+		Label: "[i:393] 在选择界面上显示信息"
+		Tooltip: 如果启用，选择世界界面和选择玩家界面上会显示有用的信息，比如一个世界是否处于困难模式，已经使用了哪些升级等。
 	}
 
 	fixPvPUI: {
-		// Label: "[i:181] Fix Team Icon Positioning"
-		/* Tooltip:
+		Label: "[i:181] 修复团队图标位置"
+		Tooltip:
 			'''
-			When mods with many Town NPCs are installed, the team and PvP icons overlap the NPC housing.
-			If enabled, the icons are moved so they do not overlap.
-			''' */
+			当安装了许多城镇NPC的mod时，团队和PvP图标会覆盖NPC的图标。
+			如果启用，图标会被移动以避免重叠。
+			'''
 	}
 
 	fixMemoryLeaks: {
-		// Label: "[i:1344] Fix Magic Storage"
-		// Tooltip: If enabled, fix the game not starting or hanging on "Loading Content" with Magic Storage enabled.
-	}
-
-	fasterModLoading: {
-		// Label: "[i:3099] Faster Mod Loading"
-		/* Tooltip:
-			'''
-			tModLoader has a lovely loop that speeds up texture loading during the loading screen. A typo means it has never run at all.
-			If enabled, we patch the loading screen to make it actually run and drastically speed up the loading screen because fuck waiting.
-			''' */
+		Label: "[i:1344] 修复魔法储存"
+		Tooltip: 如果启用，修复在启用魔法存储的情况下游戏无法启动或在"加载内容"界面卡住的问题。
 	}
 
 	vanillaThoriumTooltips: {
-		// Label: "[i:3572] Vanilla Thorium Tooltips"
-		/* Tooltip:
+		Label: "[i:3572] 原版瑟银工具提示"
+		Tooltip:
 			'''
-			Many tooltips in the Thorium mod look off compared to Terraria's tooltips.
-			If enabled, this option makes them more in the style of the base game.
-			''' */
+			与泰拉瑞亚的工具提示相比，瑟银模组中的许多工具提示看起来不太合适。
+			如果启用，这个选项会让它们更贴近基础游戏的风格。
+			'''
 	}
 
 	removeThoriumEnabledCraftingTooltips: {
-		// Label: "[i:666] Remove Unnecessary Recipe Conditions"
-		/* Tooltip:
+		Label: "[i:666] 删除瑟银中不必要的配方条件"
+		Tooltip:
 			'''
-			Thorium items add a "Enabled in the Thorium Mod Config" condition to donator items.
-			In Magic Storage and Recipe Browser, the text is way too long and totally unnecessary.
-			If enabled, this option removes those texts from the crafting objects' description.
-			''' */
+			瑟银为捐赠者物品添加了一个"在瑟银模组配置中启用"的条件。
+			在魔法存储和合成表模组中，文本太长了，而且完全没有必要。
+			如果启用此选项，将从制作物品的描述中删除这些文本。
+			'''
 	}
 
 	invertRecipeListScrolling: {
-		// Label: "[i:36] Invert Recipe List Scrolling"
-		// Tooltip: If enabled, the recipe list scrolls the right way.
+		Label: "[i:36] 反转配方列表滚动"
+		Tooltip: 如果启用，配方列表会向正确方向滚动。
 	}
 
 	metricSystem: {
-		// Label: "[i:393] Use Metric System"
-		// Tooltip: Are you using the metric system like 96% of the world population? If enabled, units are displayed in metric units.
+		Label: "[i:393] 使用公制系统"
+		Tooltip: 你像世界上96%的人一样使用公制吗？如果启用，单位将以公制显示。
 	}
 
 	twentyFourHourTime: {
-		// Label: "[i:709] 24-hour time"
-		// Tooltip: Are you using the metric system like 96% of the world population? If enabled, the clocks show 24-hour time.
+		Label: "[i:709] 24小时制"
+		Tooltip: 你像世界上96%的人一样使用公制吗？如果启用，时钟将显示24小时制时间。
 	}
 
 	showLuck: {
-		// Label: "[i:4361] Display Luck Statistic"
-		// Tooltip: If enabled, the Metal Detector (or its upgrades) shows the luck you have.
+		Label: "[i:4361] 显示运气统计"
+		Tooltip: 如果启用，金属探测器（或其升级）会显示你的运气。
 	}
 
 	disableShimmerPumping: {
-		// Label: "[i:581] Fix Shimmer Pumping Exploit"
-		// Tooltip: If enabled, disables moving Shimmer with pumps before Moon Lord is defeated to prevent Shimmer from being moved too early.
+		Label: "[i:581] 修复微光可被水泵移动"
+		Tooltip: 如果启用，在击败月亮领主之前，禁用使用水泵移动微光，以防止微光过早移动。
 	}
 
 	autoJoinTeam: {
-		// Label: "[i:181] Automatically Join Multiplayer Team"
-		// Tooltip: If enabled, the game automatically joins the selected team when joining a Multiplayer server.
+		Label: "[i:181] 自动加入多人游戏团队"
+		Tooltip: 如果启用，当加入多人游戏服务器时，游戏会自动加入所选的团队。
 	}
 
 	teamToAutoJoin: {
-		// Label: "[i:182] Team to Auto-Join"
-		// Tooltip: Selects which team to automatically join.
+		Label: "[i:182] 自动加入团队"
+		Tooltip: 选择自动加入哪个团队。
 	}
 
-	mapSharing: {
-		// Label: "[i:893] Map Sharing"
-		/* Tooltip:
-			'''
-			No longer corrupts your map! If enabled, explored areas of the map automatically sync to other players.
-			Very pog.
-			''' */
-	}
-
-	mapSharingTeamOnly: {
-		// Label: "[i:893] Team-Only Map Sharing"
-		// Tooltip: If enabled, the shared map is only shared within your team. Good for PvP and/or nosy friends.
+	mapSharingTESTING: {
+		Label: "[i:893] 启用地图共享"
+		Tooltip: "[c/FF0000:可能会损坏你的地图！] 如果启用，同一队伍的玩家将互相分享地图。"
 	}
 
 	overTimeNurseHealing: {
-		// Label: "[npc/n:18] Nurse Healing Fix"
-		// Tooltip: If enabled, the Nurse heals players over time to avoid exploiting her healing function.
+		Label: "[npc/n:18] 修复护士治疗"
+		Tooltip: 如果启用，护士会随着时间为玩家恢复生命，以避免玩家滥用她的治疗功能。
 	}
 
 	nurseHealingTime: {
-		// Label: "[i:73] Nurse Healing Time"
-		// Tooltip: Controls how long the Nurse should heal the player for. The bigger the value, the slower the healing.
+		Label: "[i:73] 护士治疗时间"
+		Tooltip: 控制护士应该为玩家治疗多长时间。数值越大，治疗速度就越慢。
 	}
 
 	disableTownSlimes: {
-		// Label: "[npc/n:670] Disable Town Slimes"
-		// Tooltip: This option disables town slimes. It also murders those poor little things when you join the world, you monster.
+		Label: "[npc/n:670] 禁用城镇史莱姆"
+		Tooltip: 这个选项会禁用城镇史莱姆。当你进入游戏世界时，也会杀死那些可怜的小动物，你这个怪物。
 	}
 
 	ancientSwords: {
-		// Label: "[i:757] Enable Ancient Swords"
-		/* Tooltip:
+		Label: "[i:757] 启用老版本的剑"
+		Tooltip:
 			'''
-			If enabled, it adds older variants of swords which were reworked in 1.4.4 to be more projectile-based.
-			Return the classic Night's Edge and the Terra Blade!
-			''' */
+			如果启用，它会添加在1.4.4版本中被重新设计的剑的古老版本，使其更偏向于投掷武器。
+			把经典的永夜刃和泰拉刃还给我！
+			'''
 	}
 
 	enableLockOn: {
-		// Label: "[g:1] Enable Lock-On"
-		// Tooltip: If enabled, loads the system required to enable Lock-On on mouse and keyboard. Requires restart.
+		Label: "[g:1] 启用锁定功能"
+		Tooltip: 如果启用，将在鼠标和键盘上启用锁定模式。需要重新启动。
 	}
 
 	lockOn: {
-		// Label: "[g:1] Lock-On"
-		// Tooltip: If enabled, allows the usage of Lock-On if you use mouse and keyboard.
+		Label: "[g:1] 锁定"
+		Tooltip: 如果启用，允许在使用鼠标和键盘时使用锁定功能。
 	}
 
 	moreBuffSlots: {
-		// Label: "[i:292] More Buff Slots"
-		// Tooltip: Increases the number of buff slots by the value of this config entry. Set to 0 to disable.
+		Label: "[i:292] 更多增益栏"
+		Tooltip: 根据此配置项的值增加增益栏的数量。设置为0则禁用。
 	}
 
 	queenBeeLarvaeBreak: {
-		// Label: "[i:1133] Less Fragile Queen Bee Larvae"
-		// Tooltip: If enabled, Queen Bee's larvae can no longer be broken by random sword swinging or stray projectiles, only with a pickaxe.
+		Label: "[i:1133] 更不容易死亡的幼虫"
+		Tooltip: 如果启用，幼虫将不再能被随意的挥剑或子弹击破，只能被镐击破。
 	}
 
 	disablePrefixChangingRarity: {
-		// Label: "[i:398] Disable Prefix Changing Rarity"
-		// Tooltip: If enabled, reforged items will not change rarity. Does not apply to existing items.
+		Label: "[i:398] 禁用前缀更改稀有度"
+		Tooltip: 如果启用，重铸的物品不会改变稀有度。不适用于现有物品。
 	}
 
 	softDungeonBricks: {
-		// Label: "[i:139] Soft Dungeon Bricks"
-		// Tooltip: If enabled, dungeon bricks are too soft for your pickaxe, just like the little softboy you are.
+		Label: "[i:139] 柔软的地牢砖"
+		Tooltip: 如果启用的话，地牢砖对你来说太软了，就像你这个小软蛋一样。
+	}
+
+	accessoryLoadoutSupport: {
+		Label: "[i:3119] 饰品装备支持"
+		Tooltip:
+			'''
+			如果启用，Vanilla+ QoL 会尝试让模组的饰品与 1.4.4 版本的装备兼容。
+			[c/FF0000:警告！] 如果你移除这个mod，仅保留当前装备的饰品槽位！
+			'''
 	}
 
 	assetFix: {
-		// Label: "[i:38] Fix DragonLens on Linux"
-		/* Tooltip:
+		Label: "[i:38] 在Linux上修复DragonLens"
+		Tooltip:
 			'''
-			If enabled, Vanilla+ QoL changes the capitalisation of Terraria assets. This fixes several mods which try to load files but are case-sensitive.
-			This happens because file systems on Linux are case-sensitive, so "Projectile" and "projectile" are two different files.
-			(You need to restart your game after enabling this to stop the error from happening.)
-			''' */
+			如果启用，Vanilla+ QoL 会更改泰拉瑞亚文件的大小写。这修复了几个试图加载文件但对大小写敏感的模组。
+			这是因为Linux上的文件系统区分大小写，所以"Projectile"和"projectile"是两个不同的文件。
+			(在启用此功能后，你需要重新启动游戏以防止错误发生。)
+			'''
 	}
 
 	accessorySlotUnlock: {
-		// Label: "[i:3335] Unlock Expert/Master Mode Accessory Slots"
-		/* Tooltip:
+		Label: "[i:3335] 解锁专家/大师模式的饰品栏位"
+		Tooltip:
 			'''
-			If enabled, all 8 accessory slots are unlockable in every difficulty.
-			You still can't get a Demon Heart from the Wall of Flesh in Classic Mode, you'll have to use an Expert Mode world.
-			''' */
+			如果启用，在每个难度下，所有的饰品栏位都可以解锁。
+			在经典模式下，你仍然无法从血肉墙获得恶魔之心，你必须使用专家模式的世界。
+			'''
 	}
 
 	drillRework: {
-		// Label: "[i:2774] Drill Rework"
-		/* Tooltip:
+		Label: "[i:2774] 钻头重做"
+		Tooltip:
 			'''
-			If enabled, drills are reworked to be able to receive melee speed prefixes and be able to benefit from mining speed.
-			Additionally, they can also break grass in one hit.
-			In exchange, their base speed is lowered, they only get 25% instead of a 60% mining speed boost.
-			''' */
+			如果启用，钻头将被重新设计，以便能够获得近战速度的修饰语，并能够从采矿速度中受益。
+			另外，他们还可以一下就挖掉草。
+			作为交换，他们的基础速度降低了，只获得25%的采矿速度提升，而不是60%。
+			'''
 	}
 
 	sliceOfCakeUntilDeath: {
-		// Label: "[i:3750] Slice of Cake Lasts Until Death"
-		// Tooltip: If enabled, the buff given by the Slice of Cake lasts until the player dies, instead of two minutes.
+		Label: "[i:3750] 一片蛋糕吃到死"
+		Tooltip: 如果启用，蛋糕块给予的增益效果将持续到玩家死亡，而不是两分钟。
 	}
 
 	deathLessBuffs: {
-		// Label: "[i:487] Persistent Buffs Survive Death"
-		// Tooltip: If enabled, persistent buffs (given by stations like the Bewitching Table or the Slice of Cake) do not get removed when the player dies.
+		Label: "[i:487] 死亡后保留持续增益效果"
+		Tooltip: 如果启用，玩家死亡时不会移除持续性增益（如施法桌或蛋糕块等增益）。
 	}
 
 	wallsDontExplode: {
-		// Label: "[i:1101] Explosion-Proof Walls"
-		// Tooltip: If enabled, Lihzahrd Walls and Dungeon Walls (both safe and unsafe) are explosion-proof, just like their block counterparts.
+		Label: "[i:1101] 防爆墙"
+		Tooltip: 如果启用，神庙墙和地牢墙（包括安全和不安全的）都具有防爆特性，就像它们的方块对应物一样。
 	}
 
 	hardModeOresCanExplode: {
-		// Label: "[i:1106] Hardmode Ores Can Explode"
-		// Tooltip: If enabled, Hardmode ores can be blown up using explosives after the mechanical bosses are defeated.
-	}
-
-	meteoriteCanExplode: {
-		// Label: "[i:117] Meteorites Can Explode"
-		/* Tooltip:
-			'''
-			If enabled, meteorite can be blown up using explosives pre-hardcode, instead of only in Hardmode.
-
-			''' */
+		Label: "[i:1106] 困难模式矿石能被炸掉"
+		Tooltip: 如果启用，在击败机械boss后，可以使用炸药炸开困难模式矿石。
 	}
 
 	dynamicDCUPickaxe: {
-		// Label: "[i:2768] Dynamic DCU"
-		// Tooltip: If enabled, the Drill Containment Unit takes the pickaxe power of the top-left pickaxe in your inventory into account.
+		Label: "[i:2768] 动态钻头控制装置"
+		Tooltip: 如果启用，钻头控制装置会考虑你背包栏中左上角的镐的镐力。
 	}
 
 	moreExplosives: {
-		// Label: "[i:VanillaQoL/BouncyDirtDynamite] More Explosives"
-		// Tooltip: If enabled, adds more variants of explosives to the game.
+		Label: "[i:VanillaQoL/BouncyDirtDynamite] 更多爆炸物"
+		Tooltip: 如果启用，会在游戏中增加更多种类的爆炸物。
 	}
 
 	respawningRework: {
-		// Label: "[i:889] Respawning Rework"
-		// Tooltip: If enabled, enables the system required to load tweaks in this section.
+		Label: "[i:889] 重生机制重制"
+		Tooltip: 如果启用，将启用此部分中的调整。
 	}
 
 	naturesGiftGlow: {
-		// Label: "[i:223] Nature's Gift and Jungle Rose Glows"
-		// Tooltip: If enabled, the Nature's Gift and the Jungle Rose glows in the jungle similarly to the Jungle Spores to make them easier to find.
+		Label: "[i:223] 大自然的恩赐和丛林玫瑰发光"
+		Tooltip: 如果启用，大自然的恩赐和丛林玫瑰在丛林中会像丛林孢子一样发光，使它们更容易被发现。
 	}
 
 	respawnTime: {
-		// Label: "[i:3230] Respawn Time"
-		// Tooltip: Controls the base respawn time.
+		Label: "[i:3230] 重生时间"
+		Tooltip: 控制基础重生时间。
 	}
 
 	respawnFactorExpertMode: {
-		// Label: "[i:3223] Expert Mode Factor"
-		// Tooltip: Controls the respawn time multiplier in Expert Mode.
+		Label: "[i:3223] 专家模式因素"
+		Tooltip: 控制专家模式重生时间乘数。
 	}
 
 	respawnFactorMasterMode: {
-		// Label: "[i:4924] Master Mode Factor"
-		// Tooltip: Controls the respawn time multiplier in Master Mode.
+		Label: "[i:4924] 大师模式因素"
+		Tooltip: 控制大师模式重生时间乘数。
 	}
 
 	bossRespawnTime: {
-		// Label: "[i:43] Respawn Time (boss)"
-		// Tooltip: Controls the base respawn time when a boss is alive.
+		Label: "[i:43] BOSS战时重生时间"
+		Tooltip: 控制在boss存活时的基础重生时间。
 	}
 
 	eventRespawnTime: {
-		// Label: "[i:1844] Respawn Time (event)"
-		// Tooltip: Controls the base respawn time when a boss is not alive but an event is ongoing.
+		Label: "[i:1844] 事件时重生时间"
+		Tooltip: 控制在boss未存活但事件仍在进行时的基础重生时间。
 	}
 
 	bossMultiplayerMultiplier: {
-		// Label: "[i:1969] Per-Player Multiplier"
-		// Tooltip: Multiplies respawn time by this value, multiplied by the number of other players on the server.
+		Label: "[i:1969] 每位玩家的时间乘数"
+		Tooltip: 将重生时间乘以这个值，再乘以服务器上其他玩家的数量。
 	}
 
 	christmasAllYear: {
-		// Label: "[i:1872] Christmas Every Day"
-		// Tooltip: If enabled, the spirit of Christmas is present throughout the year.
+		Label: "[i:1872] 启用圣诞节"
+		Tooltip: 如果启用的话，圣诞精神可以贯穿全年。
 	}
 
 	halloweenAllYear: {
-		// Label: "[i:1813] Halloween Every Day"
-		// Tooltip: If enabled, the ghosts of deceased souls are present throughout the year.
+		Label: "[i:1813] 启用万圣节"
+		Tooltip: 如果启用，逝去的灵魂的幽灵全年都会出现。
 	}
 
 	shopExpander: {
-		// Label: "[i:73] Shop Expander"
-		// Tooltip: If enabled, Vanilla+ QoL adds pages to shops to fit all items which you can switch between using two buttons.
+		Label: "[i:73] 商店扩展"
+		Tooltip: 如果启用，Vanilla+ QoL 会在商店中添加页面，以容纳所有物品，您可以使用两个按钮在这些页面之间切换。
 	}
 
 	extraSellPages: {
-		// Label: "[i:72] Extra Sell Pages"
-		// Tooltip: If enabled, when a shop becomes full by selling items into it, a new page is created to expand the shop.
+		Label: "[i:72] 额外售卖页面"
+		Tooltip: 如果启用，当商店通过出售物品而满员时，会创建一个新页面来扩展商店。
 	}
 
 	lifeCrystalGlow: {
-		// Label: "[i:29] Life Crystals Glow"
-		// Tooltip: If enabled, Life Crystals emit a faint light to make them easier to find.
+		Label: "[i:29] 生命水晶发光"
+		Tooltip: 如果启用，生命水晶会发出微弱的光芒，使它们更容易被发现。
 	}
 
 	lifeFruitGlow: {
-		// Label: "[i:1291] Life Fruits Glow"
-		// Tooltip: If enabled, Life Fruits glow similarly to Jungle Spores to make them easier to find.
+		Label: "[i:1291] 生命果发光"
+		Tooltip: 如果启用，生命果会像丛林孢子一样发光，使它们更容易被发现。
 	}
 
 	NPCsLiveInEvilBiomes: {
-		// Label: "[i:8] NPCs Can Live in Evil Biomes"
-		/* Tooltip:
+		Label: "[i:8] NPC可以在邪恶生物群落中生存"
+		Tooltip:
 			'''
-			If enabled, NPCs grudgingly tolerate the Corruption and Crimson.
-			They will still hate your guts though and they will be very unhappy. Don't be cruel.
-			''' */
+			如果启用，NPC会勉强容忍腐化和猩红。
+			尽管如此，他们仍然会非常讨厌你，他们会非常不开心。不要那么残忍。
+			'''
 	}
 
 	disableBiomeSpread: {
-		// Label: "[i:199] Disable Biome Spread"
-		/* Tooltip:
+		Label: "[i:199] 禁用生物群落扩散"
+		Tooltip:
 			'''
-			If enabled, infectious biomes like the Crimson, the Corruption and the Hallow do not spread.
-			'Your doomsday is not coming yet'
-			''' */
+			如果启用的话，像猩红、腐化和神圣这样的感染性生物群落就不会扩散。
+			'你的末日还没有到来。'
+			'''
 	}
 
 	noDroppedSand: {
-		// Label: "[i:169] No Dropped Sand"
-		// Tooltip: If enabled, Antlions do not pollute your world with sand, dropping it in item form instead.
+		Label: "[i:169] 没有落沙"
+		Tooltip: 如果启用，蚁狮不会用沙子污染你的世界，而是以物品的形式掉落。
 	}
 
 	noDroppedSnow: {
-		// Label: "[i:593] No Dropped Snow"
-		// Tooltip: If enabled, Snowbit-.... I mean Snowmen do not pollute your world with snow, dropping it in item form instead.
+		Label: "[i:593] 没有落雪"
+		Tooltip: 如果启用，雪人不会用雪污染你的世界，而是以物品的形式掉落雪。
 	}
 
 	noDroppedTombstones: {
-		// Label: "[i:1175] No Dropped Tombstones"
-		/* Tooltip:
+		Label: "[i:1175] 没有掉落的墓碑"
+		Tooltip:
 			'''
-			If enabled, tombstones are dropped as an item instead of placing themselves and creating a graveyard.
-			'For those with skill issues'
-			''' */
+			如果启用，墓碑将作为物品掉落，而不是直接生成一个墓碑。
+			'对于那些有水平问题的人很有帮助'
+			'''
 	}
 
 	noDroppedSandgun: {
-		// Label: "[i:266] No Dropped Sand (Sandgun)"
-		/* Tooltip:
+		Label: "[i:266] 没有落沙（沙枪）"
+		Tooltip:
 			'''
-			If enabled, the Sandgun no longer places sand upon usage.
-			If you enable this, you should feel bad as this will make the gun hilariously overpowered.
-			''' */
+			如果启用，沙枪在使用时不再放置沙子。
+			如果你启用这个功能，你应该会觉得很不好意思，因为这会让沙枪变得非常强大。
+			'''
 	}
 
 	mountFallDamage: {
-		// Label: "[i:2430] No Mount Fall Damage"
-		// Tooltip: If enabled, you will not get fall damage while riding any mount.
+		Label: "[i:2430] 不会受到坠落伤害"
+		Tooltip: 如果启用了这个功能，你在骑乘任何坐骑时都不会受到坠落伤害。
 	}
 
 	disableShimmering: {
-		// Label: "[t:VanillaQoL/UI/Shimmer] No Falling Through Shimmer"
-		// Tooltip: If enabled, you will not fall through the world when falling into shimmer. You can take a bath in it :)
+		Label: "[t:VanillaQoL/UI/Shimmer] 不会掉入微光中"
+		Tooltip: 如果启用了这个功能，当你掉入微光区域时就不会穿透世界了。你可以在里面洗澡哦 :)
 	}
 
 	modNameTooltip: {
-		// Label: "[i:2208] Mod Name Tooltip"
-		// Tooltip: If enabled, items show which mod they come from in their tooltip.
+		Label: "[i:2208] 模组名称工具提示"
+		Tooltip: 如果启用，物品在其工具提示中会显示它们来自哪个模组。
 	}
 
 	testing: {
-		// Label: "[i:2] Testing"
-		// Tooltip: If you enable this, prepare for the worst:)
+		Label: "[i:2] 测试"
+		Tooltip: 如果你启用这个功能，做好最坏的准备:)
 	}
 
 	jungleMimic: {
-		// Label: "[npc/n:476] Jungle Mimics Spawn in Hardmode Jungle"
-		// Tooltip: If enabled, your Underground Jungle experience will be enhanced by Jungle Mimics.
+		Label: "[npc/n:476] 丛林宝箱怪在困难模式的丛林中生成。"
+		Tooltip: 如果启用，您的地下丛林体验将通过丛林宝箱怪得到增强。
 	}
 
 	clownExplosions: {
-		// Label: "[npc/n:109] Clown Happy Bombs Destroy Tiles"
-		// Tooltip: If enabled, Happy Bombs thrown by Clowns destroy tiles in a small explosion.
+		Label: "[npc/n:109] 小丑开心炸弹摧毁物块"
+		Tooltip: 如果启用，小丑投掷的快乐炸弹会在一次小型爆炸中摧毁物块。
 	}
 
 	naturalFrostLegion: {
-		// Label: "[i:602] Frost Legion Spawns Naturally"
-		// Tooltip: If enabled, the Frost Legion can spawn randomly at nighttime when there is a blizzard occurring.
+		Label: "[i:602] 雪人军团自然生成"
+		Tooltip: 如果启用，雪人军团可以在发生暴风雪的夜晚随机出现。
 	}
 
 	enemiesBreakDoors: {
-		// Label: "[i:25] Enemies Break Doors"
-		// Tooltip: If enabled, enemies do not just knock politely but break the door like Goblins do.
+		Label: "[i:25] 敌人砸门"
+		Tooltip: 如果启用，敌人不会只是礼貌地敲门，而是会像哥布林那样直接破门而入。
 	}
 
 	nonConsumableSummons: {
-		// Label: "[i:43] Non-Consumable Boss Summons"
-		// Tooltip: If enabled, boss summons are non-consumable.
+		Label: "[i:43] Boss召唤物不消耗"
+		Tooltip: 如果启用，Boss召唤物不会消耗。
 	}
 
 	veinMining: {
-		// Label: "[i:385] VeinMining™"
-		// Tooltip: If enabled, breaking a tile of ore causes adjacent ores to be mined too.
+		Label: "[i:385] VeinMining™"
+		Tooltip: 如果启用，开采一块矿石会同时开采相邻的矿石。
 	}
 
 	veinMiningSpeed: {
-		// Label: "[i:3509] VeinMining™ Speed"
-		// Tooltip: Controls the delay between tiles breaking. A lower value means faster veinmining.
+		Label: "[i:3509] VeinMining™ 速度"
+		Tooltip: 控制物块破碎之间的延迟。数值越低，脉矿开采速度越快。
 	}
 
 	extendedOres: {
-		// Label: "[i:424] ExtendedOres™ Technology"
-		// Tooltip: If enabled, our trademarked and patented technology adds new, exciting and impactful ores to VeinMine™!
+		Label: "[i:424] 扩展矿石™ 科技"
+		Tooltip: 如果启用，我们的商标和专利技术将为VeinMine™添加新的、令人兴奋且富有影响力的矿石！
 	}
 
 	wingSlot: {
-		// Label: "[i:1162] WingSlot™"
-		// Tooltip: If enabled, a wings accessory slot is added to the player. You can put wings, balloons and the bottles in it.
+		Label: "[i:1162] 翅膀栏™"
+		Tooltip: 如果启用，玩家将获得一个翅膀栏。只有翅膀可以放入这个槽中。
 	}
 
 	moveCredits: {
-		// Label: "[i:5044] Credits"
-		// Tooltip: Controls how end-game credits are displayed.
+		Label: "[i:5044] 鸣谢"
+		Tooltip: 控制游戏结束时的片尾字幕如何显示。
 	}
 
 	axeReplanting: {
-		// Label: "[i:3506] Axes Replant Acorns"
-		// Tooltip: If enabled, chopping down a tree with an axe always replants an acorn in its place.
+		Label: "[i:3506] 斧头重新种植橡实"
+		Tooltip: 如果启用了，用斧头砍倒一棵树后会自动在原地重新种植一颗橡实。
 	}
 
 	ninja: {
-		// Label: "[i:256] Ninja"
-		// Tooltip: If enabled, a Ninja Town NPC is added. He can be rescued from King Slime upon defeating him.
+		Label: "[i:256] 忍者"
+		Tooltip: 如果启用，将添加一个忍者NPC。在击败史莱姆王后可以救出他。
 	}
 
 	quickBuffFavourite: {
-		// Label: "[i:289] Only Consume Favourited Potions with Quick Buff"
-		// Tooltip: If there are favourited potions in the inventory, Quick Buff will only consume the ones which are favourited.
+		Label: "[i:289] 快速增益只使用已收藏的药水"
+		Tooltip: 如果背包栏中有收藏的药水，快速增益功能只会消耗那些被收藏的药水。
 	}
 
 	noFullHeartPickup: {
-		// Label: "[i:58] Don't Consume Hearts when at Full HP"
-		// Tooltip: If enabled and the player has full HP, they won't pick up hearts. Similarly, if the player has full mana, they won't pick up mana crystals.
+		Label: "[i:58] 在生命满时不要消耗心"
+		Tooltip: 如果启用且玩家生命值已满，他们就不会拾取心。同样，如果玩家魔力值已满，他们就不会拾取星星。
 	}
 
 	heartTime: {
-		// Label: "[i:58] Heart Despawn Time"
-		// Tooltip: Controls how long hearts and mana crystals remain in the world before despawning, in seconds. The default value is 300, which is 5 minutes.
+		Label: "[i:58] 心消失时间"
+		Tooltip: 控制心和星星在消失前在世界中存在的时间，单位为秒。默认值是300，即5分钟。
 	}
 
 	calamityInWorldRarity: {
-		// Label: "[t:VanillaQoL/UI/Wrench] Calamity Rarity Fix"
-		// Tooltip: If enabled, Calamity weapon rarity colours are shown properly on the pickup text or when the items are floating in world.
+		Label: "[t:VanillaQoL/UI/Wrench] 灾厄稀有度修复"
+		Tooltip: 如果启用，灾厄武器的稀有度颜色将在拾取文本中或物品掉落在游戏世界中时正确显示。
 	}
 
 	cactusHurts: {
-		// Label: "[i:276] Cactus Hurts Players"
-		// Tooltip: If enabled, touching Cactus deals 10 damage, just like in good old 1.1.
+		Label: "[i:276] 仙人掌伤害玩家"
+		Tooltip: 如果启用，触摸仙人掌会造成10点伤害，就像在1.1版本中一样。
 	}
 
 	jungleThornsAreSticky: {
-		// Label: "[i:210] Thorns are Sticky"
-		// Tooltip: If enabled, thorns slow the player down like cobwebs do.
+		Label: "[i:210] 粘的灌木"
+		Tooltip: 如果启用，灌木会像蜘蛛网一样减慢玩家的速度。
 	}
 
 	drShield: {
-		// Label: "[i:156] Damage Reduction on Shield"
-		// Tooltip: If enabled, the defense shield shows the damage reduction stat as well.
+		Label: "[i:156] 盾牌上的伤害减免"
+		Tooltip: 如果启用，防御盾牌（饰品栏左边的盾牌）也会显示伤害减免属性。
 	}
 
 	stopSantaFromExploding: {
-		// Label: "[i:588] Stop Santa from Exploding"
-		// Tooltip: If enabled, Santa won't suddenly explode after the end of the holiday season.
+		Label: "[i:588] 阻止圣诞老人爆炸"
+		Tooltip: 如果启用，圣诞老人在圣诞节结束后就不会突然消失了。
 	}
 
 	truffleKingAndQueenStatue: {
-		// Label: "[i:ShrimpyTruffle] Truffle is Non-Binary"
-		// Tooltip: If enabled, the Truffle will teleport to both the King and Queen statue.
+		Label: "[i:ShrimpyTruffle] 松露人是非二元性别的"
+		Tooltip: 如果启用，松露人能被传送到到国王和女王雕像那里。
 	}
 
 	sellAdditionalItems: {
-		// Label: "[i:73] Town NPCs Sell Additional Items"
-		// Tooltip: If enabled, Town NPCs sell potions, various materials and other things intended to reduce grinding.
+		Label: "[i:73] 城镇NPC出售额外物品"
+		Tooltip: 如果启用，城镇NPC会出售药水、各种材料以及其他旨在减少重复性任务的物品。
 	}
 
 	persistentBuffs: {
-		// Label: "[i:GravitationPotion] Potions Persist upon Death"
-		// Tooltip: If enabled, all buffs that persist when saving (potions in vanilla) will persist when the player dies.
+		Label: "[i:GravitationPotion] 死亡时药水持续生效"
+		Tooltip: 如果启用，当玩家死亡时，所有在保存时持续存在的增益效果（原版游戏中的药水）都将持续存在。
 	}
 
 	pannoniaeCat: {
-		// Label: "[npc/n:637] Pannoniae Cat"
-		// Tooltip: If enabled, Pannoniae is a cat.
+		Label: "[npc/n:637] 潘诺尼亚的猫"
+		Tooltip: 如果启用，潘诺尼亚就是一只猫。
 	}
 
 	panicKey: {
-		// Label: "[i:1290] Panic Hotkey"
-		// Tooltip: If enabled, a hotkey is added which allows you to quickly use a recall item. Recall Potions are preferred over Magic Mirrors.
+		Label: "[i:1290] 回城快捷键"
+		Tooltip: 如果启用，将添加一个快捷键，允许你快速使用回忆药水。回忆药水比魔镜更好。
 	}
 
 	veinMineSpikes: {
-		// Label: "[i:1150] VeinMining™ Spike Expansion"
-		/* Tooltip:
+		Label: "[i:1150] VeinMining™ 尖刺扩展"
+		Tooltip:
 			'''
-			If enabled, the renowned VeinMining™ technology also works flawlessly with those pesky spikes in your world.
-			Try it today and if you don't like it, get your money back!
-			''' */
+			如果启用，著名的VeinMining™技术也能完美应对你世界中那些令人烦恼的尖刺。
+			今天就试试，如果你不喜欢，就可以退款！
+			'''
 	}
 
 	soyMasterMode: {
-		// Label: "[i:4938] Master Mode Stat-nerf"
-		// Tooltip: If enabled, enemies in Master Mode have Expert Mode stats. Good if you don't like being impaled by bunnies upon spawning.
+		Label: "[i:4938] 大师模式属性削弱"
+		Tooltip: 如果启用，大师模式中的敌人将拥有专家模式的属性。如果你不喜欢在游戏开始时被兔子刺穿，那就太好了。
 	}
 
 	morePylons: {
-		// Label: "[i:4916] More Pylons"
-		/* Tooltip:
+		Label: "[i:4916] 更多晶塔"
+		Tooltip:
 			'''
-			If enabled, Vanilla+ QoL adds a Corruption and a Crimson Pylon for NPCs to use.
-			It is advised to enable the config option of NPCs living in evil biomes.
-			''' */
+			如果启用，Vanilla+ QoL 会为NPC添加一个腐化和一个猩红晶塔供其使用。
+			建议启用NPC能生活在邪恶生物群落中的配置选项。
+			'''
 	}
 
 	honeyImmuneHoneyLamps: {
-		// Label: "[i:2129] Honey-Immune Honey Lamps"
-		// Tooltip: If enabled, Honey Lamps do not break when placed in honey.
+		Label: "[i:2129] 蜂蜜灯免疫蜂蜜"
+		Tooltip: 如果启用，蜂蜜灯放在蜂蜜中时不会破碎。
 	}
 
 	mineWallsFromInside: {
-		// Label: "[i:30] Break Unsafe Walls Anywhere"
-		// Tooltip: If enabled, unsafe walls do not need to be exposed to air to be broken.
+		Label: "[i:30] 在任何地方打破不安全墙"
+		Tooltip: 如果启用的话，不安全墙不需要暴露在空气中就能被破坏。
 	}
 
 	noLavaSlime: {
-		// Label: "[npc/n:59] No Lava from Lava Slime"
-		// Tooltip: If enabled, Lava Slimes do not drop lava on death in Expert Mode.
+		Label: "[npc/n:59] 熔岩史莱姆不掉落岩浆"
+		Tooltip: 如果启用，在专家模式下，熔岩史莱姆死亡时不会掉落岩浆。
 	}
 
 	instantPlatformFallthrough: {
-		// Label: "[i:94] Instant Platform Fallthrough"
-		// Tooltip: If enabled, you can fall through platforms instantly by holding the down key.
-	}
-
-	torchesOnPlatforms: {
-		// Label: "[i:8] Smart Torches on Platforms"
-		/* Tooltip:
-			'''
-			1.4.4 added torches to plaforms but forgot the part where Smart Cursor should also have it. Begone thee bugs!
-			If enabled, torches will also show up as a placement suggestion.
-			''' */
-	}
-
-	smartPlatformPlacement: {
-		// Label: "[i:94] Smarter Platform Placement"
-		/* Tooltip:
-			'''
-			If enabled, makes the Smart Cursor smarter by adding "leeway" to the placement direction so
-			your platforms don't keep going off the sides, or randomly get interrupted by a tree or tall grass.
-			''' */
-	}
-
-	wallsRespectPlatforms: {
-		// Label: "[i:93] Walls Respect Platforms"
-		/* Tooltip:
-			'''
-			If enabled, the wall placement treats your platform floors as floors instead of air,
-			stopping Smart Cursor placement from leaking through your "room" you made for your boss arena.
-			''' */
-	}
-
-	blocksReplaceGrass: {
-		// Label: "[i:2] Smart Cursor No Grass"
-		/* Tooltip:
-			'''
-			If enabled, grass and vines no longer block smart cursor placement. Long gone the days of building Old One's Army
-			leaving a gap in the floor...
-			''' */
-	}
-
-	smartCursorRange: {
-		// Label: "[i:407] Smart Cursor Reach Fix"
-		/* Tooltip:
-			'''
-			Modded range accessories extend how far you can place blocks but the smart cursor
-			never got the memo. If enabled, this is no longer the jive!
-			''' */
+		Label: "[i:94] 立刻下平台"
+		Tooltip: 如果启用了这个功能，你可以通过按住下键来瞬间穿过平台。
 	}
 
 	coincumberingStone: {
-		// Label: "[i:4346] Coincumbering Stone"
-		// Tooltip: If enabled, the player with the Encumbering Stone can still pick up coins.
+		Label: "[i:4346] 囤钱石"
+		Tooltip: 如果启用，持有负重石的玩家仍然可以拾取硬币。
 	}
 
 	coincumberingStoneRename: {
-		// Label: "[i:4346] Coincumbering Stone Rename"
-		// Tooltip: If enabled, the Encumbering Stone is renamed the Coincumbering Stone.
+		Label: "[i:4346] 重命名囤积硬币的石头"
+		Tooltip: 如果启用，负重石将被重命名为囤钱石。
 	}
 
 	killableDungeonNPCs: {
-		// Label: "[npc/n:72] Killable Dungeon NPCs"
-		// Tooltip: If enabled, Blazing Wheels and Spike Balls can be killed. Useful if you are annoyed by invincible flaming fucknuggets.
+		Label: "[npc/n:72] 可击杀的地牢NPC"
+		Tooltip: 如果启用，烈焰火轮和尖球可以被击杀。如果你被那些不可战胜的火焰小怪烦到了，这个功能就很有用了。
 	}
 
 	exactTooltips: {
-		// Label: "[i:3123] Exact Weapon Tooltips"
-		// Tooltip: If you like destroying your immersion, you can enable displaying exact values for knockback and use time in the tooltips.
+		Label: "[i:3123] 准确的武器工具提示"
+		Tooltip: 如果你喜欢破坏沉浸感的话，可以在工具提示中启用显示准确的击退值和使用时间。
 	}
 
 	damageSpread: {
-		// Label: "[i:1301] Damage Spread"
-		// Tooltip: Toggle damage spread between normal (default), only for enemies and disabled. When damage spread is disabled, Terraria does not randomise the inflicted damage.
+		Label: "[i:1301] 伤害浮动"
+		Tooltip: 在正常（默认）、仅对敌人和禁用之间切换伤害浮动。当伤害浮动被禁用时，泰拉瑞亚不会随机化所造成的伤害。
 	}
 
 	damageSpreadAmount: {
-		// Label: "[i:1301] Damage Spread Amount (%)"
-		// Tooltip: Set the amount of damage spread if enabled. The default value is 15%, can be set between 0% and 100%, which results in a range of 0-2x damage.
+		Label: "[i:1301] 伤害浮动数值 (%)"
+		Tooltip: 如果启用，设置伤害浮动的数值。默认值是15%，可以设置在0%到100%之间，这将导致伤害范围在0-2倍之间。
 	}
 
 	superCrits: {
-		// Label: "[i:1858] Super Crits"
-		/* Tooltip:
+		Label: "[i:1858] 超级暴击"
+		Tooltip:
 			'''
-			If enabled, crit chances above 100% result in super crits which deal 3x the damage, crit chances above 200% result in 4x the damage and so on.
-			Your efforts aren't in vain anymore.
-			''' */
+			如果启用，100%的暴击几率会产生超级暴击，造成3倍伤害，200%的暴击几率会产生4倍伤害，以此类推。
+			你付出的努力不再是徒劳了。
+			'''
 	}
 
 	superCritsColourValue: {
-		// Label: "[i:1858] Super Crits Colour"
-		// Tooltip: Sets the colour of super crits.
+		Label: "[i:1858] 超级暴击颜色"
+		Tooltip: 设置超级暴击的颜色。
 	}
 
 	superCritsColour: {
-		// Label: "[i:1858] Coloured Super Crits"
-		// Tooltip: If enabled, super crits have a unique colour distinguishing it from normal crits.
+		Label: "[i:1858] 特殊颜色的超级暴击"
+		Tooltip: 如果启用，超级暴击会有独特的颜色，与普通暴击区分开来。
 	}
 
 	superCritsColouredDamageTypesIntegration: {
-		// Label: "[i:1858] Super Crits Coloured Damage Types Integration"
-		// Tooltip: If enabled, the integration with the Coloured Damage Types mod is enabled, allowing super crits to be coloured based on the damage type of the weapon.
+		Label: "[i:1858] 超级暴击彩色伤害类型整合"
+		Tooltip: 如果启用，Coloured Damage Types mod的集成将被启用，允许根据武器的伤害类型对超级暴击进行着色。
 	}
 
 	superCritsColouredDamageTypesDarken: {
-		// Label: "[i:1858] Super Crits Coloured Damage Types Darkening"
-		/* Tooltip:
+		Label: "[i:1858] 超级暴击彩色伤害类型变暗"
+		Tooltip:
 			'''
-			Controls how much the supercrits are darkened compared to the normal crits' colour.
-			The brightest colour is darkened by half this value, all the others by the full value.
-			''' */
+			控制超级暴击相对于普通暴击的颜色深浅。
+			最亮的颜色被调暗到这个值的一半，其他颜色则被调暗到这个值的全部。
+			'''
 	}
 
 	removeOneDrop: {
-		// Label: "[i:3389] Remove One-Drop Tooltip"
-		// Tooltip: If enabled, removes the One Drop logo from the yoyos which are based on real-world yoyos produced by One Drop.
+		Label: "[i:3389] 移除 One-Drop 工具提示"
+		Tooltip: 如果启用，将 One Drop 标志从基于 One Drop 生产的现实世界悠悠球中移除。
 	}
 
 	removeDevSet: {
-		// Label: "[i:666] Remove Developer Set Drops"
-		// Tooltip: If enabled, Treasure Bags do not drop developer items anymore. No fun, no inventory clutter.
+		Label: "[i:666] 删除开发者掉落"
+		Tooltip: 如果启用，宝藏袋不再掉落开发者物品了。没有乐趣，也不会让库存变得凌乱。
 	}
 
 	quickBestiary: {
-		// Label: "[npc/n:633] Quick Bestiary Unlock"
-		// Tooltip: If enabled, entries in the Bestiary unlock after one kill instead of the normal amount (one banner).
+		Label: "[npc/n:633] 快速解锁怪物图鉴"
+		Tooltip: 如果启用，怪物图鉴中的条目在击杀一次后就会解锁，而不是通常的数量（一个旗帜）。
 	}
 
 	critsBypassDefense: {
-		// Label: "[i:4005] Crits Bypass Defense"
-		// Tooltip: If enabled, critical hits ignore the defense of enemies. This makes crit-heavy builds more viable without spamming armour penetration.
+		Label: "[i:4005] 暴击无视防御"
+		Tooltip: 如果启用，暴击会忽略敌人的防御。这使得以暴击为主的装备配置在不滥用穿甲的情况下更加可行。
 	}
 
 	asphaltPlatform: {
-		// Label: "[i:VanillaQoL/AsphaltPlatform] Asphalt Platform"
-		// Tooltip: If enabled, adds a platform made from asphalt. Commonly included in your favourite cheat mods but this time, it's also in mine.
+		Label: "[i:VanillaQoL/AsphaltPlatform] 沥青平台"
+		Tooltip: 如果启用，会添加一个由沥青制成的平台。通常包含在你喜欢的作弊mod中，但这次我的mod里也有。
 	}
 
 	autoResearchFavourite: {
-		// Label: "[i:75] Auto-Research Favourited Items"
-		// Tooltip: If enabled, items in the player's inventory are automatically researched if they are favourited. [c/FF5555:Will eat your items.]
+		Label: "[i:75] 自动研究收藏物品"
+		Tooltip: 如果启用，当玩家收藏的物品出现在库存中时，它们会自动被研究。 [c/FF5555:会吃掉你的物品。]
 	}
 
 	itemsWorkInBanks: {
-		// Label: "[i:87] Items Work in Personal Storage"
-		// Tooltip: If enabled, items function in the player's personal storage as information accessories. We all know that your inventory is full of potions.
+		Label: "[i:87] 物品在个人存储中启作用"
+		Tooltip: 如果启用，物品在玩家的个人存储中作为信息配件发挥作用。我们都知道你的库存里装满了药水。
 	}
 
 	itemsWorkInBanksTooltip: {
-		// Label: "[i:3213] Items Work in Personal Storage Tooltip"
-		// Tooltip: If enabled, a tooltip is added to items in the personal storage which function as player accessories.
+		Label: "[i:3213] 物品在个人存储中启作用的工具提示"
+		Tooltip: 如果启用的话，在个人存储中作为玩家饰品的物品上会添加一个工具提示。
 	}
 
 	fountainBiomes: {
-		// Label: "[i:909] Fountains Change Biome"
-		// Tooltip: If enabled, placed fountains change the biome of the area around them to the biome they are made of. Only slightly a cheat, isn't it?
+		Label: "[i:909] 喷泉改变生物群系"
+		Tooltip: 如果启用，放置的喷泉会将周围区域的生物群系改为它们所使用的生物群系。这只是个小作弊，不是吗？
 	}
 
 	fountainFromInventory: {
-		// Label: "[i:4417] Fountains Change Biome in Inventory"
-		// Tooltip: If enabled, fountains also change the biome of the area around you when held in the inventory. At this point, please feel a little shame for cheating this hard.
+		Label: "[i:4417] 物品栏中的喷泉会改变生物群落"
+		Tooltip: 如果启用，喷泉在物品栏中持有时也会改变你周围区域的生物群落。此时，请为如此努力地作弊感到一点羞愧。
 	}
 
 	removeBiomeRequirementsShops: {
-		// Label: "[i:4766] Remove Biome Requirements for Shops"
-		/* Tooltip:
+		Label: "[i:4766] 取消商店的生物群落要求"
+		Tooltip:
 			'''
-			If enabled, NPCs sell items regardless of the biome they are in. This would normally overflow the shop but isn't this why we have the Shop Expander?
-			Requires Shop Expander to be enabled. Don't ask me why, it's cursed.
-			''' */
+			如果启用，NPC无论身处哪个生物群落都会出售物品。这通常会导致商店物品溢出，但这不正是我们有商店扩展的原因吗？
+			需要启用商店扩展。别问我为什么，这是个诅咒。
+			'''
 	}
 
 	stackableQuestItems: {
-		// Label: "[i:2452] Stackable Quest Items"
-		// Tooltip: If enabled, quest items like quest fish can be stacked in the inventory.
+		Label: "[i:2452] 可堆叠的任务物品"
+		Tooltip: 如果启用，任务物品如任务鱼可以堆叠在库存中。
 	}
 
 	axeReplantingHerbs: {
-		// Tooltip: ""
-		// Label: axe Replanting Herbs
+		Tooltip: ""
+		Label: 斧头重新种植草药
 	}
 
 	OOAdrops: {
-		// Label: "[i:3817] Old One's Army Minibosses Drop Defender Medals"
-		// Tooltip: If enabled, the Old One's Army event minibosses also drop Defender Medals in case you can't get through the full event.
+		Label: "[i:3817] 旧日军团的迷你boss掉落护卫奖章"
+		Tooltip: 如果启用，旧日军团的迷你boss也会掉落护卫奖章，以防你无法完成整个事件。
 	}
 
 	OOAdrops2: {
-		// Label: "[i:3817] Old One's Army Gradual Defender Medal Drops"
-		// Tooltip: If enabled, the first two tiers of the Old One's Army event also drop Defender Medals in case you can't even survive the first two waves.
+		Label: "[i:3817] 旧日军团的渐进式护卫奖章掉落"
+		Tooltip: 如果启用，旧日军团的前两波也会掉落护卫奖章，以防你连前两波都无法生存。
 	}
 
 	masterModeRelicsInExpert: {
-		// Label: "[i:4934] Master Mode Relics Can Drop in Expert"
-		// Tooltip: If enabled, Master Mode Relics can drop in Expert Mode worlds. The valour is only incrementally stolen.
+		Label: "[i:4934] 专家模式可以掉落大师模式圣物"
+		Tooltip: 如果启用，专家模式世界中可以掉落大师模式圣物。勇气只会被逐渐窃取。
 	}
 
 	allHairsOnStart: {
-		// Label: "[i:1989] All Hairstyles Available from Start"
-		// Tooltip: If enabled, all hairstyles are available from the start of the game. No need to find the Stylist to unlock them.
+		Label: "[i:1989] 开始提供所有发型"
+		Tooltip: 如果启用，所有发型从游戏开始就可用。无需找造型师解锁它们。
 	}
 
 	stackVoidBag: {
-		// Label: "[i:4131] Smart Void Bag"
-		// Tooltip: If enabled, picked up items are automatically stacked into the Void Bag if it already contains the item.
+		Label: "[i:4131] 智能虚空袋"
+		Tooltip: 如果启用，当拾取的物品已经存在于虚空袋中时，它们会自动堆叠到虚空袋中。
 	}
 
 	storageFollowsPlayer: {
-		// Label: "[i:3213] Mobile Storages Follow The Player"
-		// Tooltip: If enabled, mobile storages (Money Trough, Void Bag) follow the player when they move. 'Have at thee...'
+		Label: "[i:3213] 移动存储设备跟随玩家"
+		Tooltip: 如果启用，移动存储设备（钱币槽、虚空袋）会在玩家移动时跟随他们。'给你...'
 	}
 
 	npcDeathsToCallOffInvasion: {
-		// Label: "[i:361] NPC Deaths to Call Off Invasion"
-		// Tooltip: If set to a value above 0, invasions will end early when this many town NPCs die during the invasion. Set to 0 to disable.
+		Label: "[i:361] 击杀NPC以取消事件"
+		Tooltip: 如果设置为0以外的值，当事件期间有这么多城镇NPC死亡时，事件将提前结束。设置为0则禁用此功能。
 	}
 
 	playerDeathsToCallOffInvasion: {
-		// Label: "[i:1175] Player Deaths to Call Off Invasion"
-		// Tooltip: If set to a value above 0, invasions will end early when the player dies this many times during the invasion. Set to 0 to disable.
+		Label: "[i:1175] 玩家死亡后取消事件"
+		Tooltip: 如果设置为0以外的值，当玩家在事件过程中死亡次数达到这个值时，事件将提前结束。设置为0则会禁用此功能。
 	}
 
 	moreVoidVault: {
-		// Label: "[i:4076] Extended Void Vault"
-		/* Tooltip:
+		Label: "[i:4076] 扩展虚空保险库"
+		Tooltip:
 			'''
-			If enabled, the other personal storage items (Piggy Bank, Safe, Defender's Forge) can also be used to store items using the Void Bag.
-			Getting them out is a bit more tricky though.
-			''' */
+			如果启用，其他个人存储物品（猪猪存钱罐、保险箱、护卫熔炉）也可以使用虚空袋来存储物品。
+			把它们弄出来有点麻烦。
+			'''
 	}
 
 	grammarFix: {
-		// Label: "[i:389] Corrected Grammar"
-		/* Tooltip:
+		Label: "[i:389] 纠正语法"
+		Tooltip:
 			'''
-			If enabled, item prefixes will be displayed in grammatically correct positions for items starting with "The" (e.g., "The Unreal Undertaker" instead of "Unreal The Undertaker").
-			Only affects English because why would it affect anything else?
-			''' */
+			如果启用，物品前缀将以语法正确的方式显示在以"The"开头的物品中（例如，"The Unreal Undertaker"而不是"Unreal The Undertaker"）。
+			只影响英语，因为为什么会影响其他东西呢？
+			'''
 	}
 
 	siltIsDangerous: {
-		// Label: "[i:2329] Dangersense Highlights Silt and Slush"
-		// Tooltip: If enabled, the Dangersense Potion highlights Silt and Slush Blocks. They still fall on your head, though.
+		Label: "[i:2329] 危险感知药水高亮泥沙块和雪泥块"
+		Tooltip: 如果启用，危险感知药水会高亮泥沙块和雪泥块。不过，它们仍然会掉到你的头上。
 	}
 
 	thinIceNotDangerous: {
-		// Label: "[i:2329] Dangersense Doesn't Highlight Thin Ice"
-		// Tooltip: If enabled, the Dangersense Potion stops highlighting Thin Ice. You'll fall into water anyway, y'know?
+		Label: "[i:2329] 危险感知药水停止高亮薄冰"
+		Tooltip: 如果启用，危险感知药水会停止高亮薄冰。你最终还是会掉进水里的，知道吗？
 	}
 
 	spelunkerHellstone: {
-		// Label: "[i:174] Spelunker Highlights Hellstone"
-		/* Tooltip:
+		Label: "[i:174] 洞穴探险药水高亮狱石"
+		Tooltip:
 			'''
-			If enabled, the Spelunker Potion highlights Hellstone.
-			Not like you wouldn't be able to see it amongst all that lava but we strive for an inclusive environment here.
-			''' */
+			如果启用，洞穴探险药水会高亮狱石。
+			你当然能在那些岩浆中看到它，但我们在这里努力营造一个包容的环境。
+			'''
 	}
 
 	moreBossLoot: {
-		// Label: "[i:3328] More Weapons from Treasure Bags"
-		/* Tooltip:
+		Label: "[i:3328] 从宝藏袋中获得更多武器"
+		Tooltip:
 			'''
-			If enabled, Queen Bee, Plantera and Golem drop two weapons each from their Treasure Bags, similar to the Moon Lord.
-			Less grinding, more fun!
+			如果启用，蜂后、世纪之花和石巨人每次从他们的宝藏袋中掉落两件武器，类似于月亮领主。
+			减少磨难，增加乐趣！
 			   
-			''' */
+			'''
 	}
 
 	disableNPCHappiness: {
-		// Label: "[i:4986] Disable NPC Happiness"
-		// Tooltip: If enabled, disables the NPC Happiness system. The sell price factor will always be fixed.
+		Label: "[i:4986] 禁用NPC幸福度"
+		Tooltip: 如果启用，将禁用NPC幸福度。出售价格因子将始终保持固定。
 	}
 
 	disableNPCHappinessConstant: {
-		// Label: "[i:4986] Disable NPC Happiness Factor"
-		// Tooltip: This controls the sell price factor when the NPC Happiness system is disabled. Set to 1.0 to leave unchanged from full price, set to 0.5 to halve the sell prices, etc.
+		Label: "[i:4986] 禁用NPC幸福系数"
+		Tooltip: 这控制了在NPC幸福度禁用时的售价系数。设置1.0为原价，设置为0.5可以将售价减半，等等。
 	}
 
 	boundNPCProtection: {
-		// Label: "[npc/n:105] Bound NPC Protection"
-		// Tooltip: If enabled, bound NPCs are protected from being killed by enemies.
-	}
-
-	fixStarlightRiver: {
-		// Label: "[i:75] Fix Starlight River Meteor Spawning"
-		/* Tooltip:
-			'''
-			If enabled, fixes the Starlight River mod's Prayer for Meteorite item. By default, it does exactly nothing because the Starlight River devs are ChatGPT monkeys.
-			This patches WorldGen.dropMeteor to check conditions properly.
-			''' */
-	}
-
-	fixInfernumCrystals: {
-		// Label: "[i:1332] Fix Infernum Icicles Covering The Screen"
-		/* Tooltip:
-			'''
-			If enabled, patches a bug in Infernum which causes Deerclops icicles to cover the entire screen.
-			This was never a Vanilla+ QoL bug but many people thought it was, so might as well make it ours ;)
-			''' */
+		Label: "[npc/n:105] 受缚NPC保护"
+		Tooltip: 如果启用，受缚NPC将受到保护，不会被敌人杀死。
 	}
 }
 
 Team: {
-	White: {
-		// Label: "[i:182] White"
-		// Tooltip: ""
-	}
-
-	Red: {
-		// Label: "[i:178] Red"
-		// Tooltip: ""
-	}
-
-	Green: {
-		// Label: "[i:179] Green"
-		// Tooltip: ""
-	}
-
-	Blue: {
-		// Label: "[i:177] Blue"
-		// Tooltip: ""
-	}
-
-	Yellow: {
-		// Label: "[i:180] Yellow"
-		// Tooltip: ""
-	}
-
-	Pink: {
-		// Label: "[i:181] Pink"
-		// Tooltip: ""
-	}
-
-	// Tooltip: ""
+	White.Label: "[i:182] 白队"
+	Red.Label: "[i:178] 红队"
+	Green.Label: "[i:179] 绿队"
+	Blue.Label: "[i:177] 蓝队"
+	Yellow.Label: "[i:180] 黄队"
+	Pink.Label: "[i:181] 粉队"
+	Tooltip: ""
 }
 
 Credits: {
-	// Tooltip: ""
-
-	Vanilla: {
-		// Label: After Moon Lord
-		// Tooltip: ""
-	}
-
-	AfterModsFinalBoss: {
-		// Label: After Final Boss (modded)
-		// Tooltip: ""
-	}
-
-	Disabled: {
-		// Label: No Credits
-		// Tooltip: ""
-	}
+	Tooltip: ""
+	Vanilla.Label: 月亮领主之后
+	AfterModsFinalBoss.Label: 通关最终boss（加载模组）
+	Disabled.Label: 没有鸣谢
 }
 
 UIConfig: {
-	// DisplayName: UI Config
+	DisplayName: UI配置
 
 	enableNPCSellPrices: {
-		// Label: "[i:73] Enable NPC Sell Prices"
-		/* Tooltip:
+		Label: "[i:73] 启用NPC出售价格"
+		Tooltip:
 			'''
-			If enabled, holding the favourite key over an item shows what each greedy NPC will pay you.
-			Spoiler alert: it's never enough.
-			''' */
+			如果启用，在物品上按住收藏键可以显示每个贪婪的NPC会卖给你多少钱。
+			剧透：永远不够。
+			'''
 	}
 
 	npcSellPriceYOffset: {
-		// Label: "[i:888] Vertical Positioning"
-		// Tooltip: How far down to shove the price display from the NPC's stupid face. Negative values go up, positive go down. (default: 0)
+		Label: "[i:888] 垂直定位"
+		Tooltip: 把价格显示从NPC那张愚蠢的脸上挪多远啊。负值向上，正值向下。 (默认值: 0)
 	}
 
 	npcSellPriceXOffset: {
-		// Label: "[i:888] Horizontal Positioning"
-		// Tooltip: How far right to move the price display so it doesn't cover the NPC's pixelated disappointment. (default: 40)
+		Label: "[i:888] 水平定位"
+		Tooltip: 把价格显示移动到多远的右边，这样它就不会遮挡NPC那张像素化的失望表情了。 (默认值: 40)
 	}
 
 	showPriceMultiplier: {
-		// Label: "[i:855] Show Price Multiplier"
-		// Tooltip: If enabled, shows the percentage of how much each NPC is screwing you over. Red means they hate you, green means they merely dislike you.
+		Label: "[i:855] 显示价格乘数"
+		Tooltip: 如果启用，系统会显示每个NPC对你的好感值。红色表示他们恨你，绿色表示他们只是不喜欢你。
 	}
 
 	showCoinIcon: {
-		// Label: "[i:71] Show Coin Icons"
-		// Tooltip: If enabled, shows shiny coin icons next to numbers because apparently we can't read numbers without pretty pictures.
+		Label: "[i:71] 显示硬币图标"
+		Tooltip: 如果启用，会在数字旁边显示闪亮的硬币图标，因为显然我们无法在没有漂亮图片的情况下阅读数字。
 	}
 
 	npcSellPriceShowBackground: {
-		// Label: "[i:1344] Show Background Panel"
-		// Tooltip: If enabled, adds a background so you can actually read the text instead of squinting like a geriatric.
+		Label: "[i:1344] 显示背景面板"
+		Tooltip: 如果启用的话，会添加一个背景，这样你就可以清楚地阅读文本，而不用像老年人那样眯着眼睛看。
 	}
 
 	npcSellPriceBackgroundPadding: {
-		// Label: "[i:1344] Background Padding"
-		// Tooltip: Controls how thicc the background gets around the text. Bigger numbers = more padding = easier to read. (default: 5)
+		Label: "[i:1344] 背景填充"
+		Tooltip: 控制背景在文本周围的厚度。数字越大 = 填充越多 = 更容易阅读。 (默认值: 5)
 	}
 
 	backgroundColor: {
-		// Label: "[i:1344] Static Background Colour"
-		// Tooltip: Pick a colour for backgrounds when you're too boring for the dynamic option.
+		Label: "[i:1344] 静态背景颜色"
+		Tooltip: 当你觉得动态选项太无聊时，可以选择一种背景颜色。
 	}
 
 	dynamicBackgroundColor: {
-		// Label: "[i:1345] Dynamic Background Colour"
-		/* Tooltip:
+		Label: "[i:1345] 动态背景颜色"
+		Tooltip:
 			'''
-			If enabled, background colour changes based on how much each NPC despises you.
-			[c/FF0000:Red] for "I hate your guts", [c/22EE00:Green] for "I tolerate your existence".
-			''' */
+			如果启用，背景颜色会根据每个NPC对你有多讨厌而变化。
+			[c/FF0000:Red] 代表 "我非常讨厌你", [c/22EE00:Green] 代表 "我忍受你的存在。"
+			'''
 	}
 
 	npcSellPriceBackgroundColor: {
-		// Label: "[i:1344] Manual Background Colour"
-		// Tooltip: For when you want to micromanage the exact shade of your UI disappointment.
+		Label: "[i:1344] 手动背景颜色"
+		Tooltip: 当你想要精细地管理你的用户界面失望的具体程度时。
 	}
 
-	fixConfigSyncCrash: {
-		// Label: "[i:3625] Fix the Mod Sync Crash"
-		/* Tooltip:
-			'''
-			If enabled, fixes a tML bug where joining a server whose mods have new config pages errors out and freezes the game
-			 on Syncing Mods forever. Kinda L
-			''' */
-	}
-
-	Headers: {
-		// DisplayNPCSellPrices: "[i:73] NPC Sell Price Display"
-		// multiplayer: "[i:181] Multiplayer"
-	}
+	Headers.DisplayNPCSellPrices: "[i:73] NPC售卖价格展示"
 }
 
 DamageSpread: {
-	Off: {
-		// Label: Off
-		// Tooltip: ""
-	}
-
-	PlayersEnemies: {
-		// Label: Players & Enemies (default)
-		// Tooltip: ""
-	}
-
-	Enemies: {
-		// Label: Enemies Only
-		// Tooltip: ""
-	}
-
-	// Tooltip: ""
+	Off.Label: 关闭
+	PlayersEnemies.Label: 玩家和敌人（默认）
+	Enemies.Label: 只有敌人
+	Tooltip: ""
 }
 
 QoLRecipeConfig: {
-	// DisplayName: Recipe Config
-	// Tooltip: For the square chicks
+	DisplayName: 配方选项
 
 	Headers: {
-		// recipes: "[i:2633] Recipes"
-		// craftableUncraftables: "[i:36] Craftable Uncraftables"
-		// shimmer: "[i:5350] Shimmering"
-	}
-
-	debuffImmunityRecipes: {
-		// Label: "[i:891] Debuff Immunity Accessories"
-		/* Tooltip:
-			'''
-			If enabled, you can craft Nazar, Bezoar, Vitamins, Blindfold, Trifold Map, Fast Clock, Megaphone, Pocket Mirror,
-			Armor Polish and Adhesive Bandage instead of praying to the loot god.
-			''' */
-	}
-
-	lootAccessories: {
-		// Label: "[i:934] Accessories"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for accessories you can otherwise only find: Feral Claws, Band of Regeneration,
-			Shoe Spikes, Frozen Turtle Shell, Magic Quiver, Metal Detector and friends.
-			Also lets the Mechanical Glove and Celestial Emblem use any emblems.
-			''' */
-	}
-
-	lootGear: {
-		// Label: "[i:724] Weapons and Vanity"
-		// Tooltip: If enabled, adds recipes for the Ice Boomerang, Shuriken, Throwing Knives and the Pharaoh's set.
-	}
-
-	lootTools: {
-		// Label: "[i:50] Tools and Stations"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for the Magic Mirror, Ice Mirror, Bug Net, Staff of Regrowth, Ice Machine,
-			Sky Mill and Desert Minecart.
-			''' */
-	}
-
-	lootKeys: {
-		// Label: "[i:1533] Keys and Summons"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for the Temple Key, Shadow Key, Lihzahrd Power Cell, Guide Voodoo Doll
-			and Gelatin Crystal.
-			''' */
+		recipes: "[i:2633] 配方"
+		shimmer: "[i:5350] 可微光"
 	}
 
 	templeTraps: {
-		// Label: "[i:1142] Temple Traps"
-		/* Tooltip:
+		Label: "[i:1142] 丛林神庙陷阱"
+		Tooltip:
 			'''
-			 If enabled, recipes are added for the Jungle Temple traps.
-			'Lihzahrd...Lizhard...Lihzahrhd...'
-			''' */
+			 如果启用，将为丛林神庙陷阱添加配方。
+			'丛林蜥蜴...丛林蜥蜴...丛林蜥蜴...'
+			'''
 	}
 
 	obsidianFurniture: {
-		// Label: "[i:2657] Obsidian Furniture"
-		/* Tooltip:
+		Label: "[i:2657] 黑曜石家具"
+		Tooltip:
 			'''
-			If enabled, adds recipes for the obsidian furniture generated in the Underworld houses.
-			'For when regular furniture isn't edgy enough'
-			''' */
+			如果启用，将为地狱房屋中生成的黑曜石家具添加配方。
+			'当普通家具不够时尚时'
+			'''
 	}
 
 	bannerRecipes: {
-		// Label: "[i:846] World Banner Recipes"
-		// Tooltip: If enabled, adds recipes for the banners generated randomly in the world across various structures.
+		Label: "[i:846] 装饰旗配方"
+		Tooltip: 如果启用，将为世界中各种建筑物中随机生成的旗帜添加配方。
 	}
 
 	teamBlocks: {
-		// Label: "[i:3636] Coloured Team Blocks"
-		// Tooltip: If enabled, adds recipes for the various coloured team blocks and their platforms. 'Suck it, Travel Merchant!'
+		Label: "[i:3636] 彩色团队方块"
+		Tooltip: 如果启用，将为各种彩色团队方块及其平台添加配方。'吃瘪吧，旅商！'
 	}
 
 	clothierVoodooDoll: {
-		// Label: "[i:1307] Clothier Voodoo Doll Recipe"
-		// Tooltip: If enabled, adds a recipe for the Clothier Voodoo Doll by crafting a Guide Voodoo Dool and a Red Hat together at a Demon/Crimson Altar.
+		Label: "[i:1307] 服装商巫毒娃娃配方"
+		Tooltip: 如果启用，玩家可以在恶魔/猩红祭坛上用一个向导巫毒娃娃和一个红帽来制作服装商巫毒娃娃。
 	}
 
 	shimmerGuns: {
-		// Label: "[i:4348] Shimmerable Hardmode Weapons"
-		/* Tooltip:
+		Label: "[i:4348] 可微光化的困难模式武器"
+		Tooltip:
 			'''
-			If enabled, the Hel-Fire and the Orange Zapinator can be shimmered into the Cascade and the Gray Zapinator, respectively.
-			Otherwise, they are unobtainable in Hardmode.
-			''' */
+			如果启用，狱火球和橙冲击枪可以分别微光分解成喷流球和灰冲击枪。
+			否则，在困难模式下是无法获得的。
+			'''
 	}
 
 	shimmerBlackLens: {
-		// Label: "[i:236] Shimmerable Black Lens"
-		// Tooltip: If enabled, adds a shimmer transmutation for Black Lens into a normal Lens. I'm not entirely sure why, but you might run low on lenses!
+		Label: "[i:236] 可微光化的黑晶状体"
+		Tooltip: 如果启用，会将黑晶状体微光分解为晶状体。我不太清楚原因，但你可能会用完晶状体！
 	}
 
 	dungeonFurniture: {
-		// Label: "[i:139] Dungeon Furniture Recipes"
-		/* Tooltip:
+		Label: "[i:139] 地牢家具制作配方"
+		Tooltip:
 			'''
-			If enabled, adds recipes for all the dungeon furniture which you would have to normally loot.
-			'For those with skill issues'
-			''' */
-	}
-}
-
-CalamityUnnerfConfig: {
-	// DisplayName: Calamity Unnerfs
-
-	Headers: {
-		// systems: "[i:3097] Systems"
-		// items: "[i:2218] Items"
-		// progression: "[i:1326] Progression"
-		// itemStats: "[i:368] Item Stats"
-		// projectileStats: "[i:515] Projectile Stats"
-		// restored: "[i:3456] Restored Features"
-	}
-
-	vanillaEquipStats: {
-		// Label: "[i:1549] Vanilla Armour Equip Stats"
-		/* Tooltip:
+			如果启用，将为所有你通常需要通过掉落获得的地牢家具添加制作配方。
+			'对于那些有水平问题的人有帮助'
 			'''
-			I'm supposed to write a whole bunch of yapping here, but this restores vanilla armour stats.
-			Note: these configs are kind of mid because there's a whole bunch of fairly inconsequential Calamity changes and
-			exposing a config option for every item would quickly get us to 300 entries.
-			Shout at me if you need more customisation or specific configs for items...
-			... or if you know a better way to organise this crap.
-			''' */
-	}
-
-	projPiercing: {
-		// Label: "[i:515] Vanilla Piercing"
-		// Tooltip: If enabled, projectiles pierce through as many enemies as vanilla lets them, instead of Calamity's balancing.
-	}
-
-	projArmourPen: {
-		// Label: "[i:1302] Vanilla Armour Penetration"
-		// Tooltip: If enabled, projectiles use vanilla armour penetration instead of Calamity's numbers.
-	}
-
-	projSpeed: {
-		// Label: "[i:290] Vanilla Projectile Speed"
-		// Tooltip: If enabled, uses vanilla projectile speeds instead of Calamity's.
-	}
-
-	projLifetime: {
-		// Label: "[i:1321] Vanilla Projectile Lifetime"
-		// Tooltip: If enabled, projectiles use vanilla's lifetimes.
-	}
-
-	projScale: {
-		// Label: "[i:1444] Vanilla Projectile Size"
-		// Tooltip: If enabled, projectiles use vanilla projectile sizes.
-	}
-
-	projYoyoStats: {
-		// Label: "[i:3286] Vanilla Yo-yo Stats"
-		/* Tooltip:
-			'''
-			Calamity rebalances the reach, top speed and lifetime of every vanilla yo-yo.
-			If enabled, they all get reverted to vanilla.
-			''' */
-	}
-
-	projCollision: {
-		// Label: "[i:497] Vanilla Water and Tile Behaviour"
-		// Tooltip: If enabled, projectiles ignore water and collide with tiles exactly as vanilla had it instead of the Calamity values.
-	}
-
-	projTrueMelee: {
-		// Label: "[i:273] Vanilla Damage Classes"
-		// Tooltip: If enabled, removes the Calamity damage classes like true melee. Not sure why you'd need this, to be fair. Maybe you don't.
-	}
-
-	itemDamage: {
-		// Label: "[i:368] Vanilla Item Damage"
-		/* Tooltip:
-			'''
-			Calamity rebalances the damage of a couple hundred vanilla weapons. If enabled, every one of them goes back
-			to the vanilla number. This is a mix of buffs and nerfs.
-			''' */
-	}
-
-	itemCrit: {
-		// Label: "[i:1248] Vanilla Item Crit Chance"
-		// Tooltip: If enabled, every item's crit chance goes back to vanilla instead of the Calamity values.
-	}
-
-	itemDefence: {
-		// Label: "[i:1316] Vanilla Armour Defence"
-		// Tooltip: If enabled, armour pieces get their vanilla defence back.
-	}
-
-	itemMana: {
-		// Label: "[i:1595] Vanilla Mana Costs"
-		// Tooltip: If enabled, magic weapons cost what vanilla says they cost instead of what Calamity thinks they should cost.
-	}
-
-	itemSpeed: {
-		// Label: "[i:211] Vanilla Attack Speed"
-		/* Tooltip:
-			'''
-			If enabled, everything swings at vanilla speed again.
-			'My steak is too juicy and my lobster too buttery'
-			''' */
-	}
-
-	itemShootSpeed: {
-		// Label: "[i:97] Vanilla Projectile Speed"
-		// Tooltip: If enabled, weapons fire their projectiles at the speed vanilla intended rather than Calamity's.
-	}
-
-	itemKnockback: {
-		// Label: "[i:897] Vanilla Knockback"
-		// Tooltip: If enabled, vanilla weapons get their original knockback instead of Calamity's.
-	}
-
-	itemScale: {
-		// Label: "[i:536] Vanilla Hitbox Size"
-		// Tooltip: If enabled, melee weapons go back to their vanilla size. (mostly smaller)
-	}
-
-	itemValue: {
-		// Label: "[i:855] Vanilla Sell Prices"
-		/* Tooltip:
-			'''
-			Calamity declares a pile of vanilla items worthless and changes the prices for plenty of others.
-			If enabled, restores the vanilla balancing.
-			''' */
-	}
-
-	itemToolPower: {
-		// Label: "[i:122] Vanilla Tool Stats"
-		// Tooltip: If enabled, pickaxe, axe and hammer stats get reverted to vanilla stats instead of Calamity stats.
-	}
-
-	itemBehaviour: {
-		// Label: "[i:407] Vanilla Item Behaviour"
-		/* Tooltip:
-			'''
-			If enabled, stack sizes and a bunch of misc crap also gets reverted to vanilla values.
-			If you read this, scold me for this bottom of the barrel config.
-			''' */
-	}
-
-	vanillaRecipes: {
-		// Label: "[i:4457] Disabled Vanilla Recipes"
-		// Tooltip: Calamity deletes the vanilla recipes for Mini Nuke I, Mini Nuke II and the Recon Scope. Not anymore.
-	}
-
-	astralDrops: {
-		// Label: "[i:3460] Astral Enemy Drop Rates"
-		/* Tooltip:
-			'''
-			Astral Infection enemies had their weapon drops cut from 1-in-7 to 1-in-10.
-			If enabled, they go back to 1-in-7.
-			''' */
-	}
-
-	crateLoot: {
-		// Label: "[i:2334] Calamity Crate Loot"
-		/* Tooltip:
-			'''
-			If enabled, restores the good old Calamity fishing loot. Calamity wants to encourage fishing by deleting the Angling Kit
-			but then nerfs fishing because fishing got too fun.
-			'Anti-Anti-Fun'
-			''' */
-	}
-
-	shopStock: {
-		// Label: "[i:1326] Town NPC Shop Stock"
-		/* Tooltip:
-			'''
-			If enabled, adds 23 items back to the shop NPCs e.g. the Rod of Discord, magic weapons, the Arms Dealer guns,
-			the Rocket Launcher, and a bunch of food.
-			'Calamity removes QoL faster than I can add it back'
-			''' */
-	}
-
-	anglingKits: {
-		// Label: "[i:3120] Angling Kits"
-		/* Tooltip:
-			'''
-			The Desert Scourge and the Aquatic Scourge used to drop a bag of fishing gear each, which peak irony from a desert worm. Calamity deleted both because you should go fishing instead. Then promptly deleted all the nice crates too. lol, lmao even.
-			If enabled, they're added back.
-			''' */
-	}
-
-	earlyCosmolight: {
-		// Label: "[i:3456] Early Cosmolight"
-		/* Tooltip:
-			'''
-			The Cosmolight used to be an early Hardmode craft from souls. It now wants a Bakidon and
-			Astral Bars which locks it behind Astrum Deus like two thirds of the way through the whole mod.
-			If enabled, this restores the old recipe.
-			''' */
-	}
-
-	starterBag: {
-		// Label: "[i:166] Starter Bag Extras"
-		/* Tooltip:
-			'''
-			The Starter Bag used to come with 10 bombs, 3 chests and a bunch of potions on top of the random class weapons.
-			If enabled, the extras are back.
-			''' */
-	}
-
-	expertDrops: {
-		// Label: "[i:3224] Expert Accessories in Normal"
-		/* Tooltip:
-			'''
-			If enabled have bosses drop the Expert-exclusive accessories in Normal mode too.
-			Calamity removed this, predictably.
-			''' */
-	}
-
-	autoswing: {
-		// Label: "[i:29] Autoswing"
-		/* Tooltip:
-			'''
-			Calamity gave autoswing to 150 vanilla items, then removed this feature on the grounds
-			that 1.4.4 has a setting for it. Exceot that it does not cover the Life Crystal, the Life Fruit, the Mana Crystal or the paper aeroplanes.
-			If enabled, the autoswing feature is restored.
-			''' */
-	}
-
-	defenceBonuses: {
-		// Label: "[i:156] Shield and Armour Defence"
-		/* Tooltip:
-			'''
-			Calamity used give a bit of defence to various accessories so they had a point.
-			e.g.the Ankh Shield line got +4, the Frozen Turtle Shell got 6, etc.
-			If enabled, the buffs are restored.
-			''' */
-	}
-
-	manaDiscounts: {
-		// Label: "[i:3269] Magic Weapon Mana Costs"
-		/* Tooltip:
-			'''
-			Fifteen vanilla magic weapons used to cost less mana than vanilla charges. Calamity "reverted nearly all
-			mana cost edits", which is a nice way of saying every discount is gone because fuck you that's why.
-			If enabled, restores the discounts.
-			'Heads I win, tails you lose'
-			''' */
-	}
-
-	wingBonuses: {
-		// Label: "[i:492] Wing Stat Bonuses"
-		/* Tooltip:
-			'''
-			I should write a bunch of stuff here about how the wings got molested but you probably knew that already.
-			If enabled, they get their innoncence back.
-			''' */
-	}
-
-	fireImmunity: {
-		// Label: "[i:193] On Fire! Immunity"
-		/* Tooltip:
-			'''
-			The Obsidian Skull line, the Ankh Shield and the Terraspark Boots used to make you immune to On Fire!,
-			which is the entire reason anyone wears an Obsidian Skull.
-			Looks like the "the fire immunity patient zero" got killed.
-			If enabled, this change is reverted.
-			''' */
-	}
-
-	summonSpeed: {
-		// Label: "[i:1157] Non-Consumable Event Summons & Summoning Speed"
-		/* Tooltip:
-			'''
-			Every vanilla summon staff and sentry rod was faster in old Calamity, and event summons were non-consumable.
-			I'm sure you can see a pattern here.
-			If enabled, these two changes are reverted.
-			''' */
-	}
-
-	toolPower: {
-		// Label: "[i:2176] Tool Power and Speed"
-		/* Tooltip:
-			'''
-			Calamity's whole tool rebalance mysteriously "disappeared". Now drills are strictly worse than pickaxes and...
-			I won't even write all of that stuff out.
-			If enabled, the 2.0.4 values come back. Pretty poggers.
-			''' */
-	}
-
-	armourBonuses: {
-		// Label: "[i:1006] Hardmode Ore Armour Bonuses"
-		/* Tooltip:
-			'''
-			The Calamity Hog Wild update ass removed all the funny and only *slightly* overpowered ore armour set bonuses.
-			If enabled, reverts them to the old values.
-			'Hog Wild more like Hog Tame'
-			''' */
-	}
-
-	prefixScaling: {
-		// Label: "[i:1615] Defence Prefix Progression"
-		/* Tooltip:
-			'''
-			Old Calamity's answer to "why would I reforge for defence at the end of the game" was to make Hard, Guarding,
-			Armored and Warding grow with progression. This was predictably removed because why bother with defence at all?
-			If enabled, this feature is restored.
-			''' */
-	}
-
-	sicknessContactDamage: {
-		// Label: "[i:1329] Sick Enemies Less Contact Damage"
-		/* Tooltip:
-			'''
-			An enemy with Poisoned, Venom, Astral Infection and Plague debuffs used to deal 5% less contact damage.
-			Now only Whispering Death does.
-			If enabled, the other four gets the 5% penalty again.
-			''' */
-	}
-
-	nurseAndTaxes: {
-		// Label: "[npc/n:18] Nurse & Taxes"
-		/* Tooltip:
-			'''
-			The Nurse went from a flat fee per visit to the vanilla per-HP price multiplied by like 600x at most.
-			The Tax Collector's rates got cut in the other direction, it pays from a half to a quarter now.
-			If enabled, these changes are reverted and she won't heal you at all in Death or Boss Rush and the Tax Collector pays 1 silver 50 per NPC again.
-			'The only permanent things in life are Nurse & Taxes'
-			''' */
-	}
-
-	spawnRates: {
-		// Label: "[i:288] Spawn Rate Modifiers"
-		/* Tooltip:
-			'''
-			Calamity used to rebalance the spawning potions' rates. This was deleted and I couldn't find any conceivable reason why.
-			If enabled, the old values are the deal again.
-			''' */
-	}
-
-	sellPrices: {
-		// Label: "[i:74] Calamity Sell Prices"
-		/* Tooltip:
-			'''
-			Calamity used to have better sell prices for its gear due to the gear being hilariously OP. This has been nerfed to the ground.
-			If enabled, not anymore.
-			''' */
-	}
-
-	shieldImmunities: {
-		// Label: "[i:1613] Shield Debuff Immunities"
-		/* Tooltip:
-			'''
-			Asgard's Valor used to be crafted from an Ankh Shield and integrated its debuff immunities.
-			The whole Ornate Shield line has also lost every immunity it had, and the recipe no longer requires an Ankh Shield, so enjoy using two accessory slots I guess.
-			If enabled, the immunities and the fire block walking are readded and the Asgard's Valor requires an Ankh
-			Shield again.
-			'If you remove everything, what's left?'
-			''' */
-	}
-
-	soaringInsignia: {
-		// Label: "[i:4989] Soaring Insignia Unnerf"
-		// Tooltip: If enabled, undoes Calamity's nerfs to Soaring Insignia's run acceleration and restores the infinite flight.
-	}
-
-	meteorArmour: {
-		// Label: "[i:123] Meteor Armour Unnerf"
-		/* Tooltip:
-			'''
-			Calamity swaps Meteor armour's set bonus: you lose the free Space Gun mana and get 33% mana cost on
-			every magic gun instead. Not really a nerf per se but it ain't the funny effect either so here's a revert ;)
-			''' */
-	}
-
-	blackBelt: {
-		// Label: "[i:963] Black Belt Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, disables the Calamity 90 second shared cooldown for the Black Belt.
-			'Dodge for the Dodge God'
-			''' */
-	}
-
-	brainOfConfusion: {
-		// Label: "[i:3223] Brain of Confusion Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, disables the Calamity 90 second shared cooldown for the Brain of Confusion.
-			'Dodge for the Dodge God'
-			''' */
-	}
-
-	shadowArmour: {
-		// Label: "[i:86] Shadow Armour Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, undoes Calamity's nerfs to Shadow Armour. It reduces its movement boost then also decides it shouldn't stack
-			with Magiluminescence.
-			''' */
-	}
-
-	damageReduction: {
-		// Label: "[i:3224] Damage Reduction Unnerf"
-		/* Tooltip:
-			'''
-			Calamity quietly runs all your damage reduction through a formula, so 25% is the new 20%, 50% is the new 33%,
-			and 100% is the new 50%. If enabled, we fix this.
-			''' */
-	}
-
-	bossDR: {
-		// Label: "[i:3097] Vanilla Boss DR Unnerf"
-		/* Tooltip:
-			'''
-			Calamity gives 22 vanilla bosses flat damage reduction, presumably to prevent killing bosses too fast.
-			This is kinda lame, so if this option is enabled, Y E E T
-			I miss that kid who wrote the funny config messages :(
-			''' */
-	}
-
-	calamityBossDR: {
-		// Label: "[i:3097] Calamity Boss DR Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, the same flat damage reduction is disabled for Calamity bosses too.
-			To be fair, some bosses will be trivially cheesable if you do this.
-			''' */
-	}
-
-	pierceResist: {
-		// Label: "[i:3029] Piercing Projectiles Unnerf"
-		/* Tooltip:
-			'''
-			The Eater of Worlds, BoC Creepers and the Destroyer lose 12% damage from every hit of a piercing
-			projectile, capped at -80%. If enabled, this mechanic is removed.
-			''' */
-	}
-
-	lifesteal: {
-		// Label: "[i:1569] Lifesteal Recovery Unnerf"
-		/* Tooltip:
-			'''
-			Terraria has a hidden lifesteal meter that refills at 36 HP/s in Classic and 30 in Expert.
-			Calamity makes it a lot less effective, reducing it to 9 and 6 HP/s respectively, and also makes it so that you can't heal from lifesteal if you have more than 50% of your max health.
-			If enabled, this undoes that nerf.
-			PSA the wiki is also lying to you, it says it no longer nerfs lifesteal to the ground. This is FACT-CHECKED now :P
-			''' */
-	}
-
-	meleeArmourDR: {
-		// Label: "[i:2218] Beetle and Solar Flare DR Unnerf"
-		// Tooltip: If enabled, Beetle Shell and Solar Flare gets their vanilla multiplicative damage reduction back instead of a flat amount.
-	}
-
-	buffs: {
-		// Label: "[i:353] Permanent Buffs Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, removes Calamity's changes to a bunch of status effects:
-			Well Fed gives 20% speed instead of 5%, Magic Power gives 20% instead of 10%,
-			Archery gives 10% damage instead of 5%, Clairvoyance gives 5% magic damage instead of 3%,
-			Swiftness gives 25% speed instead of 15%, Mining gives 25% mining speed instead of 15%,
-			and Sugar Rush gives 20% speed and 20% mining instead of 10% each.
-			Tipsy is the funny one because Calamity leaves it with no melee damage, no crit and 10% *worse* melee speed,
-			where vanilla trades you 4 defense for +10% melee damage, +2 crit and +10% melee speed.
-			The tooltips are fixed as well btw
-			''' */
-	}
-
-	damageVariance: {
-		// Label: "[i:3119] Damage Variance Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, restores the vanilla damage variance mechanics. Calamity narrowed it a lot and removed luck from it entirely.
-			'E-Sports doesn't mean a symmetrical matchup with no RNG'
-			''' */
-	}
-
-	multiplayerBossHealth: {
-		// Label: "[i:29] Multiplayer Boss Health Unnerf"
-		// Tooltip: If enabled, reverts the Calamity buff to MP boss health. Maybe tanking ain't fun?
-	}
-
-	meleeResist: {
-		// Label: "[i:273] Melee Resistance Unnerf"
-		/* Tooltip:
-			'''
-			Melee weapons deal 25% less to the Eater of Worlds and the Brain's Creepers, and half to the Destroyer.
-			If enabled, this is reverted because this is literally a boss HP buff for pussies.
-			''' */
-	}
-
-	ichorDefence: {
-		// Label: "[i:1332] Ichor Unnerf"
-		/* Tooltip:
-			'''
-			Vanilla Ichor decreases enemy defence by 15 defence. Calamity quietly nerfs it to 10 but the tooltip still says 15.
-			If enabled, Ichor does what it says on the tin again.
-			''' */
-	}
-
-	hallowedDodge: {
-		// Label: "[i:553] Hallowed Dodge Unnerf"
-		/* Tooltip:
-			'''
-			Hallowed armour's dodge gets a 30 seconds cooldown bolted onto it through Calamity's cooldown system.
-			If enabled, this change is reverted.
-			''' */
-	}
-
-	wingAscent: {
-		// Label: "[i:749] Wing Ascent Speed Unnerf"
-		/* Tooltip:
-			'''
-			Butterfly and Ghost Wings ascent speeds were nerfed in exchange for better acceleration.
-			If enabled, this change is reverted. (this isn't a strict nerf, more like a rework so not enabled by default)
-			''' */
-	}
-
-	shieldBonkSafety: {
-		// Label: "[i:3097] Shield of Cthulhu Bonk Unnerf"
-		/* Tooltip:
-			'''
-			While the Shield of Cthulhu dash is on, you're supposed to be safe from getting damaged by bonking.
-			Until Calamity comes along and kills the immunity in the last four frames so enjoy the damage I guess.
-			If enabled, the whole dash grants immunity again.
-			''' */
-	}
-
-	shimmerGating: {
-		// Label: "[i:1326] Shimmer Processing Unnerf"
-		// Tooltip: If enabled, Shimmer stops checking your boss log. The title.
-	}
-
-	bloodMoonRequirement: {
-		// Label: "[i:4271] Blood Moon Requirement Unnerf"
-		// Tooltip: Calamity increases the requirements of the Blood Moon a lot. If enabled, this change is reverted.
-	}
-
-	fossilShattering: {
-		// Label: "[i:3380] Fossil Shattering Unnerf"
-		/* Tooltip:
-			'''
-			Desert Fossil shatters into Sturdy Fossils when it falls far enough. Calamity deletes this.
-			If enabled, fossils shatter again.
-			''' */
-	}
-
-	classConversions: {
-		// Label: "[i:3806] Class Conversion Unnerf"
-		/* Tooltip:
-			'''
-			Monk Tier 2 and Tier 3 and Crystal Assassin get turned into rogue armour. If enabled, this is reverted.
-			Off by default, because it's a rework rather than a nerf and someone out there is halfway through a rogue
-			playthrough.;)
-			''' */
-	}
-
-	summonerCrossClass: {
-		// Label: "[i:1157] Summoner Cross-Class Unnerf"
-		/* Tooltip:
-			'''
-			If you hold anything that isn't a summon weapon, you get a 25% damage nerf to your minions.
-			Calamity's own minions are exempt from this, so in practice it's a tax on using vanilla summons.
-			If enabled, this boneheaded mechanic is reverted.
-			''' */
-	}
-
-	balloonJump: {
-		// Label: "[i:159] Balloon Jump Unnerf"
-		/* Tooltip:
-			'''
-			Balloons are supposed to increase your jump height and your jump speed. Calamity deletes the
-			height part entirely and turns the speed into a measly +0.75.
-			If enabled, the vanilla values are restored.
-			''' */
-	}
-
-	beetleMight: {
-		// Label: "[i:2200] Beetle Might Unnerf"
-		/* Tooltip:
-			'''
-			Beetle Scale Mail gives 10% melee damage and 10% melee speed per beetle in vanilla.
-			Calamity quietly halves the speed to 5%, which is grand from a set whose entire purpose is melee.
-			If enabled, the vanilla 10% is restored again.
-			''' */
-	}
-
-	scopes: {
-		// Label: "[i:1858] Scope Unnerf"
-		// Tooltip: If enabled, restores the values for the Sniper Scope and the Recon Scope.
-	}
-
-	spectreAndVampire: {
-		// Label: "[i:1446] Spectre and Vampire Healing Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, turns off Calamity's reworks to the Spectre and Vampire healing buffs.
-			Not on by default for obvious reasons.
-			''' */
-	}
-
-	asphaltAndSkates: {
-		// Label: "[i:775] Asphalt and Ice Skates Unnerf"
-		// Tooltip: If enabled, restores the vanilla values for the Asphalt and the Ice Skates speed/acceleration.
-	}
-
-	nebulaArmour: {
-		// Label: "[i:2760] Nebula Armour Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, removes Calamity's Nebula Armour Unnerf.
-			At this point I don't even have a witty description for this.
-			''' */
-	}
-
-	meleeSpeedStacking: {
-		// Label: "[i:1343] Melee Speed Stacking Unnerf"
-		/* Tooltip:
-			'''
-			Feral Claws, all three gloves, Fire Gauntlet, Sun and Moon Stone and the Celestial Stone/Shell no longer stack anymore.
-			If enabled, they stack again like they're supposed to in vanilla.
-			''' */
-	}
-
-	whipTagCrits: {
-		// Label: "[i:4679] Whip Tag Crit Unnerf"
-		/* Tooltip:
-			'''
-			If removed, restores the whip summon tagging for the Morning Star and the Kaleidoscope.
-			I guess some of the Calamity devs hate these whips despite not adding any?
-			''' */
-	}
-
-	terrarianProjectiles: {
-		// Label: "[i:3389] Terrarian Unnerf"
-		/* Tooltip:
-			'''
-			The Terrarian's gimmick is throwing an obscene number of yo-yos. Calamity caps how many can exist, which
-			is a bit like nerfing the Zenith for having too many swords. (oh wait they've tierlocked it anyway....)
-			If enabled, this change is removed.
-			''' */
-	}
-
-	immunityFrames: {
-		// Label: "[i:554] Immunity Frames Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, removes the Calamity changes to the immunity frames on a few hundred vanilla projectiles.
-			It prevents projectile stacking by moving them onto a shared cooldown.
-			''' */
-	}
-
-	jungleArmour: {
-		// Label: "[i:228] Jungle Armour Unnerf"
-		// Tooltip: If enabled, reverts the Calamity Jungle Armour nerf to the vanilla stats.
-	}
-
-	frostArmour: {
-		// Label: "[i:684] Frost Armour Unnerf"
-		// Tooltip: If enabled, restores the vanilla Frost Armour stats. It's more of a rework than a nerf, to be fair.
-	}
-
-	yoyoGlove: {
-		// Label: "[i:3334] Yo-yo Glove Unnerf"
-		/* Tooltip:
-			'''
-			If enabled, reverts Calamity's 50% nerf to the damage of secondary yoyos given by the Yoyo Glove.
-			'A counterweight to the fun police'
-			''' */
-	}
-
-	defenseDamage: {
-		// Label: "[i:156] Remove Defense Damage"
-		/* Tooltip:
-			'''
-			If enabled, disables the Calamity Defense Damage mechanic which discourages facetanking.
-			The only problem is, facetanking bosses is funny and this isn't Touhou.
-			Note: this makes Bloodflare Core useless, I'm warning you ;)
-			''' */
-	}
-}
-
-CalamityQoLConfig: {
-	// DisplayName: Calamity QoL
-
-	Headers: {
-		// gameplay: "[i:3515] Gameplay"
-		// playerBoosts: "[i:54] Player Boosts"
-		// recipes: "[i:36] Recipes"
-	}
-
-	fullExpertRegen: {
-		// Label: "[i:1787] Regen no Snack"
-		/* Tooltip:
-			'''
-			If enabled, Expert mode stops halving your health regeneration when you aren't Well Fed.
-			The game never told you it was doing that btw, peak wikigame
-			''' */
-	}
-
-	starterBag: {
-		// Label: "[i:1774] Starter Bag"
-		/* Tooltip:
-			'''
-			If enabled, new characters get a bag containing the exact kit you were about to spend ten minutes crafting.
-			Right click to open. Contains rope, so please no FSH or PSH.
-			''' */
-	}
-
-	fasterMovement: {
-		// Label: "[i:212] Faster Base Movement"
-		/* Tooltip:
-			'''
-			If enabled, you move 50% faster without Hermes Boots for those of you who hate the earlygame.
-			Turns itself off if Terraria Overhaul is loaded, since it overhauls movement anyway.
-			''' */
-	}
-
-	higherJumpHeight: {
-		// Label: "[i:2423] Higher Jumps"
-		// Tooltip: If enabled, your base jump height goes from 5.01 to 5.51, which gets you about one more tile in practice.
-	}
-
-	fasterJumpSpeed: {
-		// Label: "[i:159] Faster Jumps"
-		// Tooltip: If enabled, you jump 4% faster, (or 24% faster while wearing wings).
-	}
-
-	fasterTilePlacement: {
-		// Label: "[i:2214] Faster Building"
-		// Tooltip: If enabled, you place tiles and walls much faster.
-	}
-
-	fasterFall: {
-		// Label: "[i:716] Hold Down to Fall Faster"
-		// Tooltip: If enabled, holding Down in midair doubles your gravity (your maximum fall speed is unchanged)
-	}
-
-	vanillaRecipeTweaks: {
-		// Label: "[i:1006] Cheaper Vanilla Recipes"
-		/* Tooltip:
-			'''
-			If enabled, a pile of vanilla recipes stop taking the piss.
-			- Jester's Arrows and Teleportation Potions craft in bulk.
-			- Chlorophyte and Shroomite Bars require less ore.
-			- True Night's Edge wants 3 of each mech soul instead of 20.
-			- Early Hardmode stuff doesn't require the Mythril Anvil.
-			- Also puts the weapon before the bars in the Hellstone and Beetle recipes, because the other way around is objectively incorrect.
-			''' */
-	}
-
-	evilBiomeSwaps: {
-		// Label: "[i:3224] Trade Corruption and Crimson Drops"
-		/* Tooltip:
-			'''
-			If enabled, you can trade any Corruption drop for its Crimson counterpart and back again in a Graveyard.
-			e.g. Worm Scarf for Brain of Confusion, Musket for Undertaker etc..
-			'I can't decide whether I want Corruption or Crimson'
-			''' */
-	}
-
-	earlyWeaponRecipes: {
-		// Label: "[i:65] Early Weapon Recipes"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for early weapons that are otherwise pure gambling like the Enchanted Sword, Starfury,
-			Water Bolt, Slime Staff, Finch Staff etc.
-			''' */
-	}
-
-	accessoryRecipes: {
-		// Label: "[i:54] Accessory Recipes"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for the accessories you're supposed to find underground.
-			(Hermes Boots, Cloud in a Bottle, Lucky Horseshoe, Lava Charm, Obsidian Rose etc.)
-			'It was funny the first 50 times.'
-			''' */
-	}
-
-	armourRecipes: {
-		// Label: "[i:804] Armour Recipes"
-		// Tooltip: If enabled, adds recipes for the Eskimo set.
-	}
-
-	summonRecipes: {
-		// Label: "[i:43] Summon Recipes"
-		// Tooltip: If enabled, adds recipes for the Bloody Tear and the Snow Globe.
-	}
-
-	miscRecipes: {
-		// Label: "[i:4346] Miscellaneous Recipes"
-		/* Tooltip:
-			'''
-			If enabled, adds recipes for the Encumbering Stone, Bast Statue, Life Crystal, Magic Conch, Umbrella,
-			and every tombstone in the game. Look ma, someone wanted the tombstones.
-
-			'The burden of writing witty descriptions'
-			''' */
-	}
-
-	shimmerRecipes: {
-		// Label: "[i:5364] Extra Shimmer Transmutations"
-		// Tooltip: If enabled, the three info accessories can be crafted into each other, likewise with the Enchanted Sword and Terragrim.
 	}
 }
