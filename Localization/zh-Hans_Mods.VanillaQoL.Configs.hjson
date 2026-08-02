@@ -3,7 +3,7 @@ QoLConfig: {
 
 	townNPCsSpawningAtNight: {
 		Label: "[i:4951] 允许城镇NPC在夜间重生"
-		Tooltip: 如果启用，城镇NPC也可以在夜间生成。
+		Tooltip: 如果启用，城镇NPC在夜间也可以生成。
 	}
 
 	townNPCsMovingAtDay: {
