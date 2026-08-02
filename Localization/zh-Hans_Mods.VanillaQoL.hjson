@@ -1,931 +1,934 @@
 LegacyTooltip: {
-	// 6: Insanely fast ({0}) speed
-	// 7: Very fast ({0}) speed
-	// 8: Fast ({0}) speed
-	// 9: Average ({0}) speed
-	// 10: Slow ({0}) speed
-	// 11: Very slow ({0}) speed
-	// 12: Extremely slow ({0}) speed
-	// 13: Snail ({0}) speed
-	// 14: No ({0}) knockback
-	// 15: Extremely weak ({0}) knockback
-	// 16: Very weak ({0}) knockback
-	// 17: Weak ({0}) knockback
-	// 18: Average ({0}) knockback
-	// 19: Strong ({0}) knockback
-	// 20: Very strong ({0}) knockback
-	// 21: Extremely strong ({0}) knockback
-	// 22: Insane ({0}) knockback
-	// Velocity: "{0} velocity"
+	6: 疯狂 ({0}) 速度
+	7: 非常快 ({0}) 速度
+	8: 快 ({0}) 速度
+	9: 平均 ({0}) 速度
+	10: 慢 ({0}) 速度
+	11: 非常慢 ({0}) 速度
+	12: 极其慢 ({0}) 速度
+	13: 蜗牛 ({0}) 速度
+	14: 无 ({0}) 击退
+	15: 极其弱 ({0}) 击退
+	16: 非常弱 ({0}) 击退
+	17: 弱 ({0}) 击退
+	18: 平均e ({0}) 击退
+	19: 强 ({0}) 击退
+	20: 非常强 ({0}) 击退
+	21: 极其强 ({0}) 击退
+	22: 疯狂 ({0}) 击退
+	Velocity: "{0} 速度"
 }
 
 Tooltips: {
-	// InvasionCalledOff: The invasion has overran your town!
+	InvasionCalledOff: 事件已经席卷了你的城镇！
 
 	Shields: {
-		// coldImmunity: Grants immunity to Chilled, Frostburn, Frostbite, and Frozen
-		// fireBlocks: Grants immunity to fire blocks
-		// fireDebuffs: Grants immunity to most fire debuffs, including Daybreak and Holy Flames
-		// mostDebuffs: Grants immunity to most debuffs, including most forms of frost and flame
-		// vastDebuffs: Grants immunity to the vast majority of debuffs, including God Slayer Inferno
+		coldImmunity: 免疫寒冷、霜冻、冻伤和冰冻
+		fireBlocks: 免疫火块伤害
+		fireDebuffs: 免疫大部分火焰减益，包括破晓和神圣之火
+		mostDebuffs: 免疫大部分减益，包括大部分霜冻和火焰效果
+		vastDebuffs: 免疫绝大多数减益，包括弑神怒焰
 	}
 
 	Restored: {
-		// onFire: Grants immunity to the On Fire! debuff
-		// notConsumable: Not consumable
-		// manaBoost: +20 max mana
-		// gladiatorDefence: +3 defence
-		// palladiumChest: 2% increased damage
-		// palladiumLegs: 3% increased damage
-		// orichalcumChest: 4% increased critical strike chance
-		// crimsonPiece: 3% increased damage and +0.5 HP/s life regen
-		// crimsonChest: 3% increased damage and +1 HP/s life regen
-		// elysianLava: Grants immunity to lava and 10% increased movement speed
-		// critDamage: 15% increased critical strike damage
-		// trueMelee: 10% increased true melee damage
-		// alcohol: Counts as an alcohol
-		// noDefenceDamage: Defense damage is disabled
-		/* spectreHealing:
+		onFire: 免疫着火了！减益
+		notConsumable: 不消耗
+		manaBoost: 最大魔力+20
+		gladiatorDefence: 防御+3
+		palladiumChest: 伤害提升2%
+		palladiumLegs: 伤害提升3%
+		orichalcumChest: 暴击率提升4%
+		crimsonPiece: 伤害提升3%，生命恢复+0.5/秒
+		crimsonChest: 伤害提升3%，生命恢复+1/秒
+		elysianLava: 免疫岩浆，移动速度提升10%
+		critDamage: 暴击伤害提升15%
+		trueMelee: 真近战伤害提升10%
+		alcohol: 算作酒类
+		noDefenceDamage: 防御损伤已禁用
+		spectreHealing:
 			'''
-			Converts magic damage to healing force
-			Magic damage done to enemies heals the player with lowest health
-			''' */
-		// prefixDefence: +{0} defence
-		// prefixDR: +{0}% damage reduction
-		// prefixLuck: +0.05 luck
+			将魔法伤害转化为治疗
+			对敌人造成的魔法伤害会为生命值最低的玩家恢复生命
+			'''
+		prefixDefence: 防御+{0}
+		prefixDR: 减伤+{0}%
+		prefixLuck: 幸运+0.05
 
 		Wings: {
-			// AngelWings: +20 max life, +10 defence and +1 HP/s life regen
-			// DemonWings: 5% increased damage and critical strike chance
-			/* ButterflyWings:
+			AngelWings: 最大生命+20，防御+10，生命恢复+1/秒
+			DemonWings: 伤害和暴击率提升5%
+			ButterflyWings:
 				'''
-				+20 max mana, 5% decreased mana usage,
-				5% increased magic damage and magic critical strike chance
-				''' */
-			// FairyWings: +60 max life
-			// BeeWings: Permanently gives the Honey buff
-			// HarpyWings: 20% increased movement speed
-			// FlameWings: 5% increased melee damage and critical strike chance
-			/* FrozenWings:
+				最大魔力+20，魔力消耗降低5%，
+				魔法伤害和魔法暴击率提升5%
 				'''
-				2% increased melee and ranged damage
-				and 1% increased melee and ranged critical strike chance
-				while wearing the Frost Armor
-				''' */
-			/* GhostWings:
+			FairyWings: 最大生命+60
+			BeeWings: 永久获得蜂蜜增益
+			HarpyWings: 移动速度提升20%
+			FlameWings: 近战伤害和暴击率提升5%
+			FrozenWings:
 				'''
-				+10 defence and 5% increased damage reduction while wearing the Spectre Hood set
-				5% increased magic damage and critical strike chance while wearing the Spectre Mask set
-				''' */
-			/* BeetleWings:
+				穿着寒霜盔甲时：
+				近战和远程伤害提升2%，
+				近战和远程暴击率提升1%
 				'''
-				+10 defence and 5% increased damage reduction while wearing the Beetle Shell set
-				5% increased melee damage and critical strike chance while wearing the Beetle Scale Mail set
-				''' */
-			/* FinWings:
+			GhostWings:
 				'''
-				Gills effect and you can move freely through liquids
-				You fall faster while submerged in liquid
-				''' */
-			/* SteampunkWings:
+				穿着幽灵兜帽套装时：防御+10，减伤提升5%
+				穿着幽灵面具套装时：魔法伤害和暴击率提升5%
 				'''
-				+8 defence, 10% increased movement speed,
-				4% increased damage, and 2% increased critical strike chance
-				''' */
-			/* LeafWings:
+			BeetleWings:
 				'''
-				+5 defence, 5% increased damage reduction,
-				and permanent Dryad's Blessing while wearing the Tiki Armor
-				''' */
-			/* BatWings:
+				穿着甲虫壳套装时：防御+10，减伤提升5%
+				穿着甲虫铠甲套装时：近战伤害和暴击率提升5%
 				'''
-				At night or during an eclipse, you will gain the following boosts:
-				7% increased damage and 3% increased critical strike chance
-				''' */
-			// TatteredFairyWings: 5% increased damage and critical strike chance
-			// SpookyWings: Increased minion knockback and 5% increased minion damage while wearing the Spooky Armor
-			/* Hoverboard:
+			FinWings:
 				'''
-				5% increased weapon-type damage while wearing the Shroomite Armor
-				Which weapon type is being boosted matches which Shroomite helmet is worn
-				''' */
-			/* FestiveWings:
+				获得鱼鳃药水的效果，可以在液体中自由移动
+				在液体中下沉速度更快
 				'''
-				+40 max life
-				Ornaments rain down as you fly
-				''' */
-			// MothronWings: +5 defence and 5% increased damage
-			/* WingsSolar:
+			SteampunkWings:
 				'''
-				7% increased melee damage and 3% increased melee critical strike chance
-				while wearing the Solar Flare Armor
-				''' */
-			// WingsStardust: 10% increased minion damage while wearing the Stardust Armor
-			/* WingsVortex:
+				防御+8，移动速度提升10%，
+				伤害提升4%，暴击率提升2%
 				'''
-				3% increased ranged damage and 7% increased ranged critical strike chance
-				while wearing the Vortex Armor
-				''' */
-			/* WingsNebula:
+			LeafWings:
 				'''
-				+20 max mana, 5% increased magic damage and critical strike chance,
-				and 5% decreased mana usage while wearing the Nebula Armor
-				''' */
+				穿着提基盔甲时：
+				防御+5，减伤提升5%，
+				并永久获得树妖的祝福
+				'''
+			BatWings:
+				'''
+				在夜晚或日食期间，你将获得以下增益：
+				伤害提升7%，暴击率提升3%
+				'''
+			TatteredFairyWings: 伤害和暴击率提升5%
+			SpookyWings: 穿着阴森盔甲时，仆从击退力提升，仆从伤害提升5%
+			Hoverboard:
+				'''
+				穿着蘑菇矿盔甲时，对应武器类型的伤害提升5%
+				提升的武器类型与佩戴的蘑菇矿头盔相匹配
+				'''
+			FestiveWings:
+				'''
+				最大生命+40
+				飞行时会落下装饰物
+				'''
+			MothronWings: 防御+5，伤害提升5%
+			WingsSolar:
+				'''
+				穿着日耀盔甲时：
+				近战伤害提升7%，近战暴击率提升3%
+				'''
+			WingsStardust: 穿着星尘盔甲时，仆从伤害提升10%
+			WingsVortex:
+				'''
+				穿着星旋盔甲时：
+				远程伤害提升3%，远程暴击率提升7%
+				'''
+			WingsNebula:
+				'''
+				穿着星云盔甲时：
+				最大魔力+20，魔法伤害和暴击率提升5%，
+				魔力消耗降低5%
+				'''
 		}
 	}
 
 	Hooks: {
-		// reachText: Reaches {0} tiles far
-		// numHooksText1: Fires one hook
-		// numHooksText2Plus: Fires {0} hooks
+		reachText: 射程 {0} 图格
+		numHooksText1: 爪钩数量为1
+		numHooksText2Plus: 爪钩数量为 {0}
 	}
 
 	Wings: {
-		// timeText: Provides flight for {0} seconds
-		// hoverText: Has hover
-		// hSpeedText: "{0} mph horizontal speed"
-		// hSpeedTextM: "{0} km/h horizontal speed"
+		timeText: 飞行时间 {0} 秒
+		hoverText: 可以悬停
+		hSpeedText: "{0} mph 水平速度"
+		hSpeedTextM: "{0} km/h 水平速度"
 	}
 
 	Shimmer: {
-		// shimmerable: Shimmerable
-		// shimmerItem: " into [i:{0}] {1}"
-		// shimmerPostSkeletron: Can be decrafted after Skeletron is defeated
-		// shimmerPostGolem: Can be decrafted after Golem is defeated
-		// shimmerPostML: " after the Moon Lord is defeated"
-		// shimmerDecraft: ", can be decrafted"
-		// shimmerNPC: ", transforming into {0}"
-		// shimmerCoinLuck: " into coin luck"
+		shimmerable: 可微光转化
+		shimmerItem: " 变成 [i:{0}] {1}"
+		shimmerPostSkeletron: 在击败骷髅王后可被微光转化
+		shimmerPostGolem: 在击败石巨人后可被微光转化
+		shimmerPostML: " 在击败月亮领主后可被微光转化"
+		shimmerDecraft: ", 可以被微光转化"
+		shimmerNPC: ", 转变为 {0}"
+		shimmerCoinLuck: " 转变为运气"
 	}
 
 	Ammo: {
-		// ammoFire: Firing [i:{0}] {1}
-		// ammoFireArrows: Fires arrows
-		// ammoFireBullets: Fires bullets
-		// ammoFireCoins: Fires coins
-		// ammoFireRockets: Fires rockets
-		// ammoFireDarts: Fires darts and seeds
+		ammoFire: 发射 [i:{0}] {1}
+		ammoFireArrows: 发射箭矢
+		ammoFireBullets: 发射子弹
+		ammoFireCoins: 发射硬币
+		ammoFireRockets: 发射火箭
+		ammoFireDarts: 发射飞镖和种子
 	}
 
 	WingSlot: {
-		// wingSlotText: " in wing slot"
-		// wingSlotTextFull: Equipable in wing slot
+		wingSlotText: " 在翅膀栏"
+		wingSlotTextFull: 可装备在翅膀栏
 	}
 
-	// WorksInBanks: Works in personal storage
+	WorksInBanks: 在个人存储中起作用
 }
 
 UI: {
-	// timeText: ""
-	// westWind: " ({0} km/h W)"
-	// eastWind: " ({0} km/h E)"
-	// compassWest: "{0} m West"
-	// compassEast: "{0} m East"
-	// depth: "{0} m"
-	// speed: "{0} km/h"
+	timeText: ""
+	westWind: " ({0} km/h 西风)"
+	eastWind: " ({0} km/h 东风)"
+	compassWest: "{0} m 西"
+	compassEast: "{0} m 东"
+	depth: "{0} m"
+	speed: "{0} km/h"
 }
 
 InfoDisplays: {
 	LuckInfoDisplay: {
-		// luckText: "{0} Luck"
-		// DisplayName: Luck
+		luckText: "{0} 运气"
+		DisplayName: 运气
 	}
 }
 
 NPCDropConditions: {
-	// ExpertNotMaster: Drops in Expert Mode
-	// TinWorld: In a tin world
-	// Multiplayer: In multiplayer
-	// PostAstrumAureus: After Astrum Aureus has been defeated
+    ExpertNotMaster: 在专家模式下掉落
+    TinWorld: 在锡世界中
+    Multiplayer: 在多人模式中
+    PostAstrumAureus: 击败星神游龙后
 }
 
-// NurseChat.HealNotAllowed: I'm not patching you up mid-fight, that's how you learn nothing. Come back when it's dead.
+NurseChat.HealNotAllowed: 我可不会在战斗中途给你包扎，那样你什么也学不会。等它死了再来找我。
 
 Info: {
 	UIInfo: {
-		// demonHeart: Used Demon Heart
-		// torchGod: Has Torch God's Favour
-		// artisanBread: Eaten the Artisan Loaf
-		// aegisCrystal: Used a Vital Crystal
-		// aegisFruit: Ate Aegis Fruit
-		// arcaneCrystal: Used an Arcane Crystal
-		// ambrosia: Ate Ambrosia
-		// gummyWorm: Used a Gummy Worm
-		// galaxyPearl: Used the Galaxy Pearl
-		// minecartUpgradeKit: Used the Minecart Upgrade Kit
-		// hardMode: Is in Hardmode
-		// killedML: Defeated the Moon Lord
-		// combatBook: Used Advanced Combat Techniques
-		// combatBookVolumeTwo: Used Advanced Combat Techniques: Volume Two
-		// peddlersSatchel: Used the Peddler's Satchel
+		demonHeart: 使用了恶魔之心
+		torchGod: 使用了火把神的恩惠
+		artisanBread: 吃了工匠面包
+		aegisCrystal: 使用了活力水晶
+		aegisFruit: 吃了神盾果
+		arcaneCrystal: 使用了奥术水晶
+		ambrosia: 吃了仙馔密酒
+		gummyWorm: 使用了黏性蠕虫
+		galaxyPearl: 使用了星系珍珠
+		minecartUpgradeKit: 使用了矿车升级包
+		hardMode: 在困难模式中
+		killedML: 击败了月亮领主
+		combatBook: 使用了先进战斗技术
+		combatBookVolumeTwo: 使用了先进战斗技术：卷二
+		peddlersSatchel: 使用了商贩背包
 	}
 }
 
 Keybinds: {
-	// ShareMap.DisplayName: Share Map
-	// LockOn.DisplayName: Lock On
-	// PanicKey.DisplayName: Panic Key
-	// VeinMineToggleKey.DisplayName: VeinMine™ Toggle Key
+	ShareMap.DisplayName: 分享地图
+	LockOn.DisplayName: 锁定
+	PanicKey.DisplayName: 回城键
+	VeinMineToggleKey.DisplayName: VeinMine™ 快捷键
 }
 
 Buffs: {
 	NurseHeal: {
-		// DisplayName: Nurse Healing
-		// Description: The Nurse is healing you!
+		DisplayName: 护士治疗
+		Description: 护士正在治疗你！
 	}
 }
 
 Items: {
-	SandyAnglingKit: {
-		// DisplayName: Sandy Angling Kit
-		/* Tooltip:
-			'''
-			Fishing gear, recovered from a worm the size of a town
-			{$CommonItemTooltip.RightClickToOpen}
-			''' */
-	}
+    SandyAnglingKit: {
+        DisplayName: 砂质钓鱼箱
+        Tooltip:
+            '''
+            钓具，从一条城镇大小的巨虫体内回收
+            {$CommonItemTooltip.RightClickToOpen}
+            '''
+    }
 
-	BleachedAnglingKit: {
-		// DisplayName: Bleached Angling Kit
-		/* Tooltip:
-			'''
-			Fishing gear, recovered from a bigger and considerably angrier worm
-			{$CommonItemTooltip.RightClickToOpen}
-			''' */
-	}
+    BleachedAnglingKit: {
+        DisplayName: 褪色钓鱼箱
+        Tooltip:
+            '''
+            钓具，从一条更大、也明显更暴躁的巨虫体内回收
+            {$CommonItemTooltip.RightClickToOpen}
+            '''
+    }
 
-	StarterBag: {
-		// DisplayName: Starter Bag
-		/* Tooltip:
-			'''
-			Right click to open
-			Everything you were about to craft anyway
-			''' */
-	}
+    StarterBag: {
+        DisplayName: 新手礼包
+        Tooltip:
+            '''
+            右键点击打开
+            反正都是你迟早要合成的东西
+            '''
+    }
 
 	NightsEdge: {
-		// DisplayName: Ancient Night's Edge
-		// Tooltip: ""
+		DisplayName: 远古永夜刃
+		Tooltip: ""
 	}
 
 	TrueNightsEdge: {
-		// DisplayName: Ancient True Night's Edge
-		// Tooltip: ""
+		DisplayName: 远古真永夜刃
+		Tooltip: ""
 	}
 
 	BladeOfGrass: {
-		// DisplayName: Ancient Blade of Grass
-		// Tooltip: ""
+		DisplayName: 远古草剑
+		Tooltip: ""
 	}
 
 	FieryGreatsword: {
-		// DisplayName: Fiery Greatsword
-		// Tooltip: ""
+		DisplayName: 炽焰巨剑
+		Tooltip: ""
 	}
 
 	Muramasa: {
-		// DisplayName: Ancient Muramasa
-		// Tooltip: ""
+		DisplayName: 远古村正
+		Tooltip: ""
 	}
 
 	TrueExcalibur: {
-		// DisplayName: Ancient True Excalibur
-		// Tooltip: ""
+		DisplayName: 远古真断钢剑
+		Tooltip: ""
 	}
 
 	TerraBlade: {
-		// DisplayName: Ancient Terra Blade
-		// Tooltip: ""
+		DisplayName: 远古泰拉刃
+		Tooltip: ""
 	}
 
 	Excalibur: {
-		// DisplayName: Ancient Excalibur
-		// Tooltip: ""
+		DisplayName: 远古断钢剑
+		Tooltip: ""
 	}
 
 	BouncyDirtBomb: {
-		// DisplayName: Bouncy Dirt Bomb
-		/* Tooltip:
+		DisplayName: 弹力土炸弹
+		Tooltip:
 			'''
-			A small explosion that will spread dirt
-			Very bouncy
-			''' */
+			一个会散播泥土的小爆炸
+			非常有弹力
+			'''
 	}
 
 	BouncyDirtDynamite: {
-		// DisplayName: Bouncy Dirt Dynamite
-		/* Tooltip:
+		DisplayName: 弹力土雷管
+		Tooltip:
 			'''
-			A large explosion that will spread dirt
-			'This will prove to be a terrible idea'
-			''' */
+			一个会散播泥土的大爆炸
+			'这将被证明是一个糟糕的想法。'
+			'''
 	}
 
 	DirtDynamite: {
-		// DisplayName: Dirt Dynamite
-		// Tooltip: A large explosion that will spread dirt
+		DisplayName: 土雷管
+		Tooltip: 一个会散播泥土的大爆炸
 	}
 
 	StickyDirtDynamite: {
-		// DisplayName: Sticky Dirt Dynamite
-		/* Tooltip:
+		DisplayName: 粘性土雷管
+		Tooltip:
 			'''
-			A large explosion that will spread dirt
-			'Tossing may be difficult.'
-			''' */
+			一个会散播泥土的大爆炸
+			'抛出去可能会很困难。'
+			'''
 	}
 
 	Placeables: {
 		CorruptionPylon: {
-			// DisplayName: Corruption Pylon
-			// Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+			DisplayName: 腐化晶塔
+			Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 		}
 
 		CrimsonPylon: {
-			// DisplayName: Crimson Pylon
-			// Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+			DisplayName: 猩红晶塔
+			Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 		}
 	}
 
 	AsphaltPlatform: {
-		// DisplayName: Asphalt Platform
-		// Tooltip: ""
+		DisplayName: 沥青平台
+		Tooltip: ""
 	}
 }
 
 Projectiles: {
-	// BouncyDirtBombProjectile.DisplayName: Bouncy Dirt Bomb
-	// BouncyDirtDynamiteProjectile.DisplayName: Bouncy Dirt Dynamite
-	// DirtDynamiteProjectile.DisplayName: Dirt Dynamite
-	// StickyDirtDynamiteProjectile.DisplayName: Sticky Dirt Dynamite
+	BouncyDirtBombProjectile.DisplayName: 弹力土炸弹
+	BouncyDirtDynamiteProjectile.DisplayName: 弹力土雷管
+	DirtDynamiteProjectile.DisplayName: 土雷管
+	StickyDirtDynamiteProjectile.DisplayName: 粘性土雷管
 }
 
 Wings: {
 	WingSlot: {
-		// socialWings: Social Wings
-		// wings: Wings
-		// dye: Wing Dye
+		socialWings: 时装翅膀
+		wings: 翅膀
+		dye: 翅膀染料
 	}
 }
 
 NPCs: {
 	Ninja: {
-		// DisplayName: Ninja
+		DisplayName: 忍者
 
 		TownNPCMood: {
-			// Content: I am content.
-			// NoHome: I hate not having a home.
-			// FarFromHome: I am too far from home.
-			// LoveSpace: I love having so much space.
-			// DislikeCrowded: I dislike how crowded I am.
-			// HateCrowded: I hate how crowded I am.
-			// LikeNPC_Princess: I like {NPCName}.
-			// Princess_LovesNPC: I like {NPCName}.
-			// LikeBiome: I like {BiomeName}.
-			// DislikeBiome: I dislike {BiomeName}.
-			// LoveNPC: I love {NPCName}.
-			// LikeNPC: I like {NPCName}.
-			// DislikeNPC: I dislike {NPCName}.
-			// HateNPC: I hate {NPCName}.
+			Content: 我很满足。
+			NoHome: 我讨厌没有家。
+			FarFromHome: 我离家太远了。
+			LoveSpace: 我喜欢有这么多的空间。
+			DislikeCrowded: 我不喜欢这里，太拥挤了。
+			HateCrowded: 我讨厌自己这里这么拥挤。
+			LikeNPC_Princess: 我喜欢 {NPCName}。
+			Princess_LovesNPC: 我喜欢 {NPCName}。
+			LikeBiome: 我喜欢 {BiomeName}。
+			DislikeBiome: 我不喜欢 {BiomeName}。
+			LoveNPC: 我爱 {NPCName}。
+			LikeNPC: 我喜欢 {NPCName}。
+			DislikeNPC: 我不喜欢 {NPCName}。
+			HateNPC: 我讨厌 {NPCName}。
 		}
 
-		// Census.SpawnCondition: Defeat King Slime
-		// Bestiary: A slightly clumsy ninja which got stuck in King Slime. He's really grateful for freeing him.
-		// chat1: Get caught one time, now everyone thinks of me as an incompetent fool.
-		// chat2: To be reduced to a mere peddler, how beneath an assassin like myself.
-		// chat3: Want to know how I could breathe for so long inside that slime? Check my wares.
-		// chat4: I would ask you to hire me for my services, but you clearly don't need it.
+		Census.SpawnCondition: 击败史莱姆王
+		Bestiary: 一个有点笨拙的忍者，被困在了史莱姆王里。他非常感激能被救出来。
+		chat1: 被抓到一次，现在每个人都认为我是个无能的傻瓜。
+		chat2: 沦为一个小贩，这对我这样一个杀手来说真是太丢脸了。
+		chat3: 想知道我怎么能在那黏糊糊的东西里呼吸这么久吗？看看我的宝贝吧。
+		chat4: 我本想请你雇佣我的服务，但你显然不需要。
 	}
 }
 
-// Shield.DamageReductionShield.damageReduction: "{0}% Damage Reduction"
+Shield.DamageReductionShield.damageReduction: "{0}% 伤害减免"
 
 Tiles: {
-	// CrimsonPylonTile.inCrimson: While in the Crimson
-	// CorruptionPylonTile.inCorruption: While in the Corruption
+	CrimsonPylonTile.inCrimson: 在猩红地时
+	CorruptionPylonTile.inCorruption: 在腐化地时
 }
 
 ModCompat: {
-	// beenThroughNight: Nighttime occurred at least once
-	// downedLunarEvent: Completed Lunar Event
-	// downedEclipse: Completed Solar Eclipse
-	// downedBloodMoon: Completed Blood Moon
-	// downedLunarPillarAny: Downed any Lunar Pillar
-	// downedMartianSaucer: Downed Martian Saucer
-	// downedDreadnautilus: Downed Dreadnautilus
-	// inExpertOrMaster: In Expert or Master mode
-	// beenToPurity: Been to the forest biome
-	// beenToCavernsOrUnderground: Been to caverns or underground biome
-	// beenToUnderworld: Been to the underworld biome
-	// beenToSky: Been to the sky biome
-	// beenToSnow: Been to the snow biome
-	// beenToDesert: Been to the desert biome
-	// beenToOcean: Been to the ocean biome
-	// beenToJungle: Been to the jungle biome
-	// beenToMushroom: Been to the glowing mushroom biome
-	// beenToCorruption: Been to the corruption biome
-	// beenToCrimson: Been to the crimson biome
-	// beenToEvil: Been to the corruption or crimson biomes
-	// beenToHallow: Been to the hallow biome
-	// beenToTemple: Been to the Lihzahrd Temple
-	// beenToDungeon: Been to the Dungeon
-	// beenToAether: Been to the aether biome
-	// downedCrabson: Downed Crabson
-	// downedOmegaStarite: Downed Omega Starite
-	// downedDustDevil: Downed Dust Devil
-	// downedHyperStarite: Downed Hyper Starite
-	// downedUltraStarite: Downed Ultra Starite
-	// downedRedSprite: Downed Red Sprite
-	// downedSpaceSquid: Downed Space Squid
-	// downedDemonSiege: Downed Demon Siege
-	// downedGlimmer: Downed the Glimmer
-	// downedGaleStreams: Downed the Gale Streams
-	// beenToCrabCrevice: Been to the Crab Crevice biome
-	// downedSlayerOfEvil: Downed Slayer Of Evil
-	// downedSATLA: Downed SATLA-001
-	// downedDrFetus: Downed Dr. Fetus
-	// downedSlimesHope: Downed Slimes Last Hope
-	// downedPoliticianSlime: Downed Politician Slime
-	// downedAncientTrio: Downed Ancient Trio
-	// downedLavalGolem: Downed Laval Golem
-	// downedAntony: Downed Antony, the Novice Necromancer
-	// downedBunnyZeppelin: Downed Bunny Zeppelin
-	// downedOkiku: Downed Okiku
-	// downedHarpyAirforce: Downed Royal Harpy Airforce
-	// downedIsaac: Downed Isaac
-	// downedAncientGuardian: Downed the Ancient Guardian
-	// downedHeroicSlime: Downed Heroic Slime
-	// downedHoloSlime: Downed Holographic Slime
-	// downedSecurityBot: Downed Security Bot
-	// downedUndeadChef: Downed Undead Chef
-	// downedGuardianOfFrost: Downed Guardian of Frost
-	// downedSoulHarvester: Downed Soul Harvester
-	// downedDesertScourge: Downed Desert Scourge
-	// downedCrabulon: Downed Crabulon
-	// downedHiveMind: Downed Hive Mind
-	// downedPerforators: Downed Perforators
-	// downedPerfOrHive: Downed Perforators or Hive Mind
-	// downedSlimeGod: Downed Slime God
-	// downedCryogen: Downed Cryogen
-	// downedAquaticScourge: Downed Aquatic Scourge
-	// downedBrimstoneElemental: Downed Brimstone Elemental
-	// downedCalamitasClone: Downed Calamitas Clone
-	// downedLeviathanAndAnahita: Downed Leviathan and Anahita
-	// downedAstrumAureus: Downed Astrum Aureus
-	// downedPlaguebringerGoliath: Downed Plaguebringer Goliath
-	// downedRavager: Downed Ravager
-	// downedAstrumDeus: Downed Astrum Deus
-	// downedProfanedGuardians: Downed Profaned Guardians
-	// downedDragonfolly: Downed Dragonfolly
-	// downedProvidence: Downed Providence
-	// downedStormWeaver: Downed Storm Weaver
-	// downedCeaselessVoid: Downed Ceaseless Void
-	// downedSignus: Downed Signus
-	// downedPolterghast: Downed Polterghast
-	// downedOldDuke: Downed Old Duke
-	// downedDevourerOfGods: Downed Devourer of Gods
-	// downedYharon: Downed Yharon
-	// downedExoMechs: Downed Exo Mechs
-	// downedSupremeCalamitas: Downed Supreme Calamitas
-	// downedGiantClam: Downed Giant Clam
-	// downedCragmawMire: Downed Cragmaw Mire
-	// downedGreatSandShark: Downed Great Sand Shark
-	// downedNuclearTerror: Downed Nuclear Terror
-	// downedMauler: Downed Mauler
-	// downedAcidRain1: Downed Acid Rain Tier 1
-	// downedAcidRain2: Downed Acid Rain Tier 2
-	// downedBossRush: Downed Boss Rush
-	// beenToCrags: Been to the Brimstone Crag biome
-	// beenToAstral: Been to the Astral biome
-	// beenToSunkenSea: Been to the Sunken Sea biome
-	// beenToSulphurSea: Been to the Sulphur Sea biome
-	// beenToAbyss: Been to the Abyss Biome
-	// beenToAbyssLayer1: Been to the first Abyss layer
-	// beenToAbyssLayer2: Been to the second Abyss layer
-	// beenToAbyssLayer3: Been to the third Abyss layer
-	// beenToAbyssLayer4: Been to the fourth Abyss layer
-	// beenToAstralBlight: Been to the Astral Blight biome
-	// downedAstrageldon: Downed Astrageldon
-	// downedClamitas: Downed Clamitas
-	// beenToConfection: Been to the Confection biome
-	// beenToConfectionOrHallow: Been to the Confection or Hallow biomes
-	// downedLepus: Downed Lepus
-	// downedTurkor: Downed Turkor
-	// downedOcram: Downed Ocram
-	// downedChasme: Downed Chasme
-	// beenToDepths: Been to the Depths biome
-	// beenToDepthsOrUnderworld: Been to the Depths or Underworld biomes
-	// downedGalahis: Downed Galahis
-	// downedCreation: Downed Creation
-	// downedDestruction: Downed Destruction
-	// downedBlightKing: Downed BlightKing
-	// downedGardener: Downed Gardener
-	// downedGlaciation: Downed Glaciation
-	// downedHandOfCthulhu: Downed Hand of Cthulhu
-	// downedCursePreacher: Downed Curse Preacher
-	// downedEffulgence: Downed Effulgence
-	// downedIceLich: Downed Ice Lich
-	// downedTrojanSquirrel: Downed Trojan Squirrel
-	// downedDeviantt: Downed Deviantt
-	// downedBanishedBaron: Downed Banished Baron
-	// downedLifelight: Downed Lifelight
-	// downedEridanus: Downed Eridanus
-	// downedAbominationn: Downed Abominationn
-	// downedMutant: Downed Mutant
-	// downedAlphaFrostjaw: Downed Alpha Frostjaw
-	// downedSanguineElemental: Downed Sanguine Elemental
-	// beenToDread: Been to the Dread biome
-	// downedLad: Downed Lad
-	// downedHornlitz: Downed Hornlitz
-	// downedSnowDon: Downed Snow Don
-	// downedStoffie: Downed Stoffie
-	// downedLilyWhite: Downed Lily White
-	// downedRumia: Downed Rumia
-	// downedEternityLarva: Downed Eternity Larva
-	// downedNazrin: Downed Nazrin
-	// downedHinaKagiyama: Downed Hina Kagiyama
-	// downedSekibanki: Downed Sekibanki
-	// downedSeiran: Downed Seiran
-	// downedNitoriKawashiro: Downed Nitori Kawashiro
-	// downedMedicineMelancholy: Downed Medicine Melancholy
-	// downedCirno: Downed Cirno
-	// downedMinamitsuMurasa: Downed Minamitsu Murasa
-	// downedAliceMargatroid: Downed Alice Margatroid
-	// downedSakuyaIzayoi: Downed Sakuya Izayoi
-	// downedSeijaKijin: Downed Seija Kijin
-	// downedMayumiJoutouguu: Downed Mayumi Joutouguu
-	// downedToyosatomimiNoMiko: Downed Toyosatomimi no Miko
-	// downedKaguyaHouraisan: Downed Kaguya Houraisan
-	// downedUtsuhoReiuji: Downed Utsuho Reiuji
-	// downedTenshiHinanawi: Downed Tenshi Hinanawi
-	// downedKisume: Downed Kisume
-	// downedTrerios: Downed Trerios
-	// downedMagmaEye: Downed MagmaEye
-	// downedJack: Downed Jack
-	// downedAcheron: Downed Acheron
-	// downedMarquisMoonsquid: Downed Marquis Moonsquid
-	// downedPriestessRod: Downed Priestess Rod
-	// downedDiver: Downed Diver
-	// downedMotherbrain: Downed Motherbrain
-	// downedWallOfShadow: Downed Wall of Shadow
-	// downedSunSlimeGod: Downed Slime God
-	// downedOverwatcher: Downed Overwatcher
-	// downedLifebringer: Downed Lifebringer
-	// downedMaterealizer: Downed Materealizer
-	// downedScarabBelief: Downed Scarab Belief
-	// downedWorldsEndWhale: Downed World's End Everlasting Falling Whale
-	// downedSon: Downed the Son
-	// downedCaveOrdeal: Downed Cave Ordeal
-	// downedCorruptOrdeal: Downed Corrupt Ordeal
-	// downedCrimsonOrdeal: Downed Crimson Ordeal
-	// downedDesertOrdeal: Downed Desert Ordeal
-	// downedForestOrdeal: Downed Forest Ordeal
-	// downedHallowOrdeal: Downed Hallow Ordeal
-	// downedJungleOrdeal: Downed Jungle Ordeal
-	// downedSkyOrdeal: Downed Sky Ordeal
-	// downedSnowOrdeal: Downed Snow Ordeal
-	// downedUnderworldOrdeal: Downed Underworld Ordeal
-	// beenToHomewardAbyss: Been to the Abyss biome
-	// downedGoozma: Downed Goozma
-	// downedBereftVassal: Downed Bereft Vassal
-	// beenToProfanedGardens: Been to the Profaned Gardens biome
-	// downedCommanderGintzia: Downed Commander Gintzia
-	// downedSunStalker: Downed Sun Stalker
-	// downedPumpkinJack: Downed Pumpkin Jack
-	// downedForgottenPuppetDaedus: Downed Forgotten Puppet Daedus
-	// downedDreadMire: Downed Dread Mire
-	// downedSingularityFragment: Downed Singularity Fragment
-	// downedVerliaB: Downed Verlia B
-	// downedGothivia: Downed Gothivia
-	// downedGintzeArmy: Downed Gintze Army
-	// beenToLunarVeilAbyss: Been to the Abyss biome
-	// beenToAcid: Been to the Acid biome
-	// beenToAurelus: Been to the Aurelus biome
-	// beenToFable: Been to the Fable biome
-	// beenToGovheilCastle: Been to the Govheil Castle biome
-	// beenToCathedral: Been to the Cathedral biome
-	// beenToMarrowSurface: Been to the Marrow Surface biome
-	// beenToMorrowUnderground: Been to the Morrow Underground biome
-	// downedSt4sys: Downed St4sys
-	// downedTerminator: Downed Terminator
-	// downedCaretaker: Downed Caretaker
-	// downedSiegeEngine: Downed Siege Engine
-	// downedTorizo: Downed Torizo
-	// downedSerris: Downed Serris
-	// downedKraid: Downed Kraid
-	// downedPhantoon: Downed Phantoon
-	// downedOmegaPirate: Downed Omega Pirate
-	// downedNightmare: Downed Nightmare
-	// downedGoldenTorizo: Downed Golden Torizo
-	// downedStormCloudfish: Downed Storm Cloudfish
-	// downedStarConstruct: Downed Star Construct
-	// downedGigabat: Downed Gigabat
-	// downedSunPixie: Downed Sun Pixie
-	// downedEsophage: Downed Esophage
-	// downedConvectiveWanderer: Downed Convective Wanderer
-	// downedPolarExterminator: Downed Polar Exterminator
-	// downedDivineLight: Downed Divine Light
-	// downedAncientMachine: Downed Ancient Machine
-	// downedNoehtnap: Downed Noehtnap
-	// downedHydra: Downed Hydra
-	// downedImperious: Downed Imperious
-	// downedRuneGhost: Downed Rune Ghost
-	// downedInvaderBattleship: Downed Invader Battleship
-	// downedInvaderNoehtnap: Downed Invader Noehtnap
-	// downedOLORD: Downed O.L.O.R.D.
-	// downedGreatTyrannosaurus: Downed Great Tyrannosaurus
-	// downedDinoMilitia: Downed Dino Militia
-	// downedInvaders: Downed Invaders
-	// beenToSkyFortress: Been to the Sky Fortress biome
-	// downedThorn: Downed Thorn
-	// downedErhan: Downed Erhan
-	// downedKeeper: Downed Keeper
-	// downedSeedOfInfection: Downed Seed of Infection
-	// downedKingSlayerIII: Downed King Slayer III
-	// downedOmegaCleaver: Downed Omega Cleaver
-	// downedOmegaGigapora: Downed Omega Gigapora
-	// downedOmegaObliterator: Downed Omega Obliterator
-	// downedPatientZero: Downed Patient Zero
-	// downedAkka: Downed Akka
-	// downedUkko: Downed Ukko
-	// downedAncientDeityDuo: Downed Ancient Deity Duo
-	// downedNebuleus: Downed Nebuleus
-	// downedFowlEmperor: Downed FowlEmperor
-	// downedFowlMorning: Downed FowlMorning
-	// downedRaveyard: Downed Raveyard
-	// beenToLab: Been to the Lab biome
-	// beenToWasteland: Been to the Wasteland biome
-	// downedPutridPinky: Downed Putrid Pinky
-	// downedGlowmoth: Downed Glowmoth
-	// downedPharaohsCurse: Downed Pharaohs Curse
-	// downedAdvisor: Downed Advisor
-	// downedPolaris: Downed Polaris
-	// downedLux: Downed Lux
-	// downedSubspaceSerpent: Downed Subspace Serpent
-	// downedNatureConstruct: Downed Nature Construct
-	// downedEarthenConstruct: Downed Earthen Construct
-	// downedPermafrostConstruct: Downed Permafrost Construct
-	// downedTidalConstruct: Downed Tidal Construct
-	// downedOtherworldlyConstruct: Downed Otherworldly Construct
-	// downedEvilConstruct: Downed Evil Construct
-	// downedInfernoConstruct: Downed Inferno Construct
-	// downedChaosConstruct: Downed Chaos Construct
-	// downedNatureSpirit: Downed Nature Spirit
-	// downedEarthenSpirit: Downed Earthen Spirit
-	// downedPermafrostSpirit: Downed Permafrost Spirit
-	// downedTidalSpirit: Downed Tidal Spirit
-	// downedOtherworldlySpirit: Downed Otherworldly Spirit
-	// downedEvilSpirit: Downed Evil Spirit
-	// downedInfernoSpirit: Downed Inferno Spirit
-	// downedChaosSpirit: Downed Chaos Spirit
-	// beenToPyramid: Been to the Pyramid biome
-	// beenToPlanetarium: Been to the Planetarium biome
-	// downedScarabeus: Downed Scarabeus
-	// downedMoonJellyWizard: Downed Moon Jelly Wizard
-	// downedVinewrathBane: Downed Vinewrath Bane
-	// downedAncientAvian: Downed Ancient Avian
-	// downedStarplateVoyager: Downed Starplate Voyager
-	// downedInfernon: Downed Infernon
-	// downedDusking: Downed Dusking
-	// downedAtlas: Downed Atlas
-	// downedJellyDeluge: Downed Jelly Deluge
-	// downedTide: Downed Tide
-	// downedMysticMoon: Downed Mystic Moon
-	// beenToBriar: Been to the Briar biome
-	// beenToSpirit: Been to the Spirit biome
-	// downedSpookySpirit: Downed Spooky Spirit
-	// downedRotGourd: Downed Rot Gourd
-	// downedMoco: Downed Moco
-	// downedDaffodil: Downed Daffodil
-	// downedOrroBoro: Downed Orro Boro
-	// downedBigBone: Downed Big Bone
-	// beenToSpookyForest: Been to the Spooky Forest biome
-	// beenToSpookyUnderground: Been to the Spooky Underground biome
-	// beenToEyeValley: Been to the Eye Valley biome
-	// beenToCatacombs: Been to the Catacombs biome
-	// beenToCemetery: Been to the Cemetery biome
-	// downedAuroracle: Downed Auroracle
-	// downedCeiros: Downed Ceiros
-	// downedGlassweaver: Downed Glassweaver
-	// beenToAuroracleTemple: Been to the Auroracle Temple biome
-	// beenToVitricDesert: Been to the Vitric Desert biome
-	// beenToVitricTemple: Been to the Vitric Temple biome
-	// downedVagrantofSpace: Downed the Vagrant of Space and Time
-	// downedDioskouroi: Downed Dioskouroi, the Twin Forces
-	// downedNalhaun: Downed Nalhaun, the Burnished King
-	// downedPenthesilea: Downed Penthesilea, the Witch of Ink
-	// downedArbitration: Downed Arbitration
-	// downedWarriorOfLight: Downed the Warrior of Light
-	// downedTsukiyomi: Downed Tsukiyomi, the First Starfarer
-	// downedAncientHusk: Downed Ancient Husk
-	// downedOverloadedScandrone: Downed Overloaded Scandrone
-	// downedPainbringer: Downed Painbringer
-	// downedHarbingerOfAnnihilation: Downed Harbinger of Annihilation
-	// downedFlyingTerror: Downed Flying Terror
-	// downedStoneMantaRay: Downed Stone Manta Ray
-	// downedInfectedIncarnate: Downed Infected Incarnate
-	// downedTidalTitan: Downed Tidal Titan
-	// downedDunestock: Downed Dunestock
-	// downedHexedConstructor: Downed Hexed Constructor
-	// downedShadowcrawler: Downed Shadowcrawler
-	// downedPrototypeI: Downed Prototype I
-	// downedGrandThunderBird: Downed Grand Thunder Bird
-	// downedQueenJellyfish: Downed Queen Jellyfish
-	// downedViscount: Downed Viscount
-	// downedGraniteEnergyStorm: Downed Granite Energy Storm
-	// downedBuriedChampion: Downed Buried Champion
-	// downedStarScouter: Downed Star Scouter
-	// downedBoreanStrider: Downed Borean Strider
-	// downedFallenBeholder: Downed Fallen Beholder
-	// downedLich: Downed Lich
-	// downedForgottenOne: Downed Forgotten One
-	// downedPrimordials: Downed Primordials
-	// downedPatchWerk: Downed Patch Werk
-	// downedCorpseBloom: Downed Corpse Bloom
-	// downedIllusionist: Downed Illusionist
-	// beenToAquaticDepths: Been to the Aquatic Depths biome
-	// downedGraniteOvergrowth: Downed Granite Overgrowth
-	// downedBeholder: Downed Beholder
-	// downedDredger: Downed Dredger
-	// downedCharcoolSnowman: Downed Charcool Snowman
-	// downedCosmicMenace: Downed Cosmic Menace
-	// downedEvilFlyingBlade: Downed Evil Flying Blade
-	// downedColossalCarnage: Downed Colossal Carnage
-	// downedYurnero: Downed Yurnero
-	// beenToVerdant: Been to the Verdant biome
-	// downedStormCloud: Downed Storm Cloud
-	// downedGrandAntlion: Downed Grand Antlion
-	// downedGemstoneElemental: Downed Gemstone Elemental
-	// downedMoonlightDragonfly: Downed Moonlight Dragonfly
-	// downedDreadnaught: Downed Dreadnaught
-	// downedAnarchulesBeetle: Downed Anarchules Beetle
-	// downedChaosbringer: Downed Chaosbringer
-	// downedPaladinSpirit: Downed Paladin Spirit
-	// downedManaflora: Downed Manaflora
-	// downedStoneGuardian: Downed StoneGuardian
-	// downedVerlia: Downed Verlia
-	// downedIrradia: Downed Irradia
-	// downedSylia: Downed Sylia
-	// downedFenix: Downed Fenix
-	// downedBlazingSerpent: Downed Blazing Serpent
-	// downedCogwork: Downed Cogwork
-	// downedWaterCogwork: Downed Water Cogwork
-	// downedWaterJellyfish: Downed Water Jellyfish
-	// downedSparn: Downed Sparn
-	// downedPandorasFlamebox: Downed Pandoras Flamebox
-	// downedSTARBOMBER: Downed STARBOMBER
-	// downedWaterJellyfishOrWaterCogwork: Downed Water Jellyfish or Water Cogwork
-	// downedCogworkOrSparn: Downed Cogwork or Sparn
-	// downedBlazingSerpentOrPandorasFlamebox: Downed Blazing Serpent or Pandoras Flamebox
-	// downedWulfrumExcavator: Downed Wulfrum Excavator
-	// downedEidolonWyrm: Downed Eidolon Wyrm
-	// downedBloodweaver: Downed Bloodweaver
-	// downedWallOfBronze: Downed Wall Of Bronze
-	// downedPyrogen: Downed Pyrogen
-	// beenToSpiderCave: Been to the Spider Grotto biome
-	// downedJungleDefenders: Downed Jungle Defenders
-	// downedTriplets: Downed Triplets
-	// downedPrinceSlime: Downed Prince Slime
-	// downedVoidDigger: Downed Void Digger
-	// downedCarnagePillar: Downed Carnage Pillar
-	// downedTheAlchemist: Downed Alchemist
-	// downedBritzz: Downed Britzz
-	// downedFrigidius: Downed Frigidius
-	// downedEyeOfTheStorm: Downed Eye Of The Storm
-	// downedSeseKitsugai: Downed Sese Kitsugai
-	// downedTreeToad: Downed Tree Toad
-	// downedSuperVoltaicMotherSlime: Downed Super Voltaic Mother Slime
-	// beenToAvalonEvilBiomes: Been to any evil biome
-	// beenToContagion: Been to the Contagion biome
-	// downedPhantasm: Downed Phantasm
-	// downedMechasting: Downed Mechasting
-	// downedKingSting: Downed King Sting
-	// downedDesertBeak: Downed Desert Beak
-	// downedAvalonEvilBosses: Downed any evil boss
-	// downedBacteriumPrime: Downed Bacterium Prime
-	// downedThespian: Downed Thespian, the Act of Alchemy
-	// downedStarfarers: Downed Asphodene and Eridani
-	// downedArmagem: Downed Armagem
-	// downedVoid: Downed Void
-	// downedTheGuardianOfHell: Downed The Guardian Of Hell
-	// downedPrimordialWorm: Downed Primordial Worm
-	// downedCryoGuardian: Downed Cryo Guardian
-	// downedForestGuardian: Downed Forest Guardian
-	// downedNightmarePlantera: Downed Nightmare Plantera
-	// downedThunderveinDragon: Downed Thundervein Dragon
-	// downedBloodiancie: Downed Bloodiancie
-	// downedSlimeEmperor: Downed Slime Emperor
-	// downedBabyIceDragon: Downed Baby Ice Dragon
-	// downedRediancie: Downed Rediancie
-	// downedCoreBoss: Downed Corrupt or Crimson Core
-	// downedMosquitoMonarch: Downed Mosquito Monarch
-	// notDownedMechBossAll: Not Downed All Mech Bosses
-	// downedStellarStarship: Downed Stellar Starship
-	// downedNiflheim: Downed Niflheim
-	// downedExodygen: Downed Exodygen
-	// downedGoblinSorcererChieftain: Downed Goblin Sorcerer Chieftain
-	// downedWitheredAcornSpirit: Downed Withered Acorn Spirit
-	// downedHellfireSerpent: Downed Hellfire Serpent
-	// downedMeteorAnnihilator: Downed Meteor Annihilator
-	// downedMeteorExcavator: Downed Meteor Excavator
-	// downedManaGuardian: Downed Mana Guardian
-	// downedLifeGuardian: Downed Life Guardian
-	// downedOphiofly: Downed Ophiofly
-	// downedOphiocoon: Downed Ophiocoon
-	// downedOphiopede: Downed Ophiopede
-	// downedSaburRex: Downed Sabur Rex
-	// downedEldritchJellyfish: Downed Eldritch Jellyfish
-	// downedAdeneb: Downed Adeneb
-	// downedMetelord: Downed Metelord
-	// downedDirtball: Downed Dirtball
-	// beenToCinderForest: Been to the Cinder Forest biome
-	// downedNihilus: Downed Nihilus
-	// downedErazor: Downed Erazor
-	// downedLostSiblings: Downed Lost Siblings
-	// downedAraghur: Downed Araghur
-	// downedAbaddon: Downed Abaddon
-	// downedPrimordia: Downed Primordia
-	// downedHarpyQueenRaynare: Downed Raynare
-	// downedAraneas: Downed Araneas
-	// downedJensenTheGrandHarpy: Downed Jensen
-	// downedZombiePiglinBrute: Downed Zombie Piglin Brute
-	// downedFlamingPumpkin: Downed Flaming Pumpkin
-	// downedDecree: Downed Decree
-	// beenToJadeLake: Been to the Jade Lake biome
-	// talkedToSkeletonMerchant: Talked to Skeleton Merchant
-	// talkedToTravelingMerchant: Talked to Traveling Merchant
-	// downedNoxus: Downed Entropic God, Noxus
-	// downedNamelessDeityOfLight: Downed Nameless Deity of Light
-	// downedMACEProject: Downed MACE Project
-	// downedProtectorVolt: Downed Protector Volt
-	// downedBlisterface: Downed Blisterface
-	// downedIrradiatedBehemoth: Downed Irradiated Behemoth
-	// downedTheJanitor: Downed Janitor
-	// downedCalavia: Downed Calavia
-	// downedEaglecrestGolem: Downed Eaglecrest Golem
-	// downedSkullDigger: Downed Skull Digger
-	// downedBasan: Downed Basan
-	// downedCockatrice: Downed Cockatrice
-	// shimmerableAfterMoonLordOrSupremeCalamitas: Downed Moon Lord, or downed Supreme Calamitas with Calamity enabled
-	// downedCruiser: Downed Cruiser
-	// downedCursedCoffin: Downed Cursed Coffin
-	// downedOrdealAny: Downed any Ordeal
+	beenThroughNight: Nighttime occurred at least once
+	downedLunarEvent: Completed Lunar Event
+	downedEclipse: Completed Solar Eclipse
+	downedBloodMoon: Completed Blood Moon
+	downedLunarPillarAny: Downed any Lunar Pillar
+	downedMartianSaucer: Downed Martian Saucer
+	downedDreadnautilus: Downed Dreadnautilus
+	inExpertOrMaster: In Expert or Master mode
+	beenToPurity: Been to the forest biome
+	beenToCavernsOrUnderground: Been to caverns or underground biome
+	beenToUnderworld: Been to the underworld biome
+	beenToSky: Been to the sky biome
+	beenToSnow: Been to the snow biome
+	beenToDesert: Been to the desert biome
+	beenToOcean: Been to the ocean biome
+	beenToJungle: Been to the jungle biome
+	beenToMushroom: Been to the glowing mushroom biome
+	beenToCorruption: Been to the corruption biome
+	beenToCrimson: Been to the crimson biome
+	beenToEvil: Been to the corruption or crimson biomes
+	beenToHallow: Been to the hallow biome
+	beenToTemple: Been to the Lihzahrd Temple
+	beenToDungeon: Been to the Dungeon
+	beenToAether: Been to the aether biome
+	downedCrabson: Downed Crabson
+	downedOmegaStarite: Downed Omega Starite
+	downedDustDevil: Downed Dust Devil
+	downedHyperStarite: Downed Hyper Starite
+	downedUltraStarite: Downed Ultra Starite
+	downedRedSprite: Downed Red Sprite
+	downedSpaceSquid: Downed Space Squid
+	downedDemonSiege: Downed Demon Siege
+	downedGlimmer: Downed the Glimmer
+	downedGaleStreams: Downed the Gale Streams
+	beenToCrabCrevice: Been to the Crab Crevice biome
+	downedSlayerOfEvil: Downed Slayer Of Evil
+	downedSATLA: Downed SATLA-001
+	downedDrFetus: Downed Dr. Fetus
+	downedSlimesHope: Downed Slimes Last Hope
+	downedPoliticianSlime: Downed Politician Slime
+	downedAncientTrio: Downed Ancient Trio
+	downedLavalGolem: Downed Laval Golem
+	downedAntony: Downed Antony, the Novice Necromancer
+	downedBunnyZeppelin: Downed Bunny Zeppelin
+	downedOkiku: Downed Okiku
+	downedHarpyAirforce: Downed Royal Harpy Airforce
+	downedIsaac: Downed Isaac
+	downedAncientGuardian: Downed the Ancient Guardian
+	downedHeroicSlime: Downed Heroic Slime
+	downedHoloSlime: Downed Holographic Slime
+	downedSecurityBot: Downed Security Bot
+	downedUndeadChef: Downed Undead Chef
+	downedGuardianOfFrost: Downed Guardian of Frost
+	downedSoulHarvester: Downed Soul Harvester
+	downedDesertScourge: Downed Desert Scourge
+	downedCrabulon: Downed Crabulon
+	downedHiveMind: Downed Hive Mind
+	downedPerforators: Downed Perforators
+	downedPerfOrHive: Downed Perforators or Hive Mind
+	downedSlimeGod: Downed Slime God
+	downedCryogen: Downed Cryogen
+	downedAquaticScourge: Downed Aquatic Scourge
+	downedBrimstoneElemental: Downed Brimstone Elemental
+	downedCalamitasClone: Downed Calamitas Clone
+	downedLeviathanAndAnahita: Downed Leviathan and Anahita
+	downedAstrumAureus: Downed Astrum Aureus
+	downedPlaguebringerGoliath: Downed Plaguebringer Goliath
+	downedRavager: Downed Ravager
+	downedAstrumDeus: Downed Astrum Deus
+	downedProfanedGuardians: Downed Profaned Guardians
+	downedDragonfolly: Downed Dragonfolly
+	downedProvidence: Downed Providence
+	downedStormWeaver: Downed Storm Weaver
+	downedCeaselessVoid: Downed Ceaseless Void
+	downedSignus: Downed Signus
+	downedPolterghast: Downed Polterghast
+	downedOldDuke: Downed Old Duke
+	downedDevourerOfGods: Downed Devourer of Gods
+	downedYharon: Downed Yharon
+	downedExoMechs: Downed Exo Mechs
+	downedSupremeCalamitas: Downed Supreme Calamitas
+	downedGiantClam: Downed Giant Clam
+	downedCragmawMire: Downed Cragmaw Mire
+	downedGreatSandShark: Downed Great Sand Shark
+	downedNuclearTerror: Downed Nuclear Terror
+	downedMauler: Downed Mauler
+	downedAcidRain1: Downed Acid Rain Tier 1
+	downedAcidRain2: Downed Acid Rain Tier 2
+	downedBossRush: Downed Boss Rush
+	beenToCrags: Been to the Brimstone Crag biome
+	beenToAstral: Been to the Astral biome
+	beenToSunkenSea: Been to the Sunken Sea biome
+	beenToSulphurSea: Been to the Sulphur Sea biome
+	beenToAbyss: Been to the Abyss Biome
+	beenToAbyssLayer1: Been to the first Abyss layer
+	beenToAbyssLayer2: Been to the second Abyss layer
+	beenToAbyssLayer3: Been to the third Abyss layer
+	beenToAbyssLayer4: Been to the fourth Abyss layer
+	beenToAstralBlight: Been to the Astral Blight biome
+	downedAstrageldon: Downed Astrageldon
+	downedClamitas: Downed Clamitas
+	beenToConfection: Been to the Confection biome
+	beenToConfectionOrHallow: Been to the Confection or Hallow biomes
+	downedLepus: Downed Lepus
+	downedTurkor: Downed Turkor
+	downedOcram: Downed Ocram
+	downedChasme: Downed Chasme
+	beenToDepths: Been to the Depths biome
+	beenToDepthsOrUnderworld: Been to the Depths or Underworld biomes
+	downedGalahis: Downed Galahis
+	downedCreation: Downed Creation
+	downedDestruction: Downed Destruction
+	downedBlightKing: Downed BlightKing
+	downedGardener: Downed Gardener
+	downedGlaciation: Downed Glaciation
+	downedHandOfCthulhu: Downed Hand of Cthulhu
+	downedCursePreacher: Downed Curse Preacher
+	downedEffulgence: Downed Effulgence
+	downedIceLich: Downed Ice Lich
+	downedTrojanSquirrel: Downed Trojan Squirrel
+	downedDeviantt: Downed Deviantt
+	downedBanishedBaron: Downed Banished Baron
+	downedLifelight: Downed Lifelight
+	downedEridanus: Downed Eridanus
+	downedAbominationn: Downed Abominationn
+	downedMutant: Downed Mutant
+	downedAlphaFrostjaw: Downed Alpha Frostjaw
+	downedSanguineElemental: Downed Sanguine Elemental
+	beenToDread: Been to the Dread biome
+	downedLad: Downed Lad
+	downedHornlitz: Downed Hornlitz
+	downedSnowDon: Downed Snow Don
+	downedStoffie: Downed Stoffie
+	downedLilyWhite: Downed Lily White
+	downedRumia: Downed Rumia
+	downedEternityLarva: Downed Eternity Larva
+	downedNazrin: Downed Nazrin
+	downedHinaKagiyama: Downed Hina Kagiyama
+	downedSekibanki: Downed Sekibanki
+	downedSeiran: Downed Seiran
+	downedNitoriKawashiro: Downed Nitori Kawashiro
+	downedMedicineMelancholy: Downed Medicine Melancholy
+	downedCirno: Downed Cirno
+	downedMinamitsuMurasa: Downed Minamitsu Murasa
+	downedAliceMargatroid: Downed Alice Margatroid
+	downedSakuyaIzayoi: Downed Sakuya Izayoi
+	downedSeijaKijin: Downed Seija Kijin
+	downedMayumiJoutouguu: Downed Mayumi Joutouguu
+	downedToyosatomimiNoMiko: Downed Toyosatomimi no Miko
+	downedKaguyaHouraisan: Downed Kaguya Houraisan
+	downedUtsuhoReiuji: Downed Utsuho Reiuji
+	downedTenshiHinanawi: Downed Tenshi Hinanawi
+	downedKisume: Downed Kisume
+	downedTrerios: Downed Trerios
+	downedMagmaEye: Downed MagmaEye
+	downedJack: Downed Jack
+	downedAcheron: Downed Acheron
+	downedMarquisMoonsquid: Downed Marquis Moonsquid
+	downedPriestessRod: Downed Priestess Rod
+	downedDiver: Downed Diver
+	downedMotherbrain: Downed Motherbrain
+	downedWallOfShadow: Downed Wall of Shadow
+	downedSunSlimeGod: Downed Slime God
+	downedOverwatcher: Downed Overwatcher
+	downedLifebringer: Downed Lifebringer
+	downedMaterealizer: Downed Materealizer
+	downedScarabBelief: Downed Scarab Belief
+	downedWorldsEndWhale: Downed World's End Everlasting Falling Whale
+	downedSon: Downed the Son
+	downedCaveOrdeal: Downed Cave Ordeal
+	downedCorruptOrdeal: Downed Corrupt Ordeal
+	downedCrimsonOrdeal: Downed Crimson Ordeal
+	downedDesertOrdeal: Downed Desert Ordeal
+	downedForestOrdeal: Downed Forest Ordeal
+	downedHallowOrdeal: Downed Hallow Ordeal
+	downedJungleOrdeal: Downed Jungle Ordeal
+	downedSkyOrdeal: Downed Sky Ordeal
+	downedSnowOrdeal: Downed Snow Ordeal
+	downedUnderworldOrdeal: Downed Underworld Ordeal
+	beenToHomewardAbyss: Been to the Abyss biome
+	downedGoozma: Downed Goozma
+	downedBereftVassal: Downed Bereft Vassal
+	beenToProfanedGardens: Been to the Profaned Gardens biome
+	downedCommanderGintzia: Downed Commander Gintzia
+	downedSunStalker: Downed Sun Stalker
+	downedPumpkinJack: Downed Pumpkin Jack
+	downedForgottenPuppetDaedus: Downed Forgotten Puppet Daedus
+	downedDreadMire: Downed Dread Mire
+	downedSingularityFragment: Downed Singularity Fragment
+	downedVerliaB: Downed Verlia B
+	downedGothivia: Downed Gothivia
+	downedGintzeArmy: Downed Gintze Army
+	beenToLunarVeilAbyss: Been to the Abyss biome
+	beenToAcid: Been to the Acid biome
+	beenToAurelus: Been to the Aurelus biome
+	beenToFable: Been to the Fable biome
+	beenToGovheilCastle: Been to the Govheil Castle biome
+	beenToCathedral: Been to the Cathedral biome
+	beenToMarrowSurface: Been to the Marrow Surface biome
+	beenToMorrowUnderground: Been to the Morrow Underground biome
+	downedSt4sys: Downed St4sys
+	downedTerminator: Downed Terminator
+	downedCaretaker: Downed Caretaker
+	downedSiegeEngine: Downed Siege Engine
+	downedTorizo: Downed Torizo
+	downedSerris: Downed Serris
+	downedKraid: Downed Kraid
+	downedPhantoon: Downed Phantoon
+	downedOmegaPirate: Downed Omega Pirate
+	downedNightmare: Downed Nightmare
+	downedGoldenTorizo: Downed Golden Torizo
+	downedStormCloudfish: Downed Storm Cloudfish
+	downedStarConstruct: Downed Star Construct
+	downedGigabat: Downed Gigabat
+	downedSunPixie: Downed Sun Pixie
+	downedEsophage: Downed Esophage
+	downedConvectiveWanderer: Downed Convective Wanderer
+	downedPolarExterminator: Downed Polar Exterminator
+	downedDivineLight: Downed Divine Light
+	downedAncientMachine: Downed Ancient Machine
+	downedNoehtnap: Downed Noehtnap
+	downedHydra: Downed Hydra
+	downedImperious: Downed Imperious
+	downedRuneGhost: Downed Rune Ghost
+	downedInvaderBattleship: Downed Invader Battleship
+	downedInvaderNoehtnap: Downed Invader Noehtnap
+	downedOLORD: Downed O.L.O.R.D.
+	downedGreatTyrannosaurus: Downed Great Tyrannosaurus
+	downedDinoMilitia: Downed Dino Militia
+	downedInvaders: Downed Invaders
+	beenToSkyFortress: Been to the Sky Fortress biome
+	downedThorn: Downed Thorn
+	downedErhan: Downed Erhan
+	downedKeeper: Downed Keeper
+	downedSeedOfInfection: Downed Seed of Infection
+	downedKingSlayerIII: Downed King Slayer III
+	downedOmegaCleaver: Downed Omega Cleaver
+	downedOmegaGigapora: Downed Omega Gigapora
+	downedOmegaObliterator: Downed Omega Obliterator
+	downedPatientZero: Downed Patient Zero
+	downedAkka: Downed Akka
+	downedUkko: Downed Ukko
+	downedAncientDeityDuo: Downed Ancient Deity Duo
+	downedNebuleus: Downed Nebuleus
+	downedFowlEmperor: Downed FowlEmperor
+	downedFowlMorning: Downed FowlMorning
+	downedRaveyard: Downed Raveyard
+	beenToLab: Been to the Lab biome
+	beenToWasteland: Been to the Wasteland biome
+	downedPutridPinky: Downed Putrid Pinky
+	downedGlowmoth: Downed Glowmoth
+	downedPharaohsCurse: Downed Pharaohs Curse
+	downedAdvisor: Downed Advisor
+	downedPolaris: Downed Polaris
+	downedLux: Downed Lux
+	downedSubspaceSerpent: Downed Subspace Serpent
+	downedNatureConstruct: Downed Nature Construct
+	downedEarthenConstruct: Downed Earthen Construct
+	downedPermafrostConstruct: Downed Permafrost Construct
+	downedTidalConstruct: Downed Tidal Construct
+	downedOtherworldlyConstruct: Downed Otherworldly Construct
+	downedEvilConstruct: Downed Evil Construct
+	downedInfernoConstruct: Downed Inferno Construct
+	downedChaosConstruct: Downed Chaos Construct
+	downedNatureSpirit: Downed Nature Spirit
+	downedEarthenSpirit: Downed Earthen Spirit
+	downedPermafrostSpirit: Downed Permafrost Spirit
+	downedTidalSpirit: Downed Tidal Spirit
+	downedOtherworldlySpirit: Downed Otherworldly Spirit
+	downedEvilSpirit: Downed Evil Spirit
+	downedInfernoSpirit: Downed Inferno Spirit
+	downedChaosSpirit: Downed Chaos Spirit
+	beenToPyramid: Been to the Pyramid biome
+	beenToPlanetarium: Been to the Planetarium biome
+	downedScarabeus: Downed Scarabeus
+	downedMoonJellyWizard: Downed Moon Jelly Wizard
+	downedVinewrathBane: Downed Vinewrath Bane
+	downedAncientAvian: Downed Ancient Avian
+	downedStarplateVoyager: Downed Starplate Voyager
+	downedInfernon: Downed Infernon
+	downedDusking: Downed Dusking
+	downedAtlas: Downed Atlas
+	downedJellyDeluge: Downed Jelly Deluge
+	downedTide: Downed Tide
+	downedMysticMoon: Downed Mystic Moon
+	beenToBriar: Been to the Briar biome
+	beenToSpirit: Been to the Spirit biome
+	downedSpookySpirit: Downed Spooky Spirit
+	downedRotGourd: Downed Rot Gourd
+	downedMoco: Downed Moco
+	downedDaffodil: Downed Daffodil
+	downedOrroBoro: Downed Orro Boro
+	downedBigBone: Downed Big Bone
+	beenToSpookyForest: Been to the Spooky Forest biome
+	beenToSpookyUnderground: Been to the Spooky Underground biome
+	beenToEyeValley: Been to the Eye Valley biome
+	beenToCatacombs: Been to the Catacombs biome
+	beenToCemetery: Been to the Cemetery biome
+	downedAuroracle: Downed Auroracle
+	downedCeiros: Downed Ceiros
+	downedGlassweaver: Downed Glassweaver
+	beenToAuroracleTemple: Been to the Auroracle Temple biome
+	beenToVitricDesert: Been to the Vitric Desert biome
+	beenToVitricTemple: Been to the Vitric Temple biome
+	downedVagrantofSpace: Downed the Vagrant of Space and Time
+	downedDioskouroi: Downed Dioskouroi, the Twin Forces
+	downedNalhaun: Downed Nalhaun, the Burnished King
+	downedPenthesilea: Downed Penthesilea, the Witch of Ink
+	downedArbitration: Downed Arbitration
+	downedWarriorOfLight: Downed the Warrior of Light
+	downedTsukiyomi: Downed Tsukiyomi, the First Starfarer
+	downedAncientHusk: Downed Ancient Husk
+	downedOverloadedScandrone: Downed Overloaded Scandrone
+	downedPainbringer: Downed Painbringer
+	downedHarbingerOfAnnihilation: Downed Harbinger of Annihilation
+	downedFlyingTerror: Downed Flying Terror
+	downedStoneMantaRay: Downed Stone Manta Ray
+	downedInfectedIncarnate: Downed Infected Incarnate
+	downedTidalTitan: Downed Tidal Titan
+	downedDunestock: Downed Dunestock
+	downedHexedConstructor: Downed Hexed Constructor
+	downedShadowcrawler: Downed Shadowcrawler
+	downedPrototypeI: Downed Prototype I
+	downedGrandThunderBird: Downed Grand Thunder Bird
+	downedQueenJellyfish: Downed Queen Jellyfish
+	downedViscount: Downed Viscount
+	downedGraniteEnergyStorm: Downed Granite Energy Storm
+	downedBuriedChampion: Downed Buried Champion
+	downedStarScouter: Downed Star Scouter
+	downedBoreanStrider: Downed Borean Strider
+	downedFallenBeholder: Downed Fallen Beholder
+	downedLich: Downed Lich
+	downedForgottenOne: Downed Forgotten One
+	downedPrimordials: Downed Primordials
+	downedPatchWerk: Downed Patch Werk
+	downedCorpseBloom: Downed Corpse Bloom
+	downedIllusionist: Downed Illusionist
+	beenToAquaticDepths: Been to the Aquatic Depths biome
+	downedGraniteOvergrowth: Downed Granite Overgrowth
+	downedBeholder: Downed Beholder
+	downedDredger: Downed Dredger
+	downedCharcoolSnowman: Downed Charcool Snowman
+	downedCosmicMenace: Downed Cosmic Menace
+	downedEvilFlyingBlade: Downed Evil Flying Blade
+	downedColossalCarnage: Downed Colossal Carnage
+	downedYurnero: Downed Yurnero
+	beenToVerdant: Been to the Verdant biome
+	downedStormCloud: Downed Storm Cloud
+	downedGrandAntlion: Downed Grand Antlion
+	downedGemstoneElemental: Downed Gemstone Elemental
+	downedMoonlightDragonfly: Downed Moonlight Dragonfly
+	downedDreadnaught: Downed Dreadnaught
+	downedAnarchulesBeetle: Downed Anarchules Beetle
+	downedChaosbringer: Downed Chaosbringer
+	downedPaladinSpirit: Downed Paladin Spirit
+	downedManaflora: Downed Manaflora
+	downedStoneGuardian: Downed StoneGuardian
+	downedVerlia: Downed Verlia
+	downedIrradia: Downed Irradia
+	downedSylia: Downed Sylia
+	downedFenix: Downed Fenix
+	downedBlazingSerpent: Downed Blazing Serpent
+	downedCogwork: Downed Cogwork
+	downedWaterCogwork: Downed Water Cogwork
+	downedWaterJellyfish: Downed Water Jellyfish
+	downedSparn: Downed Sparn
+	downedPandorasFlamebox: Downed Pandoras Flamebox
+	downedSTARBOMBER: Downed STARBOMBER
+	downedWaterJellyfishOrWaterCogwork: Downed Water Jellyfish or Water Cogwork
+	downedCogworkOrSparn: Downed Cogwork or Sparn
+	downedBlazingSerpentOrPandorasFlamebox: Downed Blazing Serpent or Pandoras Flamebox
+	downedWulfrumExcavator: Downed Wulfrum Excavator
+	downedEidolonWyrm: Downed Eidolon Wyrm
+	downedBloodweaver: Downed Bloodweaver
+	downedWallOfBronze: Downed Wall Of Bronze
+	downedPyrogen: Downed Pyrogen
+	beenToSpiderCave: Been to the Spider Grotto biome
+	downedJungleDefenders: Downed Jungle Defenders
+	downedTriplets: Downed Triplets
+	downedPrinceSlime: Downed Prince Slime
+	downedVoidDigger: Downed Void Digger
+	downedCarnagePillar: Downed Carnage Pillar
+	downedTheAlchemist: Downed Alchemist
+	downedBritzz: Downed Britzz
+	downedFrigidius: Downed Frigidius
+	downedEyeOfTheStorm: Downed Eye Of The Storm
+	downedSeseKitsugai: Downed Sese Kitsugai
+	downedTreeToad: Downed Tree Toad
+	downedSuperVoltaicMotherSlime: Downed Super Voltaic Mother Slime
+	beenToAvalonEvilBiomes: Been to any evil biome
+	beenToContagion: Been to the Contagion biome
+	downedPhantasm: Downed Phantasm
+	downedMechasting: Downed Mechasting
+	downedKingSting: Downed King Sting
+	downedDesertBeak: Downed Desert Beak
+	downedAvalonEvilBosses: Downed any evil boss
+	downedBacteriumPrime: Downed Bacterium Prime
+	downedThespian: Downed Thespian, the Act of Alchemy
+	downedStarfarers: Downed Asphodene and Eridani
+	downedArmagem: Downed Armagem
+	downedVoid: Downed Void
+	downedTheGuardianOfHell: Downed The Guardian Of Hell
+	downedPrimordialWorm: Downed Primordial Worm
+	downedCryoGuardian: Downed Cryo Guardian
+	downedForestGuardian: Downed Forest Guardian
+	downedNightmarePlantera: Downed Nightmare Plantera
+	downedThunderveinDragon: Downed Thundervein Dragon
+	downedBloodiancie: Downed Bloodiancie
+	downedSlimeEmperor: Downed Slime Emperor
+	downedBabyIceDragon: Downed Baby Ice Dragon
+	downedRediancie: Downed Rediancie
+	downedCoreBoss: Downed Corrupt or Crimson Core
+	downedMosquitoMonarch: Downed Mosquito Monarch
+	notDownedMechBossAll: Not Downed All Mech Bosses
+	downedStellarStarship: Downed Stellar Starship
+	downedNiflheim: Downed Niflheim
+	downedExodygen: Downed Exodygen
+	downedGoblinSorcererChieftain: Downed Goblin Sorcerer Chieftain
+	downedWitheredAcornSpirit: Downed Withered Acorn Spirit
+	downedHellfireSerpent: Downed Hellfire Serpent
+	downedMeteorAnnihilator: Downed Meteor Annihilator
+	downedMeteorExcavator: Downed Meteor Excavator
+	downedManaGuardian: Downed Mana Guardian
+	downedLifeGuardian: Downed Life Guardian
+	downedOphiofly: Downed Ophiofly
+	downedOphiocoon: Downed Ophiocoon
+	downedOphiopede: Downed Ophiopede
+	downedSaburRex: Downed Sabur Rex
+	downedEldritchJellyfish: Downed Eldritch Jellyfish
+	downedAdeneb: Downed Adeneb
+	downedMetelord: Downed Metelord
+	downedDirtball: Downed Dirtball
+	beenToCinderForest: Been to the Cinder Forest biome
+	downedNihilus: Downed Nihilus
+	downedErazor: Downed Erazor
+	downedLostSiblings: Downed Lost Siblings
+	downedAraghur: Downed Araghur
+	downedAbaddon: Downed Abaddon
+	downedPrimordia: Downed Primordia
+	downedHarpyQueenRaynare: Downed Raynare
+	downedAraneas: Downed Araneas
+	downedJensenTheGrandHarpy: Downed Jensen
+	downedZombiePiglinBrute: Downed Zombie Piglin Brute
+	downedFlamingPumpkin: Downed Flaming Pumpkin
+	downedDecree: Downed Decree
+	beenToJadeLake: Been to the Jade Lake biome
+	talkedToSkeletonMerchant: Talked to Skeleton Merchant
+	talkedToTravelingMerchant: Talked to Traveling Merchant
+	downedNoxus: Downed Entropic God, Noxus
+	downedNamelessDeityOfLight: Downed Nameless Deity of Light
+	downedMACEProject: Downed MACE Project
+	downedProtectorVolt: Downed Protector Volt
+	downedBlisterface: Downed Blisterface
+	downedIrradiatedBehemoth: Downed Irradiated Behemoth
+	downedTheJanitor: Downed Janitor
+	downedCalavia: Downed Calavia
+	downedEaglecrestGolem: Downed Eaglecrest Golem
+	downedSkullDigger: Downed Skull Digger
+	downedBasan: Downed Basan
+	downedCockatrice: Downed Cockatrice
+	shimmerableAfterMoonLordOrSupremeCalamitas: Downed Moon Lord, or downed Supreme Calamitas with Calamity enabled
+	downedCruiser: Downed Cruiser
+	downedCursedCoffin: Downed Cursed Coffin
+	downedOrdealAny: Downed any Ordeal
 }
 
 ConfigDisabled: {
-	// needsThorium: Requires Thorium. You don't have Thorium.
-	// needsCalamity: Requires Calamity which is not installed.
-	// needsStarlightRiver: Requires Starlight River which is not installed.
-	// needsColouredDamageTypes: Requires Coloured Damage Types. Without it there are no colours to damage, or types to colour, or anything really.
-	// needsInfernum: Requires Calamity Mod: Infernum Mode which is not installed.
-	// onlyWithoutCalamity: These re-add Calamity's good ideas to a game that doesn't have Calamity. You already have Calamity, shoo
-	// noCalamityOverlap: This feature is also added by Calamity, this is disabled to prevent duplication and clashes.
+	needsThorium: 需要瑟银，未安装。
+	needsCalamity: 需要灾厄，未安装。
+	needsStarlightRiver: 需要星光之河，未安装。
+	needsColouredDamageTypes: 需要Coloured Damage Types（彩色伤害类型）模组。缺少此模组将无法显示伤害颜色、类型及相关功能。
+	needsInfernum: 需要灾厄炼狱，未安装。
+	onlyWithoutCalamity: 此功能用于在无灾厄模组时还原其核心机制。您已安装灾厄模组，请勿启用。
+	noCalamityOverlap: 此功能与灾厄模组存在冲突，已禁用以避免重复或功能异常。
 }
 
 SpawnConditions: {
-	// Guide: He's there from the start. If he's gone, that's on you.
-	// Merchant: Any player holding 50 silver.
-	// Nurse: Over 100 max life, with the Merchant already around.
-	// Demolitionist: Have an explosive in your inventory.
-	// DyeTrader: Own a dye or a Strange Plant.
-	// Angler: Asleep at the ocean. Go wake him up.
-	// BestiaryGirl: Fill in 10% of the Bestiary.
-	// Dryad: Defeat a boss. She ain't got very high standards.
-	// Painter: 8 town NPCs living in the world.
-	// Golfer: Rescue him in the Underground Desert.
-	// ArmsDealer: Have bullets or a gun.
-	// DD2Bartender: Lurches in after you defeat the Eater of Worlds or the Brain of Cthulhu.
-	// Stylist: Rescue her from a Spider Cave.
-	// GoblinTinkerer: Rescue him underground after beating a Goblin Army.
-	// WitchDoctor: Defeat Queen Bee.
-	// Clothier: Defeat Skeletron.
-	// Mechanic: Rescue her from the Dungeon.
-	// PartyGirl: Get 14 town NPCs, she spawns with a 2.5% chance every morning.
-	// Wizard: Rescue him in the hardmode Caverns.
-	// TaxCollector: Throw Purification Powder on a Tortured Soul in the Underworld.
-	// Truffle: Make a surface Glowing Mushroom house, in hardmode.
-	// Pirate: Beat a Pirate Invasion.
-	// Steampunker: Defeat any mechanical boss.
-	// Cyborg: Defeat Plantera.
-	// SantaClaus: Beat the Frost Legion during Christmas.
-	// Princess: House every other regular town NPC first.
-	// TownCat: Buy a Cat License, sold by the Zoologist.
-	// TownDog: Buy a Dog License, sold by the Zoologist once the Cat License has been bought.
-	// TownBunny: Buy a  Bunny License, sold by the Zoologist once the Dog License has been bought.
-	// TownSlimeBlue: Defeat King Slime.
-	// TownSlimeOld: Free him from the Dungeon with a Golden Key.
-	// TownSlimeGreen: Slime-related shenanigans, party hard!
-	// TownSlimePurple: Slime-related shenanigans, be a party popper.
-	// TownSlimeRainbow: Slime-related shenanigans, gamer girl bathwater into shimmer.
-	// TownSlimeRed: Slime-related shenanigans, nautical edition.
-	// TownSlimeYellow: Slime-related shenanigans, purify a Mystic Frog in the Jungle.
-	// TownSlimeCopper: Slime-related shenanigans, chivalrous edition. (Copper Helmet / Shortsword)
-	// Unknown: Spawn conditions unknown. A mystery tenant.
+	Guide: 游戏开始时即存在。若消失，责任在您。
+	Merchant: 任意玩家持有 50银币。
+	Nurse: 生命上限 超过100，且商人已入住。
+	Demolitionist: 背包中持有 炸药。
+	DyeTrader: 持有 染料 或 奇异植物。
+	Angler: 在海边睡觉，叫醒他。
+	BestiaryGirl: 完成 10% 生物图鉴。
+	Dryad: 击败任意Boss。她对条件的要求不高。
+	Painter: 世界中已有8名城镇NPC。
+	Golfer: 在地下沙漠解救。
+	ArmsDealer: 持有子弹或枪械。
+	DD2Bartender: 击败世界吞噬怪或克苏鲁之脑后自动出现。
+	Stylist: 在蜘蛛洞穴解救。
+	GoblinTinkerer: 击败哥布林军队后于地下解救。
+	WitchDoctor: 击败蜂王。
+	Clothier: 击败骷髅王。
+	Mechanic: 在地牢解救。
+	PartyGirl: 拥有 14名城镇NPC，每日清晨以 2.5% 概率生成。
+	Wizard: 困难模式下于 洞穴层 解救。
+	TaxCollector: 在地狱对痛苦亡魂使用净化粉。
+	Truffle: 困难模式下于地表发光蘑菇群系存在房屋。
+	Pirate: 击败海盗入侵。
+	Steampunker: 击败任意机械Boss。
+	Cyborg: 击败世纪之花。
+	SantaClaus: 圣诞节期间击败雪人军团。
+	Princess: 所有其他常规城镇NPC均已入住。
+	TownCat: 向动物学家购买猫咪许可证。
+	TownDog: 购买 猫许可证 后，向动物学家购买狗狗许可证。
+	TownBunny: 购买 狗许可证 后，向动物学家购买兔兔许可证。
+	TownSlimeBlue: 击败史莱姆王。
+	TownSlimeOld: 用金钥匙在地牢解救。
+	TownSlimeGreen: 在天然的派对激活期间入住。
+	TownSlimePurple: 会在打破太空层中的笨拙气球史莱姆的气球后入住。
+	TownSlimeRainbow: 会在将闪耀史莱姆气球扔进微光后入住。
+	TownSlimeRed: 可以在血月时钓到。
+	TownSlimeYellow: 会在于丛林中将净化粉用在神秘青蛙上后搬进来。
+	TownSlimeCopper: 会在将铜头盔或铜短剑扔给史莱姆后入住。
+	Unknown: 生成条件未知。
 }
 
 Census: {
-	// next: Next in line to arrive.
-	// ready: Ready to move in, just needs some housing.
-	// prices: Prices: {0}%
-	// lovesEveryone: everyone. Yes, even you.
+	next: 下一位NPC即将入住。
+	ready: 已满足条件，仅需空置房屋。
+	prices: 价格：{0}%
+	lovesEveryone: 所有人，包括您。
 }
+
