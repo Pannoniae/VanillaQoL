@@ -1969,7 +1969,7 @@ CalamityQoLConfig: {
 	}
 
 	shimmerRecipes: {
-		Label: "[i:5364] 额外微光液体转化"
+		Label: "[i:5364] 额外微光转化"
 		Tooltip: 启用后，三种信息配饰可以互相转化，附魔剑和泰拉魔刃同理。
 	}
 }
