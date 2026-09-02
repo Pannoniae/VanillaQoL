@@ -766,6 +766,11 @@ QoLConfig: {
 		Tooltip: 如果启用的话，在个人存储中作为玩家饰品的物品上会添加一个工具提示。
 	}
 
+	infoAccWorkInVanity: {
+		// Label: "[i:18] Info Accessories work in vanity slots"
+		// Tooltip: If enabled, Info Accessories function in the player's vanity equipment slots.
+	}
+
 	fountainBiomes: {
 		Label: "[i:909] 喷泉改变生物群系"
 		Tooltip: 如果启用，放置的喷泉会将周围区域的生物群系改为它们所使用的生物群系。这只是个小作弊，不是吗？
@@ -1375,7 +1380,7 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
-		expertDrops: {
+	expertDrops: {
 		Label: "[i:3224] 普通模式掉落专家饰品"
 		Tooltip:
 			'''
@@ -1658,7 +1663,7 @@ CalamityUnnerfConfig: {
 			'''
 	}
 
-		ichorDefence: {
+	ichorDefence: {
 		Label: "[i:1332] 灵液反削弱"
 		Tooltip:
 			'''

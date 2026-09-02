@@ -766,6 +766,11 @@ QoLConfig: {
 		Tooltip: Si está activado, se añade una descripción a los objetos en el almacenamiento personal que funcionan como accesorios del jugador.
 	}
 
+	infoAccWorkInVanity: {
+		// Label: "[i:18] Info Accessories work in vanity slots"
+		// Tooltip: If enabled, Info Accessories function in the player's vanity equipment slots.
+	}
+
 	fountainBiomes: {
 		Label: "[i:909] Las Fuentes Cambian de Bioma"
 		Tooltip: Si está activado, las fuentes colocadas cambian el bioma del área que las rodea al bioma del que están hechas. Solo es un poco trampa, ¿no?

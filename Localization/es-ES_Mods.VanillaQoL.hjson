@@ -16,7 +16,7 @@ LegacyTooltip: {
 	20: Retroceso ({0}) muy fuerte
 	21: Retroceso ({0}) extremadamente fuerte
 	22: Retroceso ({0}) insano
-	Velocity: "Velocidad {0}"
+	Velocity: Velocidad {0}
 }
 
 Tooltips: {
@@ -782,7 +782,7 @@ ModCompat: {
 	downedBloodweaver: Tejedora de Sangre derrotada
 	downedWallOfBronze: Muro de Bronce derrotado
 	downedPyrogen: Pyrogen derrotado
-    beenToSpiderCave: Ha estado en el bioma de la Gruta de las Arañas
+	beenToSpiderCave: Ha estado en el bioma de la Gruta de las Arañas
 	downedJungleDefenders: Defensores de la Selva derrotados
 	downedTriplets: Trillizos derrotados
 	downedPrinceSlime: Príncipe Slime derrotado

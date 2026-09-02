@@ -551,9 +551,15 @@ public class QoLConfig : ModConfig {
     [DefaultValue(true)]
     [ReloadRequired]
     public bool itemsWorkInBanksTooltip { get; set; }
-    
-    // Golden Carp
-    [BackgroundColor(192, 54, 128, 192)]
+
+	// Depth Meter
+	[BackgroundColor(192, 54, 128, 192)]
+	[DefaultValue(true)]
+	[ReloadRequired]
+	public bool infoAccWorkInVanity { get; set; }
+
+	// Golden Carp
+	[BackgroundColor(192, 54, 128, 192)]
     [DefaultValue(true)]
     [ReloadRequired]
     public bool stackableQuestItems { get; set; }

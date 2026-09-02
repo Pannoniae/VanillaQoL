@@ -195,10 +195,10 @@ InfoDisplays: {
 }
 
 NPCDropConditions: {
-    ExpertNotMaster: 在专家模式下掉落
-    TinWorld: 在锡世界中
-    Multiplayer: 在多人模式中
-    PostAstrumAureus: 击败星神游龙后
+	ExpertNotMaster: 在专家模式下掉落
+	TinWorld: 在锡世界中
+	Multiplayer: 在多人模式中
+	PostAstrumAureus: 击败星神游龙后
 }
 
 NurseChat.HealNotAllowed: 我可不会在战斗中途给你包扎，那样你什么也学不会。等它死了再来找我。
@@ -238,32 +238,32 @@ Buffs: {
 }
 
 Items: {
-    SandyAnglingKit: {
-        DisplayName: 砂质钓鱼箱
-        Tooltip:
-            '''
-            钓具，从一条城镇大小的巨虫体内回收
-            {$CommonItemTooltip.RightClickToOpen}
-            '''
-    }
+	SandyAnglingKit: {
+		DisplayName: 砂质钓鱼箱
+		Tooltip:
+			'''
+			钓具，从一条城镇大小的巨虫体内回收
+			{$CommonItemTooltip.RightClickToOpen}
+			'''
+	}
 
-    BleachedAnglingKit: {
-        DisplayName: 褪色钓鱼箱
-        Tooltip:
-            '''
-            钓具，从一条更大、也明显更暴躁的巨虫体内回收
-            {$CommonItemTooltip.RightClickToOpen}
-            '''
-    }
+	BleachedAnglingKit: {
+		DisplayName: 褪色钓鱼箱
+		Tooltip:
+			'''
+			钓具，从一条更大、也明显更暴躁的巨虫体内回收
+			{$CommonItemTooltip.RightClickToOpen}
+			'''
+	}
 
-    StarterBag: {
-        DisplayName: 新手礼包
-        Tooltip:
-            '''
-            右键点击打开
-            反正都是你迟早要合成的东西
-            '''
-    }
+	StarterBag: {
+		DisplayName: 新手礼包
+		Tooltip:
+			'''
+			右键点击打开
+			反正都是你迟早要合成的东西
+			'''
+	}
 
 	NightsEdge: {
 		DisplayName: 远古永夜刃
@@ -931,4 +931,3 @@ Census: {
 	prices: 价格：{0}%
 	lovesEveryone: 所有人，包括您。
 }
-

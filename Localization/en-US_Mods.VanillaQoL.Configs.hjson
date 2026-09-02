@@ -766,6 +766,11 @@ QoLConfig: {
 		Tooltip: If enabled, a tooltip is added to items in the personal storage which function as player accessories.
 	}
 
+	infoAccWorkInVanity: {
+		Label: "[i:18] Info Accessories work in vanity slots"
+		Tooltip: If enabled, Info Accessories function in the player's vanity equipment slots.
+	}
+
 	fountainBiomes: {
 		Label: "[i:909] Fountains Change Biome"
 		Tooltip: If enabled, placed fountains change the biome of the area around them to the biome they are made of. Only slightly a cheat, isn't it?
